@@ -1,0 +1,189 @@
+{
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
+  "version": "2.0.0",
+  "updated": "2026-04-17",
+  "source": "TinyBolus_Formularium_v1.md",
+
+  "remote_config": {
+    "enabled": true,
+    "url": "https://raw.githubusercontent.com/SGP-Prime/tinybolusformulas/main/formulary.json",
+    "timeout_seconds": 4
+  },
+
+  "sections": [
+    {
+      "id": "pals",
+      "title": "EMERGENCY — PALS",
+      "emergency": true,
+      "items": [
+        { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min" },
+        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth" },
+        { "name": "C:V ratio (1 rescuer)",      "type": "fixed",    "value": "30:2" },
+        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2" },
+        { "name": "Defibrillation",             "type": "linear",      "factor": 4,    "unit": "J" },
+        { "name": "Cardiac Adrenaline",         "type": "linear",      "factor": 10,   "unit": "µg", "route": "IV/IO" },
+        { "name": "Amiodarone",                 "type": "linear",      "factor": 5,    "unit": "mg", "route": "IV" },
+        { "name": "Atropine",                   "type": "linear",      "factor": 20,   "unit": "µg", "route": "IV" },
+        { "name": "Adenosine (1st dose)",       "type": "linear_max",  "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV" },
+        { "name": "Adenosine (2nd dose)",       "type": "linear_max",  "factor": 0.2,  "max": 12, "unit": "mg", "route": "IV" }
+      ]
+    },
+    {
+      "id": "vital_signs",
+      "title": "Vital Signs",
+      "items": [
+        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm" },
+        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg" },
+        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg" },
+        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min" }
+      ]
+    },
+    {
+      "id": "induction",
+      "title": "Induction",
+      "items": [
+        { "name": "Propofol",      "type": "linear",       "factor": 2,    "unit": "mg", "route": "IV" },
+        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2, "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2" },
+        { "name": "Ondansetron",   "type": "linear",       "factor": 0.1,  "unit": "mg", "route": "IV" },
+        { "name": "Dexamethasone", "type": "linear",       "factor": 0.15, "unit": "mg", "route": "IV" },
+        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,  "unit": "mg", "route": "IV" }
+      ]
+    },
+    {
+      "id": "painkillers",
+      "title": "Painkillers",
+      "items": [
+        { "name": "Fentanyl",    "type": "linear", "factor": 1,   "unit": "µg", "route": "IV" },
+        { "name": "Paracetamol", "type": "linear", "factor": 15,  "unit": "mg", "route": "IV" },
+        { "name": "Morphine",    "type": "linear", "factor": 0.1, "unit": "mg", "route": "IV" }
+      ]
+    },
+    {
+      "id": "emergency",
+      "title": "Emergency Drugs",
+      "items": [
+        { "name": "Cardiac Adrenaline",       "type": "linear",       "factor": 10,  "unit": "µg", "route": "IV/IO" },
+        { "name": "Respiratory Adrenaline",   "type": "linear",       "factor": 1,   "unit": "µg", "route": "IV" },
+        { "name": "Atropine",                 "type": "linear",       "factor": 20,  "unit": "µg", "route": "IV" },
+        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV" },
+        { "name": "Ephedrine",                "type": "linear",       "factor": 0.5, "unit": "mg", "route": "IV" },
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV" }
+      ]
+    },
+    {
+      "id": "fluids",
+      "title": "Fluids",
+      "items": [
+        { "name": "Fluid Bolus",       "type": "linear",   "factor": 10, "unit": "mL",   "route": "IV" },
+        { "name": "Maintenance",       "type": "computed", "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)" },
+        { "name": "RBC Transfusion",   "type": "linear_range", "low": 20, "high": 40, "unit": "mL", "route": "IV" }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment",
+      "items": [
+        { "name": "ETT",      "type": "computed", "computer": "ett" },
+        { "name": "iGel LMA", "type": "computed", "computer": "lma" }
+      ]
+    },
+    {
+      "id": "respiratory",
+      "title": "Respiratory",
+      "items": [
+        { "name": "Magnesium Sulphate", "type": "linear_range", "low": 25, "high": 50, "unit": "mg", "route": "IV" },
+        { "name": "Clemastine",         "type": "linear_range", "low": 20, "high": 30, "unit": "µg", "route": "IV" }
+      ]
+    },
+    {
+      "id": "antidotes",
+      "title": "Antidotes",
+      "items": [
+        { "name": "Naloxone",   "type": "linear", "factor": 0.01, "unit": "mg", "route": "IV" },
+        { "name": "Flumazenil", "type": "linear", "factor": 10,   "unit": "µg", "route": "IV" }
+      ]
+    }
+  ],
+
+  "vital_signs": {
+    "hr": [
+      { "max_months": 12, "value": "100–190" },
+      { "max_years":  2,  "value": "98–140" },
+      { "max_years":  5,  "value": "80–120" },
+      { "max_years":  11, "value": "75–118" },
+      { "max_years":  15, "value": "60–100" },
+      { "max_years":  999,"value": "60–100" }
+    ],
+    "sbp": [
+      { "max_months": 12, "value": "72–104" },
+      { "max_years":  2,  "value": "86–106" },
+      { "max_years":  5,  "value": "89–112" },
+      { "max_years":  9,  "value": "97–115" },
+      { "max_years":  11, "value": "102–120" },
+      { "max_years":  15, "value": "110–131" },
+      { "max_years":  999,"value": "90–140" }
+    ],
+    "dbp": [
+      { "max_months": 12, "value": "37–56" },
+      { "max_years":  2,  "value": "42–63" },
+      { "max_years":  5,  "value": "46–72" },
+      { "max_years":  9,  "value": "57–76" },
+      { "max_years":  11, "value": "61–80" },
+      { "max_years":  15, "value": "64–83" },
+      { "max_years":  999,"value": "60–90" }
+    ],
+    "rr": [
+      { "max_months": 12, "value": "30–60" },
+      { "max_years":  3,  "value": "20–40" },
+      { "max_years":  5,  "value": "22–34" },
+      { "max_years":  12, "value": "18–30" },
+      { "max_years":  999,"value": "12–16" }
+    ]
+  },
+
+  "weight_estimation": {
+    "comment": "APLS-derived. <1 month requires user input. >12 years requires user input.",
+    "bands": [
+      { "max_months": 12, "formula": "months_plus_9_over_2" },
+      { "max_years":  6,  "formula": "years_times_2_plus_8" },
+      { "max_years":  12, "formula": "years_times_7_minus_5_over_2" }
+    ]
+  },
+
+  "ett_rules": {
+    "comment": "Neonatal weight-based, then 6-month / <1y fixed at 4.0, then formula 4.5 + age/4 per v1 formularium. Round result both up and down to nearest 0.5.",
+    "neonatal_weight_table": [
+      { "max_kg": 1, "size": 2.5 },
+      { "max_kg": 2, "size": 3.0 },
+      { "max_kg": 3, "size": 3.5 }
+    ],
+    "infant_under_1y_size": 4.0,
+    "child_formula": { "base": 4.5, "divisor": 4 },
+    "round_to_nearest": 0.5
+  },
+
+  "lma_table_comment": "Bands overlap intentionally per v1 formularium. A patient in an overlap region shows both sizes; a patient in a single band additionally shows the next size up. min/max are INCLUSIVE on both ends.",
+  "lma_table": [
+    { "size": "1",   "min_kg": 2,   "max_kg": 5 },
+    { "size": "1.5", "min_kg": 5,   "max_kg": 12 },
+    { "size": "2",   "min_kg": 10,  "max_kg": 25 },
+    { "size": "2.5", "min_kg": 25,  "max_kg": 35 },
+    { "size": "3",   "min_kg": 30,  "max_kg": 60 },
+    { "size": "4",   "min_kg": 50,  "max_kg": 90 },
+    { "size": "5",   "min_kg": 90,  "max_kg": 9999 }
+  ],
+
+  "fluid_maintenance": {
+    "comment": "Holliday-Segar 4-2-1 rule.",
+    "rate_first_10kg":   4,
+    "rate_next_10kg":    2,
+    "rate_remainder":    1
+  },
+
+  "compression_depth": {
+    "comment": "Age-piecewise. Applies to the PALS section.",
+    "infant_cm": 4,
+    "child_cm":  5,
+    "infant_max_years": 1
+  }
+}

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -91,8 +91,8 @@
       "id": "respiratory",
       "title": "Respiratory",
       "items": [
-        { "name": "Magnesium Sulphate", "type": "linear_range", "low": 25, "high": 50, "unit": "mg", "route": "IV" },
-        { "name": "Clemastine",         "type": "linear_range", "low": 20, "high": 30, "unit": "µg", "route": "IV" }
+        { "name": "Magnesium Sulphate", "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
+        { "name": "Clemastine",         "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" }
       ]
     },
     {

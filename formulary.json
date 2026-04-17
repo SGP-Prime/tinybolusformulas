@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -42,11 +42,12 @@
       "id": "induction",
       "title": "Induction",
       "items": [
-        { "name": "Propofol",      "type": "linear",       "factor": 2,    "unit": "mg", "route": "IV" },
-        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2, "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2" },
-        { "name": "Ondansetron",   "type": "linear",       "factor": 0.1,  "unit": "mg", "route": "IV" },
-        { "name": "Dexamethasone", "type": "linear",       "factor": 0.15, "unit": "mg", "route": "IV" },
-        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,  "unit": "mg", "route": "IV" }
+        { "name": "Propofol",      "type": "linear_range", "low": 2, "high": 3,       "unit": "mg", "route": "IV" },
+        { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV" },
+        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2" },
+        { "name": "Ondansetron",   "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV" },
+        { "name": "Dexamethasone", "type": "linear",       "factor": 0.15,            "unit": "mg", "route": "IV" },
+        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV" }
       ]
     },
     {
@@ -76,7 +77,7 @@
       "items": [
         { "name": "Fluid Bolus",       "type": "linear",   "factor": 10, "unit": "mL",   "route": "IV" },
         { "name": "Maintenance",       "type": "computed", "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)" },
-        { "name": "RBC Transfusion",   "type": "linear_range", "low": 20, "high": 40, "unit": "mL", "route": "IV" }
+        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV" }
       ]
     },
     {
@@ -92,7 +93,8 @@
       "title": "Respiratory",
       "items": [
         { "name": "Magnesium Sulphate", "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
-        { "name": "Clemastine",         "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" }
+        { "name": "Clemastine",         "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" },
+        { "name": "Hydrocortisone",     "type": "linear_range", "low": 1,  "high": 2,                              "unit": "mg", "route": "IV" }
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -104,7 +104,8 @@
       "items": [
         { "name": "Naloxone",   "type": "linear",       "factor": 0.01, "unit": "mg", "route": "IV" },
         { "name": "Flumazenil", "type": "linear",       "factor": 10,   "unit": "µg", "route": "IV" },
-        { "name": "Sugammadex", "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 for moderate block · 4 for deep · 16 for immediate reversal (not shown above)" }
+        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 for moderate block · 4 for deep block" },
+        { "name": "Sugammadex (Immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV", "note": "immediate reversal (e.g., CICV after rocuronium)" }
       ]
     }
   ],

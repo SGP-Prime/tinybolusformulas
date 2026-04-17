@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -68,16 +68,18 @@
         { "name": "Atropine",                 "type": "linear",       "factor": 20,  "unit": "µg", "route": "IV" },
         { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV" },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV" },
-        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV" }
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV" },
+        { "name": "Hydrocortisone",           "type": "linear_range", "low": 1,   "high": 2,   "unit": "mg", "route": "IV" }
       ]
     },
     {
       "id": "fluids",
-      "title": "Fluids",
+      "title": "Fluids and Blood",
       "items": [
-        { "name": "Fluid Bolus",       "type": "linear",   "factor": 10, "unit": "mL",   "route": "IV" },
-        { "name": "Maintenance",       "type": "computed", "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)" },
-        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV" }
+        { "name": "Fluid Bolus",       "type": "linear",       "factor": 10, "unit": "mL",   "route": "IV" },
+        { "name": "Maintenance",       "type": "computed",     "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)" },
+        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV" },
+        { "name": "Tranexamic Acid",   "type": "linear_range", "low": 15, "high": 20, "unit": "mg", "route": "IV" }
       ]
     },
     {
@@ -93,16 +95,16 @@
       "title": "Respiratory",
       "items": [
         { "name": "Magnesium Sulphate", "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
-        { "name": "Clemastine",         "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" },
-        { "name": "Hydrocortisone",     "type": "linear_range", "low": 1,  "high": 2,                              "unit": "mg", "route": "IV" }
+        { "name": "Clemastine",         "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" }
       ]
     },
     {
       "id": "antidotes",
-      "title": "Antidotes",
+      "title": "Reversal Agents",
       "items": [
-        { "name": "Naloxone",   "type": "linear", "factor": 0.01, "unit": "mg", "route": "IV" },
-        { "name": "Flumazenil", "type": "linear", "factor": 10,   "unit": "µg", "route": "IV" }
+        { "name": "Naloxone",   "type": "linear",       "factor": 0.01, "unit": "mg", "route": "IV" },
+        { "name": "Flumazenil", "type": "linear",       "factor": 10,   "unit": "µg", "route": "IV" },
+        { "name": "Sugammadex", "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 for moderate block · 4 for deep · 16 for immediate reversal (not shown above)" }
       ]
     }
   ],

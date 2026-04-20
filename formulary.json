@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -118,9 +118,9 @@
       "items": [
         { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
         { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" },
-        { "name": "Salbutamol",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized" },
+        { "name": "Salbutamol (nebulized)",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized" },
         {
-          "name": "Ipratropium bromide",
+          "name": "Ipratropium bromide (nebulized)",
           "type": "fixed_age",
           "brackets": [
             { "max_years": 11,  "value": "250 µg" },
@@ -128,7 +128,7 @@
           ],
           "route": "Nebulized"
         },
-        { "name": "Nebulized Adrenaline",              "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
+        { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV" },
         { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV" }
       ]

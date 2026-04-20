@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -170,9 +170,51 @@
       "id": "regional",
       "title": "Regional Anesthesia",
       "items": [
-        { "name": "Lidocaine (perineural)",                "type": "linear",       "factor": 5,              "unit": "mg", "route": "Perineural", "value_prefix": "maximum" },
-        { "name": "Bupivacaine (perineural)",              "type": "linear_range", "low": 2, "high": 2.5,    "unit": "mg", "route": "Perineural", "value_prefix": "maximum" },
-        { "name": "Ropivacaine (perineural)",              "type": "linear",       "factor": 3,              "unit": "mg", "route": "Perineural", "value_prefix": "maximum" },
+        {
+          "name": "Lidocaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 3.5, "high": 3.5 },
+            { "max_years":  999, "low": 5,   "high": 5   }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+        },
+        {
+          "name": "Bupivacaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 1.5, "high": 2   },
+            { "max_years":  999, "low": 2,   "high": 2.5 }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+        },
+        {
+          "name": "Ropivacaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 2, "high": 2 },
+            { "max_years":  999, "low": 3, "high": 3 }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+        },
+        {
+          "name": "Ropivacaine (perineural continuous)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 0.2, "high": 0.2 },
+            { "max_years":  999, "low": 0.4, "high": 0.4 }
+          ],
+          "unit": "mg/h", "route": "Perineural"
+        },
+        {
+          "name": "Bupivacaine (perineural continuous)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 0.2, "high": 0.2 },
+            { "max_years":  999, "low": 0.4, "high": 0.4 }
+          ],
+          "unit": "mg/h", "route": "Perineural"
+        },
         { "name": "Intralipid 20% bolus (LAST rescue)",    "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV" },
         { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV" },
         { "name": "Intralipid 20% max total",              "type": "linear",       "factor": 12,             "unit": "mL", "route": "IV", "value_prefix": "maximum" }

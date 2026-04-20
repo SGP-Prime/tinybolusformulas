@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -259,11 +259,11 @@
   },
 
   "weight_estimation": {
-    "comment": "APLS-derived. <1 month requires user input. >12 years requires user input.",
+    "comment": "APLS-updated. <1 month requires user input. >12 years requires user input.",
     "bands": [
-      { "max_months": 12, "formula": "months_plus_9_over_2" },
+      { "max_months": 12, "formula": "months_times_half_plus_4" },
       { "max_years":  6,  "formula": "years_times_2_plus_8" },
-      { "max_years":  12, "formula": "years_times_7_minus_5_over_2" }
+      { "max_years":  12, "formula": "years_times_3_plus_7" }
     ]
   },
 

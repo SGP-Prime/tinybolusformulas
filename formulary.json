@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -20,12 +20,13 @@
         { "name": "Compression depth",          "type": "computed", "computer": "compression_depth" },
         { "name": "C:V ratio (1 rescuer)",      "type": "fixed",    "value": "30:2" },
         { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2" },
-        { "name": "Defibrillation",             "type": "linear",      "factor": 4,    "unit": "J" },
-        { "name": "Cardiac Adrenaline",         "type": "linear",      "factor": 10,   "unit": "µg", "route": "IV/IO" },
-        { "name": "Amiodarone",                 "type": "linear",      "factor": 5,    "unit": "mg", "route": "IV" },
-        { "name": "Atropine",                   "type": "linear",      "factor": 20,   "unit": "µg", "route": "IV" },
-        { "name": "Adenosine (1st dose)",       "type": "linear_max",  "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV" },
-        { "name": "Adenosine (2nd dose)",       "type": "linear_max",  "factor": 0.2,  "max": 12, "unit": "mg", "route": "IV" }
+        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J" },
+        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO" },
+        { "name": "Amiodarone (1st dose)",      "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV" },
+        { "name": "Amiodarone (subsequent)",    "type": "linear_max", "factor": 5,    "max": 150, "unit": "mg", "route": "IV" },
+        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV" },
+        { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV" },
+        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV" }
       ]
     },
     {
@@ -63,9 +64,10 @@
       "id": "emergency",
       "title": "Emergency Drugs",
       "items": [
-        { "name": "Cardiac Adrenaline",       "type": "linear",       "factor": 10,  "unit": "µg", "route": "IV/IO" },
-        { "name": "Respiratory Adrenaline",   "type": "linear",       "factor": 1,   "unit": "µg", "route": "IV" },
-        { "name": "Atropine",                 "type": "linear",       "factor": 20,  "unit": "µg", "route": "IV" },
+        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO" },
+        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM" },
+        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV" },
+        { "name": "Atropine",                     "type": "linear",     "factor": 20,                              "unit": "µg", "route": "IV" },
         { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV" },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV" },
         { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV" },

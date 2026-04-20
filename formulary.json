@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -87,7 +87,7 @@
       "title": "Equipment",
       "items": [
         { "name": "ETT",                  "type": "computed", "computer": "ett" },
-        { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "Sanity: depth (cm) ≈ ETT ID × 3. Nasal: add 2–3 cm." },
+        { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "Nasal: add 2–3 cm." },
         { "name": "iGel LMA",             "type": "computed", "computer": "lma" },
         {
           "name": "Laryngoscope blade",
@@ -128,7 +128,7 @@
           ],
           "route": "Nebulized"
         },
-        { "name": "Adrenaline (nebulized)",            "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
+        { "name": "Nebulized Adrenaline",              "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV" },
         { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV" }
       ]

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -108,7 +108,7 @@
       "id": "equipment",
       "title": "Equipment",
       "items": [
-        { "name": "ETT",                  "type": "computed", "computer": "ett" },
+        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size" },
         { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "nasal: add 2–3 cm" },
         { "name": "iGel LMA",             "type": "computed", "computer": "lma" },
         {
@@ -130,7 +130,8 @@
             { "max_years": 8,   "value": "Size 3" },
             { "max_years": 14,  "value": "Size 4" },
             { "max_years": 999, "value": "Size 5" }
-          ]
+          ],
+          "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size"
         }
       ]
     },
@@ -232,7 +233,7 @@
       { "max_kg": 3, "size": 3.5 }
     ],
     "infant_under_1y_size": 4.0,
-    "child_formula": { "base": 4.5, "divisor": 4 },
+    "child_formula": { "base": 3.5, "divisor": 4 },
     "round_to_nearest": 0.5
   },
 

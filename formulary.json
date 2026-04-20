@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -46,8 +46,8 @@
         { "name": "Propofol",      "type": "linear_range", "low": 2, "high": 3,       "unit": "mg", "route": "IV" },
         { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV" },
         { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2" },
-        { "name": "Ondansetron",   "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV" },
-        { "name": "Dexamethasone", "type": "linear",       "factor": 0.15,            "unit": "mg", "route": "IV" },
+        { "name": "Ondansetron",         "type": "linear_max", "factor": 0.1,  "max": 4, "unit": "mg", "route": "IV" },
+        { "name": "Dexamethasone (PONV)", "type": "linear",     "factor": 0.15,          "unit": "mg", "route": "IV" },
         { "name": "Midazolam",     "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV" }
       ]
     },
@@ -55,9 +55,28 @@
       "id": "painkillers",
       "title": "Painkillers",
       "items": [
-        { "name": "Fentanyl",    "type": "linear", "factor": 1,   "unit": "µg", "route": "IV" },
-        { "name": "Paracetamol", "type": "linear", "factor": 15,  "unit": "mg", "route": "IV" },
-        { "name": "Morphine",    "type": "linear", "factor": 0.1, "unit": "mg", "route": "IV" }
+        { "name": "Fentanyl",    "type": "linear", "factor": 1, "unit": "µg", "route": "IV" },
+        {
+          "name": "Paracetamol",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 7.5, "high": 7.5 },
+            { "max_years":  999, "low": 15,  "high": 15 }
+          ],
+          "max": 1, "max_unit": "g",
+          "unit": "mg",
+          "route": "IV"
+        },
+        {
+          "name": "Morphine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 0.025, "high": 0.05 },
+            { "max_years":  999, "low": 0.1,   "high": 0.1  }
+          ],
+          "unit": "mg",
+          "route": "IV"
+        }
       ]
     },
     {
@@ -140,9 +159,9 @@
       "id": "antidotes",
       "title": "Reversal Agents",
       "items": [
-        { "name": "Naloxone",   "type": "linear",       "factor": 0.01, "unit": "mg", "route": "IV" },
-        { "name": "Flumazenil", "type": "linear",       "factor": 10,   "unit": "µg", "route": "IV" },
-        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 for moderate block · 4 for deep block" },
+        { "name": "Naloxone",   "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "repeat every 2–3 min if needed" },
+        { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg" },
+        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block" },
         { "name": "Sugammadex (Immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV" }
       ]
     },

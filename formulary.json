@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "updated": "2026-04-17",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -96,8 +96,7 @@
             { "max_years": 1,   "value": "Macintosh 1" },
             { "max_years": 11,  "value": "Macintosh 2" },
             { "max_years": 999, "value": "Macintosh 3" }
-          ],
-          "note": "Miller (straight) of equivalent size is a valid alternative under 2 y, especially in preterms/neonates where the floppy epiglottis lifts directly."
+          ]
         },
         {
           "name": "Face mask",
@@ -109,8 +108,7 @@
             { "max_years": 8,   "value": "Size 3" },
             { "max_years": 14,  "value": "Size 4" },
             { "max_years": 999, "value": "Size 5" }
-          ],
-          "note": "Sizing is anatomical, not numerical. The correct mask covers nose to chin cleft without touching the eyes. When anatomical fit disagrees with the chart, anatomical fit wins."
+          ]
         }
       ]
     },
@@ -120,7 +118,7 @@
       "items": [
         { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
         { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" },
-        { "name": "Salbutamol",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized", "note": "May repeat every 20 min in acute bronchospasm." },
+        { "name": "Salbutamol",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized" },
         {
           "name": "Ipratropium bromide",
           "type": "fixed_age",
@@ -128,15 +126,11 @@
             { "max_years": 11,  "value": "250 µg" },
             { "max_years": 999, "value": "500 µg" }
           ],
-          "route": "Nebulized",
-          "note": "Severe bronchospasm, synergistic with salbutamol. Dose is fixed, not weight-based."
+          "route": "Nebulized"
         },
-        { "name": "Adrenaline (nebulized)", "type": "linear_max", "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized", "note": "1:1000 solution, diluted in saline to 3–5 mL. Post-extubation stridor, croup, upper airway edema. Separate entry from IV/IM adrenaline." },
-        { "name": "Glycopyrrolate",       "type": "linear_range", "low": 4, "high": 10, "unit": "µg", "route": "IV", "note": "Antisialagogue for fiberoptic intubation, reactive airways, excessive secretions." },
-        { "name": "Succinylcholine IV (laryngospasm)",            "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV", "note": "Pretreat with atropine 20 µg/kg in <5 y or any 2nd dose. CI: hyperkalemia, MH susceptibility, pseudocholinesterase deficiency, muscular dystrophy, denervation, burns >24 h." },
-        { "name": "Succinylcholine IM (laryngospasm)",            "type": "linear_max",   "factor": 4,   "max": 200, "unit": "mg", "route": "IM", "note": "Deltoid or quadriceps. Onset 3–4 min. Same CI/pretreatment as IV." },
-        { "name": "Succinylcholine intralingual (laryngospasm)",  "type": "linear",       "factor": 2,              "unit": "mg", "route": "IL", "note": "Faster than IM. Same CI/pretreatment as IV." },
-        { "name": "Rocuronium (laryngospasm)",                    "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV", "note": "When succinylcholine is contraindicated. Onset 60–90 s. RSI alternative: 1.2 mg/kg with sugammadex on standby." }
+        { "name": "Adrenaline (nebulized)",            "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
+        { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV" },
+        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV" }
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "updated": "2026-04-21",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -193,21 +193,19 @@
           "name": "Bupivacaine (perineural)",
           "type": "linear_age",
           "brackets": [
-            { "max_months": 5,   "low": 1.5, "high": 2   },
-            { "max_years":  999, "low": 2,   "high": 2.5 }
+            { "max_months": 5,   "low": 1.5, "high": 2,   "note": "infusion: 0.2 mg/kg/h" },
+            { "max_years":  999, "low": 2,   "high": 2.5, "note": "infusion: 0.4 mg/kg/h" }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
-          "note": "infusion: 0.4 mg/kg/h · 0.2 mg/kg/h <6 mo"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
         },
         {
           "name": "Ropivacaine (perineural)",
           "type": "linear_age",
           "brackets": [
-            { "max_months": 5,   "low": 2, "high": 2 },
-            { "max_years":  999, "low": 3, "high": 3 }
+            { "max_months": 5,   "low": 2, "high": 2, "note": "infusion: 0.2 mg/kg/h" },
+            { "max_years":  999, "low": 3, "high": 3, "note": "infusion: 0.4 mg/kg/h" }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
-          "note": "infusion: 0.4 mg/kg/h · 0.2 mg/kg/h <6 mo"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
         },
         { "name": "Intralipid 20% bolus",                  "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV", "note": "max total 12 mL/kg" },
         { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV" }

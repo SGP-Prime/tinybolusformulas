@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.19",
-  "updated": "2026-04-17",
+  "version": "0.0.20",
+  "updated": "2026-04-21",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -163,7 +163,7 @@
         { "name": "Naloxone",   "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "repeat every 2–3 min if needed" },
         { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg" },
         { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block" },
-        { "name": "Sugammadex (Immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV" }
+        { "name": "Sugammadex (immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV" }
       ]
     },
     {
@@ -186,7 +186,8 @@
             { "max_months": 5,   "low": 1.5, "high": 2   },
             { "max_years":  999, "low": 2,   "high": 2.5 }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "note": "infusion: 0.4 mg/kg/h · 0.2 mg/kg/h <6 mo"
         },
         {
           "name": "Ropivacaine (perineural)",
@@ -195,29 +196,11 @@
             { "max_months": 5,   "low": 2, "high": 2 },
             { "max_years":  999, "low": 3, "high": 3 }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "note": "infusion: 0.4 mg/kg/h · 0.2 mg/kg/h <6 mo"
         },
-        {
-          "name": "Ropivacaine (perineural continuous)",
-          "type": "linear_age",
-          "brackets": [
-            { "max_months": 5,   "low": 0.2, "high": 0.2 },
-            { "max_years":  999, "low": 0.4, "high": 0.4 }
-          ],
-          "unit": "mg/h", "route": "Perineural"
-        },
-        {
-          "name": "Bupivacaine (perineural continuous)",
-          "type": "linear_age",
-          "brackets": [
-            { "max_months": 5,   "low": 0.2, "high": 0.2 },
-            { "max_years":  999, "low": 0.4, "high": 0.4 }
-          ],
-          "unit": "mg/h", "route": "Perineural"
-        },
-        { "name": "Intralipid 20% bolus (LAST rescue)",    "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV" },
-        { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV" },
-        { "name": "Intralipid 20% max total",              "type": "linear",       "factor": 12,             "unit": "mL", "route": "IV", "value_prefix": "maximum" }
+        { "name": "Intralipid 20% bolus",                  "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV", "note": "max total 12 mL/kg" },
+        { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV" }
       ]
     }
   ],
@@ -262,7 +245,7 @@
     "comment": "APLS-updated. <1 month requires user input. >12 years requires user input.",
     "bands": [
       { "max_months": 12, "formula": "months_times_half_plus_4" },
-      { "max_years":  6,  "formula": "years_times_2_plus_8" },
+      { "max_years":  5,  "formula": "years_times_2_plus_8" },
       { "max_years":  12, "formula": "years_times_3_plus_7" }
     ]
   },

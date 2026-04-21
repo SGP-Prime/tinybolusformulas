@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "updated": "2026-04-21",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -36,7 +36,17 @@
         { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm" },
         { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg" },
         { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg" },
-        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min" }
+        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min" },
+        {
+          "name": "Tidal Volume",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 4, "high": 6 },
+            { "max_years":  999, "low": 6, "high": 8 }
+          ],
+          "unit": "mL",
+          "note": "intraoperative ventilation, healthy lungs"
+        }
       ]
     },
     {

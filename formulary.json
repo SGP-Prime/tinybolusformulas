@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "updated": "2026-04-22",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -22,7 +22,19 @@
     "tobias_phenylephrine_2013": "Tobias JD. Phenylephrine in pediatric anesthesia: applications and safety considerations. Paediatr Anaesth 2013;23(8):679\u2013687.",
     "eaaci_anaphylaxis_2014": "Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026\u20131045.",
     "emhg_mh_2010": "Glahn KPE, Ellis FR, Halsall PJ, M\u00fcller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417\u2013420.",
-    "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664."
+    "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664.",
+    "simoes_propofol_2023": "Sim\u00f5es CM, Carmona MJC, Hajjar LA, et al. Predicted propofol effect-site concentration at loss and return of consciousness in pediatric patients. Paediatr Anaesth 2023;33(3):217\u2013223.",
+    "craven_ketamine_2007": "Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48\u201353.",
+    "meakin_rocuronium_1995": "Meakin GH, Meretoja OA, Motsch J, et al. A comparison of rocuronium and vecuronium during anesthesia induction in children aged 1 to 10 years. Paediatr Anaesth 1995;5(6):359\u2013362.",
+    "mazurek_rocuronium_1998": "Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259\u20131262.",
+    "gan_ponv_2020": "Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411\u2013448.",
+    "apagbi_pain_2012": "Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1\u201379.",
+    "anderson_paracetamol_2008": "Anderson BJ. Paracetamol (acetaminophen): mechanisms of action. Paediatr Anaesth 2008;18(10):915\u2013921.",
+    "bouwmeester_morphine_2004": "Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208\u2013217.",
+    "plaud_sugammadex_2009": "Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284\u2013294.",
+    "lee_sugammadex_2024": "Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257\u2013267.",
+    "lee_sugammadex_profound_2009": "Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020\u20131025.",
+    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025."
   },
 
   "sections": [
@@ -68,19 +80,19 @@
       "id": "induction",
       "title": "Induction",
       "items": [
-        { "name": "Propofol",      "type": "linear_range", "low": 2, "high": 3,       "unit": "mg", "route": "IV" },
-        { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV" },
-        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2" },
-        { "name": "Ondansetron",         "type": "linear_max", "factor": 0.1,  "max": 4, "unit": "mg", "route": "IV" },
-        { "name": "Dexamethasone (PONV)", "type": "linear",     "factor": 0.15,          "unit": "mg", "route": "IV" },
-        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV" }
+        { "name": "Propofol",      "type": "linear_range", "low": 2, "high": 3,       "unit": "mg", "route": "IV",                                         "references": ["simoes_propofol_2023", "bnfc_online"] },
+        { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
+        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
+        { "name": "Ondansetron",         "type": "linear_max", "factor": 0.1,  "max": 4, "unit": "mg", "route": "IV",                                       "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (PONV)", "type": "linear",     "factor": 0.15,          "unit": "mg", "route": "IV",                                       "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] }
       ]
     },
     {
       "id": "painkillers",
       "title": "Painkillers",
       "items": [
-        { "name": "Fentanyl",    "type": "linear", "factor": 1, "unit": "µg", "route": "IV" },
+        { "name": "Fentanyl",    "type": "linear", "factor": 1, "unit": "µg", "route": "IV", "references": ["bnfc_online", "apagbi_pain_2012"] },
         {
           "name": "Paracetamol",
           "type": "linear_age",
@@ -90,7 +102,8 @@
           ],
           "max": 1, "max_unit": "g",
           "unit": "mg",
-          "route": "IV"
+          "route": "IV",
+          "references": ["anderson_paracetamol_2008", "bnfc_online"]
         },
         {
           "name": "Morphine",
@@ -100,7 +113,8 @@
             { "max_years":  999, "low": 0.1,   "high": 0.1  }
           ],
           "unit": "mg",
-          "route": "IV"
+          "route": "IV",
+          "references": ["bouwmeester_morphine_2004", "bnfc_online"]
         }
       ]
     },
@@ -185,10 +199,10 @@
       "id": "antidotes",
       "title": "Reversal Agents",
       "items": [
-        { "name": "Naloxone",   "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "repeat every 2–3 min if needed" },
-        { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg" },
-        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block" },
-        { "name": "Sugammadex (immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV" }
+        { "name": "Naloxone",   "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "repeat every 2–3 min if needed",            "references": ["bnfc_online", "erc_pls_2025"] },
+        { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg",         "references": ["bnfc_online"] },
+        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block", "references": ["plaud_sugammadex_2009", "lee_sugammadex_2024"] },
+        { "name": "Sugammadex (immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV",                                                     "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] }
       ]
     },
     {

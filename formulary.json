@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.22",
-  "updated": "2026-04-21",
+  "version": "0.0.23",
+  "updated": "2026-04-22",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -10,23 +10,38 @@
     "timeout_seconds": 4
   },
 
+  "$references_comment": "Normalized citation map. Items reference entries here by key (see item.references: [...]). The About screen resolves each key to the full citation text. Keys are short but readable; pattern: first-author-or-body_topic_year.",
+  "references": {
+    "erc_pls_2025": "Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.",
+    "aha_pals_2025": "Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.",
+    "ilcor_defib_2025": "Acworth J et al. ILCOR 2025 systematic review on pediatric defibrillation energy. Resuscitation Plus 2025;24:100991.",
+    "barrington_atropine_2011": "Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783\u2013784.",
+    "lonnqvist_hypotension_2017": "L\u00f6nnqvist PA. Management of arterial hypotension in newborns and infants. Curr Opin Anaesthesiol 2017;30(3):317\u2013322.",
+    "apagbi_hypotension_2022": "Association of Paediatric Anaesthetists of Great Britain and Ireland. Guidelines on the Prevention and Management of Hypotension in Children Under Anaesthesia. APAGBI, 2022.",
+    "bnfc_online": "Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.",
+    "tobias_phenylephrine_2013": "Tobias JD. Phenylephrine in pediatric anesthesia: applications and safety considerations. Paediatr Anaesth 2013;23(8):679\u2013687.",
+    "eaaci_anaphylaxis_2014": "Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026\u20131045.",
+    "emhg_mh_2010": "Glahn KPE, Ellis FR, Halsall PJ, M\u00fcller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417\u2013420.",
+    "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664."
+  },
+
   "sections": [
     {
       "id": "pals",
       "title": "EMERGENCY — PALS",
       "emergency": true,
       "items": [
-        { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min" },
-        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth" },
-        { "name": "C:V ratio (1 rescuer)",      "type": "fixed",    "value": "30:2" },
-        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2" },
-        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J" },
-        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO" },
-        { "name": "Amiodarone (1st dose)",      "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV" },
-        { "name": "Amiodarone (subsequent)",    "type": "linear_max", "factor": 5,    "max": 150, "unit": "mg", "route": "IV" },
-        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV" },
-        { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV" },
-        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV" }
+        { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min",                                    "references": ["erc_pls_2025"] },
+        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth",                            "references": ["erc_pls_2025"] },
+        { "name": "C:V ratio (1 rescuer)",      "type": "fixed",    "value": "30:2",                                             "references": ["erc_pls_2025"] },
+        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2",                                             "references": ["erc_pls_2025"] },
+        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",                               "references": ["erc_pls_2025", "ilcor_defib_2025"] },
+        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Amiodarone (1st dose)",      "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "references": ["erc_pls_2025"] },
+        { "name": "Amiodarone (subsequent)",    "type": "linear_max", "factor": 5,    "max": 150, "unit": "mg", "route": "IV",  "references": ["erc_pls_2025"] },
+        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV",  "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
+        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] }
       ]
     },
     {
@@ -93,15 +108,15 @@
       "id": "emergency",
       "title": "Emergency Drugs",
       "items": [
-        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO" },
-        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM" },
-        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV" },
-        { "name": "Atropine",                     "type": "linear",     "factor": 20,                              "unit": "µg", "route": "IV" },
-        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV" },
-        { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV" },
-        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV" },
-        { "name": "Hydrocortisone",           "type": "linear_range", "low": 1,   "high": 2,   "unit": "mg", "route": "IV" },
-        { "name": "Dantrolene",               "type": "linear",       "factor": 2.5,           "unit": "mg", "route": "IV", "note": "repeat 5–10 min · max 10 mg/kg" }
+        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM",    "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
+        { "name": "Atropine",                     "type": "linear",     "factor": 20,                              "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
+        { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
+        { "name": "Hydrocortisone",           "type": "linear_range", "low": 1,   "high": 2,   "unit": "mg", "route": "IV",                       "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Dantrolene",               "type": "linear",       "factor": 2.5,           "unit": "mg", "route": "IV", "note": "repeat 5–10 min · max 10 mg/kg", "references": ["emhg_mh_2010", "aoa_mh_2021"] }
       ]
     },
     {

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "updated": "2026-04-23",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -58,7 +58,15 @@
     "suresh_esra_asra_2018": "Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211\u2013216.",
     "lonnqvist_ropi_2000": "L\u00f6nnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1\u20138-year-old children. Br J Anaesth 2000;85(4):506\u2013511.",
     "bosenberg_ropi_2001": "Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276\u20131280.",
-    "asra_last_checklist_2020": "American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision."
+    "asra_last_checklist_2020": "American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.",
+    "duracher_ett_2008": "Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113\u2013118.",
+    "khine_cuffed_ett_1997": "Khine HH, Corddry DH, Kettrick RG, et al. Comparison of cuffed and uncuffed endotracheal tubes in young children during general anesthesia. Anesthesiology 1997;86(3):627\u2013631.",
+    "phipps_ett_depth_2005": "Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519\u2013522.",
+    "lau_ett_length_2006": "Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238\u20131243.",
+    "intersurgical_igel_guide": "Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).",
+    "beringer_igel_2011": "Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121\u20131126.",
+    "passi_blades_2014": "Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869\u2013874.",
+    "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690."
   },
 
   "sections": [
@@ -193,9 +201,9 @@
       "id": "equipment",
       "title": "Equipment",
       "items": [
-        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size" },
-        { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "nasal: add 2–3 cm" },
-        { "name": "iGel LMA",             "type": "computed", "computer": "lma" },
+        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size", "references": ["duracher_ett_2008", "khine_cuffed_ett_1997"] },
+        { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "nasal: add 2–3 cm",   "references": ["phipps_ett_depth_2005", "lau_ett_length_2006"] },
+        { "name": "iGel LMA",             "type": "computed", "computer": "lma",                                                 "references": ["intersurgical_igel_guide", "beringer_igel_2011"] },
         {
           "name": "Laryngoscope blade",
           "type": "fixed_age",
@@ -203,7 +211,8 @@
             { "max_years": 1,   "value": "Macintosh 1" },
             { "max_years": 11,  "value": "Macintosh 2" },
             { "max_years": 999, "value": "Macintosh 3" }
-          ]
+          ],
+          "references": ["passi_blades_2014", "cote_anesthesia_2019"]
         },
         {
           "name": "Face mask",
@@ -216,7 +225,8 @@
             { "max_years": 14,  "value": "Size 4" },
             { "max_years": 999, "value": "Size 5" }
           ],
-          "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size"
+          "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size",
+          "references": ["cote_anesthesia_2019", "rendell_baker_mask_1962"]
         }
       ]
     },

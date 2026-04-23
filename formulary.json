@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "updated": "2026-04-23",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -48,7 +48,17 @@
     "luscombe_weight_2007": "Luscombe MD, Owens BD. Weight estimation in resuscitation: is the current formula still valid? Arch Dis Child 2007;92(5):412\u2013415.",
     "luscombe_weight_2011": "Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590\u2013593.",
     "nadler_blood_1962": "Nadler SB, Hidalgo JH, Bloch T. Prediction of blood volume in normal human adults. Surgery 1962;51(2):224\u2013232.",
-    "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)"
+    "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)",
+    "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
+    "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm \u2014 the best treatment. Anesthesiology 1998;89(5):1293\u20131294.",
+    "reynolds_im_rocuronium_1996": "Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231\u2013239.",
+    "griffiths_mgso4_2016": "Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.",
+    "ring_anaphylaxis_2021": "Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1\u201325.",
+    "neal_last_2018": "Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113\u2013123.",
+    "suresh_esra_asra_2018": "Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211\u2013216.",
+    "lonnqvist_ropi_2000": "L\u00f6nnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1\u20138-year-old children. Br J Anaesth 2000;85(4):506\u2013511.",
+    "bosenberg_ropi_2001": "Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276\u20131280.",
+    "asra_last_checklist_2020": "American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision."
   },
 
   "sections": [
@@ -214,9 +224,9 @@
       "id": "respiratory",
       "title": "Respiratory",
       "items": [
-        { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV" },
-        { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV" },
-        { "name": "Salbutamol (nebulized)",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized" },
+        { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
+        { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
+        { "name": "Salbutamol (nebulized)",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized", "references": ["bnfc_online"] },
         {
           "name": "Ipratropium bromide (nebulized)",
           "type": "fixed_age",
@@ -224,11 +234,12 @@
             { "max_years": 11,  "value": "250 µg" },
             { "max_years": 999, "value": "500 µg" }
           ],
-          "route": "Nebulized"
+          "route": "Nebulized",
+          "references": ["bnfc_online"]
         },
-        { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized" },
-        { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV" },
-        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV" }
+        { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
+        { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
+        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV",                      "references": ["reynolds_im_rocuronium_1996"] }
       ]
     },
     {
@@ -252,7 +263,8 @@
             { "max_months": 5,   "low": 3.5, "high": 3.5 },
             { "max_years":  999, "low": 5,   "high": 5   }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["neal_last_2018", "bnfc_online"]
         },
         {
           "name": "Bupivacaine (perineural)",
@@ -261,7 +273,8 @@
             { "max_months": 5,   "low": 1.5, "high": 2,   "note": "infusion: 0.2 mg/kg/h" },
             { "max_years":  999, "low": 2,   "high": 2.5, "note": "infusion: 0.4 mg/kg/h" }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["neal_last_2018", "suresh_esra_asra_2018"]
         },
         {
           "name": "Ropivacaine (perineural)",
@@ -270,10 +283,11 @@
             { "max_months": 5,   "low": 2, "high": 2, "note": "infusion: 0.2 mg/kg/h" },
             { "max_years":  999, "low": 3, "high": 3, "note": "infusion: 0.4 mg/kg/h" }
           ],
-          "unit": "mg", "route": "Perineural", "value_prefix": "maximum"
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["lonnqvist_ropi_2000", "bosenberg_ropi_2001"]
         },
-        { "name": "Intralipid 20% bolus",                  "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV", "note": "max total 12 mL/kg" },
-        { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV" }
+        { "name": "Intralipid 20% bolus",                  "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV", "note": "max total 12 mL/kg", "references": ["neal_last_2018", "asra_last_checklist_2020"] },
+        { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV",                            "references": ["neal_last_2018", "asra_last_checklist_2020"] }
       ]
     }
   ],

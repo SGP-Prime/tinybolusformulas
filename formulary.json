@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.24",
-  "updated": "2026-04-22",
+  "version": "0.0.25",
+  "updated": "2026-04-23",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -34,7 +34,16 @@
     "plaud_sugammadex_2009": "Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284\u2013294.",
     "lee_sugammadex_2024": "Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257\u2013267.",
     "lee_sugammadex_profound_2009": "Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020\u20131025.",
-    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025."
+    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025.",
+    "spaeth_ventilation_2022": "Spaeth JP, Lam JE. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247\u2013254.",
+    "kneyber_pemvecc_2017": "Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764\u20131780.",
+    "fleming_hr_rr_2011": "Fleming S, Thompson M, Stevens R, et al. Normal ranges of heart rate and respiratory rate in children from birth to 18 years of age: a systematic review of observational studies. Lancet 2011;377(9770):1011\u20131018.",
+    "flynn_bp_2017": "Flynn JT, Kaelber DC, Baker-Smith CM, et al. Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017;140(3):e20171904.",
+    "holliday_segar_1957": "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823\u2013832.",
+    "feld_maintenance_2018": "Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.",
+    "bsh_transfusion_2016": "New HV, Berryman J, Bolton-Maggs PHB, et al. Guidelines on transfusion for fetuses, neonates and older children. Br J Haematol 2016;175(5):784\u2013828.",
+    "goobie_txa_cranio_2011": "Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862\u2013871.",
+    "faraoni_antifibrinolytic_2014": "Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628\u2013636."
   },
 
   "sections": [
@@ -60,10 +69,10 @@
       "id": "vital_signs",
       "title": "Vital Signs",
       "items": [
-        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm" },
-        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg" },
-        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg" },
-        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min" },
+        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm",  "references": ["fleming_hr_rr_2011"] },
+        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg", "references": ["flynn_bp_2017"] },
+        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg", "references": ["flynn_bp_2017"] },
+        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min", "references": ["fleming_hr_rr_2011"] },
         {
           "name": "Tidal Volume",
           "type": "linear_age",
@@ -72,7 +81,8 @@
             { "max_years":  999, "low": 6, "high": 8 }
           ],
           "unit": "mL",
-          "note": "intraoperative ventilation, healthy lungs"
+          "note": "intraoperative ventilation, healthy lungs",
+          "references": ["spaeth_ventilation_2022", "kneyber_pemvecc_2017"]
         }
       ]
     },
@@ -80,7 +90,17 @@
       "id": "induction",
       "title": "Induction",
       "items": [
-        { "name": "Propofol",      "type": "linear_range", "low": 2, "high": 3,       "unit": "mg", "route": "IV",                                         "references": ["simoes_propofol_2023", "bnfc_online"] },
+        {
+          "name": "Propofol",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 12,  "low": 3, "high": 5 },
+            { "max_years":  999, "low": 2, "high": 3 }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "references": ["simoes_propofol_2023", "bnfc_online"]
+        },
         { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
         { "name": "Ondansetron",         "type": "linear_max", "factor": 0.1,  "max": 4, "unit": "mg", "route": "IV",                                       "references": ["gan_ponv_2020", "bnfc_online"] },
@@ -137,10 +157,10 @@
       "id": "fluids",
       "title": "Fluids and Blood",
       "items": [
-        { "name": "Fluid Bolus",       "type": "linear",       "factor": 10, "unit": "mL",   "route": "IV" },
-        { "name": "Maintenance",       "type": "computed",     "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)" },
-        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV" },
-        { "name": "Tranexamic Acid",   "type": "linear_range", "low": 15, "high": 20, "unit": "mg", "route": "IV" }
+        { "name": "Fluid Bolus",       "type": "linear",       "factor": 10, "unit": "mL",   "route": "IV",                                                        "references": ["erc_pls_2025"] },
+        { "name": "Maintenance",       "type": "computed",     "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)",              "references": ["holliday_segar_1957", "feld_maintenance_2018"] },
+        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV",                                                  "references": ["bsh_transfusion_2016", "bnfc_online"] },
+        { "name": "Tranexamic Acid",   "type": "linear_range", "low": 15, "high": 20, "unit": "mg", "route": "IV",                                                  "references": ["goobie_txa_cranio_2011", "faraoni_antifibrinolytic_2014"] }
       ]
     },
     {

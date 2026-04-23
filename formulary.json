@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "updated": "2026-04-23",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -66,7 +66,10 @@
     "intersurgical_igel_guide": "Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).",
     "beringer_igel_2011": "Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121\u20131126.",
     "passi_blades_2014": "Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869\u2013874.",
-    "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690."
+    "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.",
+    "aun_propofol_1992": "Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
+    "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
+    "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558."
   },
 
   "sections": [
@@ -117,12 +120,15 @@
           "name": "Propofol",
           "type": "linear_age",
           "brackets": [
-            { "max_months": 12,  "low": 3, "high": 5 },
-            { "max_years":  999, "low": 2, "high": 3 }
+            { "max_months": 1,   "low": 1,   "high": 2.5 },
+            { "max_months": 12,  "low": 3,   "high": 4   },
+            { "max_years":  6,   "low": 3,   "high": 3.5 },
+            { "max_years":  12,  "low": 2.5, "high": 3   },
+            { "max_years":  999, "low": 2,   "high": 2.5 }
           ],
           "unit": "mg",
           "route": "IV",
-          "references": ["simoes_propofol_2023", "bnfc_online"]
+          "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023"]
         },
         { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },

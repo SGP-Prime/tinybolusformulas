@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.29",
-  "updated": "2026-04-23",
+  "version": "0.0.30",
+  "updated": "2026-04-24",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -41,7 +41,6 @@
     "flynn_bp_2017": "Flynn JT, Kaelber DC, Baker-Smith CM, et al. Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017;140(3):e20171904.",
     "holliday_segar_1957": "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823\u2013832.",
     "feld_maintenance_2018": "Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.",
-    "bsh_transfusion_2016": "New HV, Berryman J, Bolton-Maggs PHB, et al. Guidelines on transfusion for fetuses, neonates and older children. Br J Haematol 2016;175(5):784\u2013828.",
     "goobie_txa_cranio_2011": "Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862\u2013871.",
     "faraoni_antifibrinolytic_2014": "Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628\u2013636.",
     "apls_7e_2023": "Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.",
@@ -199,7 +198,6 @@
           "unit": "mL",
           "references": ["nadler_blood_1962", "cote_anesthesia_2019"]
         },
-        { "name": "RBC Transfusion",   "type": "linear_range", "low": 10, "high": 20, "unit": "mL", "route": "IV",                                                  "references": ["bsh_transfusion_2016", "bnfc_online"] },
         { "name": "Tranexamic Acid",   "type": "linear_range", "low": 15, "high": 20, "unit": "mg", "route": "IV",                                                  "references": ["goobie_txa_cranio_2011", "faraoni_antifibrinolytic_2014"] }
       ]
     },

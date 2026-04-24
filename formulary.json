@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "updated": "2026-04-24",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -80,12 +80,10 @@
       "items": [
         { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min",                                    "references": ["erc_pls_2025"] },
         { "name": "Compression depth",          "type": "computed", "computer": "compression_depth",                            "references": ["erc_pls_2025"] },
-        { "name": "C:V ratio (1 rescuer)",      "type": "fixed",    "value": "30:2",                                             "references": ["erc_pls_2025"] },
-        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2",                                             "references": ["erc_pls_2025"] },
+        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2", "note": "1 rescuer: 30:2",                  "references": ["erc_pls_2025"] },
         { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",                               "references": ["erc_pls_2025", "ilcor_defib_2025"] },
         { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
-        { "name": "Amiodarone (1st dose)",      "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "references": ["erc_pls_2025"] },
-        { "name": "Amiodarone (subsequent)",    "type": "linear_max", "factor": 5,    "max": 150, "unit": "mg", "route": "IV",  "references": ["erc_pls_2025"] },
+        { "name": "Amiodarone",                 "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "note": "max 150 mg for subsequent doses", "references": ["erc_pls_2025"] },
         { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV",  "references": ["erc_pls_2025", "barrington_atropine_2011"] },
         { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
         { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] }

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "updated": "2026-04-24",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -67,6 +67,10 @@
     "passi_blades_2014": "Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869\u2013874.",
     "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.",
     "ambu_auragain_ifu_2023": "Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask \u2014 Instructions for Use. V7, August 2023.",
+    "gupta_ketorolac_2005": "Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139\u2013142.",
+    "ziesenitz_metamizole_2019": "Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491\u20131502.",
+    "fieler_metamizole_2015": "Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839\u2013843.",
+    "southey_ibuprofen_2009": "Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207\u20132222.",
     "aun_propofol_1992": "Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
     "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
     "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558."
@@ -162,7 +166,19 @@
           "unit": "mg",
           "route": "IV",
           "references": ["bouwmeester_morphine_2004", "bnfc_online"]
-        }
+        },
+        { "name": "Ketorolac",      "type": "linear_max",   "factor": 0.5, "max": 30, "unit": "mg", "route": "IV", "contraindicated_below_months": 6, "references": ["gupta_ketorolac_2005", "bnfc_online"] },
+        {
+          "name": "Metamizole",
+          "type": "linear_range",
+          "low": 8, "high": 16,
+          "max": 1, "max_unit": "g",
+          "unit": "mg",
+          "route": "IV",
+          "contraindicated_below_months": 3,
+          "references": ["ziesenitz_metamizole_2019", "fieler_metamizole_2015"]
+        },
+        { "name": "Ibuprofen (IV)", "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                     "references": ["southey_ibuprofen_2009", "bnfc_online"] }
       ]
     },
     {

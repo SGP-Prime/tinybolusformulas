@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "updated": "2026-04-24",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -132,18 +132,18 @@
           "route": "IV",
           "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023"]
         },
-        { "name": "Ketamine",      "type": "linear_range", "low": 1, "high": 2,       "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
-        { "name": "Rocuronium",    "type": "linear_range", "low": 0.6, "high": 1.2,   "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
-        { "name": "Ondansetron",         "type": "linear_max", "factor": 0.1,  "max": 4, "unit": "mg", "route": "IV",                                       "references": ["gan_ponv_2020", "bnfc_online"] },
-        { "name": "Dexamethasone (PONV)", "type": "linear",     "factor": 0.15,          "unit": "mg", "route": "IV",                                       "references": ["gan_ponv_2020", "bnfc_online"] },
-        { "name": "Midazolam",     "type": "linear",       "factor": 0.1,             "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] }
+        { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
+        { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
+        { "name": "Fentanyl (induction)",  "type": "linear_range", "low": 1,   "high": 3,                "unit": "µg", "route": "IV",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam",             "type": "linear",       "factor": 0.1,                        "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
+        { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (PONV)",  "type": "linear",       "factor": 0.15,                       "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] }
       ]
     },
     {
       "id": "painkillers",
       "title": "Painkillers",
       "items": [
-        { "name": "Fentanyl",    "type": "linear", "factor": 1, "unit": "µg", "route": "IV", "references": ["bnfc_online", "apagbi_pain_2012"] },
         {
           "name": "Paracetamol",
           "type": "linear_age",
@@ -156,6 +156,7 @@
           "route": "IV",
           "references": ["anderson_paracetamol_2008", "bnfc_online"]
         },
+        { "name": "Ketorolac",              "type": "linear_max",   "factor": 0.5, "max": 30, "unit": "mg", "route": "IV", "contraindicated_below_months": 6, "references": ["gupta_ketorolac_2005", "bnfc_online"] },
         {
           "name": "Morphine",
           "type": "linear_age",
@@ -167,7 +168,7 @@
           "route": "IV",
           "references": ["bouwmeester_morphine_2004", "bnfc_online"]
         },
-        { "name": "Ketorolac",      "type": "linear_max",   "factor": 0.5, "max": 30, "unit": "mg", "route": "IV", "contraindicated_below_months": 6, "references": ["gupta_ketorolac_2005", "bnfc_online"] },
+        { "name": "Fentanyl (analgesia)",   "type": "linear_range", "low": 0.5, "high": 1,            "unit": "µg", "route": "IV",                                                                "references": ["bnfc_online", "apagbi_pain_2012"] },
         {
           "name": "Metamizole",
           "type": "linear_range",
@@ -178,7 +179,7 @@
           "contraindicated_below_months": 3,
           "references": ["ziesenitz_metamizole_2019", "fieler_metamizole_2015"]
         },
-        { "name": "Ibuprofen (IV)", "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                     "references": ["southey_ibuprofen_2009", "bnfc_online"] }
+        { "name": "Ibuprofen (IV)",         "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                                                       "references": ["southey_ibuprofen_2009", "bnfc_online"] }
       ]
     },
     {
@@ -189,10 +190,9 @@
         { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM",    "references": ["eaaci_anaphylaxis_2014"] },
         { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
         { "name": "Atropine",                     "type": "linear",     "factor": 20,                              "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "barrington_atropine_2011"] },
-        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
         { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
-        { "name": "Hydrocortisone",           "type": "linear_range", "low": 1,   "high": 2,   "unit": "mg", "route": "IV",                       "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
         { "name": "Dantrolene",               "type": "linear",       "factor": 2.5,           "unit": "mg", "route": "IV", "note": "repeat 5–10 min · max 10 mg/kg", "references": ["emhg_mh_2010", "aoa_mh_2021"] }
       ]
     },
@@ -254,8 +254,6 @@
       "id": "respiratory",
       "title": "Respiratory",
       "items": [
-        { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
-        { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
         { "name": "Salbutamol (nebulized)",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized", "references": ["bnfc_online"] },
         {
           "name": "Ipratropium bromide (nebulized)",
@@ -267,6 +265,8 @@
           "route": "Nebulized",
           "references": ["bnfc_online"]
         },
+        { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
+        { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
         { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
         { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV",                      "references": ["reynolds_im_rocuronium_1996"] }

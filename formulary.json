@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.34",
-  "updated": "2026-04-24",
+  "version": "0.0.35",
+  "updated": "2026-04-25",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -71,6 +71,9 @@
     "ziesenitz_metamizole_2019": "Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491\u20131502.",
     "fieler_metamizole_2015": "Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839\u2013843.",
     "southey_ibuprofen_2009": "Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207\u20132222.",
+    "sign_158_asthma": "British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.",
+    "gina_asthma_2024": "Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/",
+    "griffiths_ipratropium_2013": "Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.",
     "aun_propofol_1992": "Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
     "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
     "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558."
@@ -254,7 +257,29 @@
       "id": "respiratory",
       "title": "Respiratory",
       "items": [
+        {
+          "name": "Salbutamol (inhaled)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 5,   "value": "2–10 puffs" },
+            { "max_years": 999, "value": "4–10 puffs" }
+          ],
+          "route": "Inhaled",
+          "note": "100 µg/puff · repeat incrementally as needed",
+          "references": ["sign_158_asthma", "gina_asthma_2024"]
+        },
         { "name": "Salbutamol (nebulized)",           "type": "linear_max",   "factor": 0.15, "min": 2.5, "max": 5, "unit": "mg", "route": "Nebulized", "references": ["bnfc_online"] },
+        {
+          "name": "Ipratropium (inhaled)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 5,   "value": "4 puffs" },
+            { "max_years": 999, "value": "4–8 puffs" }
+          ],
+          "route": "Inhaled",
+          "note": "20 µg/puff · repeat as needed",
+          "references": ["griffiths_ipratropium_2013", "sign_158_asthma"]
+        },
         {
           "name": "Ipratropium bromide (nebulized)",
           "type": "fixed_age",

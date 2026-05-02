@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.35** (updated 2026-04-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.36** (updated 2026-04-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -208,7 +208,7 @@ Generated from `assets/formulary.json` **v0.0.35** (updated 2026-04-25) by `tool
 ### Total Blood Volume
 
 - Nadler SB, Hidalgo JH, Bloch T. Prediction of blood volume in normal human adults. Surgery 1962;51(2):224–232.
-- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ### Tranexamic Acid
 
@@ -239,11 +239,11 @@ Generated from `assets/formulary.json` **v0.0.35** (updated 2026-04-25) by `tool
 ### Laryngoscope blade
 
 - Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869–874.
-- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ### Face mask
 
-- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 - Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.
 
 ## Respiratory

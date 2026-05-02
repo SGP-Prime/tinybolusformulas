@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "updated": "2026-04-25",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -47,7 +47,7 @@
     "luscombe_weight_2007": "Luscombe MD, Owens BD. Weight estimation in resuscitation: is the current formula still valid? Arch Dis Child 2007;92(5):412\u2013415.",
     "luscombe_weight_2011": "Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590\u2013593.",
     "nadler_blood_1962": "Nadler SB, Hidalgo JH, Bloch T. Prediction of blood volume in normal human adults. Surgery 1962;51(2):224\u2013232.",
-    "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019. (Chapter 12: Blood Conservation.)",
+    "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.",
     "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
     "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm \u2014 the best treatment. Anesthesiology 1998;89(5):1293\u20131294.",
     "reynolds_im_rocuronium_1996": "Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231\u2013239.",

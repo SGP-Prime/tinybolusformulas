@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TinyBolus Formulary — Peer Review Document</title>
+  <style>
+    @page { size: A4; margin: 2cm; }
+    :root {
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #14707A;
+      --rule: #d0d0d0;
+      --soft-bg: #f5f7f8;
+      --warn: #c62f46;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, "Source Serif Pro", "Times New Roman", serif;
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 11pt;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+    h1, h2, h3, h4 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: var(--accent);
+      line-height: 1.25;
+    }
+    h1 { font-size: 28pt; letter-spacing: -0.4px; margin: 0 0 8px; }
+    h2 { font-size: 20pt; margin: 36px 0 12px; }
+    h3 { font-size: 14pt; margin: 24px 0 4px; color: var(--text); }
+    h4 { font-size: 11pt; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 12px 0 4px; }
+    p { margin: 8px 0; }
+    a { color: var(--accent); }
+    code, .mono {
+      font-family: "SF Mono", "JetBrains Mono", "Consolas", "Menlo", monospace;
+      font-size: 0.92em;
+    }
+
+    /* Cover page */
+    .cover {
+      text-align: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      page-break-after: always;
+    }
+    .cover h1 { font-size: 32pt; margin-bottom: 16px; }
+    .cover .subtitle {
+      font-family: system-ui, sans-serif;
+      font-size: 14pt;
+      color: var(--muted);
+      margin: 0 0 36px;
+    }
+    .cover .version {
+      font-family: "SF Mono", "JetBrains Mono", "Consolas", monospace;
+      font-size: 11pt;
+      color: var(--muted);
+      margin: 0 0 56px;
+    }
+    .cover .credits {
+      font-size: 11pt;
+      margin: 16px 0;
+    }
+    .cover .contact {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-top: 40px;
+    }
+
+    /* Intro and TOC */
+    .intro, .toc { page-break-after: always; }
+    .toc ol { padding-left: 24px; }
+    .toc li { margin: 4px 0; }
+
+    /* Section chapters */
+    .section { page-break-before: always; }
+    .section > h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* Item blocks */
+    .item {
+      margin: 16px 0;
+      padding: 12px 0 14px;
+      border-top: 1px solid var(--rule);
+      page-break-inside: avoid;
+    }
+    .item:first-of-type { border-top: none; }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .item-name {
+      font-weight: 700;
+      font-size: 12.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--text);
+    }
+    .item-route {
+      font-family: system-ui, sans-serif;
+      font-size: 10pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .item-dose { margin: 4px 0; }
+    .item-dose .label {
+      color: var(--muted);
+      font-size: 9.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-right: 8px;
+    }
+    .item-note {
+      font-style: italic;
+      color: var(--muted);
+      margin: 4px 0;
+      font-size: 10.5pt;
+    }
+    .item-contra {
+      color: var(--warn);
+      font-weight: 600;
+      font-size: 10pt;
+      margin: 4px 0;
+    }
+    .item-refs {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin-top: 8px;
+      font-family: system-ui, sans-serif;
+    }
+    .item-refs .cites { color: var(--accent); font-weight: 500; }
+
+    /* Bracket / range tables */
+    table.brackets {
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-family: system-ui, sans-serif;
+      font-size: 10.5pt;
+    }
+    table.brackets td {
+      padding: 3px 16px 3px 0;
+      vertical-align: top;
+    }
+    table.brackets td.age {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    table.brackets td.dose {
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Bibliography */
+    .bibliography { page-break-before: always; }
+    .bibliography ol { padding-left: 28px; }
+    .bibliography li {
+      margin: 8px 0;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+    .bibliography li::marker { color: var(--accent); font-weight: 600; }
+
+    /* Print niceties */
+    @media print {
+      body { padding: 0; max-width: none; font-size: 10.5pt; }
+      a { color: var(--text); text-decoration: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+<article class="cover">
+  <h1>TinyBolus Formulary</h1>
+  <p class="subtitle">Peer-review document</p>
+  <p class="version">Version 0.0.36 · Updated 2026-04-25</p>
+  <p class="credits"><strong>Published by Aether Somnus</strong></p>
+  <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
+  <p class="contact">
+    Contact: tinybolusfeedback@gmail.com<br>
+    Source: <a href="https://github.com/SGP-Prime/tinybolusformulas">github.com/SGP-Prime/tinybolusformulas</a><br>
+    Privacy policy: <a href="https://sgp-prime.github.io/tinybolus-site/privacy.html">sgp-prime.github.io/tinybolus-site/privacy.html</a>
+  </p>
+</article>
+
+<article class="intro">
+  <h2>About this document</h2>
+  <p>
+    This is the human-readable export of the TinyBolus paediatric
+    reference formulary, organised section-by-section as it appears
+    in the application. Each item is presented with its dose
+    specification, applicable age brackets (where present), route,
+    clinical notes, and numerical references pointing into the
+    bibliography at the end of the document.
+  </p>
+
+  <h3>How to read each item</h3>
+  <p>
+    Items fall into a small number of shapes that map directly onto
+    how the application computes them:
+  </p>
+  <ul>
+    <li><strong>Single dose</strong> (e.g., 10 µg/kg): one factor multiplied by weight, often with a hard maximum cap.</li>
+    <li><strong>Dose range</strong> (e.g., 2–3 mg/kg): a low–high range, also weight-scaled, optionally with a maximum cap on either bound.</li>
+    <li><strong>Age-bracketed</strong>: different dose factors for different age cohorts. Rendered as a small table per item.</li>
+    <li><strong>Age-bracketed fixed value</strong>: not weight-scaled, just a string per age band (e.g., laryngoscope blade size).</li>
+    <li><strong>Computed</strong>: piecewise logic that doesn't reduce to a single formula (ETT sizing, fluid maintenance, LMA / supraglottic airway sizing, vital-sign normal ranges).</li>
+  </ul>
+
+  <h3>Hard floors / contraindications</h3>
+  <p>
+    Some items carry an <em>age</em> or <em>weight</em> floor below
+    which the formulary explicitly declines to suggest a dose. In the
+    app this renders as ∅ (empty-set glyph) with a "not indicated"
+    explanation. Items with such floors are flagged in red below
+    each row.
+  </p>
+
+  <h3>References</h3>
+  <p>
+    Every dose / range / age bracket / sizing rule carries one or
+    more citations. References are numbered in encounter order
+    throughout this document, with a full bibliography at the end.
+    The numbers in <span class="cites">[brackets]</span> after each
+    item refer to entries in that bibliography.
+  </p>
+
+  <h3>Source</h3>
+  <p>
+    The formulary itself lives at
+    <a href="https://github.com/SGP-Prime/tinybolusformulas">github.com/SGP-Prime/tinybolusformulas</a>
+    as a single machine-readable JSON file. This document is
+    regenerated from that file on demand by
+    <code>tool/generate_formulary_review_html.dart</code>; do not
+    hand-edit it.
+  </p>
+</article>
+
+<article class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#pals">EMERGENCY — PALS</a></li>
+    <li><a href="#vitalsigns">Vital Signs</a></li>
+    <li><a href="#induction">Induction</a></li>
+    <li><a href="#painkillers">Painkillers</a></li>
+    <li><a href="#emergency">Emergency Drugs</a></li>
+    <li><a href="#fluids">Fluids and Blood</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#respiratory">Respiratory</a></li>
+    <li><a href="#antidotes">Reversal Agents</a></li>
+    <li><a href="#regional">Regional Anesthesia</a></li>
+    <li><a href="#weight-estimation">Weight Estimation</a></li>
+    <li><a href="#bibliography">Bibliography</a></li>
+  </ol>
+</article>
+
+<section class="section" id="pals">
+  <h2>EMERGENCY — PALS</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Compression rate</span>
+  </div>
+  <div class="item-dose"><span class="label">VALUE</span><span class="mono">100–120/min</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Compression depth</span>
+  </div>
+  <div class="item-dose"><span class="label">RULE</span><span class="mono">4 cm &lt;1 y · 5 cm ≥1 y</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">C:V ratio (2 rescuers)</span>
+  </div>
+  <div class="item-dose"><span class="label">VALUE</span><span class="mono">15:2</span></div>
+  <div class="item-note">1 rescuer: 30:2</div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Defibrillation</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 J/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [2]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (cardiac arrest)</span>
+    <span class="item-route">IV/IO</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 1 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Amiodarone</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5 mg/kg (max 300 mg)</span></div>
+  <div class="item-note">max 150 mg for subsequent doses</div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Atropine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg (max 500 µg)</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adenosine (1st dose)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 6 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adenosine (2nd dose)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3 mg/kg (max 18 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="vitalsigns">
+  <h2>Vital Signs</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Heart Rate</span>
+  </div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤12 mo</td><td class="dose">100–190 bpm</td></tr>
+    <tr><td class="age">1–2 y</td><td class="dose">98–140 bpm</td></tr>
+    <tr><td class="age">3–5 y</td><td class="dose">80–120 bpm</td></tr>
+    <tr><td class="age">6–11 y</td><td class="dose">75–118 bpm</td></tr>
+    <tr><td class="age">12–15 y</td><td class="dose">60–100 bpm</td></tr>
+    <tr><td class="age">≥16 y</td><td class="dose">60–100 bpm</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[5]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Systolic BP</span>
+  </div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤12 mo</td><td class="dose">72–104 mmHg</td></tr>
+    <tr><td class="age">1–2 y</td><td class="dose">86–106 mmHg</td></tr>
+    <tr><td class="age">3–5 y</td><td class="dose">89–112 mmHg</td></tr>
+    <tr><td class="age">6–9 y</td><td class="dose">97–115 mmHg</td></tr>
+    <tr><td class="age">10–11 y</td><td class="dose">102–120 mmHg</td></tr>
+    <tr><td class="age">12–15 y</td><td class="dose">110–131 mmHg</td></tr>
+    <tr><td class="age">≥16 y</td><td class="dose">90–140 mmHg</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[6]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Diastolic BP</span>
+  </div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤12 mo</td><td class="dose">37–56 mmHg</td></tr>
+    <tr><td class="age">1–2 y</td><td class="dose">42–63 mmHg</td></tr>
+    <tr><td class="age">3–5 y</td><td class="dose">46–72 mmHg</td></tr>
+    <tr><td class="age">6–9 y</td><td class="dose">57–76 mmHg</td></tr>
+    <tr><td class="age">10–11 y</td><td class="dose">61–80 mmHg</td></tr>
+    <tr><td class="age">12–15 y</td><td class="dose">64–83 mmHg</td></tr>
+    <tr><td class="age">≥16 y</td><td class="dose">60–90 mmHg</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[6]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Respiratory Rate</span>
+  </div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤12 mo</td><td class="dose">30–53 /min</td></tr>
+    <tr><td class="age">1–3 y</td><td class="dose">22–37 /min</td></tr>
+    <tr><td class="age">4–5 y</td><td class="dose">20–28 /min</td></tr>
+    <tr><td class="age">6–12 y</td><td class="dose">18–25 /min</td></tr>
+    <tr><td class="age">≥13 y</td><td class="dose">12–20 /min</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[5]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Tidal Volume</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">4–6 mL/kg</td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">6–8 mL/kg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">intraoperative ventilation, healthy lungs</div>
+  <div class="item-refs">References: <span class="cites">[7], [8]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="induction">
+  <h2>Induction</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Propofol</span>
+    <span class="item-route">IV</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">1–2.5 mg/kg</td></tr>
+      <tr><td class="age">2–12 mo</td><td class="dose">3–4 mg/kg</td></tr>
+      <tr><td class="age">1–6 y</td><td class="dose">3–3.5 mg/kg</td></tr>
+      <tr><td class="age">7–12 y</td><td class="dose">2.5–3 mg/kg</td></tr>
+      <tr><td class="age">≥13 y</td><td class="dose">2–2.5 mg/kg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[9], [10], [11]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ketamine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[12], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Rocuronium</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.6–1.2 mg/kg</span></div>
+  <div class="item-note">intubation 0.6 · RSI 1.0–1.2</div>
+  <div class="item-refs">References: <span class="cites">[14], [15]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Fentanyl (induction)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–3 µg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Midazolam</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ondansetron</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 4 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[16], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Dexamethasone (PONV)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[16], [13]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="painkillers">
+  <h2>Painkillers</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Paracetamol</span>
+    <span class="item-route">IV</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">7.5 mg/kg</td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">15 mg/kg</td></tr>
+    </tbody>
+  </table>
+  <div class="item-dose"><span class="label">CAP</span><span class="mono">max 1 g</span></div>
+
+  <div class="item-refs">References: <span class="cites">[17], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ketorolac</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 30 mg)</span></div>
+  <div class="item-contra">Contraindicated &lt;6 months</div>
+  <div class="item-refs">References: <span class="cites">[18], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Morphine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">0.03–0.05 mg/kg</td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">0.1 mg/kg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[19], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Fentanyl (analgesia)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5–1 µg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[13], [20]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Metamizole</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">8–16 mg/kg (max 1 g)</span></div>
+  <div class="item-contra">Contraindicated &lt;3 months</div>
+  <div class="item-refs">References: <span class="cites">[21], [22]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ibuprofen (IV)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 mg/kg (max 400 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[23], [13]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="emergency">
+  <h2>Emergency Drugs</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (cardiac arrest)</span>
+    <span class="item-route">IV/IO</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 1 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (anaphylaxis IM)</span>
+    <span class="item-route">IM</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 500 µg)</span></div>
+  <div class="item-refs">References: <span class="cites">[24]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (anaphylaxis IV)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 µg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [24]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Atropine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ephedrine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.3 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[25], [26]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Phenylephrine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–20 µg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[13], [27]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Lidocaine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Dantrolene</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
+  <div class="item-note">repeat 5–10 min · max 10 mg/kg</div>
+  <div class="item-refs">References: <span class="cites">[28], [29]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="fluids">
+  <h2>Fluids and Blood</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Fluid Bolus</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 mL/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Maintenance</span>
+  </div>
+  <div class="item-dose"><span class="label">RULE</span><span class="mono">Holliday-Segar 4-2-1: 4 mL/kg/h (first 10 kg) · 2 mL/kg/h (next 10 kg) · 1 mL/kg/h thereafter</span></div>
+  <div class="item-note">4-2-1 rule (Holliday-Segar)</div>
+  <div class="item-refs">References: <span class="cites">[30], [31]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Total Blood Volume</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">85 mL/kg</td></tr>
+      <tr><td class="age">2 mo – 2 y</td><td class="dose">75 mL/kg</td></tr>
+      <tr><td class="age">≥3 y</td><td class="dose">70 mL/kg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[32], [33]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Tranexamic Acid</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">15–20 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[34], [35]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="equipment">
+  <h2>Equipment</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">ETT</span>
+  </div>
+  <div class="item-dose"><span class="label">RULE</span><span class="mono">Cuffed: 3.5 + age/4, rounded to ±0.5</span></div>
+  <div class="item-dose"><span class="label">≤3 kg</span><span class="mono">Neonatal weight table:</span></div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤1 kg</td><td class="dose">size 2.5</td></tr>
+    <tr><td class="age">≤2 kg</td><td class="dose">size 3.0</td></tr>
+    <tr><td class="age">≤3 kg</td><td class="dose">size 3.5</td></tr>
+  </tbody></table>
+  <div class="item-dose"><span class="label">&lt;1 y</span><span class="mono">size 4.0</span></div>
+
+  <div class="item-note">for uncuffed tube, add 0.5 to size</div>
+  <div class="item-refs">References: <span class="cites">[36], [37]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">ETT insertion depth</span>
+  </div>
+  <div class="item-dose"><span class="label">RULE</span><span class="mono">6 + weight (&lt;1 mo) · weight/2 + 8 (&lt;1 y) · age/2 + 12 (≥1 y) <em>(cm)</em></span></div>
+  <div class="item-note">nasal: add 2–3 cm</div>
+  <div class="item-refs">References: <span class="cites">[38], [39]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">iGel LMA</span>
+  </div>
+  <div class="item-dose"><span class="label">IGEL SIZING</span><span class="mono">weight bands (inclusive on both bounds):</span></div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">2–5 kg</td><td class="dose">size 1</td></tr>
+    <tr><td class="age">5–12 kg</td><td class="dose">size 1.5</td></tr>
+    <tr><td class="age">10–25 kg</td><td class="dose">size 2</td></tr>
+    <tr><td class="age">25–35 kg</td><td class="dose">size 2.5</td></tr>
+    <tr><td class="age">30–60 kg</td><td class="dose">size 3</td></tr>
+    <tr><td class="age">50–90 kg</td><td class="dose">size 4</td></tr>
+    <tr><td class="age">90–∞ kg</td><td class="dose">size 5</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[40], [41]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">AuraGain LMA</span>
+  </div>
+  <div class="item-dose"><span class="label">AURAGAIN SIZING</span><span class="mono">weight bands (inclusive on both bounds):</span></div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">2–5 kg</td><td class="dose">size 1</td></tr>
+    <tr><td class="age">5–10 kg</td><td class="dose">size 1.5</td></tr>
+    <tr><td class="age">10–20 kg</td><td class="dose">size 2</td></tr>
+    <tr><td class="age">20–30 kg</td><td class="dose">size 2.5</td></tr>
+    <tr><td class="age">30–50 kg</td><td class="dose">size 3</td></tr>
+    <tr><td class="age">50–70 kg</td><td class="dose">size 4</td></tr>
+    <tr><td class="age">70–100 kg</td><td class="dose">size 5</td></tr>
+    <tr><td class="age">100–∞ kg</td><td class="dose">size 6</td></tr>
+  </tbody></table>
+
+  <div class="item-refs">References: <span class="cites">[42]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Laryngoscope blade</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 y</td><td class="dose">Macintosh 1</td></tr>
+      <tr><td class="age">2–11 y</td><td class="dose">Macintosh 2</td></tr>
+      <tr><td class="age">≥12 y</td><td class="dose">Macintosh 3</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[43], [33]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Face mask</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤1 mo</td><td class="dose">Size 0</td></tr>
+      <tr><td class="age">2–12 mo</td><td class="dose">Size 1</td></tr>
+      <tr><td class="age">1–3 y</td><td class="dose">Size 2</td></tr>
+      <tr><td class="age">4–8 y</td><td class="dose">Size 3</td></tr>
+      <tr><td class="age">9–14 y</td><td class="dose">Size 4</td></tr>
+      <tr><td class="age">≥15 y</td><td class="dose">Size 5</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size</div>
+  <div class="item-refs">References: <span class="cites">[33], [44]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="respiratory">
+  <h2>Respiratory</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (inhaled)</span>
+    <span class="item-route">Inhaled</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 y</td><td class="dose">2–10 puffs</td></tr>
+      <tr><td class="age">≥6 y</td><td class="dose">4–10 puffs</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">100 µg/puff · repeat incrementally as needed</div>
+  <div class="item-refs">References: <span class="cites">[45], [46]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (nebulized)</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (min 2.5 mg) (max 5 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ipratropium (inhaled)</span>
+    <span class="item-route">Inhaled</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 y</td><td class="dose">4 puffs</td></tr>
+      <tr><td class="age">≥6 y</td><td class="dose">4–8 puffs</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">20 µg/puff · repeat as needed</div>
+  <div class="item-refs">References: <span class="cites">[47], [45]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ipratropium bromide (nebulized)</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤11 y</td><td class="dose">250 µg</td></tr>
+      <tr><td class="age">≥12 y</td><td class="dose">500 µg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Magnesium Sulphate</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">25–50 mg/kg (max 2 g)</span></div>
+  <div class="item-refs">References: <span class="cites">[48], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Clemastine</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">25–50 µg/kg (max 2 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[49], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (nebulized)</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[50], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Succinylcholine (laryngospasm)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.5 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[51]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Rocuronium (laryngospasm)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.2 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[52]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="antidotes">
+  <h2>Reversal Agents</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Naloxone</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg</span></div>
+  <div class="item-note">repeat every 2–3 min if needed</div>
+  <div class="item-refs">References: <span class="cites">[13], [1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Flumazenil</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 200 µg)</span></div>
+  <div class="item-note">max bolus 200 µg · total max 1 mg</div>
+  <div class="item-refs">References: <span class="cites">[13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Sugammadex</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">2–4 mg/kg</span></div>
+  <div class="item-note">2 mg/kg moderate block · 4 mg/kg deep block</div>
+  <div class="item-refs">References: <span class="cites">[53], [54]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Sugammadex (immediate)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">16 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[55], [56]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="regional">
+  <h2>Regional Anesthesia</h2>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Lidocaine (perineural)</span>
+    <span class="item-route">Perineural</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 mo</td><td class="dose">maximum 3.5 mg/kg</td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">maximum 5 mg/kg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[57], [13]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Bupivacaine (perineural)</span>
+    <span class="item-route">Perineural</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 mo</td><td class="dose">maximum 1.5–2 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.2 mg/kg/h</span></td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">maximum 2–2.5 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.4 mg/kg/h</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[57], [58]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ropivacaine (perineural)</span>
+    <span class="item-route">Perineural</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 mo</td><td class="dose">maximum 2 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.2 mg/kg/h</span></td></tr>
+      <tr><td class="age">≥0 y</td><td class="dose">maximum 3 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.4 mg/kg/h</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[59], [60]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Intralipid 20% bolus</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
+  <div class="item-note">max total 12 mL/kg</div>
+  <div class="item-refs">References: <span class="cites">[57], [61]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Intralipid 20% infusion</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/min/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[57], [61]</span></div>
+</div>
+
+</section>
+
+<section class="section" id="weight-estimation">
+  <h2>Weight Estimation</h2>
+  <p>Used when the user does not supply a measured weight. &lt;1 month and &gt;12 years always require user input.</p>
+  <div class="item">
+    <div class="item-header"><span class="item-name">1–12 mo (infant)</span></div>
+    <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (0.5 × months) + 4</span></div>
+    <div class="item-refs">References: <span class="cites">[62]</span></div>
+  </div>
+  <div class="item">
+    <div class="item-header"><span class="item-name">1–5 y (young child)</span></div>
+    <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (2 × age) + 8</span></div>
+    <div class="item-refs">References: <span class="cites">[63], [62]</span></div>
+  </div>
+  <div class="item">
+    <div class="item-header"><span class="item-name">6–12 y (school-age)</span></div>
+    <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (3 × age) + 7</span></div>
+    <div class="item-refs">References: <span class="cites">[64], [62]</span></div>
+  </div>
+</section>
+
+<section class="bibliography" id="bibliography">
+  <h2>Bibliography</h2>
+  <p>Citations numbered in order of first encounter throughout this document.</p>
+  <ol>
+    <li id="ref-1">Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.</li>
+    <li id="ref-2">Acworth J et al. ILCOR 2025 systematic review on pediatric defibrillation energy. Resuscitation Plus 2025;24:100991.</li>
+    <li id="ref-3">Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.</li>
+    <li id="ref-4">Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.</li>
+    <li id="ref-5">Fleming S, Thompson M, Stevens R, et al. Normal ranges of heart rate and respiratory rate in children from birth to 18 years of age: a systematic review of observational studies. Lancet 2011;377(9770):1011–1018.</li>
+    <li id="ref-6">Flynn JT, Kaelber DC, Baker-Smith CM, et al. Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017;140(3):e20171904.</li>
+    <li id="ref-7">Spaeth JP, Lam JE. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247–254.</li>
+    <li id="ref-8">Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764–1780.</li>
+    <li id="ref-9">Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64–67.</li>
+    <li id="ref-10">Westrin P. The induction dose of propofol in infants 1–6 months of age and in children 10–16 years of age. Anesthesiology 1991;74(3):455–458.</li>
+    <li id="ref-11">van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551–558.</li>
+    <li id="ref-12">Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48–53.</li>
+    <li id="ref-13">Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.</li>
+    <li id="ref-14">Meakin GH, Meretoja OA, Motsch J, et al. A comparison of rocuronium and vecuronium during anesthesia induction in children aged 1 to 10 years. Paediatr Anaesth 1995;5(6):359–362.</li>
+    <li id="ref-15">Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.</li>
+    <li id="ref-16">Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.</li>
+    <li id="ref-17">Anderson BJ. Paracetamol (acetaminophen): mechanisms of action. Paediatr Anaesth 2008;18(10):915–921.</li>
+    <li id="ref-18">Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139–142.</li>
+    <li id="ref-19">Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208–217.</li>
+    <li id="ref-20">Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1–79.</li>
+    <li id="ref-21">Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491–1502.</li>
+    <li id="ref-22">Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.</li>
+    <li id="ref-23">Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.</li>
+    <li id="ref-24">Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026–1045.</li>
+    <li id="ref-25">Lönnqvist PA. Management of arterial hypotension in newborns and infants. Curr Opin Anaesthesiol 2017;30(3):317–322.</li>
+    <li id="ref-26">Association of Paediatric Anaesthetists of Great Britain and Ireland. Guidelines on the Prevention and Management of Hypotension in Children Under Anaesthesia. APAGBI, 2022.</li>
+    <li id="ref-27">Tobias JD. Phenylephrine in pediatric anesthesia: applications and safety considerations. Paediatr Anaesth 2013;23(8):679–687.</li>
+    <li id="ref-28">Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.</li>
+    <li id="ref-29">Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.</li>
+    <li id="ref-30">Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.</li>
+    <li id="ref-31">Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.</li>
+    <li id="ref-32">Nadler SB, Hidalgo JH, Bloch T. Prediction of blood volume in normal human adults. Surgery 1962;51(2):224–232.</li>
+    <li id="ref-33">Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.</li>
+    <li id="ref-34">Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.</li>
+    <li id="ref-35">Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.</li>
+    <li id="ref-36">Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113–118.</li>
+    <li id="ref-37">Khine HH, Corddry DH, Kettrick RG, et al. Comparison of cuffed and uncuffed endotracheal tubes in young children during general anesthesia. Anesthesiology 1997;86(3):627–631.</li>
+    <li id="ref-38">Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519–522.</li>
+    <li id="ref-39">Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238–1243.</li>
+    <li id="ref-40">Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).</li>
+    <li id="ref-41">Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121–1126.</li>
+    <li id="ref-42">Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask — Instructions for Use. V7, August 2023.</li>
+    <li id="ref-43">Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children &lt;2 yr of age. Br J Anaesth 2014;113(5):869–874.</li>
+    <li id="ref-44">Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.</li>
+    <li id="ref-45">British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.</li>
+    <li id="ref-46">Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/</li>
+    <li id="ref-47">Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.</li>
+    <li id="ref-48">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
+    <li id="ref-49">Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.</li>
+    <li id="ref-50">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
+    <li id="ref-51">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
+    <li id="ref-52">Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231–239.</li>
+    <li id="ref-53">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
+    <li id="ref-54">Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.</li>
+    <li id="ref-55">Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.</li>
+    <li id="ref-56">Bridion (sugammadex) prescribing information. Merck Sharp &amp; Dohme Corp., 2025.</li>
+    <li id="ref-57">Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.</li>
+    <li id="ref-58">Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.</li>
+    <li id="ref-59">Lönnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1–8-year-old children. Br J Anaesth 2000;85(4):506–511.</li>
+    <li id="ref-60">Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276–1280.</li>
+    <li id="ref-61">American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.</li>
+    <li id="ref-62">Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.</li>
+    <li id="ref-63">Luscombe MD, Owens BD. Weight estimation in resuscitation: is the current formula still valid? Arch Dis Child 2007;92(5):412–415.</li>
+    <li id="ref-64">Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.</li>
+  </ol>
+</section>
+
+</body>
+</html>
+

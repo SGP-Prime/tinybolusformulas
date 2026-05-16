@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.36",
-  "updated": "2026-04-25",
+  "version": "0.0.37",
+  "updated": "2026-04-26",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -37,8 +37,6 @@
     "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025.",
     "spaeth_ventilation_2022": "Spaeth JP, Lam JE. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247\u2013254.",
     "kneyber_pemvecc_2017": "Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764\u20131780.",
-    "fleming_hr_rr_2011": "Fleming S, Thompson M, Stevens R, et al. Normal ranges of heart rate and respiratory rate in children from birth to 18 years of age: a systematic review of observational studies. Lancet 2011;377(9770):1011\u20131018.",
-    "flynn_bp_2017": "Flynn JT, Kaelber DC, Baker-Smith CM, et al. Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children and Adolescents. Pediatrics 2017;140(3):e20171904.",
     "holliday_segar_1957": "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823\u2013832.",
     "feld_maintenance_2018": "Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.",
     "goobie_txa_cranio_2011": "Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862\u2013871.",
@@ -59,7 +57,6 @@
     "bosenberg_ropi_2001": "Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276\u20131280.",
     "asra_last_checklist_2020": "American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.",
     "duracher_ett_2008": "Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113\u2013118.",
-    "khine_cuffed_ett_1997": "Khine HH, Corddry DH, Kettrick RG, et al. Comparison of cuffed and uncuffed endotracheal tubes in young children during general anesthesia. Anesthesiology 1997;86(3):627\u2013631.",
     "phipps_ett_depth_2005": "Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519\u2013522.",
     "lau_ett_length_2006": "Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238\u20131243.",
     "intersurgical_igel_guide": "Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).",
@@ -100,10 +97,10 @@
       "id": "vital_signs",
       "title": "Vital Signs",
       "items": [
-        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm",  "references": ["fleming_hr_rr_2011"] },
-        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg", "references": ["flynn_bp_2017"] },
-        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg", "references": ["flynn_bp_2017"] },
-        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min", "references": ["fleming_hr_rr_2011"] },
+        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm",  "references": ["cote_anesthesia_2019"] },
+        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg", "references": ["cote_anesthesia_2019"] },
+        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg", "references": ["cote_anesthesia_2019"] },
+        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min", "references": ["cote_anesthesia_2019"] },
         {
           "name": "Tidal Volume",
           "type": "linear_age",
@@ -192,7 +189,7 @@
         { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM",    "references": ["eaaci_anaphylaxis_2014"] },
         { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
-        { "name": "Atropine",                     "type": "linear",     "factor": 20,                              "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        { "name": "Atropine",                     "type": "linear_max", "factor": 20,  "max": 500,                 "unit": "µg", "route": "IV", "note": "max 1 mg single dose in adolescents · cumulative max 2 mg", "references": ["erc_pls_2025", "barrington_atropine_2011"] },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
         { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
         { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
@@ -223,7 +220,7 @@
       "id": "equipment",
       "title": "Equipment",
       "items": [
-        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size", "references": ["duracher_ett_2008", "khine_cuffed_ett_1997"] },
+        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size", "references": ["duracher_ett_2008"] },
         { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "nasal: add 2–3 cm",   "references": ["phipps_ett_depth_2005", "lau_ett_length_2006"] },
         { "name": "iGel LMA",             "type": "computed", "computer": "lma",                                                 "references": ["intersurgical_igel_guide", "beringer_igel_2011"] },
         { "name": "AuraGain LMA",         "type": "computed", "computer": "auragain",                                            "references": ["ambu_auragain_ifu_2023"] },
@@ -397,7 +394,7 @@
     "neonatal_weight_table": [
       { "max_kg": 1, "size": 2.5 },
       { "max_kg": 2, "size": 3.0 },
-      { "max_kg": 3, "size": 3.5 }
+      { "max_kg": 4, "size": 3.5 }
     ],
     "infant_under_1y_size": 4.0,
     "child_formula": { "base": 3.5, "divisor": 4 },

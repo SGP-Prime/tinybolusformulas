@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.37",
-  "updated": "2026-04-26",
+  "version": "0.0.38",
+  "updated": "2026-05-19",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -83,12 +83,13 @@
       "emergency": true,
       "items": [
         { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min",                                    "references": ["erc_pls_2025"] },
-        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth",                            "references": ["erc_pls_2025"] },
+        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth", "note": "not exceeding 6 cm at any age", "references": ["erc_pls_2025"] },
         { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2", "note": "1 rescuer: 30:2",                  "references": ["erc_pls_2025"] },
-        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",                               "references": ["erc_pls_2025", "ilcor_defib_2025"] },
+        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",  "note": "escalate to 8 J/kg (max 360 J) for refractory VF/pVT after >5 shocks", "references": ["erc_pls_2025", "ilcor_defib_2025"] },
+        { "name": "Cardioversion (synchronised)", "type": "linear",   "factor": 1,    "unit": "J",  "note": "double per attempt to max 4 J/kg",                                       "references": ["erc_pls_2025"] },
         { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Amiodarone",                 "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "note": "max 150 mg for subsequent doses", "references": ["erc_pls_2025"] },
-        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV",  "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV",  "note": "no minimum dose required",        "references": ["erc_pls_2025", "barrington_atropine_2011"] },
         { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
         { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] }
       ]
@@ -136,6 +137,7 @@
         { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
         { "name": "Fentanyl (induction)",  "type": "linear_range", "low": 1,   "high": 3,                "unit": "µg", "route": "IV",                                         "references": ["bnfc_online"] },
         { "name": "Midazolam",             "type": "linear",       "factor": 0.1,                        "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
         { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
         { "name": "Dexamethasone (PONV)",  "type": "linear",       "factor": 0.15,                       "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] }
       ]
@@ -187,7 +189,7 @@
       "title": "Emergency Drugs",
       "items": [
         { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
-        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM",    "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "fixed-dose convention: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
         { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
         { "name": "Atropine",                     "type": "linear_max", "factor": 20,  "max": 500,                 "unit": "µg", "route": "IV", "note": "max 1 mg single dose in adolescents · cumulative max 2 mg", "references": ["erc_pls_2025", "barrington_atropine_2011"] },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
@@ -288,9 +290,10 @@
           "references": ["bnfc_online"]
         },
         { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
-        { "name": "Clemastine",           "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
+        { "name": "Clemastine",           "type": "linear_max",   "factor": 25,                  "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
         { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
+        { "name": "Succinylcholine (IM)",              "type": "linear",       "factor": 4,                "unit": "mg", "route": "IM", "note": "for laryngospasm or RSI without IV access", "references": ["larson_laryngospasm_1998"] },
         { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV",                      "references": ["reynolds_im_rocuronium_1996"] }
       ]
     },
@@ -301,7 +304,9 @@
         { "name": "Naloxone",   "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "repeat every 2–3 min if needed",            "references": ["bnfc_online", "erc_pls_2025"] },
         { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg",         "references": ["bnfc_online"] },
         { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block", "references": ["plaud_sugammadex_2009", "lee_sugammadex_2024"] },
-        { "name": "Sugammadex (immediate)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV",                                                     "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] }
+        { "name": "Sugammadex (rescue, profound block)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV", "note": "for CICO / immediate reversal of full intubating-dose rocuronium", "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] },
+        { "name": "Neostigmine",         "type": "linear_range", "low": 0.04, "high": 0.07, "max": 5, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "coadminister with glycopyrrolate (or atropine) to block muscarinic effects",   "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Glycopyrrolate",      "type": "linear_range", "low": 10,   "high": 20,                                "unit": "µg", "route": "IV", "note": "paired with neostigmine, ratio approximately 1:5 (glyco:neostigmine)",        "references": ["bnfc_online", "cote_anesthesia_2019"] }
       ]
     },
     {
@@ -346,7 +351,8 @@
 
   "vital_signs": {
     "hr": [
-      { "max_months": 12, "value": "100–190" },
+      { "max_months": 1,  "value": "120–170" },
+      { "max_months": 12, "value": "100–160" },
       { "max_years":  2,  "value": "98–140" },
       { "max_years":  5,  "value": "80–120" },
       { "max_years":  11, "value": "75–118" },
@@ -372,6 +378,7 @@
       { "max_years":  999,"value": "60–90" }
     ],
     "rr": [
+      { "max_months": 1,  "value": "40–60" },
       { "max_months": 12, "value": "30–53" },
       { "max_years":  3,  "value": "22–37" },
       { "max_years":  5,  "value": "20–28" },

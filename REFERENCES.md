@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.37** (updated 2026-04-26) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.38** (updated 2026-05-19) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -40,6 +40,10 @@ Generated from `assets/formulary.json` **v0.0.37** (updated 2026-04-26) by `tool
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Acworth J et al. ILCOR 2025 systematic review on pediatric defibrillation energy. Resuscitation Plus 2025;24:100991.
+
+### Cardioversion (synchronised)
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Adrenaline (cardiac arrest)
 
@@ -109,6 +113,10 @@ Generated from `assets/formulary.json` **v0.0.37** (updated 2026-04-26) by `tool
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Midazolam
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
+### Midazolam (oral premed)
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
@@ -284,6 +292,10 @@ Generated from `assets/formulary.json` **v0.0.37** (updated 2026-04-26) by `tool
 
 - Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
 
+### Succinylcholine (IM)
+
+- Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
+
 ### Rocuronium (laryngospasm)
 
 - Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231–239.
@@ -304,10 +316,20 @@ Generated from `assets/formulary.json` **v0.0.37** (updated 2026-04-26) by `tool
 - Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.
 - Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.
 
-### Sugammadex (immediate)
+### Sugammadex (rescue, profound block)
 
 - Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.
 - Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025.
+
+### Neostigmine
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
+
+### Glycopyrrolate
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ## Regional Anesthesia
 

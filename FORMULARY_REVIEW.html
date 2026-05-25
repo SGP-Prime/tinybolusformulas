@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.38 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.39 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.38 · Updated 2026-05-19</p>
+  <p class="version">Version 0.0.39 · Updated 2026-05-19</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -362,7 +362,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">no minimum dose required</div>
+  <div class="item-note">historical 100 µg minimum is a myth — no floor required</div>
   <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
 </div>
 
@@ -398,8 +398,7 @@
     <tr><td class="age">1–2 y</td><td class="dose">98–140 bpm</td></tr>
     <tr><td class="age">3–5 y</td><td class="dose">80–120 bpm</td></tr>
     <tr><td class="age">6–11 y</td><td class="dose">75–118 bpm</td></tr>
-    <tr><td class="age">12–15 y</td><td class="dose">60–100 bpm</td></tr>
-    <tr><td class="age">≥16 y</td><td class="dose">60–100 bpm</td></tr>
+    <tr><td class="age">≥12 y</td><td class="dose">60–100 bpm</td></tr>
   </tbody></table>
 
   <div class="item-refs">References: <span class="cites">[5]</span></div>
@@ -459,14 +458,8 @@
   <div class="item-header">
     <span class="item-name">Tidal Volume</span>
   </div>
-  <table class="brackets">
-    <tbody>
-      <tr><td class="age">≤1 mo</td><td class="dose">4–6 mL/kg</td></tr>
-      <tr><td class="age">≥0 y</td><td class="dose">6–8 mL/kg</td></tr>
-    </tbody>
-  </table>
-
-  <div class="item-note">intraoperative ventilation, healthy lungs</div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–7 mL/kg</span></div>
+  <div class="item-note">intraoperative ventilation, healthy lungs · use lower end (5 mL/kg) for neonates and very young infants</div>
   <div class="item-refs">References: <span class="cites">[6], [7]</span></div>
 </div>
 
@@ -880,8 +873,15 @@
     <span class="item-name">Salbutamol (nebulized)</span>
     <span class="item-route">Nebulized</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (min 2.5 mg) (max 5 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[12]</span></div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 y</td><td class="dose">2.5 mg</td></tr>
+      <tr><td class="age">≥6 y</td><td class="dose">5 mg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">repeat back-to-back or continuously per response</div>
+  <div class="item-refs">References: <span class="cites">[42], [43]</span></div>
 </div>
 
 <div class="item">
@@ -902,7 +902,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Ipratropium bromide (nebulized)</span>
+    <span class="item-name">Ipratropium (nebulized)</span>
     <span class="item-route">Nebulized</span>
   </div>
   <table class="brackets">
@@ -944,6 +944,16 @@
 
 <div class="item">
   <div class="item-header">
+    <span class="item-name">Succinylcholine (RSI)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg</span></div>
+  <div class="item-note">intubating dose · sub-paralytic dose for laryngospasm is below</div>
+  <div class="item-refs">References: <span class="cites">[14], [5]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
     <span class="item-name">Succinylcholine (laryngospasm)</span>
     <span class="item-route">IV</span>
   </div>
@@ -976,12 +986,22 @@
   <h2>Reversal Agents</h2>
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Naloxone</span>
+    <span class="item-name">Naloxone (titrated)</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg</span></div>
-  <div class="item-note">repeat every 2–3 min if needed</div>
+  <div class="item-note">post-anaesthesia reversal — titrate to respiration · repeat every 2–3 min</div>
   <div class="item-refs">References: <span class="cites">[12], [1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Naloxone (overdose)</span>
+    <span class="item-route">IV/IO/IM</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 2 mg)</span></div>
+  <div class="item-note">suspected opioid overdose with apnoea or unresponsiveness</div>
+  <div class="item-refs">References: <span class="cites">[1], [12]</span></div>
 </div>
 
 <div class="item">
@@ -1012,26 +1032,6 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">16 mg/kg</span></div>
   <div class="item-note">for CICO / immediate reversal of full intubating-dose rocuronium</div>
   <div class="item-refs">References: <span class="cites">[52], [53]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Neostigmine</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.04–0.07 mg/kg (max 5 mg)</span></div>
-  <div class="item-note">coadminister with glycopyrrolate (or atropine) to block muscarinic effects</div>
-  <div class="item-refs">References: <span class="cites">[12], [5]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Glycopyrrolate</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10–20 µg/kg</span></div>
-  <div class="item-note">paired with neostigmine, ratio approximately 1:5 (glyco:neostigmine)</div>
-  <div class="item-refs">References: <span class="cites">[12], [5]</span></div>
 </div>
 
 </section>

@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.39** (updated 2026-05-19) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.40** (updated 2026-05-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -331,6 +331,18 @@ Generated from `assets/formulary.json` **v0.0.39** (updated 2026-05-19) by `tool
 
 - Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.
 - Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025.
+
+### Neostigmine
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
+- Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110.
+
+### Atropine (with neostigmine)
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
+- Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110.
 
 ## Regional Anesthesia
 

@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.39",
-  "updated": "2026-05-19",
+  "version": "0.0.40",
+  "updated": "2026-05-25",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -73,7 +73,8 @@
     "griffiths_ipratropium_2013": "Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.",
     "aun_propofol_1992": "Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
     "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
-    "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558."
+    "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558.",
+    "yang_neostigmine_2014": "Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110."
   },
 
   "sections": [
@@ -313,7 +314,9 @@
         { "name": "Naloxone (overdose)", "type": "linear_max", "factor": 0.1, "max": 2,    "unit": "mg", "route": "IV/IO/IM", "note": "suspected opioid overdose with apnoea or unresponsiveness", "references": ["erc_pls_2025", "bnfc_online"] },
         { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg",         "references": ["bnfc_online"] },
         { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block", "references": ["plaud_sugammadex_2009", "lee_sugammadex_2024"] },
-        { "name": "Sugammadex (rescue, profound block)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV", "note": "for CICO / immediate reversal of full intubating-dose rocuronium", "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] }
+        { "name": "Sugammadex (rescue, profound block)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV", "note": "for CICO / immediate reversal of full intubating-dose rocuronium", "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] },
+        { "name": "Neostigmine",                         "type": "linear_range", "low": 0.04, "high": 0.07, "max": 5, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "coadminister with atropine to block muscarinic effects · give slowly over 1–2 min after first signs of spontaneous recovery", "references": ["bnfc_online", "cote_anesthesia_2019", "yang_neostigmine_2014"] },
+        { "name": "Atropine (with neostigmine)",         "type": "linear_max",   "factor": 20, "max": 500,                                "unit": "µg", "route": "IV", "note": "give together with or just before neostigmine to blunt bradycardia and bronchorrhoea", "references": ["bnfc_online", "cote_anesthesia_2019", "yang_neostigmine_2014"] }
       ]
     },
     {

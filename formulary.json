@@ -456,7 +456,7 @@
   },
 
   "ett_rules": {
-    "comment": "Neonatal weight-based, then 6-month / <1y fixed at 4.0, then formula 4.5 + age/4 per v1 formularium. Round result both up and down to nearest 0.5.",
+    "comment": "Neonatal weight-based (table below, widened to ≤4 kg in v0.0.37), then <1 y fixed at 4.0, then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5 — see item note). Round result both up and down to nearest 0.5.",
     "neonatal_weight_table": [
       { "max_kg": 1, "size": 2.5 },
       { "max_kg": 2, "size": 3.0 },

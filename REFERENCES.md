@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.41** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.42** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -108,6 +108,11 @@ Generated from `assets/formulary.json` **v0.0.41** (updated 2026-06-09) by `tool
 
 - Meakin GH, Meretoja OA, Motsch J, et al. A comparison of rocuronium and vecuronium during anesthesia induction in children aged 1 to 10 years. Paediatr Anaesth 1995;5(6):359–362.
 - Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
+
+### Succinylcholine (RSI)
+
+- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ### Fentanyl (induction)
 
@@ -331,11 +336,6 @@ Generated from `assets/formulary.json` **v0.0.41** (updated 2026-06-09) by `tool
 - Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Succinylcholine (RSI)
-
-- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
-- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
-
 ### Succinylcholine (laryngospasm)
 
 - Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
@@ -369,7 +369,7 @@ Generated from `assets/formulary.json` **v0.0.41** (updated 2026-06-09) by `tool
 - Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.
 - Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.
 
-### Sugammadex (rescue, profound block)
+### Sugammadex (profound block)
 
 - Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.
 - Bridion (sugammadex) prescribing information. Merck Sharp & Dohme Corp., 2025.

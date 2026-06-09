@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.40",
-  "updated": "2026-05-25",
+  "version": "0.0.41",
+  "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -90,9 +90,19 @@
         { "name": "Cardioversion (synchronised)", "type": "linear",   "factor": 1,    "unit": "J",  "note": "double per attempt to max 4 J/kg",                                       "references": ["erc_pls_2025"] },
         { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Amiodarone",                 "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "note": "max 150 mg for subsequent doses", "references": ["erc_pls_2025"] },
-        { "name": "Atropine",                   "type": "linear_max", "factor": 20,   "max": 500, "unit": "µg", "route": "IV",  "note": "historical 100 µg minimum is a myth — no floor required",        "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        {
+          "name": "Atropine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_years": 11,  "low": 20, "high": 20, "max": 500, "max_unit": "µg" },
+            { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
+          ],
+          "unit": "µg", "route": "IV",
+          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · no minimum (Barrington 2011)",
+          "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
+        },
         { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
-        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] }
+        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "note": "if SVT persists, escalate in 0.05–0.1 mg/kg steps to a max single dose of 0.5 mg/kg (ERC 2025)", "references": ["erc_pls_2025"] }
       ]
     },
     {
@@ -134,10 +144,13 @@
         { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["meakin_rocuronium_1995", "mazurek_rocuronium_1998"] },
         { "name": "Fentanyl (induction)",  "type": "linear_range", "low": 1,   "high": 3,                "unit": "µg", "route": "IV",                                         "references": ["bnfc_online"] },
-        { "name": "Midazolam",             "type": "linear",       "factor": 0.1,                        "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam",             "type": "linear_max",   "factor": 0.1, "max": 5,              "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
         { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
         { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
-        { "name": "Dexamethasone (PONV)",  "type": "linear",       "factor": 0.15,                       "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] }
+        { "name": "Dexamethasone (PONV)",  "type": "linear_max",   "factor": 0.15, "max": 5,             "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Etomidate",             "type": "linear_range", "low": 0.2, "high": 0.3,              "unit": "mg", "route": "IV", "note": "haemodynamically stable induction", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Atracurium",            "type": "linear_range", "low": 0.4, "high": 0.5,              "unit": "mg", "route": "IV", "note": "intubating dose · 0.3–0.4 mg/kg in infants", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Dexmedetomidine (IN premed)", "type": "linear_range", "low": 1, "high": 2,           "unit": "µg", "route": "IN", "note": "intranasal premedication · onset 30–45 min", "references": ["bnfc_online", "cote_anesthesia_2019"] }
       ]
     },
     {
@@ -189,10 +202,23 @@
         { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "fixed-dose convention: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
         { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
-        { "name": "Atropine",                     "type": "linear_max", "factor": 20,  "max": 500,                 "unit": "µg", "route": "IV", "note": "max 1 mg single dose in adolescents · cumulative max 2 mg", "references": ["erc_pls_2025", "barrington_atropine_2011"] },
+        {
+          "name": "Atropine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_years": 11,  "low": 20, "high": 20, "max": 500, "max_unit": "µg" },
+            { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
+          ],
+          "unit": "µg", "route": "IV",
+          "note": "max single dose 0.5 mg child · 1 mg adolescent · cumulative max 2 mg",
+          "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
+        },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
-        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
         { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
+        { "name": "Glucose 10%",              "type": "linear",       "factor": 2,   "unit": "mL", "route": "IV/IO", "note": "0.2 g/kg for hypoglycaemia · recheck glucose after", "references": ["erc_pls_2025", "apls_7e_2023"] },
+        { "name": "Calcium gluconate 10%",    "type": "linear_max",   "factor": 0.5, "max": 30,  "unit": "mL", "route": "IV/IO", "note": "hyperkalaemia · hypocalcaemia · CCB toxicity · give slowly", "references": ["erc_pls_2025", "apls_7e_2023"] },
+        { "name": "Sodium bicarbonate 8.4%",  "type": "linear",       "factor": 1,   "unit": "mmol", "route": "IV/IO", "note": "1 mL/kg of 8.4% · for hyperkalaemia or TCA toxicity, not routine arrest", "references": ["erc_pls_2025", "apls_7e_2023"] },
         { "name": "Dantrolene",               "type": "linear",       "factor": 2.5,           "unit": "mg", "route": "IV", "note": "repeat 5–10 min · max 10 mg/kg", "references": ["emhg_mh_2010", "aoa_mh_2021"] }
       ]
     },
@@ -228,10 +254,11 @@
           "name": "Laryngoscope blade",
           "type": "fixed_age",
           "brackets": [
-            { "max_years": 1,   "value": "Macintosh 1" },
+            { "max_years": 1,   "value": "Miller 0–1" },
             { "max_years": 11,  "value": "Macintosh 2" },
             { "max_years": 999, "value": "Macintosh 3" }
           ],
+          "note": "straight blade in infants — lift the floppy epiglottis directly",
           "references": ["passi_blades_2014", "cote_anesthesia_2019"]
         },
         {
@@ -247,6 +274,29 @@
           ],
           "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size",
           "references": ["cote_anesthesia_2019", "rendell_baker_mask_1962"]
+        },
+        {
+          "name": "Suction catheter",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 1,  "value": "6 Fr" },
+            { "max_years": 1,   "value": "8 Fr" },
+            { "max_years": 8,   "value": "10 Fr" },
+            { "max_years": 999, "value": "12–14 Fr" }
+          ],
+          "note": "roughly twice the ETT internal diameter (Fr)",
+          "references": ["apls_7e_2023", "cote_anesthesia_2019"]
+        },
+        {
+          "name": "NG/OG tube",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 1,  "value": "6 Fr" },
+            { "max_years": 1,   "value": "8 Fr" },
+            { "max_years": 8,   "value": "10 Fr" },
+            { "max_years": 999, "value": "12–14 Fr" }
+          ],
+          "references": ["apls_7e_2023", "cote_anesthesia_2019"]
         }
       ]
     },

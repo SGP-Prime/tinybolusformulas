@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.44** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -207,6 +207,7 @@ Generated from `assets/formulary.json` **v0.0.44** (updated 2026-06-09) by `tool
 
 ### Ephedrine
 
+- Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 

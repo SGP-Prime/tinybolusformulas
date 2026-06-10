@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -18,6 +18,7 @@
     "barrington_atropine_2011": "Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783\u2013784.",
     "bnfc_online": "Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.",
     "eaaci_anaphylaxis_2014": "Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026\u20131045.",
+    "szostek_ephedrine_2023": "Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603\u2013610.",
     "emhg_mh_2010": "Glahn KPE, Ellis FR, Halsall PJ, M\u00fcller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417\u2013420.",
     "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664.",
     "craven_ketamine_2007": "Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48\u201353.",
@@ -211,7 +212,16 @@
           "note": "max single dose 0.5 mg child · 1 mg adolescent · cumulative max 2 mg",
           "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
         },
-        { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        {
+          "name": "Ephedrine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 6,   "low": 0.6, "high": 1.2, "note": "young infants need ~10× the adult dose (indirect agent · immature SNS) · 1.2 mg/kg optimal (Szostek 2023)" },
+            { "max_years":  999, "low": 0.1, "high": 0.3 }
+          ],
+          "unit": "mg", "route": "IV",
+          "references": ["szostek_ephedrine_2023", "bnfc_online", "cote_anesthesia_2019"]
+        },
         { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "cote_anesthesia_2019"] },
         { "name": "Lidocaine",                "type": "linear_max",   "factor": 1,   "max": 100, "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
         { "name": "Glucose 10%",              "type": "linear",       "factor": 2,   "unit": "mL", "route": "IV/IO", "note": "0.2 g/kg for hypoglycaemia · recheck glucose after", "references": ["erc_pls_2025", "apls_7e_2023"] },

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -23,7 +23,6 @@
     "eaaci_anaphylaxis_2014": "Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026\u20131045.",
     "emhg_mh_2010": "Glahn KPE, Ellis FR, Halsall PJ, M\u00fcller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417\u2013420.",
     "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664.",
-    "simoes_propofol_2023": "Sim\u00f5es CM, Carmona MJC, Hajjar LA, et al. Predicted propofol effect-site concentration at loss and return of consciousness in pediatric patients. Paediatr Anaesth 2023;33(3):217\u2013223.",
     "craven_ketamine_2007": "Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48\u201353.",
     "meakin_rocuronium_1995": "Meakin GH, Meretoja OA, Motsch J, et al. A comparison of rocuronium and vecuronium during anesthesia induction in children aged 1 to 10 years. Paediatr Anaesth 1995;5(6):359\u2013362.",
     "mazurek_rocuronium_1998": "Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259\u20131262.",
@@ -48,7 +47,8 @@
     "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.",
     "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
     "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm \u2014 the best treatment. Anesthesiology 1998;89(5):1293\u20131294.",
-    "reynolds_im_rocuronium_1996": "Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231\u2013239.",
+    "gavel_laryngospasm_2014": "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47\u201351.",
+    "tavegyl_spc": "Tavegyl (clemastine fumarate) 1 mg/mL solution for injection \u2014 Summary of Product Characteristics, current edition.",
     "griffiths_mgso4_2016": "Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.",
     "ring_anaphylaxis_2021": "Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1\u201325.",
     "neal_last_2018": "Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113\u2013123.",
@@ -86,9 +86,9 @@
         { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min",                                    "references": ["erc_pls_2025"] },
         { "name": "Compression depth",          "type": "computed", "computer": "compression_depth", "note": "not exceeding 6 cm at any age", "references": ["erc_pls_2025"] },
         { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2", "note": "1 rescuer: 30:2",                  "references": ["erc_pls_2025"] },
-        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",  "note": "escalate to 8 J/kg (max 360 J) for refractory VF/pVT after >5 shocks", "references": ["erc_pls_2025", "ilcor_defib_2025"] },
+        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",  "note": "escalate to 8 J/kg (max 360 J) for refractory VF/pVT from the 6th shock", "references": ["erc_pls_2025", "ilcor_defib_2025"] },
         { "name": "Cardioversion (synchronised)", "type": "linear",   "factor": 1,    "unit": "J",  "note": "double per attempt to max 4 J/kg",                                       "references": ["erc_pls_2025"] },
-        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "note": "repeat every 3–5 min", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Amiodarone",                 "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "note": "max 150 mg for subsequent doses", "references": ["erc_pls_2025"] },
         {
           "name": "Atropine",
@@ -200,9 +200,9 @@
       "id": "emergency",
       "title": "Emergency Drugs",
       "items": [
-        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "note": "repeat every 3–5 min", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "fixed-dose convention: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
-        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
+        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "note": "titrate to response · IM adrenaline is first-line", "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
         {
           "name": "Atropine",
           "type": "linear_age",
@@ -216,7 +216,7 @@
         },
         { "name": "Ephedrine",                "type": "linear_range", "low": 0.1, "high": 0.3, "unit": "mg", "route": "IV",                       "references": ["lonnqvist_hypotension_2017", "apagbi_hypotension_2022"] },
         { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "tobias_phenylephrine_2013"] },
-        { "name": "Lidocaine",                "type": "linear",       "factor": 1,   "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
+        { "name": "Lidocaine",                "type": "linear_max",   "factor": 1,   "max": 100, "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
         { "name": "Glucose 10%",              "type": "linear",       "factor": 2,   "unit": "mL", "route": "IV/IO", "note": "0.2 g/kg for hypoglycaemia · recheck glucose after", "references": ["erc_pls_2025", "apls_7e_2023"] },
         { "name": "Calcium gluconate 10%",    "type": "linear_max",   "factor": 0.5, "max": 30,  "unit": "mL", "route": "IV/IO", "note": "hyperkalaemia · hypocalcaemia · CCB toxicity · give slowly", "references": ["erc_pls_2025", "apls_7e_2023"] },
         { "name": "Sodium bicarbonate 8.4%",  "type": "linear",       "factor": 1,   "unit": "mmol", "route": "IV/IO", "note": "1 mL/kg of 8.4% · for hyperkalaemia or TCA toxicity, not routine arrest", "references": ["erc_pls_2025", "apls_7e_2023"] },
@@ -349,11 +349,11 @@
           "references": ["bnfc_online"]
         },
         { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
-        { "name": "Clemastine",           "type": "linear_max",   "factor": 25,                  "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "bnfc_online"] },
+        { "name": "Clemastine",           "type": "linear_max",   "factor": 25,                  "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "tavegyl_spc"] },
         { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
-        { "name": "Succinylcholine (IM)",              "type": "linear",       "factor": 4,                "unit": "mg", "route": "IM", "note": "for laryngospasm or RSI without IV access", "references": ["larson_laryngospasm_1998"] },
-        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV",                      "references": ["reynolds_im_rocuronium_1996"] }
+        { "name": "Succinylcholine (IM)",              "type": "linear",       "factor": 4,                "unit": "mg", "route": "IM", "note": "for laryngospasm or RSI without IV access", "references": ["larson_laryngospasm_1998", "gavel_laryngospasm_2014"] },
+        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV", "note": "when succinylcholine is unavailable or contraindicated", "references": ["gavel_laryngospasm_2014"] }
       ]
     },
     {
@@ -456,11 +456,15 @@
   },
 
   "ett_rules": {
-    "comment": "Neonatal weight-based (table below, widened to ≤4 kg in v0.0.37), then <1 y fixed at 4.0, then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5 — see item note). Round result both up and down to nearest 0.5.",
+    "comment": "Neonatal weight-based (table below, widened to ≤4 kg in v0.0.37), then infant age table (v0.0.43: split 1–6 mo → 3.5 / 7–12 mo → 4.0 cuffed, per Duracher/Motoyama age/4 + 3.5 — the old flat 4.0 oversized young infants), then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5 — see item note). Round formula result both up and down to nearest 0.5. infant_under_1y_size is kept as a legacy fallback so pre-v0.0.43 app binaries can still parse this file.",
     "neonatal_weight_table": [
       { "max_kg": 1, "size": 2.5 },
       { "max_kg": 2, "size": 3.0 },
       { "max_kg": 4, "size": 3.5 }
+    ],
+    "infant_age_table": [
+      { "max_months": 6,  "size": 3.5 },
+      { "max_months": 12, "size": 4.0 }
     ],
     "infant_under_1y_size": 4.0,
     "child_formula": { "base": 3.5, "divisor": 4 },

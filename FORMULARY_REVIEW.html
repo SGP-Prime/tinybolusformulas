@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.42 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.43 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.42 · Updated 2026-06-09</p>
+  <p class="version">Version 0.0.43 · Updated 2026-06-09</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -324,7 +324,7 @@
     <span class="item-name">Defibrillation</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 J/kg</span></div>
-  <div class="item-note">escalate to 8 J/kg (max 360 J) for refractory VF/pVT after &gt;5 shocks</div>
+  <div class="item-note">escalate to 8 J/kg (max 360 J) for refractory VF/pVT from the 6th shock</div>
   <div class="item-refs">References: <span class="cites">[1], [2]</span></div>
 </div>
 
@@ -343,6 +343,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 1 mg)</span></div>
+  <div class="item-note">repeat every 3–5 min</div>
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
@@ -679,6 +680,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 1 mg)</span></div>
+  <div class="item-note">repeat every 3–5 min</div>
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
@@ -698,6 +700,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 µg/kg</span></div>
+  <div class="item-note">titrate to response · IM adrenaline is first-line</div>
   <div class="item-refs">References: <span class="cites">[1], [24]</span></div>
 </div>
 
@@ -740,7 +743,7 @@
     <span class="item-name">Lidocaine</span>
     <span class="item-route">IV</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg</span></div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg (max 100 mg)</span></div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -845,7 +848,11 @@
     <tr><td class="age">≤2 kg</td><td class="dose">size 3.0</td></tr>
     <tr><td class="age">≤4 kg</td><td class="dose">size 3.5</td></tr>
   </tbody></table>
-  <div class="item-dose"><span class="label">&lt;1 y</span><span class="mono">size 4.0</span></div>
+  <div class="item-dose"><span class="label">INFANT</span><span class="mono">age table (cuffed):</span></div>
+  <table class="brackets"><tbody>
+    <tr><td class="age">≤6 mo</td><td class="dose">size 3.5</td></tr>
+    <tr><td class="age">7–12 mo</td><td class="dose">size 4.0</td></tr>
+  </tbody></table>
 
   <div class="item-note">for uncuffed tube, add 0.5 to size</div>
   <div class="item-refs">References: <span class="cites">[35]</span></div>
@@ -1047,7 +1054,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">25 µg/kg (max 2 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[47], [13]</span></div>
+  <div class="item-refs">References: <span class="cites">[47], [48]</span></div>
 </div>
 
 <div class="item">
@@ -1056,7 +1063,7 @@
     <span class="item-route">Nebulized</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[48], [13]</span></div>
+  <div class="item-refs">References: <span class="cites">[49], [13]</span></div>
 </div>
 
 <div class="item">
@@ -1065,7 +1072,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.5 mg/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[49]</span></div>
+  <div class="item-refs">References: <span class="cites">[50]</span></div>
 </div>
 
 <div class="item">
@@ -1075,7 +1082,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
   <div class="item-note">for laryngospasm or RSI without IV access</div>
-  <div class="item-refs">References: <span class="cites">[49]</span></div>
+  <div class="item-refs">References: <span class="cites">[50], [51]</span></div>
 </div>
 
 <div class="item">
@@ -1084,7 +1091,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.2 mg/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[50]</span></div>
+  <div class="item-note">when succinylcholine is unavailable or contraindicated</div>
+  <div class="item-refs">References: <span class="cites">[51]</span></div>
 </div>
 
 </section>
@@ -1128,7 +1136,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2–4 mg/kg</span></div>
   <div class="item-note">2 mg/kg moderate block · 4 mg/kg deep block</div>
-  <div class="item-refs">References: <span class="cites">[51], [52]</span></div>
+  <div class="item-refs">References: <span class="cites">[52], [53]</span></div>
 </div>
 
 <div class="item">
@@ -1138,7 +1146,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">16 mg/kg</span></div>
   <div class="item-note">for CICO / immediate reversal of full intubating-dose rocuronium</div>
-  <div class="item-refs">References: <span class="cites">[53], [54]</span></div>
+  <div class="item-refs">References: <span class="cites">[54], [55]</span></div>
 </div>
 
 <div class="item">
@@ -1148,7 +1156,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.04–0.07 mg/kg (max 5 mg)</span></div>
   <div class="item-note">coadminister with atropine to block muscarinic effects · give slowly over 1–2 min after first signs of spontaneous recovery</div>
-  <div class="item-refs">References: <span class="cites">[13], [6], [55]</span></div>
+  <div class="item-refs">References: <span class="cites">[13], [6], [56]</span></div>
 </div>
 
 <div class="item">
@@ -1158,7 +1166,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg (max 500 µg)</span></div>
   <div class="item-note">give together with or just before neostigmine to blunt bradycardia and bronchorrhoea</div>
-  <div class="item-refs">References: <span class="cites">[13], [6], [55]</span></div>
+  <div class="item-refs">References: <span class="cites">[13], [6], [56]</span></div>
 </div>
 
 </section>
@@ -1177,7 +1185,7 @@
     </tbody>
   </table>
 
-  <div class="item-refs">References: <span class="cites">[56], [13]</span></div>
+  <div class="item-refs">References: <span class="cites">[57], [13]</span></div>
 </div>
 
 <div class="item">
@@ -1192,7 +1200,7 @@
     </tbody>
   </table>
 
-  <div class="item-refs">References: <span class="cites">[56], [57]</span></div>
+  <div class="item-refs">References: <span class="cites">[57], [58]</span></div>
 </div>
 
 <div class="item">
@@ -1207,7 +1215,7 @@
     </tbody>
   </table>
 
-  <div class="item-refs">References: <span class="cites">[58], [59]</span></div>
+  <div class="item-refs">References: <span class="cites">[59], [60]</span></div>
 </div>
 
 <div class="item">
@@ -1217,7 +1225,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
   <div class="item-note">max total 12 mL/kg</div>
-  <div class="item-refs">References: <span class="cites">[56], [60]</span></div>
+  <div class="item-refs">References: <span class="cites">[57], [61]</span></div>
 </div>
 
 <div class="item">
@@ -1226,7 +1234,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/min/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[56], [60]</span></div>
+  <div class="item-refs">References: <span class="cites">[57], [61]</span></div>
 </div>
 
 </section>
@@ -1242,12 +1250,12 @@
   <div class="item">
     <div class="item-header"><span class="item-name">1–5 y (young child)</span></div>
     <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (2 × age) + 8</span></div>
-    <div class="item-refs">References: <span class="cites">[61], [5]</span></div>
+    <div class="item-refs">References: <span class="cites">[62], [5]</span></div>
   </div>
   <div class="item">
     <div class="item-header"><span class="item-name">6–12 y (school-age)</span></div>
     <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (3 × age) + 7</span></div>
-    <div class="item-refs">References: <span class="cites">[62], [5]</span></div>
+    <div class="item-refs">References: <span class="cites">[63], [5]</span></div>
   </div>
 </section>
 
@@ -1302,21 +1310,22 @@
     <li id="ref-45">Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.</li>
     <li id="ref-46">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
     <li id="ref-47">Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.</li>
-    <li id="ref-48">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
-    <li id="ref-49">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
-    <li id="ref-50">Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231–239.</li>
-    <li id="ref-51">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
-    <li id="ref-52">Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.</li>
-    <li id="ref-53">Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.</li>
-    <li id="ref-54">Bridion (sugammadex) prescribing information. Merck Sharp &amp; Dohme Corp., 2025.</li>
-    <li id="ref-55">Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110.</li>
-    <li id="ref-56">Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.</li>
-    <li id="ref-57">Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.</li>
-    <li id="ref-58">Lönnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1–8-year-old children. Br J Anaesth 2000;85(4):506–511.</li>
-    <li id="ref-59">Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276–1280.</li>
-    <li id="ref-60">American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.</li>
-    <li id="ref-61">Luscombe MD, Owens BD. Weight estimation in resuscitation: is the current formula still valid? Arch Dis Child 2007;92(5):412–415.</li>
-    <li id="ref-62">Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.</li>
+    <li id="ref-48">Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.</li>
+    <li id="ref-49">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
+    <li id="ref-50">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
+    <li id="ref-51">Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.</li>
+    <li id="ref-52">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
+    <li id="ref-53">Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.</li>
+    <li id="ref-54">Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1025.</li>
+    <li id="ref-55">Bridion (sugammadex) prescribing information. Merck Sharp &amp; Dohme Corp., 2025.</li>
+    <li id="ref-56">Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110.</li>
+    <li id="ref-57">Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.</li>
+    <li id="ref-58">Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.</li>
+    <li id="ref-59">Lönnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1–8-year-old children. Br J Anaesth 2000;85(4):506–511.</li>
+    <li id="ref-60">Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276–1280.</li>
+    <li id="ref-61">American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.</li>
+    <li id="ref-62">Luscombe MD, Owens BD. Weight estimation in resuscitation: is the current formula still valid? Arch Dis Child 2007;92(5):412–415.</li>
+    <li id="ref-63">Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.</li>
   </ol>
 </section>
 

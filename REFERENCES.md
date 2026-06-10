@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.42** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -329,7 +329,7 @@ Generated from `assets/formulary.json` **v0.0.42** (updated 2026-06-09) by `tool
 ### Clemastine
 
 - Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.
 
 ### Adrenaline (nebulized)
 
@@ -343,10 +343,11 @@ Generated from `assets/formulary.json` **v0.0.42** (updated 2026-06-09) by `tool
 ### Succinylcholine (IM)
 
 - Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
+- Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
 
 ### Rocuronium (laryngospasm)
 
-- Reynolds LM, Lau M, Brown R, Luks A, Fisher DM. Intramuscular rocuronium in infants and children: dose-ranging and tracheal intubating conditions. Anesthesiology 1996;85(2):231–239.
+- Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
 
 ## Reversal Agents
 

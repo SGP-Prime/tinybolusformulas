@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.44** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -88,7 +88,7 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 
 ### Tidal Volume
 
-- Spaeth JP, Lam JE. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247–254.
+- Spaeth J, Schumann S, Humphreys S. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247–254.
 - Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764–1780.
 
 ## Induction
@@ -97,7 +97,7 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 
 - Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64–67.
 - Westrin P. The induction dose of propofol in infants 1–6 months of age and in children 10–16 years of age. Anesthesiology 1991;74(3):455–458.
-- van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, de Graaff JC. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551–558.
+- van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, van Loon K. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551–558.
 
 ### Ketamine
 
@@ -106,7 +106,7 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 
 ### Rocuronium
 
-- Meakin GH, Meretoja OA, Motsch J, et al. A comparison of rocuronium and vecuronium during anesthesia induction in children aged 1 to 10 years. Paediatr Anaesth 1995;5(6):359–362.
+- Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
 - Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
 
 ### Succinylcholine (RSI)
@@ -207,13 +207,13 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 
 ### Ephedrine
 
-- Lönnqvist PA. Management of arterial hypotension in newborns and infants. Curr Opin Anaesthesiol 2017;30(3):317–322.
-- Association of Paediatric Anaesthetists of Great Britain and Ireland. Guidelines on the Prevention and Management of Hypotension in Children Under Anaesthesia. APAGBI, 2022.
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ### Phenylephrine
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Tobias JD. Phenylephrine in pediatric anesthesia: applications and safety considerations. Paediatr Anaesth 2013;23(8):679–687.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
 ### Lidocaine
 
@@ -368,7 +368,7 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 ### Sugammadex
 
 - Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.
-- Lee JH, Kwak HJ, Lee JY, et al. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):257–267.
+- Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269–279.
 
 ### Sugammadex (profound block)
 
@@ -397,7 +397,7 @@ Generated from `assets/formulary.json` **v0.0.43** (updated 2026-06-09) by `tool
 ### Bupivacaine (perineural)
 
 - Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.
-- Suresh S, Ecoffey C, Bosenberg A, et al. ESRA/ASRA Joint Committee practice advisory on controversial topics in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.
+- Suresh S, Ecoffey C, Bosenberg A, et al. The European Society of Regional Anaesthesia and Pain Therapy/American Society of Regional Anesthesia and Pain Medicine recommendations on local anesthetics and adjuvants dosage in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.
 
 ### Ropivacaine (perineural)
 

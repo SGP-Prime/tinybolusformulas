@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -72,7 +72,12 @@
     "aun_propofol_1992": "Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
     "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
     "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, van Loon K. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558.",
-    "yang_neostigmine_2014": "Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110."
+    "yang_neostigmine_2014": "Yang L, Yang D, Li Q, Zuo Y, Lu D. Neostigmine for reversal of neuromuscular block in paediatric patients. Cochrane Database Syst Rev 2014;(5):CD010110.",
+    "baldwa_in_midazolam_2012": "Baldwa NM, Padvi AV, Dave NM, Garasia MB. Atomised intranasal midazolam spray as premedication in pediatric patients: comparison between two doses of 0.2 and 0.3 mg/kg. J Anesth 2012;26(3):346–350.",
+    "kim_dexamethasone_2007": "Kim MS, Coté CJ, Cristoloveanu C, Roth AG, Vornov P, Jennings MA, et al. There is no dose-escalation response to dexamethasone (0.0625–1.0 mg/kg) in pediatric tonsillectomy or adenotonsillectomy patients for preventing vomiting, reducing pain, shortening time to first liquid intake, or the incidence of voice change. Anesth Analg 2007;104(5):1052–1058.",
+    "gallagher_dexamethasone_2012": "Gallagher TQ, Hill C, Ojha S, Ference E, Keamy DG, Williams M, et al. Perioperative dexamethasone administration and risk of bleeding following tonsillectomy in children: a randomized controlled trial. JAMA 2012;308(12):1221–1226.",
+    "kim_propofol_sevo_2011": "Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.",
+    "paracetamol_iv_spc": "Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition."
   },
 
   "sections": [
@@ -137,7 +142,8 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023"]
+          "note": "after a sevoflurane inhalational induction, roughly halve the dose (lower requirement)",
+          "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023", "kim_propofol_sevo_2011"]
         },
         { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["taivainen_rocuronium_1996", "mazurek_rocuronium_1998"] },
@@ -145,8 +151,10 @@
         { "name": "Fentanyl (induction)",  "type": "linear_range", "low": 1,   "high": 3,                "unit": "µg", "route": "IV",                                         "references": ["bnfc_online"] },
         { "name": "Midazolam",             "type": "linear_max",   "factor": 0.1, "max": 5,              "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
         { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam (IN premed)", "type": "linear_range", "low": 0.2, "high": 0.3, "max": 10, "max_unit": "mg", "unit": "mg", "route": "IN", "note": "intranasal premedication · 0.3 mg/kg for faster, more reliable onset", "references": ["baldwa_in_midazolam_2012", "bnfc_online"] },
         { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
         { "name": "Dexamethasone (PONV)",  "type": "linear_max",   "factor": 0.15, "max": 5,             "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (anti-inflammatory)", "type": "linear_range", "low": 0.2, "high": 0.8, "max": 8, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "higher anti-inflammatory / airway dose (vs the 0.15 mg/kg PONV dose above)", "references": ["kim_dexamethasone_2007", "gallagher_dexamethasone_2012"] },
         { "name": "Etomidate",             "type": "linear_range", "low": 0.2, "high": 0.3,              "unit": "mg", "route": "IV", "note": "haemodynamically stable induction", "references": ["bnfc_online", "cote_anesthesia_2019"] },
         { "name": "Atracurium",            "type": "linear_range", "low": 0.4, "high": 0.5,              "unit": "mg", "route": "IV", "note": "intubating dose · 0.3–0.4 mg/kg in infants", "references": ["bnfc_online", "cote_anesthesia_2019"] },
         { "name": "Dexmedetomidine (IN premed)", "type": "linear_range", "low": 1, "high": 2,           "unit": "µg", "route": "IN", "note": "intranasal premedication · onset 30–45 min", "references": ["bnfc_online", "cote_anesthesia_2019"] }
@@ -158,15 +166,16 @@
       "items": [
         {
           "name": "Paracetamol",
-          "type": "linear_age",
+          "type": "linear_weight",
           "brackets": [
-            { "max_months": 1,   "low": 7.5, "high": 7.5 },
-            { "max_years":  999, "low": 15,  "high": 15 }
+            { "max_kg": 10,   "low": 7.5, "high": 7.5 },
+            { "max_kg": 9999, "low": 15,  "high": 15 }
           ],
           "max": 1, "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "references": ["anderson_paracetamol_2008", "bnfc_online"]
+          "note": "IV dosing splits by weight, not age (SmPC): ≤10 kg → 7.5 mg/kg",
+          "references": ["anderson_paracetamol_2008", "bnfc_online", "paracetamol_iv_spc"]
         },
         { "name": "Ketorolac",              "type": "linear_max",   "factor": 0.5, "max": 30, "unit": "mg", "route": "IV", "contraindicated_below_months": 6, "references": ["gupta_ketorolac_2005", "bnfc_online"] },
         {
@@ -191,7 +200,8 @@
           "contraindicated_below_months": 3,
           "references": ["ziesenitz_metamizole_2019", "fieler_metamizole_2015"]
         },
-        { "name": "Ibuprofen (IV)",         "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                                                       "references": ["southey_ibuprofen_2009", "bnfc_online"] }
+        { "name": "Ibuprofen (IV)",         "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                                                       "references": ["southey_ibuprofen_2009", "bnfc_online"] },
+        { "name": "Ibuprofen (oral)",       "type": "linear_range", "low": 5, "high": 10, "max": 400, "unit": "mg", "route": "PO", "note": "analgesic / antipyretic · typically 7–10 mg/kg/dose", "references": ["southey_ibuprofen_2009", "bnfc_online"] }
       ]
     },
     {
@@ -266,7 +276,7 @@
             { "max_years": 11,  "value": "Macintosh 2" },
             { "max_years": 999, "value": "Macintosh 3" }
           ],
-          "note": "straight blade in infants — lift the floppy epiglottis directly",
+          "note": "infants: straight (Miller) blade preferred to lift the floppy epiglottis directly · Macintosh 0–1 an accepted alternative",
           "references": ["passi_blades_2014", "cote_anesthesia_2019"]
         },
         {
@@ -320,7 +330,7 @@
             { "max_years": 999, "value": "4–10 puffs" }
           ],
           "route": "Inhaled",
-          "note": "100 µg/puff · repeat incrementally as needed",
+          "note": "100 µg/puff · repeat incrementally as needed · rough estimate ≈1 puff per 10 kg (10 µg/kg)",
           "references": ["sign_158_asthma", "gina_asthma_2024"]
         },
         {

@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.46** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -98,6 +98,7 @@ Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool
 - Aun CST, Short TG, Leung DHY, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64–67.
 - Westrin P. The induction dose of propofol in infants 1–6 months of age and in children 10–16 years of age. Anesthesiology 1991;74(3):455–458.
 - van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, van Loon K. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551–558.
+- Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.
 
 ### Ketamine
 
@@ -126,6 +127,11 @@ Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
+### Midazolam (IN premed)
+
+- Baldwa NM, Padvi AV, Dave NM, Garasia MB. Atomised intranasal midazolam spray as premedication in pediatric patients: comparison between two doses of 0.2 and 0.3 mg/kg. J Anesth 2012;26(3):346–350.
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
 ### Ondansetron
 
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
@@ -135,6 +141,11 @@ Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool
 
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
+### Dexamethasone (anti-inflammatory)
+
+- Kim MS, Coté CJ, Cristoloveanu C, Roth AG, Vornov P, Jennings MA, et al. There is no dose-escalation response to dexamethasone (0.0625–1.0 mg/kg) in pediatric tonsillectomy or adenotonsillectomy patients for preventing vomiting, reducing pain, shortening time to first liquid intake, or the incidence of voice change. Anesth Analg 2007;104(5):1052–1058.
+- Gallagher TQ, Hill C, Ojha S, Ference E, Keamy DG, Williams M, et al. Perioperative dexamethasone administration and risk of bleeding following tonsillectomy in children: a randomized controlled trial. JAMA 2012;308(12):1221–1226.
 
 ### Etomidate
 
@@ -157,6 +168,7 @@ Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool
 
 - Anderson BJ. Paracetamol (acetaminophen): mechanisms of action. Paediatr Anaesth 2008;18(10):915–921.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition.
 
 ### Ketorolac
 
@@ -179,6 +191,11 @@ Generated from `assets/formulary.json` **v0.0.45** (updated 2026-06-09) by `tool
 - Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.
 
 ### Ibuprofen (IV)
+
+- Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
+### Ibuprofen (oral)
 
 - Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.

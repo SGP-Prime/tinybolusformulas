@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -77,7 +77,9 @@
     "kim_dexamethasone_2007": "Kim MS, Coté CJ, Cristoloveanu C, Roth AG, Vornov P, Jennings MA, et al. There is no dose-escalation response to dexamethasone (0.0625–1.0 mg/kg) in pediatric tonsillectomy or adenotonsillectomy patients for preventing vomiting, reducing pain, shortening time to first liquid intake, or the incidence of voice change. Anesth Analg 2007;104(5):1052–1058.",
     "gallagher_dexamethasone_2012": "Gallagher TQ, Hill C, Ojha S, Ference E, Keamy DG, Williams M, et al. Perioperative dexamethasone administration and risk of bleeding following tonsillectomy in children: a randomized controlled trial. JAMA 2012;308(12):1221–1226.",
     "kim_propofol_sevo_2011": "Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.",
-    "paracetamol_iv_spc": "Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition."
+    "paracetamol_iv_spc": "Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition.",
+    "meakin_sux_1989": "Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.",
+    "cravero_spa_opioids_2019": "Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571."
   },
 
   "sections": [
@@ -147,9 +149,38 @@
         },
         { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["taivainen_rocuronium_1996", "mazurek_rocuronium_1998"] },
-        { "name": "Succinylcholine (RSI)", "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV", "note": "intubating dose · laryngospasm + IM doses in Respiratory", "references": ["mazurek_rocuronium_1998", "cote_anesthesia_2019"] },
-        { "name": "Fentanyl (induction)",  "type": "linear_range", "low": 1,   "high": 3,                "unit": "µg", "route": "IV",                                         "references": ["bnfc_online"] },
-        { "name": "Midazolam",             "type": "linear_max",   "factor": 0.1, "max": 5,              "unit": "mg", "route": "IV",                                         "references": ["bnfc_online"] },
+        {
+          "name": "Succinylcholine (RSI)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 12,  "low": 1, "high": 2, "note": "infants need a higher dose (~2–3 mg/kg) — larger extracellular-fluid volume of distribution (Meakin 1989)" },
+            { "max_years":  999, "low": 1, "high": 2 }
+          ],
+          "unit": "mg", "route": "IV",
+          "note": "intubating dose · laryngospasm + IM doses in Respiratory",
+          "references": ["mazurek_rocuronium_1998", "cote_anesthesia_2019", "meakin_sux_1989"]
+        },
+        {
+          "name": "Fentanyl (induction)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 1, "high": 3, "note": "neonate: reduce dose · inject slowly (chest-wall rigidity) · monitor for apnoea (SPA 2019)" },
+            { "max_years":  999, "low": 1, "high": 3 }
+          ],
+          "unit": "µg", "route": "IV",
+          "references": ["bnfc_online", "cravero_spa_opioids_2019"]
+        },
+        {
+          "name": "Midazolam",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 6,   "low": 0.1, "high": 0.1, "note": "young infant <6 mo: reduced clearance — prolonged effect · slow injection · hypotension, esp. with an opioid" },
+            { "max_years":  999, "low": 0.1, "high": 0.1 }
+          ],
+          "max": 5, "max_unit": "mg",
+          "unit": "mg", "route": "IV",
+          "references": ["bnfc_online"]
+        },
         { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
         { "name": "Midazolam (IN premed)", "type": "linear_range", "low": 0.2, "high": 0.3, "max": 10, "max_unit": "mg", "unit": "mg", "route": "IN", "note": "intranasal premedication · 0.3 mg/kg for faster, more reliable onset", "references": ["baldwa_in_midazolam_2012", "bnfc_online"] },
         { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
@@ -189,7 +220,16 @@
           "route": "IV",
           "references": ["bouwmeester_morphine_2004", "bnfc_online"]
         },
-        { "name": "Fentanyl (analgesia)",   "type": "linear_range", "low": 0.5, "high": 1,            "unit": "µg", "route": "IV",                                                                "references": ["bnfc_online", "apagbi_pain_2012"] },
+        {
+          "name": "Fentanyl (analgesia)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 0.5, "high": 1, "note": "neonate: reduce dose · inject slowly · monitor for apnoea (SPA 2019)" },
+            { "max_years":  999, "low": 0.5, "high": 1 }
+          ],
+          "unit": "µg", "route": "IV",
+          "references": ["bnfc_online", "apagbi_pain_2012", "cravero_spa_opioids_2019"]
+        },
         {
           "name": "Metamizole",
           "type": "linear_age",

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -192,8 +192,11 @@
         { "name": "Fentanyl (analgesia)",   "type": "linear_range", "low": 0.5, "high": 1,            "unit": "µg", "route": "IV",                                                                "references": ["bnfc_online", "apagbi_pain_2012"] },
         {
           "name": "Metamizole",
-          "type": "linear_range",
-          "low": 8, "high": 16,
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 11,  "low": 5,  "high": 5,  "note": "reduced in infants <1 y — higher exposure per dose from immature metabolism (Ziesenitz 2019)" },
+            { "max_years":  999, "low": 10, "high": 20 }
+          ],
           "max": 1, "max_unit": "g",
           "unit": "mg",
           "route": "IV",

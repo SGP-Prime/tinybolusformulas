@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "updated": "2026-06-09",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -153,7 +153,7 @@
           "name": "Succinylcholine (RSI)",
           "type": "linear_age",
           "brackets": [
-            { "max_months": 12,  "low": 1, "high": 2, "note": "infants need a higher dose (~2–3 mg/kg) — larger extracellular-fluid volume of distribution (Meakin 1989)" },
+            { "max_months": 12,  "low": 2, "high": 3, "note": "raised in infants — larger extracellular-fluid volume of distribution (Meakin 1989)" },
             { "max_years":  999, "low": 1, "high": 2 }
           ],
           "unit": "mg", "route": "IV",
@@ -412,7 +412,17 @@
         { "name": "Clemastine",           "type": "linear_max",   "factor": 25,                  "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "tavegyl_spc"] },
         { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
         { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
-        { "name": "Succinylcholine (IM)",              "type": "linear",       "factor": 4,                "unit": "mg", "route": "IM", "note": "for laryngospasm or RSI without IV access", "references": ["larson_laryngospasm_1998", "gavel_laryngospasm_2014"] },
+        {
+          "name": "Succinylcholine (IM)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 12,  "low": 4, "high": 5, "note": "raised in infants — larger extracellular-fluid volume of distribution (Meakin 1989)" },
+            { "max_years":  999, "low": 4, "high": 4 }
+          ],
+          "unit": "mg", "route": "IM",
+          "note": "for laryngospasm or RSI without IV access",
+          "references": ["larson_laryngospasm_1998", "gavel_laryngospasm_2014", "meakin_sux_1989"]
+        },
         { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV", "note": "when succinylcholine is unavailable or contraindicated", "references": ["gavel_laryngospasm_2014"] }
       ]
     },

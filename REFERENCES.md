@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.49** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.50** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -365,6 +365,7 @@ Generated from `assets/formulary.json` **v0.0.49** (updated 2026-06-09) by `tool
 
 - Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
 - Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
+- Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.
 
 ### Rocuronium (laryngospasm)
 

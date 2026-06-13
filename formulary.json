@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.50",
-  "updated": "2026-06-09",
+  "version": "0.0.51",
+  "updated": "2026-06-13",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -103,7 +103,7 @@
             { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
           ],
           "unit": "µg", "route": "IV",
-          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · no minimum (Barrington 2011)",
+          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)",
           "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
         },
         { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
@@ -148,6 +148,7 @@
           "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023", "kim_propofol_sevo_2011"]
         },
         { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
+        { "name": "Ketamine (IM)",         "type": "linear_range", "low": 4,   "high": 5,                "unit": "mg", "route": "IM", "note": "induction/sedation when no IV access · onset 2–5 min", "references": ["craven_ketamine_2007", "bnfc_online"] },
         { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["taivainen_rocuronium_1996", "mazurek_rocuronium_1998"] },
         {
           "name": "Succinylcholine (RSI)",
@@ -252,7 +253,7 @@
       "title": "Emergency Drugs",
       "items": [
         { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "note": "repeat every 3–5 min", "references": ["erc_pls_2025", "aha_pals_2025"] },
-        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "fixed-dose convention: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "weight-based 10 µg/kg (shown) · autoinjector equivalents: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
         { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "note": "titrate to response · IM adrenaline is first-line", "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
         {
           "name": "Atropine",
@@ -262,7 +263,7 @@
             { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
           ],
           "unit": "µg", "route": "IV",
-          "note": "max single dose 0.5 mg child · 1 mg adolescent · cumulative max 2 mg",
+          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)",
           "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
         },
         {
@@ -275,8 +276,8 @@
           "unit": "mg", "route": "IV",
           "references": ["szostek_ephedrine_2023", "bnfc_online", "cote_anesthesia_2019"]
         },
-        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV",                       "references": ["bnfc_online", "cote_anesthesia_2019"] },
-        { "name": "Lidocaine",                "type": "linear_max",   "factor": 1,   "max": 100, "unit": "mg", "route": "IV",                                 "references": ["erc_pls_2025"] },
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV", "note": "vasopressor — hypotension (also tet spells)", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Lidocaine",                "type": "linear_max",   "factor": 1,   "max": 100, "unit": "mg", "route": "IV", "note": "antiarrhythmic — alternative to amiodarone for shock-refractory VF/pVT", "references": ["erc_pls_2025", "aha_pals_2025"] },
         { "name": "Glucose 10%",              "type": "linear",       "factor": 2,   "unit": "mL", "route": "IV/IO", "note": "0.2 g/kg for hypoglycaemia · recheck glucose after", "references": ["erc_pls_2025", "apls_7e_2023"] },
         { "name": "Calcium gluconate 10%",    "type": "linear_max",   "factor": 0.5, "max": 30,  "unit": "mL", "route": "IV/IO", "note": "hyperkalaemia · hypocalcaemia · CCB toxicity · give slowly", "references": ["erc_pls_2025", "apls_7e_2023"] },
         { "name": "Sodium bicarbonate 8.4%",  "type": "linear",       "factor": 1,   "unit": "mmol", "route": "IV/IO", "note": "1 mL/kg of 8.4% · for hyperkalaemia or TCA toxicity, not routine arrest", "references": ["erc_pls_2025", "apls_7e_2023"] },

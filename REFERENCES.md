@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.50** (updated 2026-06-09) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.51** (updated 2026-06-13) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -101,6 +101,11 @@ Generated from `assets/formulary.json` **v0.0.50** (updated 2026-06-09) by `tool
 - Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.
 
 ### Ketamine
+
+- Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48–53.
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
+### Ketamine (IM)
 
 - Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48–53.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
@@ -239,6 +244,7 @@ Generated from `assets/formulary.json` **v0.0.50** (updated 2026-06-09) by `tool
 ### Lidocaine
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.
 
 ### Glucose 10%
 

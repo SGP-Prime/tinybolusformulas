@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.50 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.51 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.50 · Updated 2026-06-09</p>
+  <p class="version">Version 0.0.51 · Updated 2026-06-13</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -369,7 +369,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · no minimum (Barrington 2011)</div>
+  <div class="item-note">20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)</div>
   <div class="item-refs">References: <span class="cites">[1], [4], [5]</span></div>
 </div>
 
@@ -500,6 +500,16 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[13], [14]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ketamine (IM)</span>
+    <span class="item-route">IM</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4–5 mg/kg</span></div>
+  <div class="item-note">induction/sedation when no IV access · onset 2–5 min</div>
   <div class="item-refs">References: <span class="cites">[13], [14]</span></div>
 </div>
 
@@ -754,7 +764,7 @@
     <span class="item-route">IM</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">fixed-dose convention: &lt;6 y 150 µg · 6–12 y 300 µg · &gt;12 y 500 µg (EAACI)</div>
+  <div class="item-note">weight-based 10 µg/kg (shown) · autoinjector equivalents: &lt;6 y 150 µg · 6–12 y 300 µg · &gt;12 y 500 µg (EAACI)</div>
   <div class="item-refs">References: <span class="cites">[31]</span></div>
 </div>
 
@@ -780,7 +790,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">max single dose 0.5 mg child · 1 mg adolescent · cumulative max 2 mg</div>
+  <div class="item-note">20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)</div>
   <div class="item-refs">References: <span class="cites">[1], [4], [5]</span></div>
 </div>
 
@@ -805,6 +815,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–20 µg/kg (max 500 µg)</span></div>
+  <div class="item-note">vasopressor — hypotension (also tet spells)</div>
   <div class="item-refs">References: <span class="cites">[14], [6]</span></div>
 </div>
 
@@ -814,7 +825,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg (max 100 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[1]</span></div>
+  <div class="item-note">antiarrhythmic — alternative to amiodarone for shock-refractory VF/pVT</div>
+  <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
 <div class="item">

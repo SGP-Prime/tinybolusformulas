@@ -1,0 +1,575 @@
+{
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
+  "version": "0.0.53",
+  "updated": "2026-06-14",
+  "source": "TinyBolus_Formularium_v1.md",
+
+  "remote_config": {
+    "enabled": true,
+    "url": "https://raw.githubusercontent.com/SGP-Prime/tinybolusformulas/main/formulary.json",
+    "timeout_seconds": 4
+  },
+
+  "$references_comment": "Normalized citation map. Items reference entries here by key (see item.references: [...]). The About screen resolves each key to the full citation text. Keys are short but readable; pattern: first-author-or-body_topic_year.",
+  "references": {
+    "anene_dexamethasone_1996": "Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.",
+    "malhotra_dexamethasone_2009": "Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.",
+    "rcpch_txa_2012": "Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.",
+    "erc_pls_2025": "Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.",
+    "aha_pals_2025": "Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.",
+    "ilcor_defib_2025": "Acworth J et al. ILCOR 2025 systematic review on pediatric defibrillation energy. Resuscitation Plus 2025;24:100991.",
+    "barrington_atropine_2011": "Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783\u2013784.",
+    "bnfc_online": "Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.",
+    "eaaci_anaphylaxis_2014": "Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026\u20131045.",
+    "szostek_ephedrine_2023": "Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603\u2013610.",
+    "emhg_mh_2010": "Glahn KPE, Ellis FR, Halsall PJ, M\u00fcller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417\u2013420.",
+    "aoa_mh_2021": "Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655\u2013664.",
+    "craven_ketamine_2007": "Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48\u201353.",
+    "taivainen_rocuronium_1996": "Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271\u2013275.",
+    "mazurek_rocuronium_1998": "Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259\u20131262.",
+    "gan_ponv_2020": "Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411\u2013448.",
+    "apagbi_pain_2012": "Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1\u201379.",
+    "anderson_paracetamol_2008": "Anderson BJ. Paracetamol (acetaminophen): mechanisms of action. Paediatr Anaesth 2008;18(10):915\u2013921.",
+    "bouwmeester_morphine_2004": "Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208\u2013217.",
+    "plaud_sugammadex_2009": "Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284\u2013294.",
+    "lee_sugammadex_2024": "Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269\u2013279.",
+    "lee_sugammadex_profound_2009": "Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020\u20131024.",
+    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme LLC, 2025.",
+    "spaeth_ventilation_2022": "Spaeth J, Schumann S, Humphreys S. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247\u2013254.",
+    "kneyber_pemvecc_2017": "Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764\u20131780.",
+    "holliday_segar_1957": "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823\u2013832.",
+    "feld_maintenance_2018": "Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.",
+    "goobie_txa_cranio_2011": "Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862\u2013871.",
+    "faraoni_antifibrinolytic_2014": "Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628\u2013636.",
+    "apls_7e_2023": "Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.",
+    "luscombe_weight_2011": "Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590\u2013593.",
+    "cote_anesthesia_2019": "Cot\u00e9 CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.",
+    "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
+    "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm \u2014 the best treatment. Anesthesiology 1998;89(5):1293\u20131294.",
+    "gavel_laryngospasm_2014": "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47\u201351.",
+    "tavegyl_spc": "Tavegyl (clemastine fumarate) 1 mg/mL solution for injection \u2014 Summary of Product Characteristics, current edition.",
+    "griffiths_mgso4_2016": "Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.",
+    "ring_anaphylaxis_2021": "Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1\u201325.",
+    "neal_last_2018": "Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113\u2013123.",
+    "suresh_esra_asra_2018": "Suresh S, Ecoffey C, Bosenberg A, et al. The European Society of Regional Anaesthesia and Pain Therapy/American Society of Regional Anesthesia and Pain Medicine recommendations on local anesthetics and adjuvants dosage in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211\u2013216.",
+    "lonnqvist_ropi_2000": "L\u00f6nnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1\u20138-year-old children. Br J Anaesth 2000;85(4):506\u2013511.",
+    "bosenberg_ropi_2001": "Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276\u20131280.",
+    "asra_last_checklist_2020": "American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.",
+    "duracher_ett_2008": "Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113\u2013118.",
+    "phipps_ett_depth_2005": "Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519\u2013522.",
+    "lau_ett_length_2006": "Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238\u20131243.",
+    "intersurgical_igel_guide": "Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).",
+    "beringer_igel_2011": "Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121\u20131126.",
+    "passi_blades_2014": "Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869\u2013874.",
+    "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.",
+    "ambu_auragain_ifu_2023": "Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask \u2014 Instructions for Use. V7, August 2023.",
+    "gupta_ketorolac_2005": "Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139\u2013142.",
+    "ziesenitz_metamizole_2019": "Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491\u20131502.",
+    "fieler_metamizole_2015": "Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839\u2013843.",
+    "southey_ibuprofen_2009": "Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207\u20132222.",
+    "sign_158_asthma": "British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.",
+    "gina_asthma_2024": "Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/",
+    "griffiths_ipratropium_2013": "Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.",
+    "aun_propofol_1992": "Aun CST, Short SM, Leung DH, Oh TE. Induction dose-response of propofol in unpremedicated children. Br J Anaesth 1992;68(1):64\u201367.",
+    "westrin_propofol_1991": "Westrin P. The induction dose of propofol in infants 1\u20136 months of age and in children 10\u201316 years of age. Anesthesiology 1991;74(3):455\u2013458.",
+    "van_dijk_propofol_2023": "van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, van Loon K. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551\u2013558.",
+    "baldwa_in_midazolam_2012": "Baldwa NM, Padvi AV, Dave NM, Garasia MB. Atomised intranasal midazolam spray as premedication in pediatric patients: comparison between two doses of 0.2 and 0.3 mg/kg. J Anesth 2012;26(3):346–350.",
+    "kim_propofol_sevo_2011": "Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.",
+    "paracetamol_iv_spc": "Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition.",
+    "meakin_sux_1989": "Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.",
+    "cravero_spa_opioids_2019": "Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571."
+  },
+
+  "sections": [
+    {
+      "id": "pals",
+      "title": "EMERGENCY — PALS",
+      "emergency": true,
+      "items": [
+        { "name": "Compression rate",           "type": "fixed",    "value": "100–120/min",                                    "references": ["erc_pls_2025"] },
+        { "name": "Compression depth",          "type": "computed", "computer": "compression_depth", "note": "not exceeding 6 cm at any age", "references": ["erc_pls_2025"] },
+        { "name": "C:V ratio (2 rescuers)",     "type": "fixed",    "value": "15:2", "note": "1 rescuer: 30:2",                  "references": ["erc_pls_2025"] },
+        { "name": "Defibrillation",             "type": "linear",     "factor": 4,    "unit": "J",  "note": "escalate to 8 J/kg (max 360 J) for refractory VF/pVT from the 6th shock", "references": ["erc_pls_2025", "ilcor_defib_2025"] },
+        { "name": "Cardioversion (synchronised)", "type": "linear",   "factor": 1,    "unit": "J",  "note": "double per attempt to max 4 J/kg",                                       "references": ["erc_pls_2025"] },
+        { "name": "Adrenaline (cardiac arrest)", "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "note": "repeat every 3–5 min", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Amiodarone",                 "type": "linear_max", "factor": 5,    "max": 300, "unit": "mg", "route": "IV",  "note": "max 150 mg for subsequent doses", "references": ["erc_pls_2025"] },
+        {
+          "name": "Atropine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_years": 11,  "low": 20, "high": 20, "max": 500, "max_unit": "µg" },
+            { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
+          ],
+          "unit": "µg", "route": "IV",
+          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)",
+          "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
+        },
+        { "name": "Adenosine (1st dose)",       "type": "linear_max", "factor": 0.1,  "max": 6,  "unit": "mg", "route": "IV",   "references": ["erc_pls_2025"] },
+        { "name": "Adenosine (2nd dose)",       "type": "linear_max", "factor": 0.3,  "max": 18, "unit": "mg", "route": "IV",   "note": "if SVT persists, escalate in 0.05–0.1 mg/kg steps to a max single dose of 0.5 mg/kg (ERC 2025)", "references": ["erc_pls_2025"] }
+      ]
+    },
+    {
+      "id": "vital_signs",
+      "title": "Vital Signs",
+      "items": [
+        { "name": "Heart Rate",       "type": "computed", "computer": "vitals_hr",  "unit": "bpm",  "references": ["cote_anesthesia_2019"] },
+        { "name": "Systolic BP",      "type": "computed", "computer": "vitals_sbp", "unit": "mmHg", "references": ["cote_anesthesia_2019"] },
+        { "name": "Diastolic BP",     "type": "computed", "computer": "vitals_dbp", "unit": "mmHg", "references": ["cote_anesthesia_2019"] },
+        { "name": "Respiratory Rate", "type": "computed", "computer": "vitals_rr",  "unit": "/min", "references": ["cote_anesthesia_2019"] },
+        {
+          "name": "Tidal Volume",
+          "type": "linear_range",
+          "low": 5, "high": 7,
+          "unit": "mL",
+          "note": "intraoperative ventilation, healthy lungs · use lower end (5 mL/kg) for neonates and very young infants",
+          "references": ["spaeth_ventilation_2022", "kneyber_pemvecc_2017"]
+        }
+      ]
+    },
+    {
+      "id": "induction",
+      "title": "Induction",
+      "items": [
+        {
+          "name": "Propofol",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 1,   "high": 2.5 },
+            { "max_months": 12,  "low": 3,   "high": 4   },
+            { "max_years":  6,   "low": 3,   "high": 3.5 },
+            { "max_years":  12,  "low": 2.5, "high": 3   },
+            { "max_years":  999, "low": 2,   "high": 2.5 }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "note": "after a sevoflurane inhalational induction, roughly halve the dose (lower requirement)",
+          "references": ["aun_propofol_1992", "westrin_propofol_1991", "van_dijk_propofol_2023", "kim_propofol_sevo_2011"]
+        },
+        { "name": "Ketamine",              "type": "linear_range", "low": 1,   "high": 2,                "unit": "mg", "route": "IV",                                         "references": ["craven_ketamine_2007", "bnfc_online"] },
+        { "name": "Ketamine (IM)",         "type": "linear_range", "low": 4,   "high": 5,                "unit": "mg", "route": "IM", "note": "induction/sedation when no IV access · onset 2–5 min", "references": ["craven_ketamine_2007", "bnfc_online"] },
+        { "name": "Rocuronium",            "type": "linear_range", "low": 0.6, "high": 1.2,              "unit": "mg", "route": "IV", "note": "intubation 0.6 · RSI 1.0–1.2", "references": ["taivainen_rocuronium_1996", "mazurek_rocuronium_1998"] },
+        {
+          "name": "Succinylcholine (RSI)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 12,  "low": 2, "high": 3, "note": "raised in infants — larger extracellular-fluid volume of distribution (Meakin 1989)" },
+            { "max_years":  999, "low": 1, "high": 2 }
+          ],
+          "unit": "mg", "route": "IV",
+          "note": "intubating dose · laryngospasm + IM doses in Respiratory",
+          "references": ["mazurek_rocuronium_1998", "cote_anesthesia_2019", "meakin_sux_1989"]
+        },
+        {
+          "name": "Fentanyl (induction)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 1, "high": 3, "note": "neonate: reduce dose · inject slowly (chest-wall rigidity) · monitor for apnoea (SPA 2019)" },
+            { "max_years":  999, "low": 1, "high": 3 }
+          ],
+          "unit": "µg", "route": "IV",
+          "references": ["bnfc_online", "cravero_spa_opioids_2019"]
+        },
+        {
+          "name": "Midazolam",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 6,   "low": 0.1, "high": 0.1, "note": "young infant <6 mo: reduced clearance — prolonged effect · slow injection · hypotension, esp. with an opioid" },
+            { "max_years":  999, "low": 0.1, "high": 0.1 }
+          ],
+          "max": 5, "max_unit": "mg",
+          "unit": "mg", "route": "IV",
+          "references": ["bnfc_online"]
+        },
+        { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam (IN premed)", "type": "linear_range", "low": 0.2, "high": 0.3, "max": 10, "max_unit": "mg", "unit": "mg", "route": "IN", "note": "intranasal premedication · 0.3 mg/kg for faster, more reliable onset", "references": ["baldwa_in_midazolam_2012", "bnfc_online"] },
+        { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (PONV)",  "type": "linear_max",   "factor": 0.15, "max": 5,             "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (anti-inflammatory)", "type": "linear_max", "factor": 0.5, "max": 8, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "airway oedema / post-extubation stridor · 0.5 mg/kg/dose (vs the 0.15 mg/kg PONV dose above)", "references": ["anene_dexamethasone_1996", "malhotra_dexamethasone_2009"] },
+        { "name": "Etomidate",             "type": "linear_range", "low": 0.2, "high": 0.3,              "unit": "mg", "route": "IV", "note": "haemodynamically stable induction", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Atracurium",            "type": "linear_range", "low": 0.4, "high": 0.5,              "unit": "mg", "route": "IV", "note": "intubating dose · 0.3–0.4 mg/kg in infants", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Dexmedetomidine (IN premed)", "type": "linear_range", "low": 1, "high": 2,           "unit": "µg", "route": "IN", "note": "intranasal premedication · onset 30–45 min", "references": ["bnfc_online", "cote_anesthesia_2019"] }
+      ]
+    },
+    {
+      "id": "painkillers",
+      "title": "Painkillers",
+      "items": [
+        {
+          "name": "Paracetamol",
+          "type": "linear_weight",
+          "brackets": [
+            { "max_kg": 10,   "low": 7.5, "high": 7.5 },
+            { "max_kg": 9999, "low": 15,  "high": 15 }
+          ],
+          "max": 1, "max_unit": "g",
+          "unit": "mg",
+          "route": "IV",
+          "note": "IV dosing splits by weight, not age (SmPC): ≤10 kg → 7.5 mg/kg",
+          "references": ["anderson_paracetamol_2008", "bnfc_online", "paracetamol_iv_spc"]
+        },
+        { "name": "Ketorolac",              "type": "linear_max",   "factor": 0.5, "max": 30, "unit": "mg", "route": "IV", "contraindicated_below_months": 6, "references": ["gupta_ketorolac_2005", "bnfc_online"] },
+        {
+          "name": "Morphine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 0.025, "high": 0.05 },
+            { "max_years":  999, "low": 0.1,   "high": 0.1  }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "references": ["bouwmeester_morphine_2004", "bnfc_online"]
+        },
+        {
+          "name": "Fentanyl (analgesia)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 0.5, "high": 1, "note": "neonate: reduce dose · inject slowly · monitor for apnoea (SPA 2019)" },
+            { "max_years":  999, "low": 0.5, "high": 1 }
+          ],
+          "unit": "µg", "route": "IV",
+          "references": ["bnfc_online", "apagbi_pain_2012", "cravero_spa_opioids_2019"]
+        },
+        {
+          "name": "Metamizole",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 11,  "low": 5,  "high": 5,  "note": "reduced in infants <1 y — higher exposure per dose from immature metabolism (Ziesenitz 2019)" },
+            { "max_years":  999, "low": 10, "high": 20 }
+          ],
+          "max": 1, "max_unit": "g",
+          "unit": "mg",
+          "route": "IV",
+          "contraindicated_below_months": 3,
+          "references": ["ziesenitz_metamizole_2019", "fieler_metamizole_2015"]
+        },
+        { "name": "Ibuprofen (IV)",         "type": "linear_max",   "factor": 10,  "max": 400, "unit": "mg", "route": "IV",                                                                       "references": ["southey_ibuprofen_2009", "bnfc_online"] },
+        { "name": "Ibuprofen (oral)",       "type": "linear_range", "low": 5, "high": 10, "max": 400, "unit": "mg", "route": "PO", "note": "analgesic / antipyretic · typically 7–10 mg/kg/dose", "references": ["southey_ibuprofen_2009", "bnfc_online"] }
+      ]
+    },
+    {
+      "id": "emergency",
+      "title": "Emergency Drugs",
+      "items": [
+        { "name": "Adrenaline (cardiac arrest)",  "type": "linear_max", "factor": 10,  "max": 1, "max_unit": "mg", "unit": "µg", "route": "IV/IO", "note": "repeat every 3–5 min", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Adrenaline (anaphylaxis IM)",  "type": "linear_max", "factor": 10,  "max": 500,                 "unit": "µg", "route": "IM", "note": "weight-based 10 µg/kg (shown) · autoinjector equivalents: <6 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (EAACI)", "references": ["eaaci_anaphylaxis_2014"] },
+        { "name": "Adrenaline (anaphylaxis IV)",  "type": "linear",     "factor": 1,                               "unit": "µg", "route": "IV",    "note": "titrate to response · IM adrenaline is first-line", "references": ["erc_pls_2025", "eaaci_anaphylaxis_2014"] },
+        {
+          "name": "Atropine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_years": 11,  "low": 20, "high": 20, "max": 500, "max_unit": "µg" },
+            { "max_years": 999, "low": 20, "high": 20, "max": 1,   "max_unit": "mg" }
+          ],
+          "unit": "µg", "route": "IV",
+          "note": "20 µg/kg · max single dose 0.5 mg child / 1 mg adolescent · cumulative max 2 mg · no minimum (Barrington 2011)",
+          "references": ["erc_pls_2025", "barrington_atropine_2011", "apls_7e_2023"]
+        },
+        {
+          "name": "Ephedrine",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 6,   "low": 0.6, "high": 1.2, "note": "young infants need ~10× the adult dose (indirect agent · immature SNS) · 1.2 mg/kg optimal (Szostek 2023)" },
+            { "max_years":  999, "low": 0.1, "high": 0.3 }
+          ],
+          "unit": "mg", "route": "IV",
+          "references": ["szostek_ephedrine_2023", "bnfc_online", "cote_anesthesia_2019"]
+        },
+        { "name": "Phenylephrine",            "type": "linear_range", "low": 5,   "high": 20,  "max": 500, "max_unit": "µg", "unit": "µg", "route": "IV", "note": "vasopressor — hypotension (also tet spells)", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Lidocaine",                "type": "linear_max",   "factor": 1,   "max": 100, "unit": "mg", "route": "IV", "note": "antiarrhythmic — alternative to amiodarone for shock-refractory VF/pVT", "references": ["erc_pls_2025", "aha_pals_2025"] },
+        { "name": "Glucose 10%",              "type": "linear",       "factor": 2,   "unit": "mL", "route": "IV/IO", "note": "0.2 g/kg for hypoglycaemia · recheck glucose after", "references": ["erc_pls_2025", "apls_7e_2023"] },
+        { "name": "Calcium gluconate 10%",    "type": "linear_max",   "factor": 0.5, "max": 30,  "unit": "mL", "route": "IV/IO", "note": "hyperkalaemia · hypocalcaemia · CCB toxicity · give slowly", "references": ["erc_pls_2025", "apls_7e_2023"] },
+        { "name": "Sodium bicarbonate 8.4%",  "type": "linear",       "factor": 1,   "unit": "mmol", "route": "IV/IO", "note": "1 mL/kg of 8.4% · for hyperkalaemia or TCA toxicity, not routine arrest", "references": ["erc_pls_2025", "apls_7e_2023"] },
+        { "name": "Dantrolene",               "type": "linear",       "factor": 2.5,           "unit": "mg", "route": "IV", "note": "repeat 5–10 min · max 10 mg/kg", "references": ["aoa_mh_2021", "emhg_mh_2010"] }
+      ]
+    },
+    {
+      "id": "fluids",
+      "title": "Fluids and Blood",
+      "items": [
+        { "name": "Fluid Bolus",       "type": "linear",       "factor": 10, "unit": "mL",   "route": "IV",                                                        "references": ["erc_pls_2025"] },
+        { "name": "Maintenance",       "type": "computed",     "computer": "fluid_maintenance", "unit": "mL/h", "note": "4-2-1 rule (Holliday-Segar)",              "references": ["holliday_segar_1957", "feld_maintenance_2018"] },
+        {
+          "name": "Total Blood Volume",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 1,   "low": 85, "high": 85 },
+            { "max_years":  2,   "low": 75, "high": 75 },
+            { "max_years":  999, "low": 70, "high": 70 }
+          ],
+          "unit": "mL",
+          "references": ["cote_anesthesia_2019"]
+        },
+        { "name": "Tranexamic Acid",   "type": "linear_max", "factor": 15, "max": 1, "max_unit": "g", "unit": "mg", "route": "IV", "note": "loading dose · then 2 mg/kg/h infusion (RCPCH)",                                                  "references": ["rcpch_txa_2012", "faraoni_antifibrinolytic_2014", "goobie_txa_cranio_2011"] }
+      ]
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment",
+      "items": [
+        { "name": "ETT",                  "type": "computed", "computer": "ett", "note": "for uncuffed tube, add 0.5 to size", "references": ["duracher_ett_2008"] },
+        { "name": "ETT insertion depth",  "type": "computed", "computer": "ett_insertion_depth", "note": "nasal: add 2–3 cm",   "references": ["phipps_ett_depth_2005", "lau_ett_length_2006", "apls_7e_2023"] },
+        { "name": "iGel LMA",             "type": "computed", "computer": "lma",                                                 "references": ["intersurgical_igel_guide", "beringer_igel_2011"] },
+        { "name": "AuraGain LMA",         "type": "computed", "computer": "auragain",                                            "references": ["ambu_auragain_ifu_2023"] },
+        {
+          "name": "Laryngoscope blade",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 1,   "value": "Miller 0–1" },
+            { "max_years": 11,  "value": "Macintosh 2" },
+            { "max_years": 999, "value": "Macintosh 3" }
+          ],
+          "note": "infants: straight (Miller) blade preferred to lift the floppy epiglottis directly · Macintosh 0–1 an accepted alternative",
+          "references": ["passi_blades_2014", "cote_anesthesia_2019"]
+        },
+        {
+          "name": "Face mask",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 1,  "value": "Size 0" },
+            { "max_months": 12, "value": "Size 1" },
+            { "max_years": 3,   "value": "Size 2" },
+            { "max_years": 8,   "value": "Size 3" },
+            { "max_years": 14,  "value": "Size 4" },
+            { "max_years": 999, "value": "Size 5" }
+          ],
+          "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size",
+          "references": ["cote_anesthesia_2019", "rendell_baker_mask_1962"]
+        },
+        {
+          "name": "Suction catheter",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 1,  "value": "6 Fr" },
+            { "max_years": 1,   "value": "8 Fr" },
+            { "max_years": 8,   "value": "10 Fr" },
+            { "max_years": 999, "value": "12–14 Fr" }
+          ],
+          "note": "roughly twice the ETT internal diameter (Fr)",
+          "references": ["apls_7e_2023", "cote_anesthesia_2019"]
+        },
+        {
+          "name": "NG/OG tube",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 1,  "value": "6 Fr" },
+            { "max_years": 1,   "value": "8 Fr" },
+            { "max_years": 8,   "value": "10 Fr" },
+            { "max_years": 999, "value": "12–14 Fr" }
+          ],
+          "references": ["apls_7e_2023", "cote_anesthesia_2019"]
+        }
+      ]
+    },
+    {
+      "id": "respiratory",
+      "title": "Respiratory",
+      "items": [
+        {
+          "name": "Salbutamol (inhaled)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 5,   "value": "2–10 puffs" },
+            { "max_years": 999, "value": "4–10 puffs" }
+          ],
+          "route": "Inhaled",
+          "note": "100 µg/puff · repeat incrementally as needed",
+          "references": ["sign_158_asthma", "gina_asthma_2024"]
+        },
+        {
+          "name": "Salbutamol (nebulized)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 5,   "value": "2.5 mg" },
+            { "max_years": 999, "value": "5 mg"   }
+          ],
+          "route": "Nebulized",
+          "note": "repeat back-to-back or continuously per response",
+          "references": ["sign_158_asthma", "gina_asthma_2024"]
+        },
+        {
+          "name": "Ipratropium (inhaled)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 5,   "value": "4 puffs" },
+            { "max_years": 999, "value": "4–8 puffs" }
+          ],
+          "route": "Inhaled",
+          "note": "20 µg/puff · repeat as needed",
+          "references": ["griffiths_ipratropium_2013", "sign_158_asthma"]
+        },
+        {
+          "name": "Ipratropium (nebulized)",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_years": 11,  "value": "250 µg" },
+            { "max_years": 999, "value": "500 µg" }
+          ],
+          "route": "Nebulized",
+          "references": ["bnfc_online"]
+        },
+        { "name": "Magnesium Sulphate",   "type": "linear_range", "low": 25, "high": 50, "max": 2, "max_unit": "g",  "unit": "mg", "route": "IV",        "references": ["griffiths_mgso4_2016", "bnfc_online"] },
+        { "name": "Clemastine",           "type": "linear_max",   "factor": 25,                  "max": 2, "max_unit": "mg", "unit": "µg", "route": "IV",        "references": ["ring_anaphylaxis_2021", "tavegyl_spc"] },
+        { "name": "Adrenaline (nebulized)",           "type": "linear_max",   "factor": 0.5, "max": 5, "unit": "mg", "route": "Nebulized",                "references": ["bjornson_croup_2013", "bnfc_online"] },
+        { "name": "Succinylcholine (laryngospasm)",    "type": "linear_range", "low": 0.1, "high": 0.5, "unit": "mg", "route": "IV",                      "references": ["larson_laryngospasm_1998"] },
+        {
+          "name": "Succinylcholine (IM)",
+          "type": "linear_max", "factor": 4, "max": 200,
+          "unit": "mg", "route": "IM",
+          "note": "for laryngospasm or RSI without IV access · 4 mg/kg (max 200 mg)",
+          "references": ["larson_laryngospasm_1998", "gavel_laryngospasm_2014"]
+        },
+        { "name": "Rocuronium (laryngospasm)",         "type": "linear_range", "low": 0.1, "high": 0.2, "unit": "mg", "route": "IV", "note": "when succinylcholine is unavailable or contraindicated", "references": ["gavel_laryngospasm_2014"] }
+      ]
+    },
+    {
+      "id": "antidotes",
+      "title": "Reversal Agents",
+      "items": [
+        { "name": "Naloxone (titrated)", "type": "linear",     "factor": 0.01,             "unit": "mg", "route": "IV", "note": "post-anaesthesia reversal — titrate to respiration · repeat every 2–3 min", "references": ["bnfc_online", "erc_pls_2025"] },
+        { "name": "Naloxone (overdose)", "type": "linear_max", "factor": 0.1, "max": 2,    "unit": "mg", "route": "IV/IO/IM", "note": "suspected opioid overdose with apnoea or unresponsiveness", "references": ["erc_pls_2025", "bnfc_online"] },
+        { "name": "Flumazenil", "type": "linear_max", "factor": 10,   "max": 200, "unit": "µg", "route": "IV", "note": "max bolus 200 µg · total max 1 mg",         "references": ["bnfc_online"] },
+        { "name": "Sugammadex",             "type": "linear_range", "low": 2, "high": 4, "unit": "mg", "route": "IV", "note": "2 mg/kg moderate block · 4 mg/kg deep block", "references": ["plaud_sugammadex_2009", "lee_sugammadex_2024"] },
+        { "name": "Sugammadex (profound block)", "type": "linear",       "factor": 16,         "unit": "mg", "route": "IV", "note": "for CICO / immediate reversal of full intubating-dose rocuronium", "references": ["lee_sugammadex_profound_2009", "bridion_label_2025"] },
+        { "name": "Neostigmine",                         "type": "linear_range", "low": 0.04, "high": 0.07, "max": 5, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "coadminister with atropine to block muscarinic effects · give slowly over 1–2 min after first signs of spontaneous recovery", "references": ["bnfc_online", "cote_anesthesia_2019"] },
+        { "name": "Atropine (with neostigmine)",         "type": "linear_max",   "factor": 20, "max": 500,                                "unit": "µg", "route": "IV", "note": "give together with or just before neostigmine to blunt bradycardia and bronchorrhoea", "references": ["bnfc_online", "cote_anesthesia_2019"] }
+      ]
+    },
+    {
+      "id": "regional",
+      "title": "Regional Anesthesia",
+      "items": [
+        {
+          "name": "Lidocaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 3.5, "high": 3.5 },
+            { "max_years":  999, "low": 5,   "high": 5   }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["neal_last_2018", "bnfc_online"]
+        },
+        {
+          "name": "Bupivacaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 1.5, "high": 2,   "note": "infusion: 0.2 mg/kg/h" },
+            { "max_years":  999, "low": 2,   "high": 2.5, "note": "infusion: 0.4 mg/kg/h" }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["neal_last_2018", "suresh_esra_asra_2018"]
+        },
+        {
+          "name": "Ropivacaine (perineural)",
+          "type": "linear_age",
+          "brackets": [
+            { "max_months": 5,   "low": 2, "high": 2, "note": "infusion: 0.2 mg/kg/h" },
+            { "max_years":  999, "low": 3, "high": 3, "note": "infusion: 0.4 mg/kg/h" }
+          ],
+          "unit": "mg", "route": "Perineural", "value_prefix": "maximum",
+          "references": ["lonnqvist_ropi_2000", "bosenberg_ropi_2001", "suresh_esra_asra_2018"]
+        },
+        { "name": "Intralipid 20% bolus",                  "type": "linear",       "factor": 1.5,            "unit": "mL", "route": "IV", "note": "max total 12 mL/kg", "references": ["neal_last_2018", "asra_last_checklist_2020"] },
+        { "name": "Intralipid 20% infusion",               "type": "linear",       "factor": 0.25,           "unit": "mL/min", "route": "IV",                            "references": ["neal_last_2018", "asra_last_checklist_2020"] }
+      ]
+    }
+  ],
+
+  "vital_signs": {
+    "hr": [
+      { "max_months": 1,  "value": "120–170" },
+      { "max_months": 12, "value": "100–160" },
+      { "max_years":  2,  "value": "98–140" },
+      { "max_years":  5,  "value": "80–120" },
+      { "max_years":  11, "value": "75–118" },
+      { "max_years":  999,"value": "60–100" }
+    ],
+    "sbp": [
+      { "max_months": 12, "value": "72–104" },
+      { "max_years":  2,  "value": "86–106" },
+      { "max_years":  5,  "value": "89–112" },
+      { "max_years":  9,  "value": "97–115" },
+      { "max_years":  11, "value": "102–120" },
+      { "max_years":  15, "value": "110–131" },
+      { "max_years":  999,"value": "90–140" }
+    ],
+    "dbp": [
+      { "max_months": 12, "value": "37–56" },
+      { "max_years":  2,  "value": "42–63" },
+      { "max_years":  5,  "value": "46–72" },
+      { "max_years":  9,  "value": "57–76" },
+      { "max_years":  11, "value": "61–80" },
+      { "max_years":  15, "value": "64–83" },
+      { "max_years":  999,"value": "60–90" }
+    ],
+    "rr": [
+      { "max_months": 1,  "value": "40–60" },
+      { "max_months": 12, "value": "30–53" },
+      { "max_years":  3,  "value": "22–37" },
+      { "max_years":  5,  "value": "20–28" },
+      { "max_years":  12, "value": "18–25" },
+      { "max_years":  999,"value": "12–20" }
+    ]
+  },
+
+  "weight_estimation": {
+    "comment": "APLS-updated. <1 month requires user input. >12 years requires user input.",
+    "bands": [
+      { "max_months": 12, "formula": "months_times_half_plus_4", "references": ["apls_7e_2023"] },
+      { "max_years":  5,  "formula": "years_times_2_plus_8",     "references": ["apls_7e_2023"] },
+      { "max_years":  12, "formula": "years_times_3_plus_7",     "references": ["luscombe_weight_2011", "apls_7e_2023"] }
+    ]
+  },
+
+  "ett_rules": {
+    "comment": "Neonatal weight-based (table below, widened to ≤4 kg in v0.0.37), then infant age table (v0.0.43: split 1–6 mo → 3.5 / 7–12 mo → 4.0 cuffed, per Duracher/Motoyama age/4 + 3.5 — the old flat 4.0 oversized young infants), then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5 — see item note). Round formula result both up and down to nearest 0.5. infant_under_1y_size is kept as a legacy fallback so pre-v0.0.43 app binaries can still parse this file.",
+    "neonatal_weight_table": [
+      { "max_kg": 1, "size": 2.5 },
+      { "max_kg": 2, "size": 3.0 },
+      { "max_kg": 4, "size": 3.5 }
+    ],
+    "infant_age_table": [
+      { "max_months": 6,  "size": 3.5 },
+      { "max_months": 12, "size": 4.0 }
+    ],
+    "infant_under_1y_size": 4.0,
+    "child_formula": { "base": 3.5, "divisor": 4 },
+    "round_to_nearest": 0.5
+  },
+
+  "lma_table_comment": "Bands overlap intentionally per v1 formularium. A patient in an overlap region shows both sizes; a patient in a single band additionally shows the next size up. min/max are INCLUSIVE on both ends.",
+  "lma_table": [
+    { "size": "1",   "min_kg": 2,   "max_kg": 5 },
+    { "size": "1.5", "min_kg": 5,   "max_kg": 12 },
+    { "size": "2",   "min_kg": 10,  "max_kg": 25 },
+    { "size": "2.5", "min_kg": 25,  "max_kg": 35 },
+    { "size": "3",   "min_kg": 30,  "max_kg": 60 },
+    { "size": "4",   "min_kg": 50,  "max_kg": 90 },
+    { "size": "5",   "min_kg": 90,  "max_kg": 9999 }
+  ],
+
+  "auragain_table_comment": "Ambu AuraGain sizing per IFU V7 (August 2023). Bands only overlap at boundary weights (5, 10, 20, 30, 50, 70, 100 kg) because min/max are INCLUSIVE on both ends, matching the lma_table convention so computeLma renders both tables consistently.",
+  "auragain_table": [
+    { "size": "1",   "min_kg": 2,   "max_kg": 5 },
+    { "size": "1.5", "min_kg": 5,   "max_kg": 10 },
+    { "size": "2",   "min_kg": 10,  "max_kg": 20 },
+    { "size": "2.5", "min_kg": 20,  "max_kg": 30 },
+    { "size": "3",   "min_kg": 30,  "max_kg": 50 },
+    { "size": "4",   "min_kg": 50,  "max_kg": 70 },
+    { "size": "5",   "min_kg": 70,  "max_kg": 100 },
+    { "size": "6",   "min_kg": 100, "max_kg": 9999 }
+  ],
+
+  "fluid_maintenance": {
+    "comment": "Holliday-Segar 4-2-1 rule.",
+    "rate_first_10kg":   4,
+    "rate_next_10kg":    2,
+    "rate_remainder":    1
+  },
+
+  "compression_depth": {
+    "comment": "Age-piecewise. Applies to the PALS section.",
+    "infant_cm": 4,
+    "child_cm":  5,
+    "infant_max_years": 1
+  }
+}

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "updated": "2026-06-14",
   "source": "TinyBolus_Formularium_v1.md",
 
@@ -12,6 +12,9 @@
 
   "$references_comment": "Normalized citation map. Items reference entries here by key (see item.references: [...]). The About screen resolves each key to the full citation text. Keys are short but readable; pattern: first-author-or-body_topic_year.",
   "references": {
+    "madan_dexamethasone_2005": "Madan R, Bhatia A, Chakithandy S, Subramaniam R, Rammohan G, Deshpande S, Singh M, Kaul HL. Prophylactic dexamethasone for postoperative nausea and vomiting in pediatric strabismus surgery: a dose ranging and safety evaluation study. Anesth Analg 2005;100(6):1622–1626.",
+    "yuen_in_dexmed_2012": "Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.",
+    "jun_in_dexmed_2017": "Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.",
     "anene_dexamethasone_1996": "Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.",
     "malhotra_dexamethasone_2009": "Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.",
     "rcpch_txa_2012": "Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.",
@@ -181,13 +184,14 @@
           "references": ["bnfc_online"]
         },
         { "name": "Midazolam (oral premed)", "type": "linear_max",  "factor": 0.5, "max": 20,             "unit": "mg", "route": "PO",                                         "references": ["bnfc_online"] },
+        { "name": "Midazolam (buccal premed)", "type": "linear_max", "factor": 0.3, "max": 10, "unit": "mg", "route": "Buccal", "note": "buccal alternative to oral premed (e.g. swallowing refused) · onset ~10–15 min", "references": ["bnfc_online"] },
         { "name": "Midazolam (IN premed)", "type": "linear_range", "low": 0.2, "high": 0.3, "max": 10, "max_unit": "mg", "unit": "mg", "route": "IN", "note": "intranasal premedication · 0.3 mg/kg for faster, more reliable onset", "references": ["baldwa_in_midazolam_2012", "bnfc_online"] },
         { "name": "Ondansetron",           "type": "linear_max",   "factor": 0.1, "max": 4,              "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
-        { "name": "Dexamethasone (PONV)",  "type": "linear_max",   "factor": 0.15, "max": 5,             "unit": "mg", "route": "IV",                                         "references": ["gan_ponv_2020", "bnfc_online"] },
+        { "name": "Dexamethasone (PONV)", "type": "linear_range", "low": 0.15, "high": 0.25, "max": 4, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "PONV prophylaxis at induction · 0.25 mg/kg effective ceiling (no benefit above)", "references": ["gan_ponv_2020", "madan_dexamethasone_2005", "bnfc_online"] },
         { "name": "Dexamethasone (anti-inflammatory)", "type": "linear_max", "factor": 0.5, "max": 8, "max_unit": "mg", "unit": "mg", "route": "IV", "note": "airway oedema / post-extubation stridor · 0.5 mg/kg/dose (vs the 0.15 mg/kg PONV dose above)", "references": ["anene_dexamethasone_1996", "malhotra_dexamethasone_2009"] },
         { "name": "Etomidate",             "type": "linear_range", "low": 0.2, "high": 0.3,              "unit": "mg", "route": "IV", "note": "haemodynamically stable induction", "references": ["bnfc_online", "cote_anesthesia_2019"] },
         { "name": "Atracurium",            "type": "linear_range", "low": 0.4, "high": 0.5,              "unit": "mg", "route": "IV", "note": "intubating dose · 0.3–0.4 mg/kg in infants", "references": ["bnfc_online", "cote_anesthesia_2019"] },
-        { "name": "Dexmedetomidine (IN premed)", "type": "linear_range", "low": 1, "high": 2,           "unit": "µg", "route": "IN", "note": "intranasal premedication · onset 30–45 min", "references": ["bnfc_online", "cote_anesthesia_2019"] }
+        { "name": "Dexmedetomidine (IN premed)", "type": "linear_range", "low": 1, "high": 3, "max": 200, "max_unit": "µg", "unit": "µg", "route": "IN", "note": "intranasal premedication · 2 µg/kg usual, up to 3 in older/under-sedated · onset 30–45 min", "references": ["yuen_in_dexmed_2012", "jun_in_dexmed_2017"] }
       ]
     },
     {

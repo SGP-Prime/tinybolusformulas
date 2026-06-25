@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.53** (updated 2026-06-14) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.54** (updated 2026-06-14) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -134,6 +134,10 @@ Generated from `assets/formulary.json` **v0.0.53** (updated 2026-06-14) by `tool
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
+### Midazolam (buccal premed)
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
 ### Midazolam (IN premed)
 
 - Baldwa NM, Padvi AV, Dave NM, Garasia MB. Atomised intranasal midazolam spray as premedication in pediatric patients: comparison between two doses of 0.2 and 0.3 mg/kg. J Anesth 2012;26(3):346–350.
@@ -147,6 +151,7 @@ Generated from `assets/formulary.json` **v0.0.53** (updated 2026-06-14) by `tool
 ### Dexamethasone (PONV)
 
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
+- Madan R, Bhatia A, Chakithandy S, Subramaniam R, Rammohan G, Deshpande S, Singh M, Kaul HL. Prophylactic dexamethasone for postoperative nausea and vomiting in pediatric strabismus surgery: a dose ranging and safety evaluation study. Anesth Analg 2005;100(6):1622–1626.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Dexamethasone (anti-inflammatory)
@@ -166,8 +171,8 @@ Generated from `assets/formulary.json` **v0.0.53** (updated 2026-06-14) by `tool
 
 ### Dexmedetomidine (IN premed)
 
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
+- Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
+- Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
 
 ## Painkillers
 

@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.55** (updated 2026-07-01) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.56** (updated 2026-07-01) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -326,6 +326,7 @@ Generated from `assets/formulary.json` **v0.0.55** (updated 2026-07-01) by `tool
 ### Reservoir bag
 
 - Kalra A. Pediatric Anesthesia Digital Handbook. Department of Anesthesiology, Tufts Medical Center, Boston, MA (maskinduction.com), current edition.
+- Intersurgical Ltd. Reservoir bags (paediatric 0.5 L and 1 L; adult 2 L; 3 L also available). Intersurgical, Wokingham, UK (current edition).
 
 ### Suction catheter
 

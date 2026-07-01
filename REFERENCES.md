@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.54** (updated 2026-06-14) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.55** (updated 2026-07-01) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -322,6 +322,10 @@ Generated from `assets/formulary.json` **v0.0.54** (updated 2026-06-14) by `tool
 
 - Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 - Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.
+
+### Reservoir bag
+
+- Kalra A. Pediatric Anesthesia Digital Handbook. Department of Anesthesiology, Tufts Medical Center, Boston, MA (maskinduction.com), current edition.
 
 ### Suction catheter
 

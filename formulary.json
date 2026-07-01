@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.54",
-  "updated": "2026-06-14",
+  "version": "0.0.55",
+  "updated": "2026-07-01",
   "source": "TinyBolus_Formularium_v1.md",
 
   "remote_config": {
@@ -12,6 +12,7 @@
 
   "$references_comment": "Normalized citation map. Items reference entries here by key (see item.references: [...]). The About screen resolves each key to the full citation text. Keys are short but readable; pattern: first-author-or-body_topic_year.",
   "references": {
+    "kalra_pedanesthesia_handbook": "Kalra A. Pediatric Anesthesia Digital Handbook. Department of Anesthesiology, Tufts Medical Center, Boston, MA (maskinduction.com), current edition.",
     "madan_dexamethasone_2005": "Madan R, Bhatia A, Chakithandy S, Subramaniam R, Rammohan G, Deshpande S, Singh M, Kaul HL. Prophylactic dexamethasone for postoperative nausea and vomiting in pediatric strabismus surgery: a dose ranging and safety evaluation study. Anesth Analg 2005;100(6):1622–1626.",
     "yuen_in_dexmed_2012": "Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.",
     "jun_in_dexmed_2017": "Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.",
@@ -338,6 +339,18 @@
           ],
           "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size",
           "references": ["cote_anesthesia_2019", "rendell_baker_mask_1962"]
+        },
+        {
+          "name": "Reservoir bag",
+          "type": "fixed_age",
+          "brackets": [
+            { "max_months": 6,   "value": "0.5 L" },
+            { "max_years":  6,   "value": "1 L" },
+            { "max_years":  12,  "value": "2 L" },
+            { "max_years":  999, "value": "3 L" }
+          ],
+          "note": "anaesthesia breathing-circuit bag · size follows weight: ~0.5 L neonate, 1 L <25-30 kg, 2 L 30-50 kg, 3 L >50 kg",
+          "references": ["kalra_pedanesthesia_handbook"]
         },
         {
           "name": "Suction catheter",

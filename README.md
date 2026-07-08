@@ -1,6 +1,6 @@
 # TinyBolus — Formulary
 
-Canonical pediatric reference data for the [TinyBolus](https://github.com/SGP-Prime/tinybolus) mobile app.
+Canonical pediatric reference data for the **TinyBolus** mobile app.
 
 The file **`formulary.json`** is served raw to every installed instance of the TinyBolus app. When a correction is pushed here, every phone picks up the new values on next launch.
 
@@ -23,6 +23,9 @@ See the `$schema_comment` field at the top of the JSON for the concise type refe
 | `linear_range` | `low`, `high`, `unit` | dose shown as `low·w – high·w` |
 | `linear_max` | `factor`, `max`, `unit` | `min(factor × weight, max)` with cap annotation |
 | `fixed` | `value` | static string, no calculation |
+| `fixed_age` | `brackets` (`max_months`/`max_years` + `value`) | static string chosen by age bracket (first match wins; terminal bracket `max_years: 999`) |
+| `linear_age` | `brackets` (`max_months`/`max_years` + `low`, `high`) | per-kg dose whose factors are chosen by age bracket; optional per-bracket `max`/`note` |
+| `linear_weight` | `brackets` (`max_kg` + `low`, `high`) | per-kg dose whose factors are chosen by body-weight band (terminal `max_kg: 9999`) |
 | `computed` | `computer` | dispatches to a named function in the app's `lib/calculators/` |
 
 Valid `computer` identifiers are defined in the app code. Changing them requires an app-store release, so stick to the existing set when editing here.

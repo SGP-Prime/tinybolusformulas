@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.58",
+  "version": "0.0.59",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -86,7 +86,9 @@
     "buccolam_smpc": "Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).",
     "bsped_adrenal_2023": "Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).",
     "rch_hyperkalaemia_cpg": "Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).",
-    "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition)."
+    "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition).",
+    "erc_epals_2021": "Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.",
+    "rcuk_paeds_se_2026": "Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition)."
   },
   "sections": [
     {
@@ -899,6 +901,20 @@
           "note": "convulsive seizure ≥5 min · 3–6 mo: hospital setting · repeat once after 5–10 min if persisting, then levetiracetam 40–60 mg/kg (max 4.5 g) IV/IO (ERC 2025)",
           "references": [
             "buccolam_smpc",
+            "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Midazolam (IV, status epilepticus)",
+          "type": "linear_max",
+          "factor": 0.15,
+          "max": 10,
+          "unit": "mg",
+          "route": "IV/IO",
+          "note": "convulsive SE with IV/IO access already in place · otherwise buccal route first · may repeat once after 5–10 min · off-label: injection SmPCs cover sedation/anaesthesia only · ERC 2021 cap variant: 7.5 mg",
+          "references": [
+            "rcuk_paeds_se_2026",
+            "erc_epals_2021",
             "erc_pls_2025"
           ]
         },

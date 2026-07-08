@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.57",
+  "version": "0.0.58",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -82,7 +82,11 @@
     "meakin_sux_1989": "Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.",
     "cravero_spa_opioids_2019": "Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571.",
     "nurofen_children_smpc": "Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).",
-    "pedea_smpc": "Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition)."
+    "pedea_smpc": "Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).",
+    "buccolam_smpc": "Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).",
+    "bsped_adrenal_2023": "Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).",
+    "rch_hyperkalaemia_cpg": "Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).",
+    "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition)."
   },
   "sections": [
     {
@@ -471,8 +475,10 @@
           "route": "IV",
           "references": [
             "gan_ponv_2020",
-            "bnfc_online"
-          ]
+            "bnfc_online",
+            "ondansetron_smpc"
+          ],
+          "contraindicated_below_months": 1
         },
         {
           "name": "Dexamethasone (PONV)",
@@ -865,6 +871,70 @@
           "references": [
             "aoa_mh_2021",
             "emhg_mh_2010"
+          ]
+        },
+        {
+          "name": "Midazolam (buccal, status epilepticus)",
+          "type": "fixed_age",
+          "contraindicated_below_months": 3,
+          "brackets": [
+            {
+              "max_months": 11,
+              "value": "2.5 mg"
+            },
+            {
+              "max_years": 4,
+              "value": "5 mg"
+            },
+            {
+              "max_years": 9,
+              "value": "7.5 mg"
+            },
+            {
+              "max_years": 999,
+              "value": "10 mg"
+            }
+          ],
+          "route": "Buccal",
+          "note": "convulsive seizure ≥5 min · 3–6 mo: hospital setting · repeat once after 5–10 min if persisting, then levetiracetam 40–60 mg/kg (max 4.5 g) IV/IO (ERC 2025)",
+          "references": [
+            "buccolam_smpc",
+            "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Hydrocortisone (adrenal crisis)",
+          "type": "linear_max",
+          "factor": 2,
+          "max": 100,
+          "unit": "mg",
+          "route": "IV",
+          "note": "initial bolus, then 6-hourly · neonate <28 d: 4 mg/kg · age-band alternative: 25 mg <1 y · 50 mg 1–5 y · 100 mg ≥6 y · anaphylaxis: adjunct only, after adrenaline",
+          "references": [
+            "bsped_adrenal_2023"
+          ]
+        },
+        {
+          "name": "Insulin + glucose (hyperkalaemia)",
+          "type": "linear_max",
+          "factor": 0.1,
+          "max": 10,
+          "unit": "units",
+          "route": "IV",
+          "note": "soluble insulin 0.1 units/kg WITH glucose 10% 5 mL/kg (0.5 g/kg) · monitor blood glucose",
+          "references": [
+            "rch_hyperkalaemia_cpg",
+            "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Salbutamol (nebulized, hyperkalaemia)",
+          "type": "fixed",
+          "value": "2.5–5 mg",
+          "route": "Nebulized",
+          "note": "2.5 mg ≤25 kg · 5 mg >25 kg · adjunct alongside insulin–glucose · may be repeated",
+          "references": [
+            "rch_hyperkalaemia_cpg"
           ]
         }
       ]

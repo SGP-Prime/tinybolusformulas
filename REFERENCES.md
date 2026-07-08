@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.57** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.58** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -147,6 +147,7 @@ Generated from `assets/formulary.json` **v0.0.57** (updated 2026-07-08) by `tool
 
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition).
 
 ### Dexamethasone (PONV)
 
@@ -273,6 +274,24 @@ Generated from `assets/formulary.json` **v0.0.57** (updated 2026-07-08) by `tool
 
 - Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
 - Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
+
+### Midazolam (buccal, status epilepticus)
+
+- Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Hydrocortisone (adrenal crisis)
+
+- Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).
+
+### Insulin + glucose (hyperkalaemia)
+
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Salbutamol (nebulized, hyperkalaemia)
+
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
 
 ## Fluids and Blood
 

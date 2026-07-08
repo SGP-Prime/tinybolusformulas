@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.56** (updated 2026-07-01) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.57** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -207,11 +207,14 @@ Generated from `assets/formulary.json` **v0.0.56** (updated 2026-07-01) by `tool
 
 - Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).
+- Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).
 
 ### Ibuprofen (oral)
 
 - Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).
 
 ## Emergency Drugs
 

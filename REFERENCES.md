@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -32,7 +32,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### C:V ratio (2 rescuers)
+### C:V ratio
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
@@ -48,7 +48,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Adrenaline (cardiac arrest)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.
+- Lasa JJ, Dhillon GS, Duff JP, et al. Part 8: Pediatric Advanced Life Support: 2025 American Heart Association and American Academy of Pediatrics Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation. 2025;152(16_suppl_2):S479–S537.
 
 ### Amiodarone
 
@@ -57,14 +57,23 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Atropine
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 - Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+
+### Adrenaline (bradycardia)
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 
 ### Adenosine (1st dose)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Adenosine (2nd dose)
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Magnesium sulphate (torsades)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
@@ -210,6 +219,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).
 - Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).
+- Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric 6 mo–<12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (current edition).
 
 ### Ibuprofen (oral)
 
@@ -222,22 +232,22 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Adrenaline (cardiac arrest)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.
+- Lasa JJ, Dhillon GS, Duff JP, et al. Part 8: Pediatric Advanced Life Support: 2025 American Heart Association and American Academy of Pediatrics Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation. 2025;152(16_suppl_2):S479–S537.
 
 ### Adrenaline (anaphylaxis IM)
 
-- Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026–1045.
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 
 ### Adrenaline (anaphylaxis IV)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Muraro A, Roberts G, Worm M, et al. Anaphylaxis: guidelines from the European Academy of Allergy and Clinical Immunology. Allergy 2014;69(8):1026–1045.
 
 ### Atropine
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 - Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
 
 ### Ephedrine
 
@@ -253,7 +263,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Lidocaine
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Lasa JJ, Dhillon GS, Topjian AA, et al. Part 8: Pediatric Advanced Life Support — 2025 American Heart Association and American Academy of Pediatrics Guidelines. Circulation 2025.
+- Lasa JJ, Dhillon GS, Duff JP, et al. Part 8: Pediatric Advanced Life Support: 2025 American Heart Association and American Academy of Pediatrics Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation. 2025;152(16_suppl_2):S479–S537.
 
 ### Glucose 10%
 
@@ -289,6 +299,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Hydrocortisone (adrenal crisis)
 
 - Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Insulin + glucose (hyperkalaemia)
 
@@ -298,6 +309,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### Salbutamol (nebulized, hyperkalaemia)
 
 - Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ## Fluids and Blood
 
@@ -325,6 +337,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 ### ETT
 
 - Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113–118.
+- European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.
 
 ### ETT insertion depth
 
@@ -378,11 +391,6 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 - British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.
 - Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/
 
-### Ipratropium (inhaled)
-
-- Griffiths B, Ducharme FM. Combined inhaled anticholinergics and short-acting beta2-agonists for initial treatment of acute asthma in children. Cochrane Database Syst Rev 2013;(8):CD000060.
-- British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.
-
 ### Ipratropium (nebulized)
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
@@ -391,20 +399,27 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 
 - Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Clemastine
 
 - Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.
 - Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: clemastine (25–50 µg/kg/dose IV/IM, max 2 mg/dose). kinderformularium.nl (current edition).
 
 ### Adrenaline (nebulized)
 
 - Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
+### Propofol (laryngospasm)
+
+- Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
+
 ### Succinylcholine (laryngospasm)
 
 - Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
+- Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
 
 ### Succinylcholine (IM)
 
@@ -413,7 +428,8 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 
 ### Rocuronium (laryngospasm)
 
-- Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
+- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
+- Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
 
 ## Reversal Agents
 
@@ -455,7 +471,7 @@ Generated from `assets/formulary.json` **v0.0.59** (updated 2026-07-08) by `tool
 
 ### Lidocaine (perineural)
 
-- Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.
+- Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Bupivacaine (perineural)

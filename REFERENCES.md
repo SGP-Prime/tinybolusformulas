@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.61** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -184,6 +184,10 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 - Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
 - Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
 
+### Thiopental
+
+- Mercury Pharmaceuticals (ADVANZ). Thiopental powder for solution for injection · Summary of Product Characteristics (paediatric induction: newborns 3–4, infants 5–8, children 5–6 mg/kg). electronic medicines compendium, medicines.org.uk/emc/product/665 (current edition).
+
 ## Painkillers
 
 ### Paracetamol
@@ -226,6 +230,20 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 - Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).
+
+### Tramadol
+
+- AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).
+
+### Diclofenac (PO/PR)
+
+- Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).
+
+### Paracetamol (oral)
+
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).
 
 ## Emergency Drugs
 
@@ -332,6 +350,11 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 - Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.
 - Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.
 
+### Max allowable blood loss
+
+- Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.
+- Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.
+
 ## Equipment
 
 ### ETT
@@ -378,6 +401,12 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 
 - Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
 - Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
+
+### OPA / NPA sizing
+
+- Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
+- Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).
+- Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).
 
 ## Respiratory
 
@@ -431,6 +460,21 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 - Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
 - Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
 
+### Salbutamol (IV, severe asthma)
+
+- British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.
+- Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.
+
+### Prednisolone (PO, asthma)
+
+- Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.
+- British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.
+- Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
+
+### Hydrocortisone (IV, asthma)
+
+- British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.
+
 ## Reversal Agents
 
 ### Naloxone (titrated)
@@ -467,6 +511,10 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.
 
+### Neostigmine + glycopyrronium
+
+- Martindale Pharma. Glycopyrronium Bromide 0.5 mg / Neostigmine Metilsulfate 2.5 mg per ml solution for injection · Summary of Product Characteristics (paediatric 0.02 mL/kg IV; total dose not to exceed 2 mL). electronic medicines compendium, medicines.org.uk/emc/product/3390 (current edition).
+
 ## Regional Anesthesia
 
 ### Lidocaine (perineural)
@@ -494,6 +542,10 @@ Generated from `assets/formulary.json` **v0.0.60** (updated 2026-07-08) by `tool
 
 - Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.
 - American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.
+
+### Levobupivacaine (max)
+
+- Altan. Levobupivacaine 2.5 mg/ml · Summary of Product Characteristics (children: max 1.25 mg/kg per side, ilioinguinal/iliohypogastric; no data <6 months). electronic medicines compendium, medicines.org.uk/emc/product/13642 (current edition).
 
 ## Weight Estimation
 

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -90,7 +90,18 @@
     "erc_nls_2025": "European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.",
     "rcuk_paeds_algorithms_2026": "Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.",
     "kinderformularium_clemastine": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: clemastine (25–50 µg/kg/dose IV/IM, max 2 mg/dose). kinderformularium.nl (current edition).",
-    "caldolor_pi": "Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric 6 mo–<12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (current edition)."
+    "caldolor_pi": "Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric 6 mo–<12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (current edition).",
+    "rcuk_pls_2025": "Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.",
+    "thiopental_smpc": "Mercury Pharmaceuticals (ADVANZ). Thiopental powder for solution for injection · Summary of Product Characteristics (paediatric induction: newborns 3–4, infants 5–8, children 5–6 mg/kg). electronic medicines compendium, medicines.org.uk/emc/product/665 (current edition).",
+    "tramadol_kalceks_smpc": "AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).",
+    "kinderformularium_online": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).",
+    "voltarol_supp_smpc": "Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).",
+    "levobupivacaine_smpc": "Altan. Levobupivacaine 2.5 mg/ml · Summary of Product Characteristics (children: max 1.25 mg/kg per side, ilioinguinal/iliohypogastric; no data <6 months). electronic medicines compendium, medicines.org.uk/emc/product/13642 (current edition).",
+    "glyco_neostigmine_smpc": "Martindale Pharma. Glycopyrronium Bromide 0.5 mg / Neostigmine Metilsulfate 2.5 mg per ml solution for injection · Summary of Product Characteristics (paediatric 0.02 mL/kg IV; total dose not to exceed 2 mL). electronic medicines compendium, medicines.org.uk/emc/product/3390 (current edition).",
+    "gross_mabl_1983": "Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.",
+    "spa_abl_2023": "Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.",
+    "nemeth_guedel_2023": "Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).",
+    "nemeth_npa_2021": "Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970)."
   },
   "sections": [
     {
@@ -566,6 +577,33 @@
             "yuen_in_dexmed_2012",
             "jun_in_dexmed_2017"
           ]
+        },
+        {
+          "name": "Thiopental",
+          "type": "linear_age",
+          "brackets": [
+            {
+              "max_months": 1,
+              "low": 3,
+              "high": 4
+            },
+            {
+              "max_months": 12,
+              "low": 5,
+              "high": 8
+            },
+            {
+              "max_years": 999,
+              "low": 5,
+              "high": 6
+            }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "note": "then 1 mg/kg PRN · titrate to effect – SmPC: 'no fixed dosage' · adults 4–6 mg/kg",
+          "references": [
+            "thiopental_smpc"
+          ]
         }
       ]
     },
@@ -716,6 +754,49 @@
             "nurofen_children_smpc"
           ],
           "contraindicated_below_months": 3
+        },
+        {
+          "name": "Tramadol",
+          "type": "linear_range",
+          "low": 1,
+          "high": 2,
+          "max": 100,
+          "max_unit": "mg",
+          "unit": "mg",
+          "route": "IV/PO",
+          "contraindicated_below_months": 12,
+          "note": "q6h (max 4×/day) · daily max 8 mg/kg or 400 mg, whichever lower (SmPC) · respiratory-depression caution · oral-drops licence: confirm Infarmed RCM",
+          "references": [
+            "tramadol_kalceks_smpc",
+            "kinderformularium_online"
+          ]
+        },
+        {
+          "name": "Diclofenac (PO/PR)",
+          "type": "linear_range",
+          "low": 0.3,
+          "high": 1,
+          "unit": "mg",
+          "route": "PO/PR",
+          "contraindicated_below_months": 12,
+          "note": "q8–12h · daily total 1–3 mg/kg (max 200 mg/day) · post-op course ≤4 d (SmPC) · NL formulary licenses from 3 mo",
+          "references": [
+            "voltarol_supp_smpc",
+            "kinderformularium_online"
+          ]
+        },
+        {
+          "name": "Paracetamol (oral)",
+          "type": "linear_max",
+          "factor": 15,
+          "max": 1,
+          "max_unit": "g",
+          "unit": "mg",
+          "route": "PO",
+          "note": "q4–6h (max 4×/day) · daily max 60 mg/kg (max 4 g) · neonates: max 3×/day, 45 mg/kg/day · short-term post-op up to 90 mg/kg/day ≤3 d (Kinderformularium)",
+          "references": [
+            "kinderformularium_online"
+          ]
         }
       ]
     },
@@ -1035,6 +1116,16 @@
             "faraoni_antifibrinolytic_2014",
             "goobie_txa_cranio_2011"
           ]
+        },
+        {
+          "name": "Max allowable blood loss",
+          "type": "fixed",
+          "value": "EBV × (Hct – min Hct) / Hct",
+          "note": "estimate only – never a standalone transfusion trigger (SPA) · conservative form (initial-Hct denominator); Gross's correction divides by MEAN Hct · EBV: preterm 90–100 · neonate 80–90 · infant 70–80 · >1 y 70 mL/kg",
+          "references": [
+            "gross_mabl_1983",
+            "spa_abl_2023"
+          ]
         }
       ]
     },
@@ -1213,6 +1304,17 @@
             "cote_anesthesia_2019"
           ],
           "note": "gastric decompression may need larger sizes in adolescents"
+        },
+        {
+          "name": "OPA / NPA sizing",
+          "type": "fixed",
+          "value": "by landmark",
+          "note": "OPA (Guedel): central incisors → angle of mandible · NPA depth: nostril → tragus · landmarks only ~40–50% accurate – always confirm clinically (Nemeth) · NPA: avoid in basal skull fracture / coagulopathy (ERC 2021)",
+          "references": [
+            "erc_epals_2021",
+            "nemeth_guedel_2023",
+            "nemeth_npa_2021"
+          ]
         }
       ]
     },
@@ -1372,6 +1474,46 @@
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
           ]
+        },
+        {
+          "name": "Salbutamol (IV, severe asthma)",
+          "type": "linear_max",
+          "factor": 15,
+          "max": 250,
+          "unit": "µg",
+          "route": "IV",
+          "note": "single bolus over 10 min if refractory to inhaled therapy (SIGN 158/RCUK 2025) · then infusion 1–2 µg/kg/min (HDU); >2, up to 5, PICU only · monitor ECG + K+ · off-label <12 y per SmPC",
+          "references": [
+            "sign_158_asthma",
+            "rcuk_pls_2025"
+          ]
+        },
+        {
+          "name": "Prednisolone (PO, asthma)",
+          "type": "linear_range",
+          "low": 1,
+          "high": 2,
+          "max": 40,
+          "max_unit": "mg",
+          "unit": "mg",
+          "route": "PO",
+          "note": "within the first hour · oral = IV efficacy · cap 40 mg (RCUK 2025; ERC 2021: max 60 mg/day; SIGN bands: 10 mg <2 y / 20 mg 2–5 y / 30–40 mg >5 y) · course ≤3 d, no taper (SIGN 158)",
+          "references": [
+            "rcuk_pls_2025",
+            "sign_158_asthma",
+            "erc_epals_2021"
+          ]
+        },
+        {
+          "name": "Hydrocortisone (IV, asthma)",
+          "type": "linear",
+          "factor": 4,
+          "unit": "mg",
+          "route": "IV",
+          "note": "repeated 4-hourly · reserve for children unable to retain oral steroids (SIGN 158)",
+          "references": [
+            "sign_158_asthma"
+          ]
         }
       ]
     },
@@ -1467,6 +1609,18 @@
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
+          ]
+        },
+        {
+          "name": "Neostigmine + glycopyrronium",
+          "type": "linear_max",
+          "factor": 0.02,
+          "max": 2,
+          "unit": "mL",
+          "route": "IV",
+          "note": "combined 2.5/0.5 mg per mL solution: 0.02 mL/kg = neostigmine 50 µg/kg + glycopyrronium 10 µg/kg · give over 10–30 s · do not exceed 2 mL total (SmPC)",
+          "references": [
+            "glyco_neostigmine_smpc"
           ]
         }
       ]
@@ -1573,6 +1727,20 @@
             "asra_last_checklist_2020"
           ],
           "note": "LAST rescue – continue until stable"
+        },
+        {
+          "name": "Levobupivacaine (max)",
+          "type": "linear_max",
+          "factor": 1.25,
+          "max": 150,
+          "unit": "mg",
+          "route": "Perineural",
+          "value_prefix": "maximum",
+          "contraindicated_below_months": 6,
+          "note": "per side – ilioinguinal/iliohypogastric block (SmPC) · no SmPC ceiling established for other paediatric blocks · adult max single dose 150 mg / 24 h 400 mg",
+          "references": [
+            "levobupivacaine_smpc"
+          ]
         }
       ]
     }

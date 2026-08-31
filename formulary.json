@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.63",
+  "version": "0.0.64",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -771,7 +771,7 @@
           "unit": "mg",
           "route": "IV/PO",
           "contraindicated_below_months": 12,
-          "note": "q6h · daily max 8 mg/kg or 400 mg · respiratory depression caution",
+          "note": "q6h · respiratory depression caution",
           "references": [
             "tramadol_kalceks_smpc",
             "kinderformularium_online"
@@ -785,7 +785,7 @@
           "unit": "mg",
           "route": "PO/PR",
           "contraindicated_below_months": 12,
-          "note": "q8–12h · daily 1–3 mg/kg (max 200 mg) · course ≤4 d",
+          "note": "q8–12h",
           "references": [
             "voltarol_supp_smpc",
             "kinderformularium_online"

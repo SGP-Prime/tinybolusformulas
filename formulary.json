@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -130,7 +130,7 @@
           "name": "C:V ratio",
           "type": "fixed",
           "value": "15:2",
-          "note": "15:2 if PBLS-trained · 30:2 if untrained or adult-BLS-only (ERC 2025 – split is by training, not rescuer count)",
+          "note": "15:2 if PBLS-trained · 30:2 untrained",
           "references": [
             "erc_pls_2025"
           ]
@@ -140,7 +140,7 @@
           "type": "linear",
           "factor": 4,
           "unit": "J",
-          "note": "increase stepwise up to 8 J/kg (max 360 J) for refractory VF/pulseless VT from the 6th shock · adolescents: adult first-shock energy 120–200 J",
+          "note": "stepwise to 8 J/kg for refractory VF/pVT (from 6th shock) · adolescents 120–200 J",
           "references": [
             "erc_pls_2025",
             "ilcor_defib_2025"
@@ -177,7 +177,7 @@
           "max": 300,
           "unit": "mg",
           "route": "IV/IO",
-          "note": "after the 3rd shock · repeat after the 5th (max 150 mg subsequent doses) (ERC 2025)",
+          "note": "after 3rd shock · repeat after 5th · max 150 mg subsequent",
           "references": [
             "erc_pls_2025"
           ]
@@ -187,7 +187,7 @@
           "type": "linear_max",
           "unit": "µg",
           "route": "IV",
-          "note": "20 µg/kg · max single dose 500 µg (ERC 2025) · no minimum dose (Barrington 2011)",
+          "note": "max 500 µg · no minimum dose (Barrington)",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026",
@@ -203,7 +203,7 @@
           "high": 2,
           "unit": "µg",
           "route": "IV/IO",
-          "note": "bradycardia unresponsive to oxygenation/ventilation · atropine if vagal cause (ERC 2025)",
+          "note": "unresponsive to oxygenation/ventilation · atropine if vagal",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -227,7 +227,7 @@
           "max": 18,
           "unit": "mg",
           "route": "IV",
-          "note": "if SVT persists, escalate in 0.05–0.1 mg/kg steps to a max single dose of 0.5 mg/kg (ERC 2025)",
+          "note": "escalate 0.05–0.1 mg/kg steps to max 0.5 mg/kg",
           "references": [
             "erc_pls_2025"
           ]
@@ -293,7 +293,7 @@
           "low": 5,
           "high": 7,
           "unit": "mL",
-          "note": "per IDEAL body weight – in obesity use age-estimated, not actual, weight · guidelines target 6–8 mL/kg IBW · lower end for neonates",
+          "note": "per IDEAL body weight — if obese use age-estimate · lower end for neonates",
           "references": [
             "spaeth_ventilation_2022",
             "kneyber_pemvecc_2017"
@@ -337,7 +337,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "after a sevoflurane inhalational induction, roughly halve the dose (lower requirement)",
+          "note": "≈ halve after sevoflurane induction",
           "references": [
             "aun_propofol_1992",
             "westrin_propofol_1991",
@@ -364,7 +364,7 @@
           "high": 5,
           "unit": "mg",
           "route": "IM",
-          "note": "IM route when IV access impractical · onset 3–5 min · full anaesthesia may require up to 10 mg/kg (SmPC)",
+          "note": "when IV access impractical · onset 3–5 min",
           "references": [
             "craven_ketamine_2007",
             "bnfc_online"
@@ -391,7 +391,7 @@
               "max_months": 12,
               "low": 2,
               "high": 3,
-              "note": "raised in infants — larger extracellular-fluid volume of distribution (Meakin 1989)"
+              "note": "raised in infants — larger extracellular volume"
             },
             {
               "max_years": 999,
@@ -401,7 +401,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "intubating dose · laryngospasm + IM doses in Respiratory · contraindicated: MH susceptibility, hyperkalaemia risk",
+          "note": "intubating dose · CI: MH, hyperkalaemia",
           "references": [
             "mazurek_rocuronium_1998",
             "cote_anesthesia_2019",
@@ -416,7 +416,7 @@
               "max_months": 1,
               "low": 1,
               "high": 3,
-              "note": "neonate: reduce dose · inject slowly (chest-wall rigidity) · monitor for apnoea (SPA 2019)"
+              "note": "neonate: reduce · inject slowly (rigidity) · watch apnoea"
             },
             {
               "max_years": 999,
@@ -439,7 +439,7 @@
               "max_months": 6,
               "low": 0.1,
               "high": 0.1,
-              "note": "young infant <6 mo: reduced clearance — prolonged effect · slow injection · hypotension, esp. with an opioid"
+              "note": "<6 mo: prolonged effect · slow injection · hypotension with opioids"
             },
             {
               "max_years": 999,
@@ -473,7 +473,7 @@
           "max": 10,
           "unit": "mg",
           "route": "Buccal",
-          "note": "buccal alternative to oral premed (e.g. swallowing refused) · onset ~10–15 min · (for seizures see Emergency)",
+          "note": "if oral refused · seizures: see Emergency",
           "references": [
             "bnfc_online"
           ]
@@ -487,7 +487,7 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IN",
-          "note": "intranasal premedication · 0.3 mg/kg for faster, more reliable onset · 5 mg/mL solution – divide between nostrils",
+          "note": "5 mg/mL — divide between nostrils",
           "references": [
             "baldwa_in_midazolam_2012",
             "bnfc_online"
@@ -516,7 +516,6 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV",
-          "note": "PONV prophylaxis at induction · 0.25 mg/kg effective ceiling (no benefit above)",
           "references": [
             "gan_ponv_2020",
             "madan_dexamethasone_2005",
@@ -531,7 +530,7 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV",
-          "note": "airway oedema / post-extubation stridor · 0.5 mg/kg/dose (vs the 0.15 mg/kg PONV dose above)",
+          "note": "airway oedema / post-extubation stridor",
           "references": [
             "anene_dexamethasone_1996",
             "malhotra_dexamethasone_2009"
@@ -572,7 +571,7 @@
           "max_unit": "µg",
           "unit": "µg",
           "route": "IN",
-          "note": "intranasal premedication · 2 µg/kg usual · onset ~30 min · 100 µg/mL solution",
+          "note": "100 µg/mL solution · onset ~30 min",
           "references": [
             "yuen_in_dexmed_2012",
             "jun_in_dexmed_2017"
@@ -600,7 +599,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "then 1 mg/kg PRN · titrate to effect – SmPC: 'no fixed dosage' · adults 4–6 mg/kg",
+          "note": "then 1 mg/kg PRN · titrate to effect",
           "references": [
             "thiopental_smpc"
           ]
@@ -630,7 +629,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "note": "IV dosing splits by weight, not age (SmPC): ≤10 kg → 7.5 mg/kg · interval ≥4 h · daily max 30 mg/kg ≤10 kg / 60 mg/kg >10 kg (SmPC)",
+          "note": "SmPC splits by weight: ≤10 kg → 7.5 mg/kg · daily max 30/60 mg/kg",
           "references": [
             "anderson_paracetamol_2008",
             "bnfc_online",
@@ -680,7 +679,7 @@
               "max_months": 1,
               "low": 0.5,
               "high": 1,
-              "note": "neonate: reduce dose · inject slowly · monitor for apnoea (SPA 2019)"
+              "note": "neonate: reduce · slow injection · watch apnoea"
             },
             {
               "max_years": 999,
@@ -704,7 +703,7 @@
               "max_months": 11,
               "low": 5,
               "high": 5,
-              "note": "reduced in infants <1 y — higher exposure per dose from immature metabolism (Ziesenitz 2019)"
+              "note": "reduced <1 y — immature metabolism"
             },
             {
               "max_years": 999,
@@ -737,7 +736,7 @@
             "caldolor_pi"
           ],
           "contraindicated_below_months": 3,
-          "note": "not <3 mo or <5 kg · infuse over ≥10 min · IV ibuprofen for preterm PDA closure is a separate indication/course"
+          "note": "not <3 mo or <5 kg · infuse ≥10 min · PDA use is separate"
         },
         {
           "name": "Ibuprofen (oral)",
@@ -747,7 +746,7 @@
           "max": 400,
           "unit": "mg",
           "route": "PO",
-          "note": "analgesic / antipyretic · typically 7–10 mg/kg/dose · not <3 mo or <5 kg",
+          "note": "not <3 mo or <5 kg",
           "references": [
             "southey_ibuprofen_2009",
             "bnfc_online",
@@ -765,7 +764,7 @@
           "unit": "mg",
           "route": "IV/PO",
           "contraindicated_below_months": 12,
-          "note": "q6h (max 4×/day) · daily max 8 mg/kg or 400 mg, whichever lower (SmPC) · respiratory-depression caution · oral-drops licence: confirm Infarmed RCM",
+          "note": "q6h · daily max 8 mg/kg or 400 mg · respiratory depression caution",
           "references": [
             "tramadol_kalceks_smpc",
             "kinderformularium_online"
@@ -779,7 +778,7 @@
           "unit": "mg",
           "route": "PO/PR",
           "contraindicated_below_months": 12,
-          "note": "q8–12h · daily total 1–3 mg/kg (max 200 mg/day) · post-op course ≤4 d (SmPC) · NL formulary licenses from 3 mo",
+          "note": "q8–12h · daily 1–3 mg/kg (max 200 mg) · course ≤4 d",
           "references": [
             "voltarol_supp_smpc",
             "kinderformularium_online"
@@ -793,7 +792,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "PO",
-          "note": "q4–6h (max 4×/day) · daily max 60 mg/kg (max 4 g) · neonates: max 3×/day, 45 mg/kg/day · short-term post-op up to 90 mg/kg/day ≤3 d (Kinderformularium)",
+          "note": "q4–6h · daily max 60 mg/kg (4 g) · neonates 45 mg/kg, 3×/day",
           "references": [
             "kinderformularium_online"
           ]
@@ -825,7 +824,7 @@
           "max": 500,
           "unit": "µg",
           "route": "IM",
-          "note": "weight-based 10 µg/kg (shown) · fixed bands: <6 mo 100–150 µg (RCUK) · 1–5 y 150 µg · 6–12 y 300 µg · >12 y 500 µg (ERC 2025) · repeat every 5 min if needed",
+          "note": "repeat every 5 min PRN · pens: 150 µg 1–5 y · 300 µg 6–12 y · 500 µg >12 y",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -847,7 +846,7 @@
           "type": "linear_max",
           "unit": "µg",
           "route": "IV",
-          "note": "20 µg/kg · max single dose 500 µg (ERC 2025) · no minimum dose (Barrington 2011)",
+          "note": "max 500 µg · no minimum dose (Barrington)",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026",
@@ -864,7 +863,7 @@
               "max_months": 6,
               "low": 0.6,
               "high": 1.2,
-              "note": "young infants need ~10× the older-child dose – indirect agent, immature sympathetic system · 1.2 mg/kg optimal (Szostek 2023)"
+              "note": "~10× older-child dose — indirect agent, immature sympathetics"
             },
             {
               "max_years": 999,
@@ -879,7 +878,7 @@
             "bnfc_online",
             "cote_anesthesia_2019"
           ],
-          "note": "ampoule 30 mg/mL – dilute before paediatric use"
+          "note": "ampoule 30 mg/mL — dilute"
         },
         {
           "name": "Phenylephrine",
@@ -890,7 +889,7 @@
           "max_unit": "µg",
           "unit": "µg",
           "route": "IV",
-          "note": "5–20 µg/kg spans indications – upper range for tet spells · for hypotension start low and titrate",
+          "note": "upper range for tet spells · hypotension: start low, titrate",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -903,7 +902,7 @@
           "max": 100,
           "unit": "mg",
           "route": "IV",
-          "note": "antiarrhythmic — alternative to amiodarone for shock-refractory VF/pVT",
+          "note": "antiarrhythmic — refractory VF/pVT",
           "references": [
             "erc_pls_2025",
             "aha_pals_2025"
@@ -928,7 +927,7 @@
           "max": 20,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypocalcaemia · hyperkalaemia with ECG changes – but not in cardiac arrest (ERC 2025) · calcium-channel-blocker toxicity · give slowly over 5–10 min",
+          "note": "hypoCa · hyperK with ECG changes — not in cardiac arrest · CCB toxicity · slow IV",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -940,7 +939,7 @@
           "factor": 1,
           "unit": "mmol",
           "route": "IV/IO",
-          "note": "1 mL/kg of 8.4% · tricyclic (TCA) toxicity or severe acidosis per local protocol · NOT for hyperkalaemic arrest (ERC 2025: avoid calcium & bicarbonate) · not routine in arrest",
+          "note": "1 mL/kg of 8.4% · TCA toxicity / severe acidosis · NOT for hyperkalaemic arrest",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -952,7 +951,7 @@
           "factor": 2.5,
           "unit": "mg",
           "route": "IV",
-          "note": "initial 2–2.5 mg/kg · then 1 mg/kg every 5 min as needed · 10 mg/kg is a reappraisal point – may be exceeded (EMHG) · reconstitute each 20 mg vial in 60 mL water – start reconstituting immediately",
+          "note": "reconstitute vials in 60 mL water NOW · repeat 1 mg/kg every 5 min · may exceed 10 mg/kg",
           "references": [
             "aoa_mh_2021",
             "emhg_mh_2010"
@@ -981,7 +980,7 @@
             }
           ],
           "route": "Buccal",
-          "note": "convulsive seizure ≥5 min · 3–6 mo: hospital setting · repeat once after 5–10 min if persisting, then levetiracetam 40–60 mg/kg (max 4.5 g) IV/IO (ERC 2025)",
+          "note": "seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min",
           "references": [
             "buccolam_smpc",
             "erc_pls_2025"
@@ -994,7 +993,7 @@
           "max": 10,
           "unit": "mg",
           "route": "IV/IO",
-          "note": "convulsive SE with IV/IO access already in place · otherwise buccal route first · may repeat once after 5–10 min · off-label: injection SmPCs cover sedation/anaesthesia only",
+          "note": "use if IV/IO already in place — else buccal · repeat once · off-label use",
           "references": [
             "rcuk_paeds_se_2026",
             "erc_epals_2021",
@@ -1007,7 +1006,7 @@
           "max": 100,
           "unit": "mg",
           "route": "IV",
-          "note": "adrenal crisis – then 1 mg/kg (max 50 mg) 6-hourly, neonate 2 mg/kg (BSPED) · give 0.9% saline 10 mL/kg bolus · glucose 2 mL/kg 10% if hypoglycaemic · age-band alt: 25 mg <1 y / 50 mg 1–5 y / 100 mg ≥6 y · anaphylaxis: only when asthma-associated (ERC 2025)",
+          "note": "then 1 mg/kg (max 50) q6h · saline 10 mL/kg bolus · glucose if low",
           "references": [
             "bsped_adrenal_2023",
             "erc_pls_2025"
@@ -1032,7 +1031,7 @@
           "max": 10,
           "unit": "units",
           "route": "IV",
-          "note": "soluble insulin 0.1 units/kg WITH glucose 10% 5 mL/kg (0.5 g/kg, max 250 mL) – never insulin without glucose · check glucose & K+ every 15 min for 4 h · follow with glucose infusion (ERC 2025)",
+          "note": "WITH glucose 10% 5 mL/kg — never insulin alone · check glucose & K+ q15min",
           "references": [
             "rch_hyperkalaemia_cpg",
             "erc_pls_2025"
@@ -1043,7 +1042,7 @@
           "type": "fixed",
           "value": "2.5–5 mg",
           "route": "Nebulized",
-          "note": "2.5 mg ≤25 kg · 5 mg >25 kg (RCH; asthma row is age-banded) · repeat up to 5× (ERC 2025) · adjunct alongside insulin–glucose",
+          "note": "2.5 mg ≤25 kg · 5 mg >25 kg · repeat ≤5× · with insulin–glucose",
           "references": [
             "rch_hyperkalaemia_cpg",
             "erc_pls_2025"
@@ -1064,14 +1063,14 @@
           "references": [
             "erc_pls_2025"
           ],
-          "note": "balanced isotonic crystalloid · cardiogenic shock: 5 mL/kg · adolescents: max 500 mL per bolus (ERC 2025) · reassess after each"
+          "note": "balanced crystalloid · cardiogenic: 5 mL/kg · adolescent max 500 mL"
         },
         {
           "name": "Maintenance",
           "type": "computed",
           "computer": "fluid_maintenance",
           "unit": "mL/h",
-          "note": "4-2-1 rule (Holliday-Segar) · isotonic fluid + glucose ± K+ (Feld 2018) · <1 mo: neonatal mL/kg/day regimen applies, not 4-2-1",
+          "note": "4-2-1 (Holliday-Segar) · isotonic + glucose ± K+ · <1 mo: neonatal regimen",
           "references": [
             "holliday_segar_1957",
             "feld_maintenance_2018"
@@ -1121,7 +1120,7 @@
           "name": "Max allowable blood loss",
           "type": "fixed",
           "value": "EBV × (Hct – min Hct) / Hct",
-          "note": "estimate only – never a standalone transfusion trigger (SPA) · conservative form (initial-Hct denominator); Gross's correction divides by MEAN Hct · EBV: preterm 90–100 · neonate 80–90 · infant 70–80 · >1 y 70 mL/kg",
+          "note": "estimate, not a transfusion trigger · Gross form uses mean Hct · EBV ~70–100 mL/kg",
           "references": [
             "gross_mabl_1983",
             "spa_abl_2023"
@@ -1137,7 +1136,7 @@
           "name": "ETT",
           "type": "computed",
           "computer": "ett",
-          "note": "formula & infant table are cuffed sizes – uncuffed: add 0.5 (≥1 y) · neonatal table (<1 mo) shows uncuffed sizes",
+          "note": "cuffed sizes — uncuffed add 0.5 (≥1 y) · neonatal table: uncuffed sizes",
           "references": [
             "duracher_ett_2008",
             "erc_nls_2025"
@@ -1147,7 +1146,7 @@
           "name": "ETT insertion depth",
           "type": "computed",
           "computer": "ett_insertion_depth",
-          "note": "nasal: add 1 cm <1 y · 2–3 cm ≥1 y · ≥1 y oral formula per APLS (Lau's data suggest age/2 + 13)",
+          "note": "nasal: +1 cm <1 y · +2–3 cm ≥1 y",
           "references": [
             "phipps_ett_depth_2005",
             "lau_ett_length_2006",
@@ -1188,7 +1187,7 @@
               "value": "Macintosh 3"
             }
           ],
-          "note": "infants: straight (Miller) blade lifts the epiglottis directly · Miller and Macintosh size 1 give equivalent views (Passi 2014)",
+          "note": "Miller lifts the epiglottis · Mac 1 equivalent (Passi)",
           "references": [
             "passi_blades_2014",
             "cote_anesthesia_2019"
@@ -1223,7 +1222,7 @@
               "value": "Size 5"
             }
           ],
-          "note": "mask should cover nose and mouth from eyebrow line to chin cleft · anatomical fit is more important than estimated size",
+          "note": "cover nose to chin cleft — anatomical fit over size",
           "references": [
             "cote_anesthesia_2019",
             "rendell_baker_mask_1962"
@@ -1246,7 +1245,6 @@
               "value": "2 L"
             }
           ],
-          "note": "anaesthesia breathing-circuit bag · 0.5 L neonate/infant, 1 L to ~6 y (<25-30 kg), 2 L older child and adult",
           "references": [
             "kalra_pedanesthesia_handbook",
             "intersurgical_reservoir_bag"
@@ -1303,13 +1301,13 @@
             "apls_7e_2023",
             "cote_anesthesia_2019"
           ],
-          "note": "gastric decompression may need larger sizes in adolescents"
+          "note": "larger sizes for adolescent decompression"
         },
         {
           "name": "OPA / NPA sizing",
           "type": "fixed",
           "value": "by landmark",
-          "note": "OPA (Guedel): central incisors → angle of mandible · NPA depth: nostril → tragus · landmarks only ~40–50% accurate – always confirm clinically (Nemeth) · NPA: avoid in basal skull fracture / coagulopathy (ERC 2021)",
+          "note": "OPA: incisors → angle of mandible · NPA: nostril → tragus; not in basal-skull fracture",
           "references": [
             "erc_epals_2021",
             "nemeth_guedel_2023",
@@ -1410,7 +1408,7 @@
             "kinderformularium_clemastine"
           ],
           "contraindicated_below_months": 12,
-          "note": "antihistamine adjunct (anaphylaxis / allergy) – second-line, after adrenaline · SmPC: not <1 y"
+          "note": "second-line, after adrenaline · not <1 y"
         },
         {
           "name": "Adrenaline (nebulized)",
@@ -1423,7 +1421,7 @@
             "bjornson_croup_2013",
             "bnfc_online"
           ],
-          "note": "croup / post-extubation stridor · 1:1000 solution (1 mg/mL) · repeat per response"
+          "note": "croup / stridor · 1:1000 (1 mg/mL)"
         },
         {
           "name": "Propofol (laryngospasm)",
@@ -1431,7 +1429,7 @@
           "factor": 0.5,
           "unit": "mg",
           "route": "IV",
-          "note": "drug of choice before succinylcholine – 0.5 mg/kg increments, deepen anaesthesia (Gavel 2014)",
+          "note": "drug of choice before sux · 0.5 mg/kg increments",
           "references": [
             "gavel_laryngospasm_2014"
           ]
@@ -1447,7 +1445,7 @@
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
           ],
-          "note": "start low – 0.1 mg/kg may break spasm while preserving ventilation (Gavel 2014) · contraindicated: MH susceptibility, hyperkalaemia risk"
+          "note": "0.1 mg/kg may spare ventilation · CI: MH, hyperkalaemia"
         },
         {
           "name": "Succinylcholine (IM)",
@@ -1456,7 +1454,7 @@
           "max": 200,
           "unit": "mg",
           "route": "IM",
-          "note": "for laryngospasm or RSI without IV access · 4 mg/kg (max 200 mg) · contraindicated: MH susceptibility, hyperkalaemia risk",
+          "note": "laryngospasm / RSI without IV access · CI: MH, hyperkalaemia",
           "references": [
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
@@ -1469,7 +1467,7 @@
           "high": 1.2,
           "unit": "mg",
           "route": "IV",
-          "note": "when succinylcholine is contraindicated (e.g. MH) – full intubating dose, then secure the airway · sugammadex 16 mg/kg available for reversal",
+          "note": "when succinylcholine contraindicated (MH) — then secure airway · sugammadex 16 mg/kg",
           "references": [
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
@@ -1482,7 +1480,7 @@
           "max": 250,
           "unit": "µg",
           "route": "IV",
-          "note": "single bolus over 10 min if refractory to inhaled therapy (SIGN 158/RCUK 2025) · then infusion 1–2 µg/kg/min (HDU); >2, up to 5, PICU only · monitor ECG + K+ · off-label <12 y per SmPC",
+          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: PICU) · monitor K+ · off-label <12 y",
           "references": [
             "sign_158_asthma",
             "rcuk_pls_2025"
@@ -1497,7 +1495,7 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "PO",
-          "note": "within the first hour · oral = IV efficacy · cap 40 mg (RCUK 2025; ERC 2021: max 60 mg/day; SIGN bands: 10 mg <2 y / 20 mg 2–5 y / 30–40 mg >5 y) · course ≤3 d, no taper (SIGN 158)",
+          "note": "within the first hour · oral = IV efficacy · course ≤3 d, no taper",
           "references": [
             "rcuk_pls_2025",
             "sign_158_asthma",
@@ -1510,7 +1508,7 @@
           "factor": 4,
           "unit": "mg",
           "route": "IV",
-          "note": "repeated 4-hourly · reserve for children unable to retain oral steroids (SIGN 158)",
+          "note": "q4h — if oral not tolerated",
           "references": [
             "sign_158_asthma"
           ]
@@ -1527,7 +1525,7 @@
           "factor": 10,
           "unit": "µg",
           "route": "IV",
-          "note": "post-anaesthesia reversal — titrate to respiration · repeat every 2–3 min",
+          "note": "titrate to respiration · repeat q2–3 min",
           "references": [
             "bnfc_online",
             "erc_pls_2025"
@@ -1540,7 +1538,7 @@
           "max": 2,
           "unit": "mg",
           "route": "IV/IO/IM",
-          "note": "suspected opioid overdose with apnoea or unresponsiveness",
+          "note": "opioid overdose with apnoea / unresponsiveness",
           "references": [
             "erc_pls_2025",
             "bnfc_online"
@@ -1553,7 +1551,7 @@
           "max": 200,
           "unit": "µg",
           "route": "IV",
-          "note": "max bolus 200 µg · repeat up to 4× · total max 50 µg/kg (up to 1 mg) · licensed ≥1 y",
+          "note": "repeat ≤4× · total max 50 µg/kg (up to 1 mg) · licensed ≥1 y",
           "references": [
             "bnfc_online"
           ]
@@ -1577,7 +1575,7 @@
           "factor": 16,
           "unit": "mg",
           "route": "IV",
-          "note": "for can't-intubate-can't-oxygenate (CICO) – immediate reversal of full intubating-dose rocuronium · off-label in children (adult evidence; SmPC: not investigated in paediatrics)",
+          "note": "CICO rescue — reverses full-dose rocuronium · off-label in children",
           "references": [
             "lee_sugammadex_profound_2009",
             "bridion_label_2025"
@@ -1592,7 +1590,7 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV",
-          "note": "coadminister with atropine to block muscarinic effects · give slowly over 1–2 min after first signs of spontaneous recovery",
+          "note": "with atropine · slow over 1–2 min, after first recovery signs",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -1605,7 +1603,7 @@
           "max": 500,
           "unit": "µg",
           "route": "IV",
-          "note": "give together with or just before neostigmine to blunt bradycardia and bronchorrhoea",
+          "note": "with or just before neostigmine",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -1618,7 +1616,7 @@
           "max": 2,
           "unit": "mL",
           "route": "IV",
-          "note": "combined 2.5/0.5 mg per mL solution: 0.02 mL/kg = neostigmine 50 µg/kg + glycopyrronium 10 µg/kg · give over 10–30 s · do not exceed 2 mL total (SmPC)",
+          "note": "0.02 mL/kg combined amp = neo 50 µg/kg + glyco 10 µg/kg · max 2 mL",
           "references": [
             "glyco_neostigmine_smpc"
           ]
@@ -1651,7 +1649,7 @@
             "cote_anesthesia_2019",
             "bnfc_online"
           ],
-          "note": "plain solution · SmPC 2–11 y: 3–4 mg/kg – 5 mg/kg per US practice (Coté)"
+          "note": "plain · SmPC: 3–4 mg/kg (5 per US practice)"
         },
         {
           "name": "Bupivacaine (perineural)",
@@ -1710,7 +1708,7 @@
           "factor": 1.5,
           "unit": "mL",
           "route": "IV",
-          "note": "local-anaesthetic systemic toxicity (LAST) rescue · max total 12 mL/kg",
+          "note": "LAST rescue · max total 12 mL/kg",
           "references": [
             "neal_last_2018",
             "asra_last_checklist_2020"
@@ -1737,7 +1735,7 @@
           "route": "Perineural",
           "value_prefix": "maximum",
           "contraindicated_below_months": 6,
-          "note": "per side – ilioinguinal/iliohypogastric block (SmPC) · no SmPC ceiling established for other paediatric blocks · adult max single dose 150 mg / 24 h 400 mg",
+          "note": "per side — ilioinguinal (SmPC) · adult max 150 mg",
           "references": [
             "levobupivacaine_smpc"
           ]

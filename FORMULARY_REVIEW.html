@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.62 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.63 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.62 · Updated 2026-07-08</p>
+  <p class="version">Version 0.0.63 · Updated 2026-07-08</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D.</p>
   <p class="contact">
@@ -324,7 +324,7 @@
     <span class="item-name">Defibrillation</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 J/kg</span></div>
-  <div class="item-note">stepwise to 8 J/kg for refractory VF/pVT (from 6th shock) · adolescents 120–200 J</div>
+  <div class="item-note">stepwise to 8 J/kg for refractory VF / pulseless VT (6th shock on) · adolescent 120–200 J</div>
   <div class="item-refs">References: <span class="cites">[1], [2]</span></div>
 </div>
 
@@ -363,7 +363,6 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">max 500 µg · no minimum dose (Barrington)</div>
   <div class="item-refs">References: <span class="cites">[1], [4], [5]</span></div>
 </div>
 
@@ -402,7 +401,6 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">50 mg/kg (max 2 g)</span></div>
-  <div class="item-note">torsade-de-pointes VT (ERC 2025)</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -481,7 +479,7 @@
     <span class="item-name">Tidal Volume</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–7 mL/kg</span></div>
-  <div class="item-note">per IDEAL body weight — if obese use age-estimate · lower end for neonates</div>
+  <div class="item-note">per IDEAL body weight — if obese use estimated weight · lower end for neonates</div>
   <div class="item-refs">References: <span class="cites">[7], [8]</span></div>
 </div>
 
@@ -533,7 +531,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.6–1.2 mg/kg</span></div>
-  <div class="item-note">intubation 0.6 · RSI 1.0–1.2</div>
+  <div class="item-note">upper range for RSI</div>
   <div class="item-refs">References: <span class="cites">[15], [16]</span></div>
 </div>
 
@@ -549,7 +547,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">intubating dose · CI: MH, hyperkalaemia</div>
+  <div class="item-note">intubating dose · avoid in MH / hyperkalaemia risk</div>
   <div class="item-refs">References: <span class="cites">[16], [6], [17]</span></div>
 </div>
 
@@ -648,7 +646,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.2–0.3 mg/kg</span></div>
-  <div class="item-note">haemodynamically stable induction</div>
+  <div class="item-note">for haemodynamic stability</div>
   <div class="item-refs">References: <span class="cites">[14], [6]</span></div>
 </div>
 
@@ -657,8 +655,13 @@
     <span class="item-name">Atracurium</span>
     <span class="item-route">IV</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.4–0.5 mg/kg</span></div>
-  <div class="item-note">intubating dose · 0.3–0.4 mg/kg in infants</div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤12 mo</td><td class="dose">0.3–0.4 mg/kg</td></tr>
+      <tr><td class="age">≥1 y</td><td class="dose">0.4–0.5 mg/kg</td></tr>
+    </tbody>
+  </table>
+
   <div class="item-refs">References: <span class="cites">[14], [6]</span></div>
 </div>
 
@@ -706,7 +709,7 @@
   </table>
   <div class="item-dose"><span class="label">CAP</span><span class="mono">max 1 g</span></div>
 
-  <div class="item-note">SmPC splits by weight: ≤10 kg → 7.5 mg/kg · daily max 30/60 mg/kg</div>
+  <div class="item-note">interval ≥4 h</div>
   <div class="item-refs">References: <span class="cites">[28], [14], [29]</span></div>
 </div>
 
@@ -774,7 +777,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 mg/kg (max 400 mg)</span></div>
   <div class="item-contra">Contraindicated &lt;3 months</div>
-  <div class="item-note">not &lt;3 mo or &lt;5 kg · infuse ≥10 min · PDA use is separate</div>
+  <div class="item-note">not &lt;5 kg · infuse ≥10 min · PDA use is separate</div>
   <div class="item-refs">References: <span class="cites">[35], [14], [36], [37], [38]</span></div>
 </div>
 
@@ -785,7 +788,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–10 mg/kg (max 400 mg)</span></div>
   <div class="item-contra">Contraindicated &lt;3 months</div>
-  <div class="item-note">not &lt;3 mo or &lt;5 kg</div>
+  <div class="item-note">not &lt;5 kg</div>
   <div class="item-refs">References: <span class="cites">[35], [14], [36]</span></div>
 </div>
 
@@ -817,7 +820,7 @@
     <span class="item-route">PO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
-  <div class="item-note">q4–6h · daily max 60 mg/kg (4 g) · neonates 45 mg/kg, 3×/day</div>
+  <div class="item-note">q4–6h</div>
   <div class="item-refs">References: <span class="cites">[40]</span></div>
 </div>
 
@@ -861,7 +864,6 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">20 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">max 500 µg · no minimum dose (Barrington)</div>
   <div class="item-refs">References: <span class="cites">[1], [4], [5]</span></div>
 </div>
 
@@ -897,7 +899,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg (max 100 mg)</span></div>
-  <div class="item-note">antiarrhythmic — refractory VF/pVT</div>
+  <div class="item-note">antiarrhythmic — refractory VF / pulseless VT</div>
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
@@ -907,7 +909,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2 mL/kg</span></div>
-  <div class="item-note">0.2 g/kg for hypoglycaemia · recheck glucose after</div>
+  <div class="item-note">hypoglycaemia · recheck glucose after</div>
   <div class="item-refs">References: <span class="cites">[1], [43]</span></div>
 </div>
 
@@ -917,7 +919,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mL/kg (max 20 mL)</span></div>
-  <div class="item-note">hypoCa · hyperK with ECG changes — not in cardiac arrest · CCB toxicity · slow IV</div>
+  <div class="item-note">hypocalcaemia · hyperkalaemia (ECG changes; not in arrest) · CCB overdose · slow IV</div>
   <div class="item-refs">References: <span class="cites">[1], [43]</span></div>
 </div>
 
@@ -1051,7 +1053,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
-  <div class="item-note">loading dose over 10 min · then 2 mg/kg/h infusion (RCPCH)</div>
+  <div class="item-note">loading dose over 10 min · then 2 mg/kg/h infusion</div>
   <div class="item-refs">References: <span class="cites">[53], [54], [55]</span></div>
 </div>
 
@@ -1060,7 +1062,7 @@
     <span class="item-name">Max allowable blood loss</span>
   </div>
   <div class="item-dose"><span class="label">VALUE</span><span class="mono">EBV × (Hct – min Hct) / Hct</span></div>
-  <div class="item-note">estimate, not a transfusion trigger · Gross form uses mean Hct · EBV ~70–100 mL/kg</div>
+  <div class="item-note">estimate, not a transfusion trigger · EBV ~70–100 mL/kg</div>
   <div class="item-refs">References: <span class="cites">[56], [57]</span></div>
 </div>
 
@@ -1147,7 +1149,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">Miller lifts the epiglottis · Mac 1 equivalent (Passi)</div>
+  <div class="item-note">Miller lifts the epiglottis · Macintosh 1 equally effective</div>
   <div class="item-refs">References: <span class="cites">[65], [6]</span></div>
 </div>
 
@@ -1284,7 +1286,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">25–50 mg/kg (max 2 g)</span></div>
-  <div class="item-note">severe asthma · infuse over 20 min (ERC 2025)</div>
+  <div class="item-note">severe asthma · infuse over 20 min</div>
   <div class="item-refs">References: <span class="cites">[73], [14], [1]</span></div>
 </div>
 
@@ -1295,7 +1297,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">25 µg/kg (max 2 mg)</span></div>
   <div class="item-contra">Contraindicated &lt;12 months</div>
-  <div class="item-note">second-line, after adrenaline · not &lt;1 y</div>
+  <div class="item-note">second-line, after adrenaline</div>
   <div class="item-refs">References: <span class="cites">[74], [75], [76]</span></div>
 </div>
 
@@ -1315,7 +1317,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg</span></div>
-  <div class="item-note">drug of choice before sux · 0.5 mg/kg increments</div>
+  <div class="item-note">give in increments</div>
   <div class="item-refs">References: <span class="cites">[78]</span></div>
 </div>
 
@@ -1325,7 +1327,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.5 mg/kg</span></div>
-  <div class="item-note">0.1 mg/kg may spare ventilation · CI: MH, hyperkalaemia</div>
+  <div class="item-note">0.1 mg/kg may spare ventilation · avoid in MH / hyperkalaemia risk</div>
   <div class="item-refs">References: <span class="cites">[79], [78]</span></div>
 </div>
 
@@ -1335,7 +1337,7 @@
     <span class="item-route">IM</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg (max 200 mg)</span></div>
-  <div class="item-note">laryngospasm / RSI without IV access · CI: MH, hyperkalaemia</div>
+  <div class="item-note">laryngospasm / RSI without IV access · avoid in MH / hyperkalaemia risk</div>
   <div class="item-refs">References: <span class="cites">[79], [78]</span></div>
 </div>
 
@@ -1399,7 +1401,6 @@
     <span class="item-route">IV/IO/IM</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 2 mg)</span></div>
-  <div class="item-note">opioid overdose with apnoea / unresponsiveness</div>
   <div class="item-refs">References: <span class="cites">[1], [14]</span></div>
 </div>
 
@@ -1419,7 +1420,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2–4 mg/kg</span></div>
-  <div class="item-note">2 mg/kg moderate block · 4 mg/kg deep block</div>
+  <div class="item-note">upper dose for deep block</div>
   <div class="item-refs">References: <span class="cites">[81], [82]</span></div>
 </div>
 
@@ -1459,7 +1460,6 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.02 mL/kg (max 2 mL)</span></div>
-  <div class="item-note">0.02 mL/kg combined amp = neo 50 µg/kg + glyco 10 µg/kg · max 2 mL</div>
   <div class="item-refs">References: <span class="cites">[85]</span></div>
 </div>
 
@@ -1479,7 +1479,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">plain · SmPC: 3–4 mg/kg (5 per US practice)</div>
+  <div class="item-note">plain solution — no adrenaline</div>
   <div class="item-refs">References: <span class="cites">[6], [14]</span></div>
 </div>
 
@@ -1540,7 +1540,6 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.3 mg/kg (max 150 mg)</span></div>
   <div class="item-contra">Contraindicated &lt;6 months</div>
-  <div class="item-note">per side — ilioinguinal (SmPC) · adult max 150 mg</div>
   <div class="item-refs">References: <span class="cites">[91]</span></div>
 </div>
 

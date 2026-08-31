@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -470,7 +470,7 @@
           "max": 10,
           "unit": "mg",
           "route": "Buccal",
-          "note": "if oral refused · seizures: see Emergency",
+          "note": "if oral refused",
           "references": [
             "bnfc_online"
           ]
@@ -1465,22 +1465,6 @@
           "references": [
             "sign_158_asthma",
             "rcuk_pls_2025"
-          ]
-        },
-        {
-          "name": "Prednisolone (PO, asthma)",
-          "type": "linear_range",
-          "low": 1,
-          "high": 2,
-          "max": 40,
-          "max_unit": "mg",
-          "unit": "mg",
-          "route": "PO",
-          "note": "within the first hour · oral = IV efficacy",
-          "references": [
-            "rcuk_pls_2025",
-            "sign_158_asthma",
-            "erc_epals_2021"
           ]
         },
         {

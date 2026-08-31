@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.67",
-  "updated": "2026-07-08",
+  "version": "0.0.68",
+  "updated": "2026-08-31",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -139,7 +139,7 @@
           "type": "linear",
           "factor": 4,
           "unit": "J",
-          "note": "stepwise to 8 J/kg for refractory VF / pulseless VT (6th shock on) · adolescent 120–200 J",
+          "note": "refractory VF/pVT (6th shock on): stepwise to 8 J/kg, max 360 J · adolescent 120–200 J",
           "references": [
             "erc_pls_2025",
             "ilcor_defib_2025"
@@ -225,7 +225,7 @@
           "max": 18,
           "unit": "mg",
           "route": "IV",
-          "note": "escalate 0.05–0.1 mg/kg steps to max 0.5 mg/kg",
+          "note": "escalate q1–2 min in 0.05–0.1 mg/kg steps to 0.5 mg/kg · then cardiology advice",
           "references": [
             "erc_pls_2025"
           ]
@@ -810,20 +810,6 @@
       "title": "Emergency Drugs",
       "items": [
         {
-          "name": "Adrenaline (cardiac arrest)",
-          "type": "linear_max",
-          "factor": 10,
-          "max": 1,
-          "max_unit": "mg",
-          "unit": "µg",
-          "route": "IV/IO",
-          "note": "repeat every 3–5 min · max 1 mg/dose",
-          "references": [
-            "erc_pls_2025",
-            "aha_pals_2025"
-          ]
-        },
-        {
           "name": "Adrenaline (anaphylaxis IM)",
           "type": "linear_max",
           "factor": 10,
@@ -848,6 +834,22 @@
           ]
         },
         {
+          "name": "Clemastine",
+          "type": "linear_max",
+          "factor": 25,
+          "max": 2,
+          "max_unit": "mg",
+          "unit": "µg",
+          "route": "IV",
+          "references": [
+            "ring_anaphylaxis_2021",
+            "tavegyl_spc",
+            "kinderformularium_clemastine"
+          ],
+          "contraindicated_below_months": 12,
+          "note": "second-line, after adrenaline"
+        },
+        {
           "name": "Atropine",
           "type": "linear_max",
           "unit": "µg",
@@ -868,7 +870,7 @@
               "max_months": 6,
               "low": 0.6,
               "high": 1.2,
-              "note": "~10× older-child dose — indirect agent, immature sympathetics"
+              "note": "far higher than older-child dose – indirect agent, immature sympathetics"
             },
             {
               "max_years": 999,
@@ -944,7 +946,7 @@
           "factor": 1,
           "unit": "mmol",
           "route": "IV/IO",
-          "note": "1 mL/kg of 8.4% · TCA toxicity / severe acidosis · NOT for hyperkalaemic arrest",
+          "note": "1 mL/kg of 8.4% · TCA toxicity / severe acidosis · not routine in arrest",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -1042,7 +1044,8 @@
           "unit": "mL",
           "route": "IV",
           "references": [
-            "erc_pls_2025"
+            "erc_pls_2025",
+            "rcuk_paeds_algorithms_2026"
           ],
           "note": "balanced crystalloid · cardiogenic shock: 5 mL/kg",
           "max": 500
@@ -1102,7 +1105,7 @@
           "name": "Max allowable blood loss",
           "type": "fixed",
           "value": "EBV × (Hct – min Hct) / Hct",
-          "note": "estimate, not a transfusion trigger · EBV ~70–100 mL/kg",
+          "note": "estimate, not a transfusion trigger · EBV ~70–100 mL/kg · cited form uses mean Hct",
           "references": [
             "gross_mabl_1983",
             "spa_abl_2023"
@@ -1289,7 +1292,7 @@
           "name": "OPA / NPA sizing",
           "type": "fixed",
           "value": "by landmark",
-          "note": "OPA: incisors → angle of mandible · NPA: nostril → tragus; not in basal-skull fracture",
+          "note": "OPA: incisors → mandible angle · NPA: nostril → tragus -1 cm; not in basal-skull fracture",
           "references": [
             "erc_epals_2021",
             "nemeth_guedel_2023",
@@ -1361,9 +1364,7 @@
         },
         {
           "name": "Magnesium Sulphate",
-          "type": "linear_range",
-          "low": 25,
-          "high": 50,
+          "type": "linear_max",
           "max": 2,
           "max_unit": "g",
           "unit": "mg",
@@ -1373,23 +1374,8 @@
             "bnfc_online",
             "erc_pls_2025"
           ],
-          "note": "severe asthma · infuse over 20 min"
-        },
-        {
-          "name": "Clemastine",
-          "type": "linear_max",
-          "factor": 25,
-          "max": 2,
-          "max_unit": "mg",
-          "unit": "µg",
-          "route": "IV",
-          "references": [
-            "ring_anaphylaxis_2021",
-            "tavegyl_spc",
-            "kinderformularium_clemastine"
-          ],
-          "contraindicated_below_months": 12,
-          "note": "second-line, after adrenaline"
+          "note": "severe asthma · infuse over 20 min",
+          "factor": 40
         },
         {
           "name": "Adrenaline (nebulized)",
@@ -1687,7 +1673,7 @@
             "neal_last_2018",
             "asra_last_checklist_2020"
           ],
-          "note": "LAST rescue – continue until stable"
+          "note": "LAST rescue – continue ≥10 min after stability"
         },
         {
           "name": "Levobupivacaine (max)",

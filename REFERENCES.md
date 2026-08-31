@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.65** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.66** (updated 2026-07-08) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -312,11 +312,6 @@ Generated from `assets/formulary.json` **v0.0.65** (updated 2026-07-08) by `tool
 
 - Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
 - Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Hydrocortisone (adrenal crisis)
-
-- Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Insulin + glucose (hyperkalaemia)

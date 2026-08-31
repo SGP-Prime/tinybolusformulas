@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -82,7 +82,6 @@
     "nurofen_children_smpc": "Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).",
     "pedea_smpc": "Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).",
     "buccolam_smpc": "Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).",
-    "bsped_adrenal_2023": "Mushtaq T, Ali SR, Boulos N, et al. Emergency and perioperative management of adrenal insufficiency in children and young people: British Society for Paediatric Endocrinology and Diabetes consensus guidance. Arch Dis Child. 2023 (PMC10646833).",
     "rch_hyperkalaemia_cpg": "Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).",
     "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition).",
     "erc_epals_2021": "Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.",
@@ -1004,30 +1003,6 @@
             "rcuk_paeds_se_2026",
             "erc_epals_2021",
             "erc_pls_2025"
-          ]
-        },
-        {
-          "name": "Hydrocortisone (adrenal crisis)",
-          "type": "linear_age",
-          "max": 100,
-          "unit": "mg",
-          "route": "IV",
-          "note": "then 1 mg/kg (max 50) q6h · saline 10 mL/kg bolus · glucose if low",
-          "references": [
-            "bsped_adrenal_2023",
-            "erc_pls_2025"
-          ],
-          "brackets": [
-            {
-              "max_months": 1,
-              "low": 4,
-              "high": 4
-            },
-            {
-              "max_years": 999,
-              "low": 2,
-              "high": 2
-            }
           ]
         },
         {

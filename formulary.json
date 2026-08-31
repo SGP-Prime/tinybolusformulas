@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.64",
+  "version": "0.0.65",
   "updated": "2026-07-08",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -999,7 +999,7 @@
           "max": 10,
           "unit": "mg",
           "route": "IV/IO",
-          "note": "use if IV/IO already in place — else buccal · repeat once · off-label use",
+          "note": "repeat once · off-label use",
           "references": [
             "rcuk_paeds_se_2026",
             "erc_epals_2021",
@@ -1062,14 +1062,15 @@
       "items": [
         {
           "name": "Fluid Bolus",
-          "type": "linear",
+          "type": "linear_max",
           "factor": 10,
           "unit": "mL",
           "route": "IV",
           "references": [
             "erc_pls_2025"
           ],
-          "note": "balanced crystalloid · cardiogenic: 5 mL/kg · adolescent max 500 mL"
+          "note": "balanced crystalloid · cardiogenic shock: 5 mL/kg",
+          "max": 500
         },
         {
           "name": "Maintenance",
@@ -1360,7 +1361,6 @@
             }
           ],
           "route": "Nebulized",
-          "note": "repeat back-to-back or continuously per response",
           "references": [
             "sign_158_asthma",
             "gina_asthma_2024"
@@ -1451,7 +1451,7 @@
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
           ],
-          "note": "0.1 mg/kg may spare ventilation · avoid in MH / hyperkalaemia risk"
+          "note": "lower end may spare spontaneous ventilation · avoid in MH / hyperkalaemia risk"
         },
         {
           "name": "Succinylcholine (IM)",
@@ -1473,7 +1473,7 @@
           "high": 1.2,
           "unit": "mg",
           "route": "IV",
-          "note": "when succinylcholine contraindicated (MH) — then secure airway · sugammadex 16 mg/kg",
+          "note": "when succinylcholine contraindicated (MH) — then secure the airway",
           "references": [
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
@@ -1501,7 +1501,7 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "PO",
-          "note": "within the first hour · oral = IV efficacy · course ≤3 d, no taper",
+          "note": "within the first hour · oral = IV efficacy",
           "references": [
             "rcuk_pls_2025",
             "sign_158_asthma",

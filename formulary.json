@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "updated": "2026-09-01",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -100,7 +100,10 @@
     "gross_mabl_1983": "Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.",
     "spa_abl_2023": "Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.",
     "nemeth_guedel_2023": "Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).",
-    "nemeth_npa_2021": "Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970)."
+    "nemeth_npa_2021": "Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).",
+    "rcuk_anaphylaxis_2021": "Resuscitation Council UK. Emergency treatment of anaphylaxis: guidelines for healthcare providers (incl. the refractory anaphylaxis algorithm). May 2021. resus.org.uk.",
+    "droperidol_smpc": "Panpharma. Droperidol 2.5 mg/mL solution for injection (paediatric PONV, second line: 10–50 µg/kg, max 1.25 mg, not <2 y) - Summary of Product Characteristics. electronic medicines compendium (medicines.org.uk, current edition).",
+    "kinderformularium_droperidol": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition)."
   },
   "sections": [
     {
@@ -607,6 +610,25 @@
           ]
         },
         {
+          "name": "Droperidol (PONV)",
+          "id": "droperidol-ponv",
+          "drug": "Droperidol",
+          "qualifier": "PONV",
+          "type": "linear_range",
+          "low": 10,
+          "high": 50,
+          "max": 1.25,
+          "max_unit": "mg",
+          "unit": "µg",
+          "route": "IV",
+          "contraindicated_below_months": 24,
+          "note": "2nd line · avoid in long QT · give 30 min before end of surgery",
+          "references": [
+            "droperidol_smpc",
+            "kinderformularium_droperidol"
+          ]
+        },
+        {
           "name": "Etomidate",
           "id": "etomidate",
           "drug": "Etomidate",
@@ -943,6 +965,22 @@
           ]
         },
         {
+          "name": "Adrenaline (anaphylaxis infusion)",
+          "id": "adrenaline-anaphylaxis-infusion",
+          "drug": "Adrenaline",
+          "qualifier": "anaphylaxis infusion",
+          "type": "linear_range",
+          "low": 0.5,
+          "high": 1,
+          "unit": "mL/h",
+          "route": "IV",
+          "note": "1 mg in 100 mL NaCl 0.9% = 10 µg/mL · dedicated pump line · after 2 failed IM doses",
+          "references": [
+            "rcuk_anaphylaxis_2021",
+            "rcuk_paeds_algorithms_2026"
+          ]
+        },
+        {
           "name": "Clemastine",
           "id": "clemastine",
           "drug": "Clemastine",
@@ -1138,6 +1176,25 @@
             "rcuk_paeds_se_2026",
             "erc_epals_2021",
             "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Levetiracetam (status epilepticus)",
+          "id": "levetiracetam-status-epilepticus",
+          "drug": "Levetiracetam",
+          "qualifier": "status epilepticus",
+          "type": "linear_range",
+          "low": 40,
+          "high": 60,
+          "max": 4.5,
+          "max_unit": "g",
+          "unit": "mg",
+          "route": "IV/IO",
+          "contraindicated_below_months": 1,
+          "note": "2nd line after 2 benzodiazepine doses · give over 5 min · off-label",
+          "references": [
+            "erc_pls_2025",
+            "rcuk_paeds_se_2026"
           ]
         },
         {

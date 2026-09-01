@@ -1,7 +1,7 @@
 {
-  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm.",
-  "version": "0.0.68",
-  "updated": "2026-08-31",
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — the app's validate() rejects any row whose name/drug/qualifier/route disagree. Deleting a row moves its id into $retired_ids forever.",
+  "version": "0.0.69",
+  "updated": "2026-09-01",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -110,6 +110,8 @@
       "items": [
         {
           "name": "Compression rate",
+          "id": "compression-rate",
+          "drug": "Compression rate",
           "type": "fixed",
           "value": "100–120/min",
           "references": [
@@ -118,6 +120,8 @@
         },
         {
           "name": "Compression depth",
+          "id": "compression-depth",
+          "drug": "Compression depth",
           "type": "computed",
           "computer": "compression_depth",
           "note": "not exceeding 6 cm at any age",
@@ -127,6 +131,8 @@
         },
         {
           "name": "C:V ratio",
+          "id": "c-v-ratio",
+          "drug": "C:V ratio",
           "type": "fixed",
           "value": "15:2",
           "note": "15:2 if PBLS-trained · 30:2 untrained",
@@ -136,6 +142,8 @@
         },
         {
           "name": "Defibrillation",
+          "id": "defibrillation",
+          "drug": "Defibrillation",
           "type": "linear",
           "factor": 4,
           "unit": "J",
@@ -147,6 +155,9 @@
         },
         {
           "name": "Cardioversion (synchronised)",
+          "id": "cardioversion-synchronised",
+          "drug": "Cardioversion",
+          "qualifier": "synchronised",
           "type": "linear",
           "factor": 1,
           "unit": "J",
@@ -157,6 +168,9 @@
         },
         {
           "name": "Adrenaline (cardiac arrest)",
+          "id": "adrenaline-cardiac-arrest",
+          "drug": "Adrenaline",
+          "qualifier": "cardiac arrest",
           "type": "linear_max",
           "factor": 10,
           "max": 1,
@@ -171,6 +185,8 @@
         },
         {
           "name": "Amiodarone",
+          "id": "amiodarone",
+          "drug": "Amiodarone",
           "type": "linear_max",
           "factor": 5,
           "max": 300,
@@ -183,6 +199,8 @@
         },
         {
           "name": "Atropine",
+          "id": "atropine-pals",
+          "drug": "Atropine",
           "type": "linear_max",
           "unit": "µg",
           "route": "IV",
@@ -196,6 +214,9 @@
         },
         {
           "name": "Adrenaline (bradycardia)",
+          "id": "adrenaline-bradycardia",
+          "drug": "Adrenaline",
+          "qualifier": "bradycardia",
           "type": "linear_range",
           "low": 1,
           "high": 2,
@@ -209,6 +230,9 @@
         },
         {
           "name": "Adenosine (1st dose)",
+          "id": "adenosine-1st-dose",
+          "drug": "Adenosine",
+          "qualifier": "1st dose",
           "type": "linear_max",
           "factor": 0.1,
           "max": 6,
@@ -220,6 +244,9 @@
         },
         {
           "name": "Adenosine (2nd dose)",
+          "id": "adenosine-2nd-dose",
+          "drug": "Adenosine",
+          "qualifier": "2nd dose",
           "type": "linear_max",
           "factor": 0.3,
           "max": 18,
@@ -232,6 +259,9 @@
         },
         {
           "name": "Magnesium sulphate (torsades)",
+          "id": "magnesium-sulphate-torsades",
+          "drug": "Magnesium sulphate",
+          "qualifier": "torsades",
           "type": "linear_max",
           "factor": 50,
           "max": 2,
@@ -250,6 +280,8 @@
       "items": [
         {
           "name": "Heart Rate",
+          "id": "heart-rate",
+          "drug": "Heart Rate",
           "type": "computed",
           "computer": "vitals_hr",
           "unit": "bpm",
@@ -259,6 +291,8 @@
         },
         {
           "name": "Systolic BP",
+          "id": "systolic-bp",
+          "drug": "Systolic BP",
           "type": "computed",
           "computer": "vitals_sbp",
           "unit": "mmHg",
@@ -268,6 +302,8 @@
         },
         {
           "name": "Diastolic BP",
+          "id": "diastolic-bp",
+          "drug": "Diastolic BP",
           "type": "computed",
           "computer": "vitals_dbp",
           "unit": "mmHg",
@@ -277,6 +313,8 @@
         },
         {
           "name": "Respiratory Rate",
+          "id": "respiratory-rate",
+          "drug": "Respiratory Rate",
           "type": "computed",
           "computer": "vitals_rr",
           "unit": "/min",
@@ -286,6 +324,8 @@
         },
         {
           "name": "Tidal Volume",
+          "id": "tidal-volume",
+          "drug": "Tidal Volume",
           "type": "linear_range",
           "low": 5,
           "high": 7,
@@ -304,6 +344,8 @@
       "items": [
         {
           "name": "Propofol",
+          "id": "propofol",
+          "drug": "Propofol",
           "type": "linear_age",
           "brackets": [
             {
@@ -344,6 +386,8 @@
         },
         {
           "name": "Ketamine",
+          "id": "ketamine",
+          "drug": "Ketamine",
           "type": "linear_range",
           "low": 1,
           "high": 2,
@@ -356,6 +400,8 @@
         },
         {
           "name": "Ketamine (IM)",
+          "id": "ketamine-im",
+          "drug": "Ketamine",
           "type": "linear_range",
           "low": 4,
           "high": 5,
@@ -369,6 +415,8 @@
         },
         {
           "name": "Rocuronium",
+          "id": "rocuronium",
+          "drug": "Rocuronium",
           "type": "linear_range",
           "low": 0.6,
           "high": 1.2,
@@ -382,6 +430,9 @@
         },
         {
           "name": "Succinylcholine (RSI)",
+          "id": "succinylcholine-rsi",
+          "drug": "Succinylcholine",
+          "qualifier": "RSI",
           "type": "linear_age",
           "brackets": [
             {
@@ -407,6 +458,9 @@
         },
         {
           "name": "Fentanyl (induction)",
+          "id": "fentanyl-induction",
+          "drug": "Fentanyl",
+          "qualifier": "induction",
           "type": "linear_age",
           "brackets": [
             {
@@ -430,6 +484,8 @@
         },
         {
           "name": "Midazolam",
+          "id": "midazolam",
+          "drug": "Midazolam",
           "type": "linear_age",
           "brackets": [
             {
@@ -454,6 +510,9 @@
         },
         {
           "name": "Midazolam (oral premed)",
+          "id": "midazolam-oral-premed",
+          "drug": "Midazolam",
+          "qualifier": "premed",
           "type": "linear_max",
           "factor": 0.5,
           "max": 20,
@@ -465,6 +524,9 @@
         },
         {
           "name": "Midazolam (buccal premed)",
+          "id": "midazolam-buccal-premed",
+          "drug": "Midazolam",
+          "qualifier": "premed",
           "type": "linear_max",
           "factor": 0.3,
           "max": 10,
@@ -477,6 +539,9 @@
         },
         {
           "name": "Midazolam (IN premed)",
+          "id": "midazolam-in-premed",
+          "drug": "Midazolam",
+          "qualifier": "premed",
           "type": "linear_range",
           "low": 0.2,
           "high": 0.3,
@@ -492,6 +557,8 @@
         },
         {
           "name": "Ondansetron",
+          "id": "ondansetron",
+          "drug": "Ondansetron",
           "type": "linear_max",
           "factor": 0.1,
           "max": 4,
@@ -506,6 +573,9 @@
         },
         {
           "name": "Dexamethasone (PONV)",
+          "id": "dexamethasone-ponv",
+          "drug": "Dexamethasone",
+          "qualifier": "PONV",
           "type": "linear_range",
           "low": 0.15,
           "high": 0.25,
@@ -521,6 +591,9 @@
         },
         {
           "name": "Dexamethasone (anti-inflammatory)",
+          "id": "dexamethasone-anti-inflammatory",
+          "drug": "Dexamethasone",
+          "qualifier": "anti-inflammatory",
           "type": "linear_max",
           "factor": 0.5,
           "max": 8,
@@ -535,6 +608,8 @@
         },
         {
           "name": "Etomidate",
+          "id": "etomidate",
+          "drug": "Etomidate",
           "type": "linear_range",
           "low": 0.2,
           "high": 0.3,
@@ -548,6 +623,8 @@
         },
         {
           "name": "Atracurium",
+          "id": "atracurium",
+          "drug": "Atracurium",
           "type": "linear_age",
           "unit": "mg",
           "route": "IV",
@@ -570,6 +647,9 @@
         },
         {
           "name": "Dexmedetomidine (IN premed)",
+          "id": "dexmedetomidine-in-premed",
+          "drug": "Dexmedetomidine",
+          "qualifier": "premed",
           "type": "linear_range",
           "low": 1,
           "high": 3,
@@ -585,6 +665,8 @@
         },
         {
           "name": "Thiopental",
+          "id": "thiopental",
+          "drug": "Thiopental",
           "type": "linear_age",
           "brackets": [
             {
@@ -618,6 +700,8 @@
       "items": [
         {
           "name": "Paracetamol",
+          "id": "paracetamol",
+          "drug": "Paracetamol",
           "type": "linear_weight",
           "brackets": [
             {
@@ -644,6 +728,8 @@
         },
         {
           "name": "Ketorolac",
+          "id": "ketorolac",
+          "drug": "Ketorolac",
           "type": "linear_max",
           "factor": 0.5,
           "max": 30,
@@ -657,6 +743,8 @@
         },
         {
           "name": "Morphine",
+          "id": "morphine",
+          "drug": "Morphine",
           "type": "linear_age",
           "brackets": [
             {
@@ -679,6 +767,9 @@
         },
         {
           "name": "Fentanyl (analgesia)",
+          "id": "fentanyl-analgesia",
+          "drug": "Fentanyl",
+          "qualifier": "analgesia",
           "type": "linear_age",
           "brackets": [
             {
@@ -703,6 +794,8 @@
         },
         {
           "name": "Metamizole",
+          "id": "metamizole",
+          "drug": "Metamizole",
           "type": "linear_age",
           "brackets": [
             {
@@ -729,6 +822,8 @@
         },
         {
           "name": "Ibuprofen (IV)",
+          "id": "ibuprofen-iv",
+          "drug": "Ibuprofen",
           "type": "linear_max",
           "factor": 10,
           "max": 400,
@@ -746,6 +841,8 @@
         },
         {
           "name": "Ibuprofen (oral)",
+          "id": "ibuprofen-oral",
+          "drug": "Ibuprofen",
           "type": "linear_range",
           "low": 5,
           "high": 10,
@@ -762,6 +859,8 @@
         },
         {
           "name": "Tramadol",
+          "id": "tramadol",
+          "drug": "Tramadol",
           "type": "linear_range",
           "low": 1,
           "high": 2,
@@ -778,6 +877,8 @@
         },
         {
           "name": "Diclofenac (PO/PR)",
+          "id": "diclofenac-po-pr",
+          "drug": "Diclofenac",
           "type": "linear_range",
           "low": 0.3,
           "high": 1,
@@ -792,6 +893,8 @@
         },
         {
           "name": "Paracetamol (oral)",
+          "id": "paracetamol-oral",
+          "drug": "Paracetamol",
           "type": "linear_max",
           "factor": 15,
           "max": 1,
@@ -811,6 +914,9 @@
       "items": [
         {
           "name": "Adrenaline (anaphylaxis IM)",
+          "id": "adrenaline-anaphylaxis-im",
+          "drug": "Adrenaline",
+          "qualifier": "anaphylaxis",
           "type": "linear_max",
           "factor": 10,
           "max": 500,
@@ -824,6 +930,9 @@
         },
         {
           "name": "Adrenaline (anaphylaxis IV)",
+          "id": "adrenaline-anaphylaxis-iv",
+          "drug": "Adrenaline",
+          "qualifier": "anaphylaxis",
           "type": "linear",
           "factor": 1,
           "unit": "µg",
@@ -835,6 +944,8 @@
         },
         {
           "name": "Clemastine",
+          "id": "clemastine",
+          "drug": "Clemastine",
           "type": "linear_max",
           "factor": 25,
           "max": 2,
@@ -851,6 +962,8 @@
         },
         {
           "name": "Atropine",
+          "id": "atropine-emergency",
+          "drug": "Atropine",
           "type": "linear_max",
           "unit": "µg",
           "route": "IV",
@@ -864,6 +977,8 @@
         },
         {
           "name": "Ephedrine",
+          "id": "ephedrine",
+          "drug": "Ephedrine",
           "type": "linear_age",
           "brackets": [
             {
@@ -889,6 +1004,8 @@
         },
         {
           "name": "Phenylephrine",
+          "id": "phenylephrine",
+          "drug": "Phenylephrine",
           "type": "linear_range",
           "low": 5,
           "high": 20,
@@ -904,6 +1021,8 @@
         },
         {
           "name": "Lidocaine",
+          "id": "lidocaine",
+          "drug": "Lidocaine",
           "type": "linear_max",
           "factor": 1,
           "max": 100,
@@ -917,6 +1036,8 @@
         },
         {
           "name": "Glucose 10%",
+          "id": "glucose-10",
+          "drug": "Glucose 10%",
           "type": "linear",
           "factor": 2,
           "unit": "mL",
@@ -929,6 +1050,8 @@
         },
         {
           "name": "Calcium gluconate 10%",
+          "id": "calcium-gluconate-10",
+          "drug": "Calcium gluconate 10%",
           "type": "linear_max",
           "factor": 0.5,
           "max": 20,
@@ -942,6 +1065,8 @@
         },
         {
           "name": "Sodium bicarbonate 8.4%",
+          "id": "sodium-bicarbonate-8-4",
+          "drug": "Sodium bicarbonate 8.4%",
           "type": "linear",
           "factor": 1,
           "unit": "mmol",
@@ -954,6 +1079,8 @@
         },
         {
           "name": "Dantrolene",
+          "id": "dantrolene",
+          "drug": "Dantrolene",
           "type": "linear",
           "factor": 2.5,
           "unit": "mg",
@@ -966,6 +1093,9 @@
         },
         {
           "name": "Midazolam (buccal, status epilepticus)",
+          "id": "midazolam-buccal-status-epilepticus",
+          "drug": "Midazolam",
+          "qualifier": "status epilepticus",
           "type": "fixed_age",
           "contraindicated_below_months": 3,
           "brackets": [
@@ -995,6 +1125,9 @@
         },
         {
           "name": "Midazolam (IV, status epilepticus)",
+          "id": "midazolam-iv-status-epilepticus",
+          "drug": "Midazolam",
+          "qualifier": "status epilepticus",
           "type": "linear_max",
           "factor": 0.15,
           "max": 10,
@@ -1009,6 +1142,9 @@
         },
         {
           "name": "Insulin + glucose (hyperkalaemia)",
+          "id": "insulin-glucose-hyperkalaemia",
+          "drug": "Insulin + glucose",
+          "qualifier": "hyperkalaemia",
           "type": "linear_max",
           "factor": 0.1,
           "max": 10,
@@ -1022,6 +1158,9 @@
         },
         {
           "name": "Salbutamol (nebulized, hyperkalaemia)",
+          "id": "salbutamol-nebulized-hyperkalaemia",
+          "drug": "Salbutamol",
+          "qualifier": "hyperkalaemia",
           "type": "fixed",
           "value": "2.5–5 mg",
           "route": "Nebulized",
@@ -1039,6 +1178,8 @@
       "items": [
         {
           "name": "Fluid Bolus",
+          "id": "fluid-bolus",
+          "drug": "Fluid Bolus",
           "type": "linear_max",
           "factor": 10,
           "unit": "mL",
@@ -1052,6 +1193,8 @@
         },
         {
           "name": "Maintenance",
+          "id": "maintenance",
+          "drug": "Maintenance",
           "type": "computed",
           "computer": "fluid_maintenance",
           "unit": "mL/h",
@@ -1063,6 +1206,8 @@
         },
         {
           "name": "Total Blood Volume",
+          "id": "total-blood-volume",
+          "drug": "Total Blood Volume",
           "type": "linear_age",
           "brackets": [
             {
@@ -1088,6 +1233,8 @@
         },
         {
           "name": "Tranexamic Acid",
+          "id": "tranexamic-acid",
+          "drug": "Tranexamic Acid",
           "type": "linear_max",
           "factor": 15,
           "max": 1,
@@ -1103,6 +1250,8 @@
         },
         {
           "name": "Max allowable blood loss",
+          "id": "max-allowable-blood-loss",
+          "drug": "Max allowable blood loss",
           "type": "fixed",
           "value": "EBV × (Hct – min Hct) / Hct",
           "note": "estimate, not a transfusion trigger · EBV ~70–100 mL/kg · cited form uses mean Hct",
@@ -1119,6 +1268,8 @@
       "items": [
         {
           "name": "ETT",
+          "id": "ett",
+          "drug": "ETT",
           "type": "computed",
           "computer": "ett",
           "note": "cuffed sizes — uncuffed add 0.5 (≥1 y) · neonatal table: uncuffed sizes",
@@ -1129,6 +1280,8 @@
         },
         {
           "name": "ETT insertion depth",
+          "id": "ett-insertion-depth",
+          "drug": "ETT insertion depth",
           "type": "computed",
           "computer": "ett_insertion_depth",
           "note": "nasal: +1 cm <1 y · +2–3 cm ≥1 y",
@@ -1140,6 +1293,8 @@
         },
         {
           "name": "iGel LMA",
+          "id": "igel-lma",
+          "drug": "iGel LMA",
           "type": "computed",
           "computer": "lma",
           "references": [
@@ -1149,6 +1304,8 @@
         },
         {
           "name": "AuraGain LMA",
+          "id": "auragain-lma",
+          "drug": "AuraGain LMA",
           "type": "computed",
           "computer": "auragain",
           "references": [
@@ -1157,6 +1314,8 @@
         },
         {
           "name": "Laryngoscope blade",
+          "id": "laryngoscope-blade",
+          "drug": "Laryngoscope blade",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1180,6 +1339,8 @@
         },
         {
           "name": "Face mask",
+          "id": "face-mask",
+          "drug": "Face mask",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1215,6 +1376,8 @@
         },
         {
           "name": "Reservoir bag",
+          "id": "reservoir-bag",
+          "drug": "Reservoir bag",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1237,6 +1400,8 @@
         },
         {
           "name": "Suction catheter",
+          "id": "suction-catheter",
+          "drug": "Suction catheter",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1263,6 +1428,8 @@
         },
         {
           "name": "NG/OG tube",
+          "id": "ng-og-tube",
+          "drug": "NG/OG tube",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1290,6 +1457,8 @@
         },
         {
           "name": "OPA / NPA sizing",
+          "id": "opa-npa-sizing",
+          "drug": "OPA / NPA sizing",
           "type": "fixed",
           "value": "by landmark",
           "note": "OPA: incisors → mandible angle · NPA: nostril → tragus -1 cm; not in basal-skull fracture",
@@ -1307,6 +1476,8 @@
       "items": [
         {
           "name": "Salbutamol (inhaled)",
+          "id": "salbutamol-inhaled",
+          "drug": "Salbutamol",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1327,6 +1498,8 @@
         },
         {
           "name": "Salbutamol (nebulized)",
+          "id": "salbutamol-nebulized",
+          "drug": "Salbutamol",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1346,6 +1519,8 @@
         },
         {
           "name": "Ipratropium (nebulized)",
+          "id": "ipratropium-nebulized",
+          "drug": "Ipratropium",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1364,6 +1539,8 @@
         },
         {
           "name": "Magnesium Sulphate",
+          "id": "magnesium-sulphate",
+          "drug": "Magnesium Sulphate",
           "type": "linear_max",
           "max": 2,
           "max_unit": "g",
@@ -1379,6 +1556,8 @@
         },
         {
           "name": "Adrenaline (nebulized)",
+          "id": "adrenaline-nebulized",
+          "drug": "Adrenaline",
           "type": "linear_max",
           "factor": 0.5,
           "max": 5,
@@ -1392,6 +1571,9 @@
         },
         {
           "name": "Propofol (laryngospasm)",
+          "id": "propofol-laryngospasm",
+          "drug": "Propofol",
+          "qualifier": "laryngospasm",
           "type": "linear",
           "factor": 0.5,
           "unit": "mg",
@@ -1403,6 +1585,9 @@
         },
         {
           "name": "Succinylcholine (laryngospasm)",
+          "id": "succinylcholine-laryngospasm",
+          "drug": "Succinylcholine",
+          "qualifier": "laryngospasm",
           "type": "linear_range",
           "low": 0.1,
           "high": 0.5,
@@ -1416,6 +1601,8 @@
         },
         {
           "name": "Succinylcholine (IM)",
+          "id": "succinylcholine-im",
+          "drug": "Succinylcholine",
           "type": "linear_max",
           "factor": 4,
           "max": 200,
@@ -1429,6 +1616,9 @@
         },
         {
           "name": "Rocuronium (laryngospasm)",
+          "id": "rocuronium-laryngospasm",
+          "drug": "Rocuronium",
+          "qualifier": "laryngospasm",
           "type": "linear_range",
           "low": 0.6,
           "high": 1.2,
@@ -1442,6 +1632,9 @@
         },
         {
           "name": "Salbutamol (IV, severe asthma)",
+          "id": "salbutamol-iv-severe-asthma",
+          "drug": "Salbutamol",
+          "qualifier": "severe asthma",
           "type": "linear_max",
           "factor": 15,
           "max": 250,
@@ -1455,6 +1648,9 @@
         },
         {
           "name": "Hydrocortisone (IV, asthma)",
+          "id": "hydrocortisone-iv-asthma",
+          "drug": "Hydrocortisone",
+          "qualifier": "asthma",
           "type": "linear",
           "factor": 4,
           "unit": "mg",
@@ -1472,6 +1668,9 @@
       "items": [
         {
           "name": "Naloxone (titrated)",
+          "id": "naloxone-titrated",
+          "drug": "Naloxone",
+          "qualifier": "titrated",
           "type": "linear",
           "factor": 10,
           "unit": "µg",
@@ -1484,6 +1683,9 @@
         },
         {
           "name": "Naloxone (overdose)",
+          "id": "naloxone-overdose",
+          "drug": "Naloxone",
+          "qualifier": "overdose",
           "type": "linear_max",
           "factor": 0.1,
           "max": 2,
@@ -1496,6 +1698,8 @@
         },
         {
           "name": "Flumazenil",
+          "id": "flumazenil",
+          "drug": "Flumazenil",
           "type": "linear_max",
           "factor": 10,
           "max": 200,
@@ -1508,6 +1712,8 @@
         },
         {
           "name": "Sugammadex",
+          "id": "sugammadex",
+          "drug": "Sugammadex",
           "type": "linear_range",
           "low": 2,
           "high": 4,
@@ -1521,6 +1727,9 @@
         },
         {
           "name": "Sugammadex (profound block)",
+          "id": "sugammadex-profound-block",
+          "drug": "Sugammadex",
+          "qualifier": "profound block",
           "type": "linear",
           "factor": 16,
           "unit": "mg",
@@ -1533,6 +1742,8 @@
         },
         {
           "name": "Neostigmine",
+          "id": "neostigmine",
+          "drug": "Neostigmine",
           "type": "linear_range",
           "low": 0.04,
           "high": 0.07,
@@ -1548,6 +1759,9 @@
         },
         {
           "name": "Atropine (with neostigmine)",
+          "id": "atropine-with-neostigmine",
+          "drug": "Atropine",
+          "qualifier": "with neostigmine",
           "type": "linear_max",
           "factor": 20,
           "max": 500,
@@ -1561,6 +1775,8 @@
         },
         {
           "name": "Neostigmine + glycopyrronium",
+          "id": "neostigmine-glycopyrronium",
+          "drug": "Neostigmine + glycopyrronium",
           "type": "linear_max",
           "factor": 0.02,
           "max": 2,
@@ -1578,6 +1794,8 @@
       "items": [
         {
           "name": "Lidocaine (perineural)",
+          "id": "lidocaine-perineural",
+          "drug": "Lidocaine",
           "type": "linear_age",
           "brackets": [
             {
@@ -1602,6 +1820,8 @@
         },
         {
           "name": "Bupivacaine (perineural)",
+          "id": "bupivacaine-perineural",
+          "drug": "Bupivacaine",
           "type": "linear_age",
           "brackets": [
             {
@@ -1627,6 +1847,8 @@
         },
         {
           "name": "Ropivacaine (perineural)",
+          "id": "ropivacaine-perineural",
+          "drug": "Ropivacaine",
           "type": "linear_age",
           "brackets": [
             {
@@ -1653,6 +1875,8 @@
         },
         {
           "name": "Intralipid 20% bolus",
+          "id": "intralipid-20-bolus",
+          "drug": "Intralipid 20% bolus",
           "type": "linear",
           "factor": 1.5,
           "unit": "mL",
@@ -1665,6 +1889,8 @@
         },
         {
           "name": "Intralipid 20% infusion",
+          "id": "intralipid-20-infusion",
+          "drug": "Intralipid 20% infusion",
           "type": "linear",
           "factor": 0.25,
           "unit": "mL/min",
@@ -1677,6 +1903,9 @@
         },
         {
           "name": "Levobupivacaine (max)",
+          "id": "levobupivacaine-max",
+          "drug": "Levobupivacaine",
+          "qualifier": "max",
           "type": "linear_max",
           "factor": 1.25,
           "max": 150,
@@ -1957,5 +2186,8 @@
     "infant_cm": 4,
     "child_cm": 5,
     "infant_max_years": 1
+  },
+  "$retired_ids": {
+    "comment": "Ids permanently retired — a deleted row's id is never reused for a different row. (Ledger starts empty: ids were introduced in v0.0.69, after the v0.0.68 removals.)"
   }
 }

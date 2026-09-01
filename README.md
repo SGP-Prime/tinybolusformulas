@@ -7,12 +7,12 @@ The file **`formulary.json`** is served raw to every installed instance of the T
 ## Updating doses
 
 1. Edit `formulary.json`.
-2. Bump the `version` field (semver — `1.2.3` → `1.2.4` for dose fixes, `1.3.0` for new sections, `2.0.0` for schema changes).
+2. Bump the `version` field (semver, patch bumps for everything in practice — the app compares versions numerically and doesn't attach meaning to the segments; what matters is that every push is strictly higher than the last).
 3. Update the `updated` date.
 4. **Mirror into the app repo and run its test suite before pushing** — copy the file byte-identical to `tinybolus_app/assets/formulary.json` and run `flutter test` there. That suite is where the mechanical guards live (id integrity, dose-magnitude bounds, note budgets, visibility decisions); this repo deliberately has no CI of its own.
 5. Commit + push to `main`.
 
-The app only updates its cache when the fetched `version` is **strictly greater** than the bundled one, so forgetting to bump the version means the update is silently ignored.
+The app only updates its cache when the fetched `version` is **strictly greater** than the version it is currently running (cached or bundled, whichever won at launch), so forgetting to bump the version means the update is silently ignored. Recovering from a push whose version was accidentally too HIGH requires an app release whose bundled version matches or exceeds it (bundled wins ties and evicts the cache).
 
 ## Item identity (schema v2, since v0.0.69)
 

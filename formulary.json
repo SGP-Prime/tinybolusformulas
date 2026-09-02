@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.70",
-  "updated": "2026-09-01",
+  "version": "0.0.71",
+  "updated": "2026-09-02",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -20,7 +20,7 @@
     "rcpch_txa_2012": "Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.",
     "erc_pls_2025": "Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.",
     "aha_pals_2025": "Lasa JJ, Dhillon GS, Duff JP, et al. Part 8: Pediatric Advanced Life Support: 2025 American Heart Association and American Academy of Pediatrics Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation. 2025;152(16_suppl_2):S479–S537.",
-    "ilcor_defib_2025": "Acworth J et al. ILCOR 2025 systematic review on pediatric defibrillation energy. Resuscitation Plus 2025;24:100991.",
+    "ilcor_defib_2025": "Acworth J, Del Castillo J, Tiwari LK, et al. Energy doses for paediatric defibrillation in cardiac arrest: systematic review and meta-analysis. Resuscitation Plus 2025;24:100991.",
     "barrington_atropine_2011": "Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.",
     "bnfc_online": "Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.",
     "szostek_ephedrine_2023": "Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.",
@@ -35,8 +35,8 @@
     "bouwmeester_morphine_2004": "Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208–217.",
     "plaud_sugammadex_2009": "Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.",
     "lee_sugammadex_2024": "Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269–279.",
-    "lee_sugammadex_profound_2009": "Lee C, Jahr JS, Candiotti KA, et al. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium. Anesthesiology 2009;110(5):1020–1024.",
-    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme LLC, 2025.",
+    "lee_sugammadex_profound_2009": "Lee C, Jahr JS, Candiotti KA, Warriner B, Zornow MH, Naguib M. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium: a comparison with spontaneous recovery from succinylcholine. Anesthesiology 2009;110(5):1020–1025.",
+    "bridion_label_2025": "Bridion (sugammadex) prescribing information. Merck Sharp & Dohme LLC (current revision).",
     "spaeth_ventilation_2022": "Spaeth J, Schumann S, Humphreys S. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247–254.",
     "kneyber_pemvecc_2017": "Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764–1780.",
     "holliday_segar_1957": "Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.",
@@ -45,7 +45,7 @@
     "faraoni_antifibrinolytic_2014": "Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.",
     "apls_7e_2023": "Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.",
     "luscombe_weight_2011": "Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.",
-    "cote_anesthesia_2019": "Coté CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2019.",
+    "cote_anesthesia_2019": "Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.",
     "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
     "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.",
     "gavel_laryngospasm_2014": "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.",
@@ -83,7 +83,7 @@
     "pedea_smpc": "Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).",
     "buccolam_smpc": "Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).",
     "rch_hyperkalaemia_cpg": "Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).",
-    "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection · Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (current edition).",
+    "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection - Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (last updated 2023; product since discontinued).",
     "erc_epals_2021": "Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.",
     "rcuk_paeds_se_2026": "Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).",
     "erc_nls_2025": "European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.",
@@ -103,7 +103,8 @@
     "nemeth_npa_2021": "Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).",
     "rcuk_anaphylaxis_2021": "Resuscitation Council UK. Emergency treatment of anaphylaxis: guidelines for healthcare providers (incl. the refractory anaphylaxis algorithm). May 2021. resus.org.uk.",
     "droperidol_smpc": "Panpharma. Droperidol 2.5 mg/mL solution for injection (paediatric PONV, second line: 10–50 µg/kg, max 1.25 mg, not <2 y) - Summary of Product Characteristics. electronic medicines compendium (medicines.org.uk, current edition).",
-    "kinderformularium_droperidol": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition)."
+    "kinderformularium_droperidol": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).",
+    "fentanyl_smpc": "Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition)."
   },
   "sections": [
     {
@@ -481,6 +482,7 @@
           "unit": "µg",
           "route": "IV",
           "references": [
+            "fentanyl_smpc",
             "bnfc_online",
             "cravero_spa_opioids_2019"
           ]
@@ -1083,7 +1085,7 @@
           "note": "hypoglycaemia · recheck glucose after",
           "references": [
             "erc_pls_2025",
-            "apls_7e_2023"
+            "rcuk_paeds_algorithms_2026"
           ]
         },
         {
@@ -1174,7 +1176,6 @@
           "note": "repeat once · off-label use",
           "references": [
             "rcuk_paeds_se_2026",
-            "erc_epals_2021",
             "erc_pls_2025"
           ]
         },

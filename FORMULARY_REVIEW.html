@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.71 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.72 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.71 · Updated 2026-09-02</p>
+  <p class="version">Version 0.0.72 · Updated 2026-10-27</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D.</p>
   <p class="contact">
@@ -244,13 +244,27 @@
     <li><strong>Computed</strong>: piecewise logic that doesn't reduce to a single formula (ETT sizing, fluid maintenance, LMA / supraglottic airway sizing, vital-sign normal ranges).</li>
   </ul>
 
-  <h3>Hard floors / contraindications</h3>
+  <h3>Age brackets</h3>
+  <p>
+    Bracket bounds are printed exactly as the application resolves
+    them. A bound in <em>months</em> is inclusive in completed months
+    ("≤12 mo" includes a child of exactly 1 y 0 m). A bound in
+    <em>years</em> covers every child of that age in completed years
+    ("1–6 y" runs through 6 y 11 m). Where a months bracket ends on a
+    birthday, the next bracket starts one month later and is marked
+    "&gt;": "&gt;1–6 y" begins at 1 y 1 m. "≥6 mo" starts at exactly
+    6 months. Weight bands are inclusive on both bounds.
+  </p>
+
+  <h3>Hard floors</h3>
   <p>
     Some items carry an <em>age</em> or <em>weight</em> floor below
-    which the formulary explicitly declines to suggest a dose. In the
-    app this renders as ∅ (empty-set glyph) with a "not indicated"
-    explanation. Items with such floors are flagged in red below
-    each row.
+    which the formulary declines to suggest a dose. In the app this
+    renders as ∅ (empty-set glyph) with a "not indicated" explanation;
+    the same wording is used here. A floor records where the cited
+    source stops (no data, not recommended, outside the licensed
+    indication) — it is not a claim of formal contraindication. Items
+    with such floors are flagged in red below each row.
   </p>
 
   <h3>References</h3>
@@ -415,7 +429,7 @@
   <table class="brackets"><tbody>
     <tr><td class="age">≤1 mo</td><td class="dose">120–170 bpm</td></tr>
     <tr><td class="age">2–12 mo</td><td class="dose">100–160 bpm</td></tr>
-    <tr><td class="age">1–2 y</td><td class="dose">98–140 bpm</td></tr>
+    <tr><td class="age">&gt;1–2 y</td><td class="dose">98–140 bpm</td></tr>
     <tr><td class="age">3–5 y</td><td class="dose">80–120 bpm</td></tr>
     <tr><td class="age">6–11 y</td><td class="dose">75–118 bpm</td></tr>
     <tr><td class="age">≥12 y</td><td class="dose">60–100 bpm</td></tr>
@@ -430,7 +444,7 @@
   </div>
   <table class="brackets"><tbody>
     <tr><td class="age">≤12 mo</td><td class="dose">72–104 mmHg</td></tr>
-    <tr><td class="age">1–2 y</td><td class="dose">86–106 mmHg</td></tr>
+    <tr><td class="age">&gt;1–2 y</td><td class="dose">86–106 mmHg</td></tr>
     <tr><td class="age">3–5 y</td><td class="dose">89–112 mmHg</td></tr>
     <tr><td class="age">6–9 y</td><td class="dose">97–115 mmHg</td></tr>
     <tr><td class="age">10–11 y</td><td class="dose">102–120 mmHg</td></tr>
@@ -447,7 +461,7 @@
   </div>
   <table class="brackets"><tbody>
     <tr><td class="age">≤12 mo</td><td class="dose">37–56 mmHg</td></tr>
-    <tr><td class="age">1–2 y</td><td class="dose">42–63 mmHg</td></tr>
+    <tr><td class="age">&gt;1–2 y</td><td class="dose">42–63 mmHg</td></tr>
     <tr><td class="age">3–5 y</td><td class="dose">46–72 mmHg</td></tr>
     <tr><td class="age">6–9 y</td><td class="dose">57–76 mmHg</td></tr>
     <tr><td class="age">10–11 y</td><td class="dose">61–80 mmHg</td></tr>
@@ -465,7 +479,7 @@
   <table class="brackets"><tbody>
     <tr><td class="age">≤1 mo</td><td class="dose">40–60 /min</td></tr>
     <tr><td class="age">2–12 mo</td><td class="dose">30–53 /min</td></tr>
-    <tr><td class="age">1–3 y</td><td class="dose">22–37 /min</td></tr>
+    <tr><td class="age">&gt;1–3 y</td><td class="dose">22–37 /min</td></tr>
     <tr><td class="age">4–5 y</td><td class="dose">20–28 /min</td></tr>
     <tr><td class="age">6–12 y</td><td class="dose">18–25 /min</td></tr>
     <tr><td class="age">≥13 y</td><td class="dose">12–20 /min</td></tr>
@@ -496,7 +510,7 @@
     <tbody>
       <tr><td class="age">≤1 mo</td><td class="dose">1–2.5 mg/kg</td></tr>
       <tr><td class="age">2–12 mo</td><td class="dose">3–4 mg/kg</td></tr>
-      <tr><td class="age">1–6 y</td><td class="dose">3–3.5 mg/kg</td></tr>
+      <tr><td class="age">&gt;1–6 y</td><td class="dose">3–3.5 mg/kg</td></tr>
       <tr><td class="age">7–12 y</td><td class="dose">2.5–3 mg/kg</td></tr>
       <tr><td class="age">≥13 y</td><td class="dose">2–2.5 mg/kg</td></tr>
     </tbody>
@@ -543,7 +557,7 @@
   <table class="brackets">
     <tbody>
       <tr><td class="age">≤12 mo</td><td class="dose">2–3 mg/kg <span style="color:var(--muted); font-style:italic;">— raised in infants — larger extracellular volume</span></td></tr>
-      <tr><td class="age">≥1 y</td><td class="dose">1–2 mg/kg</td></tr>
+      <tr><td class="age">&gt;1 y</td><td class="dose">1–2 mg/kg</td></tr>
     </tbody>
   </table>
 
@@ -617,7 +631,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 4 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;1 months</div>
+  <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
   <div class="item-refs">References: <span class="cites">[21], [14], [22]</span></div>
 </div>
 
@@ -645,8 +659,8 @@
     <span class="item-name">Droperidol (PONV)</span>
     <span class="item-route">IV</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10–50 µg/kg (max 1.3 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;24 months</div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">10–50 µg/kg (max 1.25 mg)</span></div>
+  <div class="item-contra">Not indicated &lt;24 months (age floor)</div>
   <div class="item-note">2nd line · avoid in long QT · give 30 min before end of surgery</div>
   <div class="item-refs">References: <span class="cites">[26], [27]</span></div>
 </div>
@@ -669,7 +683,7 @@
   <table class="brackets">
     <tbody>
       <tr><td class="age">≤12 mo</td><td class="dose">0.3–0.4 mg/kg</td></tr>
-      <tr><td class="age">≥1 y</td><td class="dose">0.4–0.5 mg/kg</td></tr>
+      <tr><td class="age">&gt;1 y</td><td class="dose">0.4–0.5 mg/kg</td></tr>
     </tbody>
   </table>
 
@@ -695,7 +709,7 @@
     <tbody>
       <tr><td class="age">≤1 mo</td><td class="dose">3–4 mg/kg</td></tr>
       <tr><td class="age">2–12 mo</td><td class="dose">5–8 mg/kg</td></tr>
-      <tr><td class="age">≥1 y</td><td class="dose">5–6 mg/kg</td></tr>
+      <tr><td class="age">&gt;1 y</td><td class="dose">5–6 mg/kg</td></tr>
     </tbody>
   </table>
 
@@ -720,7 +734,7 @@
   </table>
   <div class="item-dose"><span class="label">CAP</span><span class="mono">max 1 g</span></div>
 
-  <div class="item-note">interval ≥4 h</div>
+  <div class="item-note">interval ≥4 h · max 4 doses/24 h</div>
   <div class="item-refs">References: <span class="cites">[31], [14], [32]</span></div>
 </div>
 
@@ -730,7 +744,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 30 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;6 months</div>
+  <div class="item-contra">Not indicated &lt;6 months (age floor)</div>
   <div class="item-refs">References: <span class="cites">[33], [14]</span></div>
 </div>
 
@@ -777,7 +791,7 @@
   </table>
   <div class="item-dose"><span class="label">CAP</span><span class="mono">max 1 g</span></div>
 
-  <div class="item-contra">Contraindicated &lt;3 months</div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-refs">References: <span class="cites">[36], [37]</span></div>
 </div>
 
@@ -787,7 +801,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 mg/kg (max 400 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;3 months</div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-note">not &lt;5 kg · infuse ≥10 min · PDA use is separate</div>
   <div class="item-refs">References: <span class="cites">[38], [14], [39], [40], [41]</span></div>
 </div>
@@ -798,7 +812,7 @@
     <span class="item-route">PO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–10 mg/kg (max 400 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;3 months</div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-note">not &lt;5 kg</div>
   <div class="item-refs">References: <span class="cites">[38], [14], [39]</span></div>
 </div>
@@ -809,7 +823,7 @@
     <span class="item-route">IV/PO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg (max 100 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;12 months</div>
+  <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
   <div class="item-note">q6h · respiratory depression caution</div>
   <div class="item-refs">References: <span class="cites">[42], [43]</span></div>
 </div>
@@ -820,7 +834,7 @@
     <span class="item-route">PO/PR</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3–1 mg/kg</span></div>
-  <div class="item-contra">Contraindicated &lt;12 months</div>
+  <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
   <div class="item-note">q8–12h</div>
   <div class="item-refs">References: <span class="cites">[44], [43]</span></div>
 </div>
@@ -831,7 +845,7 @@
     <span class="item-route">PO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
-  <div class="item-note">q4–6h</div>
+  <div class="item-note">q4–6h · max 4 doses/24 h</div>
   <div class="item-refs">References: <span class="cites">[43]</span></div>
 </div>
 
@@ -875,7 +889,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">25 µg/kg (max 2 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;12 months</div>
+  <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
   <div class="item-note">second-line, after adrenaline</div>
   <div class="item-refs">References: <span class="cites">[46], [47], [48]</span></div>
 </div>
@@ -961,7 +975,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
-  <div class="item-note">reconstitute vials in 60 mL water NOW · repeat 1 mg/kg every 5 min · may exceed 10 mg/kg</div>
+  <div class="item-note">reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
   <div class="item-refs">References: <span class="cites">[51], [52]</span></div>
 </div>
 
@@ -973,13 +987,13 @@
   <table class="brackets">
     <tbody>
       <tr><td class="age">≤11 mo</td><td class="dose">2.5 mg</td></tr>
-      <tr><td class="age">12 mo – 4 y</td><td class="dose">5 mg</td></tr>
+      <tr><td class="age">1–4 y</td><td class="dose">5 mg</td></tr>
       <tr><td class="age">5–9 y</td><td class="dose">7.5 mg</td></tr>
       <tr><td class="age">≥10 y</td><td class="dose">10 mg</td></tr>
     </tbody>
   </table>
 
-  <div class="item-contra">Contraindicated &lt;3 months</div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-note">seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min</div>
   <div class="item-refs">References: <span class="cites">[53], [1]</span></div>
 </div>
@@ -1000,7 +1014,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40–60 mg/kg (max 4.5 g)</span></div>
-  <div class="item-contra">Contraindicated &lt;1 months</div>
+  <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
   <div class="item-note">2nd line after 2 benzodiazepine doses · give over 5 min · off-label</div>
   <div class="item-refs">References: <span class="cites">[1], [54]</span></div>
 </div>
@@ -1011,7 +1025,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 units/kg (max 10 units)</span></div>
-  <div class="item-note">WITH glucose 10% 5 mL/kg — never insulin alone · check glucose &amp; K+ q15min</div>
+  <div class="item-note">WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose &amp; K+ q15min</div>
   <div class="item-refs">References: <span class="cites">[55], [1]</span></div>
 </div>
 
@@ -1070,7 +1084,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
   <div class="item-note">loading dose over 10 min · then 2 mg/kg/h infusion</div>
-  <div class="item-refs">References: <span class="cites">[58], [59], [60]</span></div>
+  <div class="item-refs">References: <span class="cites">[58], [59], [60], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1091,7 +1105,7 @@
     <span class="item-name">ETT</span>
   </div>
   <div class="item-dose"><span class="label">RULE</span><span class="mono">Cuffed: 3.5 + age/4, rounded to ±0.5</span></div>
-  <div class="item-dose"><span class="label">&lt;1 mo</span><span class="mono">Neonatal weight table (≤4 kg, uncuffed):</span></div>
+  <div class="item-dose"><span class="label">&lt;1 mo</span><span class="mono">Neonatal weight table (≤4 kg, uncuffed; heavier neonates use the infant age table):</span></div>
   <table class="brackets"><tbody>
     <tr><td class="age">≤1.5 kg</td><td class="dose">size 2.5</td></tr>
     <tr><td class="age">≤3 kg</td><td class="dose">size 3.0</td></tr>
@@ -1177,7 +1191,7 @@
     <tbody>
       <tr><td class="age">≤1 mo</td><td class="dose">Size 0</td></tr>
       <tr><td class="age">2–12 mo</td><td class="dose">Size 1</td></tr>
-      <tr><td class="age">1–3 y</td><td class="dose">Size 2</td></tr>
+      <tr><td class="age">&gt;1–3 y</td><td class="dose">Size 2</td></tr>
       <tr><td class="age">4–8 y</td><td class="dose">Size 3</td></tr>
       <tr><td class="age">9–14 y</td><td class="dose">Size 4</td></tr>
       <tr><td class="age">≥15 y</td><td class="dose">Size 5</td></tr>
@@ -1454,6 +1468,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.02 mL/kg (max 2 mL)</span></div>
+  <div class="item-note">= neostigmine 50 µg/kg + glycopyrronium 10 µg/kg (2.5 + 0.5 mg/mL)</div>
   <div class="item-refs">References: <span class="cites">[88]</span></div>
 </div>
 
@@ -1484,11 +1499,12 @@
   </div>
   <table class="brackets">
     <tbody>
-      <tr><td class="age">≤5 mo</td><td class="dose">maximum 1.5–2 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.2 mg/kg/h</span></td></tr>
-      <tr><td class="age">≥6 mo</td><td class="dose">maximum 2–2.5 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.4 mg/kg/h</span></td></tr>
+      <tr><td class="age">≤5 mo</td><td class="dose">maximum 1.5–2 mg/kg</td></tr>
+      <tr><td class="age">≥6 mo</td><td class="dose">maximum 2–2.5 mg/kg</td></tr>
     </tbody>
   </table>
 
+  <div class="item-note">infusion: 0.1–0.3 mg/kg/h</div>
   <div class="item-refs">References: <span class="cites">[89], [90]</span></div>
 </div>
 
@@ -1499,11 +1515,12 @@
   </div>
   <table class="brackets">
     <tbody>
-      <tr><td class="age">≤5 mo</td><td class="dose">maximum 2 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.2 mg/kg/h</span></td></tr>
-      <tr><td class="age">≥6 mo</td><td class="dose">maximum 3 mg/kg <span style="color:var(--muted); font-style:italic;">— infusion: 0.4 mg/kg/h</span></td></tr>
+      <tr><td class="age">≤5 mo</td><td class="dose">maximum 2 mg/kg</td></tr>
+      <tr><td class="age">≥6 mo</td><td class="dose">maximum 3 mg/kg</td></tr>
     </tbody>
   </table>
 
+  <div class="item-note">infusion: 0.1–0.3 mg/kg/h</div>
   <div class="item-refs">References: <span class="cites">[91], [92], [90]</span></div>
 </div>
 
@@ -1513,7 +1530,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
-  <div class="item-note">LAST rescue · max total 12 mL/kg</div>
+  <div class="item-note">LAST rescue · repeat if unstable · max total 12 mL/kg</div>
   <div class="item-refs">References: <span class="cites">[89], [93]</span></div>
 </div>
 
@@ -1523,7 +1540,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/kg/min</span></div>
-  <div class="item-note">LAST rescue – continue ≥10 min after stability</div>
+  <div class="item-note">LAST rescue – continue ≥15 min after stability</div>
   <div class="item-refs">References: <span class="cites">[89], [93]</span></div>
 </div>
 
@@ -1532,8 +1549,9 @@
     <span class="item-name">Levobupivacaine (max)</span>
     <span class="item-route">Perineural</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.3 mg/kg (max 150 mg)</span></div>
-  <div class="item-contra">Contraindicated &lt;6 months</div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.25 mg/kg (max 150 mg)</span></div>
+  <div class="item-contra">Not indicated &lt;6 months (age floor)</div>
+  <div class="item-note">SmPC figure: ilioinguinal block, per side · no data &lt;6 mo</div>
   <div class="item-refs">References: <span class="cites">[94]</span></div>
 </div>
 
@@ -1603,7 +1621,7 @@
     <li id="ref-38">Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.</li>
     <li id="ref-39">Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).</li>
     <li id="ref-40">Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm &lt;34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).</li>
-    <li id="ref-41">Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric 6 mo–&lt;12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (current edition).</li>
+    <li id="ref-41">Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric ≥3 mo; 3–&lt;6 mo: single dose 10 mg/kg, max 100 mg; 6 mo–&lt;12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (revised 2026).</li>
     <li id="ref-42">AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).</li>
     <li id="ref-43">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).</li>
     <li id="ref-44">Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).</li>

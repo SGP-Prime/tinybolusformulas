@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.72",
-  "updated": "2026-10-27",
+  "version": "0.0.73",
+  "updated": "2026-10-31",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -925,7 +925,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "PO",
-          "note": "q4–6h · max 4 doses/24 h",
+          "note": "q4–6h",
           "references": [
             "kinderformularium_online"
           ]
@@ -1843,8 +1843,7 @@
           "route": "IV",
           "references": [
             "glyco_neostigmine_smpc"
-          ],
-          "note": "= neostigmine 50 µg/kg + glycopyrronium 10 µg/kg (2.5 + 0.5 mg/mL)"
+          ]
         }
       ]
     },

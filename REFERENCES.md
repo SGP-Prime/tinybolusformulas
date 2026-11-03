@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.74** (updated 2026-11-03) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -11,6 +11,7 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - [EMERGENCY — PALS](#emergency--pals)
 - [Vital Signs](#vital-signs)
 - [Induction](#induction)
+- [PONV](#ponv)
 - [Painkillers](#painkillers)
 - [Emergency Drugs](#emergency-drugs)
 - [Fluids and Blood](#fluids-and-blood)
@@ -65,15 +66,11 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 
-### Adenosine (1st dose)
+### Adenosine
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### Adenosine (2nd dose)
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Magnesium sulphate (torsades)
+### Magnesium sulphate
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
@@ -81,24 +78,25 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 ### Heart Rate
 
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
 
 ### Systolic BP
 
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
 
 ### Diastolic BP
 
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
 
 ### Respiratory Rate
 
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
 
 ### Tidal Volume
 
 - Spaeth J, Schumann S, Humphreys S. Understanding pediatric ventilation in the operative setting. Part II: Setting perioperative ventilation. Paediatr Anaesth 2022;32(2):247–254.
 - Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764–1780.
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ## Induction
 
@@ -108,6 +106,15 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Westrin P. The induction dose of propofol in infants 1–6 months of age and in children 10–16 years of age. Anesthesiology 1991;74(3):455–458.
 - van Dijk H, Hendriks MP, van Eck-Smaling MM, van Wolfswinkel L, van Loon K. Age-stratified propofol dosage for pediatric procedural sedation and analgesia. Anesth Analg 2023;136(3):551–558.
 - Kim SH, Hong JY, Suk EH, Jeong SM, Park PH. Optimum bolus dose of propofol for tracheal intubation during sevoflurane induction without neuromuscular blockade in children. Anaesth Intensive Care 2011;39(5):899–903.
+
+### Thiopental
+
+- Mercury Pharmaceuticals (ADVANZ). Thiopental powder for solution for injection · Summary of Product Characteristics (paediatric induction: newborns 3–4, infants 5–8, children 5–6 mg/kg). electronic medicines compendium, medicines.org.uk/emc/product/665 (current edition).
+
+### Etomidate
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
 
 ### Ketamine
 
@@ -119,17 +126,6 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48–53.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Rocuronium
-
-- Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
-- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
-
-### Succinylcholine (RSI)
-
-- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-- Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.
-
 ### Fentanyl (induction)
 
 - Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).
@@ -138,6 +134,7 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 ### Midazolam
 
+- Midazolam 5 mg/ml solution for injection/infusion · Summary of Product Characteristics (sedation: 6 months–5 years initial 0.05–0.1 mg/kg; 6–12 years 0.025–0.05 mg/kg; <6 months: conscious sedation not recommended). electronic medicines compendium, medicines.org.uk/emc/product/15365 (current edition).
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Midazolam (oral premed)
@@ -153,6 +150,29 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Baldwa NM, Padvi AV, Dave NM, Garasia MB. Atomised intranasal midazolam spray as premedication in pediatric patients: comparison between two doses of 0.2 and 0.3 mg/kg. J Anesth 2012;26(3):346–350.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
+### Dexmedetomidine (IN premed)
+
+- Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
+- Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
+
+### Rocuronium
+
+- Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
+- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
+
+### Succinylcholine
+
+- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.
+
+### Atracurium
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+## PONV
+
 ### Ondansetron
 
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
@@ -165,34 +185,10 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Madan R, Bhatia A, Chakithandy S, Subramaniam R, Rammohan G, Deshpande S, Singh M, Kaul HL. Prophylactic dexamethasone for postoperative nausea and vomiting in pediatric strabismus surgery: a dose ranging and safety evaluation study. Anesth Analg 2005;100(6):1622–1626.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Dexamethasone (anti-inflammatory)
-
-- Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.
-- Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.
-
 ### Droperidol (PONV)
 
 - Panpharma. Droperidol 2.5 mg/mL solution for injection (paediatric PONV, second line: 10–50 µg/kg, max 1.25 mg, not <2 y) - Summary of Product Characteristics. electronic medicines compendium (medicines.org.uk, current edition).
 - Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).
-
-### Etomidate
-
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Atracurium
-
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Dexmedetomidine (IN premed)
-
-- Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
-- Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
-
-### Thiopental
-
-- Mercury Pharmaceuticals (ADVANZ). Thiopental powder for solution for injection · Summary of Product Characteristics (paediatric induction: newborns 3–4, infants 5–8, children 5–6 mg/kg). electronic medicines compendium, medicines.org.uk/emc/product/665 (current edition).
 
 ## Painkillers
 
@@ -220,16 +216,8 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 ### Metamizole
 
-- Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491–1502.
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: metamizol (IV, 3 months–18 years: 8–16 mg/kg/dose, max 4 doses/day, max 1 g/dose). kinderformularium.nl/geneesmiddel/40460/metamizol (current edition).
 - Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.
-
-### Ibuprofen (IV)
-
-- Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).
-- Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).
-- Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric ≥3 mo; 3–<6 mo: single dose 10 mg/kg, max 100 mg; 6 mo–<12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (revised 2026).
 
 ### Ibuprofen (oral)
 
@@ -245,10 +233,6 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 ### Diclofenac (PO/PR)
 
 - Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).
-- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).
-
-### Paracetamol (oral)
-
 - Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).
 
 ## Emergency Drugs
@@ -299,6 +283,10 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
+
+### Glucagon
+
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).
 
 ### Calcium gluconate 10%
 
@@ -410,12 +398,12 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 - Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
 - Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
 
-### NG/OG tube
+### Nasogastric / orogastric tube
 
 - Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
 - Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
 
-### OPA / NPA sizing
+### Oral / nasal airway sizing
 
 - Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
 - Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).
@@ -437,7 +425,7 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Magnesium Sulphate
+### Magnesium sulphate (asthma)
 
 - Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
@@ -447,6 +435,11 @@ Generated from `assets/formulary.json` **v0.0.73** (updated 2026-10-31) by `tool
 
 - Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+
+### Dexamethasone (anti-inflammatory)
+
+- Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.
+- Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.
 
 ### Propofol (laryngospasm)
 

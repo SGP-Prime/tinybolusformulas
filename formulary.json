@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.73",
-  "updated": "2026-10-31",
+  "version": "0.0.74",
+  "updated": "2026-11-03",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -66,7 +66,6 @@
     "rendell_baker_mask_1962": "Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.",
     "ambu_auragain_ifu_2023": "Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask — Instructions for Use. V7, August 2023.",
     "gupta_ketorolac_2005": "Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139–142.",
-    "ziesenitz_metamizole_2019": "Ziesenitz VC, Rodieux F, Atkinson A, et al. Dose evaluation of intravenous metamizole (dipyrone) in infants and children: a prospective population pharmacokinetic study. Eur J Clin Pharmacol 2019;75(11):1491–1502.",
     "fieler_metamizole_2015": "Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.",
     "southey_ibuprofen_2009": "Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.",
     "sign_158_asthma": "British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.",
@@ -80,7 +79,6 @@
     "meakin_sux_1989": "Meakin G, McKiernan EP, Morris P, Baker RD. Dose-response curves for suxamethonium in neonates, infants and children. Br J Anaesth 1989;62(6):655–658.",
     "cravero_spa_opioids_2019": "Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571.",
     "nurofen_children_smpc": "Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).",
-    "pedea_smpc": "Recordati Rare Diseases. Pedea 5 mg/ml solution for injection · Summary of Product Characteristics (patent ductus arteriosus, preterm <34 weeks). electronic medicines compendium, medicines.org.uk/emc/product/6241 (current edition).",
     "buccolam_smpc": "Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).",
     "rch_hyperkalaemia_cpg": "Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).",
     "ondansetron_smpc": "hameln pharma ltd. Ondansetron 2 mg/ml solution for injection - Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (last updated 2023; product since discontinued).",
@@ -89,7 +87,6 @@
     "erc_nls_2025": "European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.",
     "rcuk_paeds_algorithms_2026": "Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.",
     "kinderformularium_clemastine": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: clemastine (25–50 µg/kg/dose IV/IM, max 2 mg/dose). kinderformularium.nl (current edition).",
-    "caldolor_pi": "Cumberland Pharmaceuticals. Caldolor (ibuprofen) injection · Prescribing Information (paediatric ≥3 mo; 3–<6 mo: single dose 10 mg/kg, max 100 mg; 6 mo–<12 y: 10 mg/kg, max single dose 400 mg, infuse ≥10 min). US FDA label, accessdata.fda.gov (revised 2026).",
     "rcuk_pls_2025": "Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.",
     "thiopental_smpc": "Mercury Pharmaceuticals (ADVANZ). Thiopental powder for solution for injection · Summary of Product Characteristics (paediatric induction: newborns 3–4, infants 5–8, children 5–6 mg/kg). electronic medicines compendium, medicines.org.uk/emc/product/665 (current edition).",
     "tramadol_kalceks_smpc": "AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).",
@@ -104,7 +101,11 @@
     "rcuk_anaphylaxis_2021": "Resuscitation Council UK. Emergency treatment of anaphylaxis: guidelines for healthcare providers (incl. the refractory anaphylaxis algorithm). May 2021. resus.org.uk.",
     "droperidol_smpc": "Panpharma. Droperidol 2.5 mg/mL solution for injection (paediatric PONV, second line: 10–50 µg/kg, max 1.25 mg, not <2 y) - Summary of Product Characteristics. electronic medicines compendium (medicines.org.uk, current edition).",
     "kinderformularium_droperidol": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).",
-    "fentanyl_smpc": "Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition)."
+    "fentanyl_smpc": "Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).",
+    "midazolam_smpc": "Midazolam 5 mg/ml solution for injection/infusion · Summary of Product Characteristics (sedation: 6 months–5 years initial 0.05–0.1 mg/kg; 6–12 years 0.025–0.05 mg/kg; <6 months: conscious sedation not recommended). electronic medicines compendium, medicines.org.uk/emc/product/15365 (current edition).",
+    "kinderformularium_metamizole": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: metamizol (IV, 3 months–18 years: 8–16 mg/kg/dose, max 4 doses/day, max 1 g/dose). kinderformularium.nl/geneesmiddel/40460/metamizol (current edition).",
+    "kinderformularium_glucagon": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).",
+    "aha_pals_vitals": "American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition)."
   },
   "sections": [
     {
@@ -139,7 +140,7 @@
           "drug": "C:V ratio",
           "type": "fixed",
           "value": "15:2",
-          "note": "15:2 if PBLS-trained · 30:2 untrained",
+          "note": "15:2 if paediatric-BLS trained · 30:2 otherwise",
           "references": [
             "erc_pls_2025"
           ]
@@ -233,39 +234,33 @@
           ]
         },
         {
-          "name": "Adenosine (1st dose)",
-          "id": "adenosine-1st-dose",
+          "name": "Adenosine",
+          "id": "adenosine",
           "drug": "Adenosine",
-          "qualifier": "1st dose",
-          "type": "linear_max",
-          "factor": 0.1,
-          "max": 6,
+          "type": "steps",
+          "steps": [
+            {
+              "label": "1st",
+              "factor": 0.1,
+              "max": 6
+            },
+            {
+              "label": "2nd",
+              "factor": 0.3,
+              "max": 18
+            }
+          ],
           "unit": "mg",
           "route": "IV",
+          "note": "2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg a dose, max 0.5 mg/kg · cardiology",
           "references": [
             "erc_pls_2025"
           ]
         },
         {
-          "name": "Adenosine (2nd dose)",
-          "id": "adenosine-2nd-dose",
-          "drug": "Adenosine",
-          "qualifier": "2nd dose",
-          "type": "linear_max",
-          "factor": 0.3,
-          "max": 18,
-          "unit": "mg",
-          "route": "IV",
-          "note": "escalate q1–2 min in 0.05–0.1 mg/kg steps to 0.5 mg/kg · then cardiology advice",
-          "references": [
-            "erc_pls_2025"
-          ]
-        },
-        {
-          "name": "Magnesium sulphate (torsades)",
+          "name": "Magnesium sulphate",
           "id": "magnesium-sulphate-torsades",
           "drug": "Magnesium sulphate",
-          "qualifier": "torsades",
           "type": "linear_max",
           "factor": 50,
           "max": 2,
@@ -290,7 +285,7 @@
           "computer": "vitals_hr",
           "unit": "bpm",
           "references": [
-            "cote_anesthesia_2019"
+            "aha_pals_vitals"
           ]
         },
         {
@@ -301,7 +296,7 @@
           "computer": "vitals_sbp",
           "unit": "mmHg",
           "references": [
-            "cote_anesthesia_2019"
+            "aha_pals_vitals"
           ]
         },
         {
@@ -312,7 +307,7 @@
           "computer": "vitals_dbp",
           "unit": "mmHg",
           "references": [
-            "cote_anesthesia_2019"
+            "aha_pals_vitals"
           ]
         },
         {
@@ -323,7 +318,7 @@
           "computer": "vitals_rr",
           "unit": "/min",
           "references": [
-            "cote_anesthesia_2019"
+            "aha_pals_vitals"
           ]
         },
         {
@@ -331,13 +326,14 @@
           "id": "tidal-volume",
           "drug": "Tidal Volume",
           "type": "linear_range",
-          "low": 5,
-          "high": 7,
+          "low": 6,
+          "high": 8,
           "unit": "mL",
           "note": "per IDEAL body weight — if obese use estimated weight · lower end for neonates",
           "references": [
             "spaeth_ventilation_2022",
-            "kneyber_pemvecc_2017"
+            "kneyber_pemvecc_2017",
+            "erc_pls_2025"
           ]
         }
       ]
@@ -389,6 +385,50 @@
           ]
         },
         {
+          "name": "Thiopental",
+          "id": "thiopental",
+          "drug": "Thiopental",
+          "type": "linear_age",
+          "brackets": [
+            {
+              "max_months": 1,
+              "low": 3,
+              "high": 4
+            },
+            {
+              "max_months": 12,
+              "low": 5,
+              "high": 8
+            },
+            {
+              "max_years": 999,
+              "low": 5,
+              "high": 6
+            }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "note": "then 1 mg/kg as needed · titrate to effect",
+          "references": [
+            "thiopental_smpc"
+          ]
+        },
+        {
+          "name": "Etomidate",
+          "id": "etomidate",
+          "drug": "Etomidate",
+          "type": "linear_range",
+          "low": 0.2,
+          "high": 0.3,
+          "unit": "mg",
+          "route": "IV",
+          "note": "for haemodynamic stability",
+          "references": [
+            "bnfc_online",
+            "cote_anesthesia_2019"
+          ]
+        },
+        {
           "name": "Ketamine",
           "id": "ketamine",
           "drug": "Ketamine",
@@ -411,53 +451,10 @@
           "high": 5,
           "unit": "mg",
           "route": "IM",
-          "note": "when IV access impractical · onset 3–5 min",
+          "note": "onset 3–5 min",
           "references": [
             "craven_ketamine_2007",
             "bnfc_online"
-          ]
-        },
-        {
-          "name": "Rocuronium",
-          "id": "rocuronium",
-          "drug": "Rocuronium",
-          "type": "linear_range",
-          "low": 0.6,
-          "high": 1.2,
-          "unit": "mg",
-          "route": "IV",
-          "note": "upper range for RSI",
-          "references": [
-            "taivainen_rocuronium_1996",
-            "mazurek_rocuronium_1998"
-          ]
-        },
-        {
-          "name": "Succinylcholine (RSI)",
-          "id": "succinylcholine-rsi",
-          "drug": "Succinylcholine",
-          "qualifier": "RSI",
-          "type": "linear_age",
-          "brackets": [
-            {
-              "max_months": 12,
-              "low": 2,
-              "high": 3,
-              "note": "raised in infants — larger extracellular volume"
-            },
-            {
-              "max_years": 999,
-              "low": 1,
-              "high": 2
-            }
-          ],
-          "unit": "mg",
-          "route": "IV",
-          "note": "intubating dose · avoid in MH / hyperkalaemia risk",
-          "references": [
-            "mazurek_rocuronium_1998",
-            "cote_anesthesia_2019",
-            "meakin_sux_1989"
           ]
         },
         {
@@ -465,27 +462,16 @@
           "id": "fentanyl-induction",
           "drug": "Fentanyl",
           "qualifier": "induction",
-          "type": "linear_age",
-          "brackets": [
-            {
-              "max_months": 1,
-              "low": 1,
-              "high": 3,
-              "note": "neonate: reduce · inject slowly (rigidity) · watch apnoea"
-            },
-            {
-              "max_years": 999,
-              "low": 1,
-              "high": 3
-            }
-          ],
+          "type": "linear_range",
           "unit": "µg",
           "route": "IV",
           "references": [
             "fentanyl_smpc",
             "bnfc_online",
             "cravero_spa_opioids_2019"
-          ]
+          ],
+          "low": 1,
+          "high": 3
         },
         {
           "name": "Midazolam",
@@ -495,14 +481,19 @@
           "brackets": [
             {
               "max_months": 6,
-              "low": 0.1,
+              "low": 0.05,
               "high": 0.1,
               "note": "<6 mo: prolonged effect · slow injection · hypotension with opioids"
             },
             {
-              "max_years": 999,
-              "low": 0.1,
+              "max_years": 5,
+              "low": 0.05,
               "high": 0.1
+            },
+            {
+              "max_years": 999,
+              "low": 0.025,
+              "high": 0.05
             }
           ],
           "max": 5,
@@ -510,6 +501,7 @@
           "unit": "mg",
           "route": "IV",
           "references": [
+            "midazolam_smpc",
             "bnfc_online"
           ]
         },
@@ -561,6 +553,96 @@
           ]
         },
         {
+          "name": "Dexmedetomidine (IN premed)",
+          "id": "dexmedetomidine-in-premed",
+          "drug": "Dexmedetomidine",
+          "qualifier": "premed",
+          "type": "linear_range",
+          "low": 1,
+          "high": 3,
+          "max": 200,
+          "max_unit": "µg",
+          "unit": "µg",
+          "route": "IN",
+          "note": "100 µg/mL solution · onset ~30 min",
+          "references": [
+            "yuen_in_dexmed_2012",
+            "jun_in_dexmed_2017"
+          ]
+        },
+        {
+          "name": "Rocuronium",
+          "id": "rocuronium",
+          "drug": "Rocuronium",
+          "type": "linear_range",
+          "low": 0.6,
+          "high": 1.2,
+          "unit": "mg",
+          "route": "IV",
+          "note": "upper range for RSI",
+          "references": [
+            "taivainen_rocuronium_1996",
+            "mazurek_rocuronium_1998"
+          ]
+        },
+        {
+          "name": "Succinylcholine",
+          "id": "succinylcholine-rsi",
+          "drug": "Succinylcholine",
+          "type": "linear_age",
+          "brackets": [
+            {
+              "max_months": 12,
+              "low": 2,
+              "high": 3,
+              "note": "raised in infants — larger extracellular volume"
+            },
+            {
+              "max_years": 999,
+              "low": 1,
+              "high": 2
+            }
+          ],
+          "unit": "mg",
+          "route": "IV",
+          "note": "intubating dose · avoid in malignant hyperthermia / hyperkalaemia risk",
+          "references": [
+            "mazurek_rocuronium_1998",
+            "cote_anesthesia_2019",
+            "meakin_sux_1989"
+          ]
+        },
+        {
+          "name": "Atracurium",
+          "id": "atracurium",
+          "drug": "Atracurium",
+          "type": "linear_age",
+          "unit": "mg",
+          "route": "IV",
+          "references": [
+            "bnfc_online",
+            "cote_anesthesia_2019"
+          ],
+          "brackets": [
+            {
+              "max_months": 12,
+              "low": 0.3,
+              "high": 0.4
+            },
+            {
+              "max_years": 999,
+              "low": 0.4,
+              "high": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ponv",
+      "title": "PONV",
+      "items": [
+        {
           "name": "Ondansetron",
           "id": "ondansetron",
           "drug": "Ondansetron",
@@ -595,23 +677,6 @@
           ]
         },
         {
-          "name": "Dexamethasone (anti-inflammatory)",
-          "id": "dexamethasone-anti-inflammatory",
-          "drug": "Dexamethasone",
-          "qualifier": "anti-inflammatory",
-          "type": "linear_max",
-          "factor": 0.5,
-          "max": 8,
-          "max_unit": "mg",
-          "unit": "mg",
-          "route": "IV",
-          "note": "airway oedema / post-extubation stridor",
-          "references": [
-            "anene_dexamethasone_1996",
-            "malhotra_dexamethasone_2009"
-          ]
-        },
-        {
           "name": "Droperidol (PONV)",
           "id": "droperidol-ponv",
           "drug": "Droperidol",
@@ -628,92 +693,6 @@
           "references": [
             "droperidol_smpc",
             "kinderformularium_droperidol"
-          ]
-        },
-        {
-          "name": "Etomidate",
-          "id": "etomidate",
-          "drug": "Etomidate",
-          "type": "linear_range",
-          "low": 0.2,
-          "high": 0.3,
-          "unit": "mg",
-          "route": "IV",
-          "note": "for haemodynamic stability",
-          "references": [
-            "bnfc_online",
-            "cote_anesthesia_2019"
-          ]
-        },
-        {
-          "name": "Atracurium",
-          "id": "atracurium",
-          "drug": "Atracurium",
-          "type": "linear_age",
-          "unit": "mg",
-          "route": "IV",
-          "references": [
-            "bnfc_online",
-            "cote_anesthesia_2019"
-          ],
-          "brackets": [
-            {
-              "max_months": 12,
-              "low": 0.3,
-              "high": 0.4
-            },
-            {
-              "max_years": 999,
-              "low": 0.4,
-              "high": 0.5
-            }
-          ]
-        },
-        {
-          "name": "Dexmedetomidine (IN premed)",
-          "id": "dexmedetomidine-in-premed",
-          "drug": "Dexmedetomidine",
-          "qualifier": "premed",
-          "type": "linear_range",
-          "low": 1,
-          "high": 3,
-          "max": 200,
-          "max_unit": "µg",
-          "unit": "µg",
-          "route": "IN",
-          "note": "100 µg/mL solution · onset ~30 min",
-          "references": [
-            "yuen_in_dexmed_2012",
-            "jun_in_dexmed_2017"
-          ]
-        },
-        {
-          "name": "Thiopental",
-          "id": "thiopental",
-          "drug": "Thiopental",
-          "type": "linear_age",
-          "brackets": [
-            {
-              "max_months": 1,
-              "low": 3,
-              "high": 4
-            },
-            {
-              "max_months": 12,
-              "low": 5,
-              "high": 8
-            },
-            {
-              "max_years": 999,
-              "low": 5,
-              "high": 6
-            }
-          ],
-          "unit": "mg",
-          "route": "IV",
-          "note": "then 1 mg/kg PRN · titrate to effect",
-          "references": [
-            "thiopental_smpc"
           ]
         }
       ]
@@ -743,7 +722,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "note": "interval ≥4 h · max 4 doses/24 h",
+          "note": "q6h (min 4 h) · max 4 doses/24 h",
           "references": [
             "anderson_paracetamol_2008",
             "bnfc_online",
@@ -794,74 +773,33 @@
           "id": "fentanyl-analgesia",
           "drug": "Fentanyl",
           "qualifier": "analgesia",
-          "type": "linear_age",
-          "brackets": [
-            {
-              "max_months": 1,
-              "low": 0.5,
-              "high": 1,
-              "note": "neonate: reduce · slow injection · watch apnoea"
-            },
-            {
-              "max_years": 999,
-              "low": 0.5,
-              "high": 1
-            }
-          ],
+          "type": "linear_range",
           "unit": "µg",
           "route": "IV",
           "references": [
             "bnfc_online",
             "apagbi_pain_2012",
             "cravero_spa_opioids_2019"
-          ]
+          ],
+          "low": 0.5,
+          "high": 1
         },
         {
           "name": "Metamizole",
           "id": "metamizole",
           "drug": "Metamizole",
-          "type": "linear_age",
-          "brackets": [
-            {
-              "max_months": 11,
-              "low": 5,
-              "high": 5,
-              "note": "reduced <1 y — immature metabolism"
-            },
-            {
-              "max_years": 999,
-              "low": 10,
-              "high": 20
-            }
-          ],
+          "type": "linear_range",
           "max": 1,
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
           "contraindicated_below_months": 3,
           "references": [
-            "ziesenitz_metamizole_2019",
+            "kinderformularium_metamizole",
             "fieler_metamizole_2015"
-          ]
-        },
-        {
-          "name": "Ibuprofen (IV)",
-          "id": "ibuprofen-iv",
-          "drug": "Ibuprofen",
-          "type": "linear_max",
-          "factor": 10,
-          "max": 400,
-          "unit": "mg",
-          "route": "IV",
-          "references": [
-            "southey_ibuprofen_2009",
-            "bnfc_online",
-            "nurofen_children_smpc",
-            "pedea_smpc",
-            "caldolor_pi"
           ],
-          "contraindicated_below_months": 3,
-          "note": "not <5 kg · infuse ≥10 min · PDA use is separate"
+          "low": 8,
+          "high": 16
         },
         {
           "name": "Ibuprofen (oral)",
@@ -914,21 +852,6 @@
             "voltarol_supp_smpc",
             "kinderformularium_online"
           ]
-        },
-        {
-          "name": "Paracetamol (oral)",
-          "id": "paracetamol-oral",
-          "drug": "Paracetamol",
-          "type": "linear_max",
-          "factor": 15,
-          "max": 1,
-          "max_unit": "g",
-          "unit": "mg",
-          "route": "PO",
-          "note": "q4–6h",
-          "references": [
-            "kinderformularium_online"
-          ]
         }
       ]
     },
@@ -946,7 +869,7 @@
           "max": 500,
           "unit": "µg",
           "route": "IM",
-          "note": "repeat every 5 min PRN · pens: 150 µg 1–5 y · 300 µg 6–12 y · 500 µg >12 y",
+          "note": "repeat every 5 min as needed · auto-injectors: 150 µg 1–5 y · 300 µg 6–12 y · 500 µg >12 y",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -1047,7 +970,7 @@
           "id": "phenylephrine",
           "drug": "Phenylephrine",
           "type": "linear_range",
-          "low": 5,
+          "low": 1,
           "high": 20,
           "max": 500,
           "max_unit": "µg",
@@ -1082,10 +1005,31 @@
           "factor": 2,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypoglycaemia · recheck glucose after",
+          "note": "hypoglycaemia · = 0.2 g/kg · recheck glucose after",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
+          ]
+        },
+        {
+          "name": "Glucagon",
+          "id": "glucagon",
+          "drug": "Glucagon",
+          "type": "fixed_weight",
+          "brackets": [
+            {
+              "max_kg": 25,
+              "value": "0.5 mg"
+            },
+            {
+              "max_kg": 9999,
+              "value": "1 mg"
+            }
+          ],
+          "route": "IM/SC",
+          "note": "hypoglycaemia · no response after 10 min: repeat or IV glucose",
+          "references": [
+            "kinderformularium_glucagon"
           ]
         },
         {
@@ -1097,7 +1041,7 @@
           "max": 20,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypocalcaemia · hyperkalaemia (ECG changes; not in arrest) · CCB overdose · slow IV",
+          "note": "hypocalcaemia · hyperkalaemia (ECG changes; not in arrest) · Ca-blocker overdose · slow IV",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -1111,7 +1055,7 @@
           "factor": 1,
           "unit": "mmol",
           "route": "IV/IO",
-          "note": "1 mL/kg of 8.4% · TCA toxicity / severe acidosis · not routine in arrest",
+          "note": "1 mL/kg of 8.4% · tricyclic toxicity / severe acidosis · not routine in arrest",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -1192,7 +1136,7 @@
           "unit": "mg",
           "route": "IV/IO",
           "contraindicated_below_months": 1,
-          "note": "2nd line after 2 benzodiazepine doses · give over 5 min · off-label",
+          "note": "loading dose · 2nd line after 2 benzodiazepine doses · give over 5 min · off-label",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_se_2026"
@@ -1299,7 +1243,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "note": "loading dose over 10 min · then 2 mg/kg/h infusion",
+          "note": "loading dose over 10 min · then 2 mg/kg/h for ≥8 h",
           "references": [
             "rcpch_txa_2012",
             "faraoni_antifibrinolytic_2014",
@@ -1313,7 +1257,7 @@
           "drug": "Max allowable blood loss",
           "type": "fixed",
           "value": "EBV × (Hct – min Hct) / Hct",
-          "note": "estimate, not a transfusion trigger · EBV ~70–100 mL/kg · cited form uses mean Hct",
+          "note": "estimate, not a transfusion trigger · blood volume ~70–100 mL/kg · source uses mean Hct",
           "references": [
             "gross_mabl_1983",
             "spa_abl_2023"
@@ -1486,9 +1430,9 @@
           ]
         },
         {
-          "name": "NG/OG tube",
+          "name": "Nasogastric / orogastric tube",
           "id": "ng-og-tube",
-          "drug": "NG/OG tube",
+          "drug": "Nasogastric / orogastric tube",
           "type": "fixed_age",
           "brackets": [
             {
@@ -1515,12 +1459,12 @@
           "note": "larger sizes for adolescent decompression"
         },
         {
-          "name": "OPA / NPA sizing",
+          "name": "Oral / nasal airway sizing",
           "id": "opa-npa-sizing",
-          "drug": "OPA / NPA sizing",
+          "drug": "Oral / nasal airway sizing",
           "type": "fixed",
           "value": "by landmark",
-          "note": "OPA: incisors → mandible angle · NPA: nostril → tragus -1 cm; not in basal-skull fracture",
+          "note": "Guedel: incisors → jaw angle · nasal: nostril → tragus −1 cm; not in basal-skull fracture",
           "references": [
             "erc_epals_2021",
             "nemeth_guedel_2023",
@@ -1597,9 +1541,9 @@
           ]
         },
         {
-          "name": "Magnesium Sulphate",
+          "name": "Magnesium sulphate (asthma)",
           "id": "magnesium-sulphate",
-          "drug": "Magnesium Sulphate",
+          "drug": "Magnesium sulphate",
           "type": "linear_max",
           "max": 2,
           "max_unit": "g",
@@ -1610,8 +1554,9 @@
             "bnfc_online",
             "erc_pls_2025"
           ],
-          "note": "severe asthma · infuse over 20 min",
-          "factor": 40
+          "note": "infuse over 20 min",
+          "factor": 40,
+          "qualifier": "asthma"
         },
         {
           "name": "Adrenaline (nebulized)",
@@ -1627,6 +1572,23 @@
             "bnfc_online"
           ],
           "note": "croup / stridor · 1:1000 (1 mg/mL)"
+        },
+        {
+          "name": "Dexamethasone (anti-inflammatory)",
+          "id": "dexamethasone-anti-inflammatory",
+          "drug": "Dexamethasone",
+          "qualifier": "anti-inflammatory",
+          "type": "linear_max",
+          "factor": 0.5,
+          "max": 8,
+          "max_unit": "mg",
+          "unit": "mg",
+          "route": "IV",
+          "note": "airway oedema / post-extubation stridor",
+          "references": [
+            "anene_dexamethasone_1996",
+            "malhotra_dexamethasone_2009"
+          ]
         },
         {
           "name": "Propofol (laryngospasm)",
@@ -1656,7 +1618,7 @@
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
           ],
-          "note": "lower end may spare spontaneous ventilation · avoid in MH / hyperkalaemia risk"
+          "note": "lower end may spare breathing · avoid in malignant hyperthermia / hyperkalaemia risk"
         },
         {
           "name": "Succinylcholine (IM)",
@@ -1667,7 +1629,7 @@
           "max": 200,
           "unit": "mg",
           "route": "IM",
-          "note": "laryngospasm / RSI without IV access · avoid in MH / hyperkalaemia risk",
+          "note": "laryngospasm or no IV access · avoid in malignant hyperthermia / hyperkalaemia risk",
           "references": [
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
@@ -1683,7 +1645,7 @@
           "high": 1.2,
           "unit": "mg",
           "route": "IV",
-          "note": "when succinylcholine contraindicated (MH) — then secure the airway",
+          "note": "when succinylcholine contraindicated (malignant hyperthermia) — then secure the airway",
           "references": [
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
@@ -1699,7 +1661,7 @@
           "max": 250,
           "unit": "µg",
           "route": "IV",
-          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: PICU) · monitor K+ · off-label <12 y",
+          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+ · off-label <12 y",
           "references": [
             "sign_158_asthma",
             "rcuk_pls_2025"
@@ -1793,7 +1755,7 @@
           "factor": 16,
           "unit": "mg",
           "route": "IV",
-          "note": "CICO rescue — reverses full-dose rocuronium · off-label in children",
+          "note": "can't intubate / can't oxygenate: reverses full-dose rocuronium · off-label in children",
           "references": [
             "lee_sugammadex_profound_2009",
             "bridion_label_2025"
@@ -1938,7 +1900,7 @@
           "factor": 1.5,
           "unit": "mL",
           "route": "IV",
-          "note": "LAST rescue · repeat if unstable · max total 12 mL/kg",
+          "note": "LA toxicity rescue · repeat if unstable · max total 12 mL/kg",
           "references": [
             "neal_last_2018",
             "asra_last_checklist_2020"
@@ -1956,7 +1918,7 @@
             "neal_last_2018",
             "asra_last_checklist_2020"
           ],
-          "note": "LAST rescue – continue ≥15 min after stability"
+          "note": "LA toxicity rescue – continue ≥15 min after stability"
         },
         {
           "name": "Levobupivacaine (max)",
@@ -1982,11 +1944,11 @@
     "hr": [
       {
         "max_months": 1,
-        "value": "120–170"
+        "value": "100–205"
       },
       {
         "max_months": 12,
-        "value": "100–160"
+        "value": "100–180"
       },
       {
         "max_years": 2,
@@ -2006,6 +1968,10 @@
       }
     ],
     "sbp": [
+      {
+        "max_months": 1,
+        "value": "67–84"
+      },
       {
         "max_months": 12,
         "value": "72–104"
@@ -2037,6 +2003,10 @@
     ],
     "dbp": [
       {
+        "max_months": 1,
+        "value": "35–53"
+      },
+      {
         "max_months": 12,
         "value": "37–56"
       },
@@ -2066,10 +2036,6 @@
       }
     ],
     "rr": [
-      {
-        "max_months": 1,
-        "value": "40–60"
-      },
       {
         "max_months": 12,
         "value": "30–53"
@@ -2124,15 +2090,18 @@
     "neonatal_weight_table": [
       {
         "max_kg": 1.5,
-        "size": 2.5
+        "size": 2.5,
+        "gestation": "preterm ≤32 wk"
       },
       {
         "max_kg": 3,
-        "size": 3.0
+        "size": 3.0,
+        "gestation": "33–39 wk"
       },
       {
         "max_kg": 4,
-        "size": 3.5
+        "size": 3.5,
+        "gestation": "term ≥39 wk"
       }
     ],
     "infant_age_table": [
@@ -2246,6 +2215,10 @@
     "infant_max_years": 1
   },
   "$retired_ids": {
-    "comment": "Ids permanently retired — a deleted row's id is never reused for a different row. (Ledger starts empty: ids were introduced in v0.0.69, after the v0.0.68 removals.) Disjointness from live ids is test-enforced in the app repo."
+    "comment": "Ids permanently retired — a deleted row's id is never reused for a different row. (Ledger starts empty: ids were introduced in v0.0.69, after the v0.0.68 removals.) Disjointness from live ids is test-enforced in the app repo.",
+    "adenosine-1st-dose": "v0.0.74: merged into 'adenosine' (steps row)",
+    "adenosine-2nd-dose": "v0.0.74: merged into 'adenosine' (steps row)",
+    "ibuprofen-iv": "v0.0.74: removed (co-author review)",
+    "paracetamol-oral": "v0.0.74: removed (co-author review)"
   }
 }

@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.75",
+  "version": "0.0.76",
   "updated": "2026-11-04",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -192,12 +192,21 @@
           "name": "Amiodarone",
           "id": "amiodarone",
           "drug": "Amiodarone",
-          "type": "linear_max",
-          "factor": 5,
-          "max": 300,
+          "type": "steps",
+          "steps": [
+            {
+              "label": "after 3rd shock",
+              "factor": 5,
+              "max": 300
+            },
+            {
+              "label": "after 5th shock",
+              "factor": 5,
+              "max": 150
+            }
+          ],
           "unit": "mg",
           "route": "IV/IO",
-          "note": "after 3rd shock · repeat after 5th · max 150 mg subsequent",
           "references": [
             "erc_pls_2025"
           ]
@@ -252,7 +261,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg a dose, max 0.5 mg/kg · cardiology",
+          "note": "2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg · cardiology",
           "references": [
             "erc_pls_2025"
           ]
@@ -278,9 +287,9 @@
       "title": "Vital Signs",
       "items": [
         {
-          "name": "Heart Rate",
+          "name": "Heart rate",
           "id": "heart-rate",
-          "drug": "Heart Rate",
+          "drug": "Heart rate",
           "type": "computed",
           "computer": "vitals_hr",
           "unit": "bpm",
@@ -311,9 +320,9 @@
           ]
         },
         {
-          "name": "Respiratory Rate",
+          "name": "Respiratory rate",
           "id": "respiratory-rate",
-          "drug": "Respiratory Rate",
+          "drug": "Respiratory rate",
           "type": "computed",
           "computer": "vitals_rr",
           "unit": "/min",
@@ -322,9 +331,9 @@
           ]
         },
         {
-          "name": "Tidal Volume",
+          "name": "Tidal volume",
           "id": "tidal-volume",
-          "drug": "Tidal Volume",
+          "drug": "Tidal volume",
           "type": "linear_range",
           "low": 6,
           "high": 8,
@@ -422,7 +431,6 @@
           "high": 0.3,
           "unit": "mg",
           "route": "IV",
-          "note": "for haemodynamic stability",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -451,7 +459,6 @@
           "high": 5,
           "unit": "mg",
           "route": "IM",
-          "note": "onset 3–5 min",
           "references": [
             "craven_ketamine_2007",
             "bnfc_online"
@@ -529,7 +536,6 @@
           "max": 10,
           "unit": "mg",
           "route": "Buccal",
-          "note": "if oral refused",
           "references": [
             "bnfc_online"
           ]
@@ -564,7 +570,7 @@
           "max_unit": "µg",
           "unit": "µg",
           "route": "IN",
-          "note": "100 µg/mL solution · onset ~30 min",
+          "note": "100 µg/mL solution",
           "references": [
             "yuen_in_dexmed_2012",
             "jun_in_dexmed_2017"
@@ -677,10 +683,9 @@
           ]
         },
         {
-          "name": "Droperidol (PONV)",
+          "name": "Droperidol",
           "id": "droperidol-ponv",
           "drug": "Droperidol",
-          "qualifier": "PONV",
           "type": "linear_range",
           "low": 0.01,
           "high": 0.05,
@@ -689,7 +694,7 @@
           "unit": "mg",
           "route": "IV",
           "contraindicated_below_months": 24,
-          "note": "2nd line · avoid in long QT · give 30 min before end of surgery",
+          "note": "avoid in long QT · give 30 min before end of surgery",
           "references": [
             "droperidol_smpc",
             "kinderformularium_droperidol"
@@ -730,6 +735,41 @@
           ]
         },
         {
+          "name": "Metamizole",
+          "id": "metamizole",
+          "drug": "Metamizole",
+          "type": "linear_range",
+          "max": 1,
+          "max_unit": "g",
+          "unit": "mg",
+          "route": "IV",
+          "contraindicated_below_months": 3,
+          "references": [
+            "kinderformularium_metamizole",
+            "fieler_metamizole_2015"
+          ],
+          "low": 8,
+          "high": 16
+        },
+        {
+          "name": "Ibuprofen (oral)",
+          "id": "ibuprofen-oral",
+          "drug": "Ibuprofen",
+          "type": "linear_range",
+          "low": 5,
+          "high": 10,
+          "max": 400,
+          "unit": "mg",
+          "route": "PO",
+          "note": "not <5 kg",
+          "references": [
+            "southey_ibuprofen_2009",
+            "bnfc_online",
+            "nurofen_children_smpc"
+          ],
+          "contraindicated_below_months": 3
+        },
+        {
           "name": "Ketorolac",
           "id": "ketorolac",
           "drug": "Ketorolac",
@@ -742,6 +782,22 @@
           "references": [
             "gupta_ketorolac_2005",
             "bnfc_online"
+          ]
+        },
+        {
+          "name": "Diclofenac (PO/PR)",
+          "id": "diclofenac-po-pr",
+          "drug": "Diclofenac",
+          "type": "linear_range",
+          "low": 0.3,
+          "high": 1,
+          "unit": "mg",
+          "route": "PO/PR",
+          "contraindicated_below_months": 12,
+          "note": "q8–12h",
+          "references": [
+            "voltarol_supp_smpc",
+            "kinderformularium_online"
           ]
         },
         {
@@ -785,41 +841,6 @@
           "high": 1
         },
         {
-          "name": "Metamizole",
-          "id": "metamizole",
-          "drug": "Metamizole",
-          "type": "linear_range",
-          "max": 1,
-          "max_unit": "g",
-          "unit": "mg",
-          "route": "IV",
-          "contraindicated_below_months": 3,
-          "references": [
-            "kinderformularium_metamizole",
-            "fieler_metamizole_2015"
-          ],
-          "low": 8,
-          "high": 16
-        },
-        {
-          "name": "Ibuprofen (oral)",
-          "id": "ibuprofen-oral",
-          "drug": "Ibuprofen",
-          "type": "linear_range",
-          "low": 5,
-          "high": 10,
-          "max": 400,
-          "unit": "mg",
-          "route": "PO",
-          "note": "not <5 kg",
-          "references": [
-            "southey_ibuprofen_2009",
-            "bnfc_online",
-            "nurofen_children_smpc"
-          ],
-          "contraindicated_below_months": 3
-        },
-        {
           "name": "Tramadol",
           "id": "tramadol",
           "drug": "Tramadol",
@@ -834,22 +855,6 @@
           "note": "q6h · respiratory depression caution",
           "references": [
             "tramadol_kalceks_smpc",
-            "kinderformularium_online"
-          ]
-        },
-        {
-          "name": "Diclofenac (PO/PR)",
-          "id": "diclofenac-po-pr",
-          "drug": "Diclofenac",
-          "type": "linear_range",
-          "low": 0.3,
-          "high": 1,
-          "unit": "mg",
-          "route": "PO/PR",
-          "contraindicated_below_months": 12,
-          "note": "q8–12h",
-          "references": [
-            "voltarol_supp_smpc",
             "kinderformularium_online"
           ]
         }
@@ -948,7 +953,7 @@
               "max_months": 6,
               "low": 0.6,
               "high": 1.2,
-              "note": "far higher than older-child dose – indirect agent, immature sympathetics"
+              "note": "far higher than the older-child dose — deliberate"
             },
             {
               "max_years": 999,
@@ -976,7 +981,7 @@
           "max_unit": "µg",
           "unit": "µg",
           "route": "IV",
-          "note": "upper range for tet spells · hypotension: start low, titrate",
+          "note": "upper range for tetralogy spells · hypotension: start low, titrate",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -1005,7 +1010,7 @@
           "factor": 2,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypoglycaemia · = 0.2 g/kg · recheck glucose after",
+          "note": "hypoglycaemia · = 0.2 g/kg",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -1041,7 +1046,7 @@
           "max": 20,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypocalcaemia · hyperkalaemia (ECG changes; not in arrest) · Ca-blocker overdose · slow IV",
+          "note": "hypocalcaemia · hyperkalaemia with ECG changes, not arrest · Ca-channel blocker · slow IV",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -1117,17 +1122,16 @@
           "max": 10,
           "unit": "mg",
           "route": "IV/IO",
-          "note": "repeat once · off-label use",
+          "note": "repeat once",
           "references": [
             "rcuk_paeds_se_2026",
             "erc_pls_2025"
           ]
         },
         {
-          "name": "Levetiracetam (status epilepticus)",
+          "name": "Levetiracetam",
           "id": "levetiracetam-status-epilepticus",
           "drug": "Levetiracetam",
-          "qualifier": "status epilepticus",
           "type": "linear_range",
           "low": 40,
           "high": 60,
@@ -1136,7 +1140,7 @@
           "unit": "mg",
           "route": "IV/IO",
           "contraindicated_below_months": 1,
-          "note": "loading dose · 2nd line after 2 benzodiazepine doses · give over 5 min · off-label",
+          "note": "loading dose · 2nd line after 2 benzodiazepine doses · give over 5 min",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_se_2026"
@@ -1179,9 +1183,9 @@
       "title": "Fluids and Blood",
       "items": [
         {
-          "name": "Fluid Bolus",
+          "name": "Fluid bolus",
           "id": "fluid-bolus",
-          "drug": "Fluid Bolus",
+          "drug": "Fluid bolus",
           "type": "linear_max",
           "factor": 10,
           "unit": "mL",
@@ -1207,9 +1211,9 @@
           ]
         },
         {
-          "name": "Total Blood Volume",
+          "name": "Total blood volume",
           "id": "total-blood-volume",
-          "drug": "Total Blood Volume",
+          "drug": "Total blood volume",
           "type": "linear_age",
           "brackets": [
             {
@@ -1234,9 +1238,9 @@
           ]
         },
         {
-          "name": "Tranexamic Acid",
+          "name": "Tranexamic acid",
           "id": "tranexamic-acid",
-          "drug": "Tranexamic Acid",
+          "drug": "Tranexamic acid",
           "type": "linear_max",
           "factor": 15,
           "max": 1,
@@ -1334,7 +1338,6 @@
               "value": "Macintosh 3"
             }
           ],
-          "note": "Miller lifts the epiglottis · Macintosh 1 equally effective",
           "references": [
             "passi_blades_2014",
             "cote_anesthesia_2019"
@@ -1371,7 +1374,6 @@
               "value": "Size 5"
             }
           ],
-          "note": "cover nose to chin cleft — anatomical fit over size",
           "references": [
             "cote_anesthesia_2019",
             "rendell_baker_mask_1962"
@@ -1521,6 +1523,21 @@
           ]
         },
         {
+          "name": "Salbutamol (IV)",
+          "id": "salbutamol-iv-severe-asthma",
+          "drug": "Salbutamol",
+          "type": "linear_max",
+          "factor": 0.015,
+          "max": 0.25,
+          "unit": "mg",
+          "route": "IV",
+          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+ · off-label <12 y",
+          "references": [
+            "sign_158_asthma",
+            "rcuk_pls_2025"
+          ]
+        },
+        {
           "name": "Ipratropium (nebulized)",
           "id": "ipratropium-nebulized",
           "drug": "Ipratropium",
@@ -1559,6 +1576,19 @@
           "qualifier": "asthma"
         },
         {
+          "name": "Hydrocortisone",
+          "id": "hydrocortisone-iv-asthma",
+          "drug": "Hydrocortisone",
+          "type": "linear",
+          "factor": 4,
+          "unit": "mg",
+          "route": "IV",
+          "note": "asthma · q4h — if oral not tolerated",
+          "references": [
+            "sign_158_asthma"
+          ]
+        },
+        {
           "name": "Adrenaline (nebulized)",
           "id": "adrenaline-nebulized",
           "drug": "Adrenaline",
@@ -1574,17 +1604,17 @@
           "note": "croup / stridor · 1:1000 (1 mg/mL)"
         },
         {
-          "name": "Dexamethasone (anti-inflammatory)",
+          "name": "Dexamethasone (airway oedema)",
           "id": "dexamethasone-anti-inflammatory",
           "drug": "Dexamethasone",
-          "qualifier": "anti-inflammatory",
+          "qualifier": "airway oedema",
           "type": "linear_max",
           "factor": 0.5,
           "max": 8,
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV",
-          "note": "airway oedema / post-extubation stridor",
+          "note": "post-extubation stridor",
           "references": [
             "anene_dexamethasone_1996",
             "malhotra_dexamethasone_2009"
@@ -1649,36 +1679,6 @@
           "references": [
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
-          ]
-        },
-        {
-          "name": "Salbutamol (IV, severe asthma)",
-          "id": "salbutamol-iv-severe-asthma",
-          "drug": "Salbutamol",
-          "qualifier": "severe asthma",
-          "type": "linear_max",
-          "factor": 0.015,
-          "max": 0.25,
-          "unit": "mg",
-          "route": "IV",
-          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+ · off-label <12 y",
-          "references": [
-            "sign_158_asthma",
-            "rcuk_pls_2025"
-          ]
-        },
-        {
-          "name": "Hydrocortisone (IV, asthma)",
-          "id": "hydrocortisone-iv-asthma",
-          "drug": "Hydrocortisone",
-          "qualifier": "asthma",
-          "type": "linear",
-          "factor": 4,
-          "unit": "mg",
-          "route": "IV",
-          "note": "q4h — if oral not tolerated",
-          "references": [
-            "sign_158_asthma"
           ]
         }
       ]
@@ -1811,7 +1811,7 @@
     },
     {
       "id": "regional",
-      "title": "Regional Anesthesia",
+      "title": "Regional Anaesthesia",
       "items": [
         {
           "name": "Lidocaine (perineural)",
@@ -1893,9 +1893,9 @@
           "note": "infusion: 0.1–0.3 mg/kg/h"
         },
         {
-          "name": "Intralipid 20% bolus",
+          "name": "Lipid emulsion 20% (bolus)",
           "id": "intralipid-20-bolus",
-          "drug": "Intralipid 20% bolus",
+          "drug": "Lipid emulsion 20%",
           "type": "linear",
           "factor": 1.5,
           "unit": "mL",
@@ -1904,12 +1904,13 @@
           "references": [
             "neal_last_2018",
             "asra_last_checklist_2020"
-          ]
+          ],
+          "qualifier": "bolus"
         },
         {
-          "name": "Intralipid 20% infusion",
+          "name": "Lipid emulsion 20% (infusion)",
           "id": "intralipid-20-infusion",
-          "drug": "Intralipid 20% infusion",
+          "drug": "Lipid emulsion 20%",
           "type": "linear",
           "factor": 0.25,
           "unit": "mL/min",
@@ -1918,13 +1919,13 @@
             "neal_last_2018",
             "asra_last_checklist_2020"
           ],
-          "note": "LA toxicity rescue – continue ≥15 min after stability"
+          "note": "LA toxicity rescue · continue ≥15 min after stability",
+          "qualifier": "infusion"
         },
         {
-          "name": "Levobupivacaine (max)",
+          "name": "Levobupivacaine",
           "id": "levobupivacaine-max",
           "drug": "Levobupivacaine",
-          "qualifier": "max",
           "type": "linear_max",
           "factor": 1.25,
           "max": 150,

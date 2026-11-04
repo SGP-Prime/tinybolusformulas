@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.75 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.76 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.75 · Updated 2026-11-04</p>
+  <p class="version">Version 0.0.76 · Updated 2026-11-04</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D.</p>
   <p class="contact">
@@ -309,7 +309,7 @@
     <li><a href="#equipment">Equipment</a></li>
     <li><a href="#respiratory">Respiratory</a></li>
     <li><a href="#antidotes">Reversal Agents</a></li>
-    <li><a href="#regional">Regional Anesthesia</a></li>
+    <li><a href="#regional">Regional Anaesthesia</a></li>
     <li><a href="#weight-estimation">Weight Estimation</a></li>
     <li><a href="#bibliography">Bibliography</a></li>
   </ol>
@@ -376,8 +376,7 @@
     <span class="item-name">Amiodarone</span>
     <span class="item-route">IV/IO</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5 mg/kg (max 300 mg)</span></div>
-  <div class="item-note">after 3rd shock · repeat after 5th · max 150 mg subsequent</div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">after 3rd shock 5 mg/kg (max 300 mg) · after 5th shock 5 mg/kg (max 150 mg)</span></div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -406,7 +405,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1st 0.1 mg/kg (max 6 mg) · 2nd 0.3 mg/kg (max 18 mg)</span></div>
-  <div class="item-note">2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg a dose, max 0.5 mg/kg · cardiology</div>
+  <div class="item-note">2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg · cardiology</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -426,7 +425,7 @@
   <h2>Vital Signs</h2>
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Heart Rate</span>
+    <span class="item-name">Heart rate</span>
   </div>
   <table class="brackets"><tbody>
     <tr><td class="age">≤1 mo</td><td class="dose">100–205 bpm</td></tr>
@@ -478,7 +477,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Respiratory Rate</span>
+    <span class="item-name">Respiratory rate</span>
   </div>
   <table class="brackets"><tbody>
     <tr><td class="age">≤12 mo</td><td class="dose">30–53 /min</td></tr>
@@ -493,7 +492,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Tidal Volume</span>
+    <span class="item-name">Tidal volume</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">6–8 mL/kg</span></div>
   <div class="item-note">per IDEAL body weight — if obese use estimated weight · lower end for neonates</div>
@@ -548,7 +547,6 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.2–0.3 mg/kg</span></div>
-  <div class="item-note">for haemodynamic stability</div>
   <div class="item-refs">References: <span class="cites">[14], [15]</span></div>
 </div>
 
@@ -568,7 +566,6 @@
     <span class="item-route">IM</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4–5 mg/kg</span></div>
-  <div class="item-note">onset 3–5 min</div>
   <div class="item-refs">References: <span class="cites">[16], [14]</span></div>
 </div>
 
@@ -615,7 +612,6 @@
     <span class="item-route">Buccal</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3 mg/kg (max 10 mg)</span></div>
-  <div class="item-note">if oral refused</div>
   <div class="item-refs">References: <span class="cites">[14]</span></div>
 </div>
 
@@ -637,7 +633,7 @@
     <span class="item-route">IN</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–3 µg/kg (max 200 µg)</span></div>
-  <div class="item-note">100 µg/mL solution · onset ~30 min</div>
+  <div class="item-note">100 µg/mL solution</div>
   <div class="item-refs">References: <span class="cites">[21], [22]</span></div>
 </div>
 
@@ -709,13 +705,13 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Droperidol (PONV)</span>
+    <span class="item-name">Droperidol</span>
     <span class="item-route" style="opacity:.65">hidden by default</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01–0.05 mg/kg (max 1.25 mg)</span></div>
   <div class="item-contra">Not indicated &lt;24 months (age floor)</div>
-  <div class="item-note">2nd line · avoid in long QT · give 30 min before end of surgery</div>
+  <div class="item-note">avoid in long QT · give 30 min before end of surgery</div>
   <div class="item-refs">References: <span class="cites">[29], [30]</span></div>
 </div>
 
@@ -742,12 +738,47 @@
 
 <div class="item">
   <div class="item-header">
+    <span class="item-name">Metamizole</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">8–16 mg/kg (max 1 g)</span></div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
+  <div class="item-refs">References: <span class="cites">[33], [34]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ibuprofen (oral)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">PO</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–10 mg/kg (max 400 mg)</span></div>
+  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
+  <div class="item-note">not &lt;5 kg</div>
+  <div class="item-refs">References: <span class="cites">[35], [14], [36]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
     <span class="item-name">Ketorolac</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 30 mg)</span></div>
   <div class="item-contra">Not indicated &lt;6 months (age floor)</div>
-  <div class="item-refs">References: <span class="cites">[33], [14]</span></div>
+  <div class="item-refs">References: <span class="cites">[37], [14]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Diclofenac (PO/PR)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">PO/PR</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3–1 mg/kg</span></div>
+  <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
+  <div class="item-note">q8–12h</div>
+  <div class="item-refs">References: <span class="cites">[38], [39]</span></div>
 </div>
 
 <div class="item">
@@ -762,7 +793,7 @@
     </tbody>
   </table>
 
-  <div class="item-refs">References: <span class="cites">[34], [14]</span></div>
+  <div class="item-refs">References: <span class="cites">[40], [14]</span></div>
 </div>
 
 <div class="item">
@@ -772,30 +803,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5–1 µg/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[14], [35], [18]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Metamizole</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">8–16 mg/kg (max 1 g)</span></div>
-  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
-  <div class="item-refs">References: <span class="cites">[36], [37]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Ibuprofen (oral)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">PO</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">5–10 mg/kg (max 400 mg)</span></div>
-  <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
-  <div class="item-note">not &lt;5 kg</div>
-  <div class="item-refs">References: <span class="cites">[38], [14], [39]</span></div>
+  <div class="item-refs">References: <span class="cites">[14], [41], [18]</span></div>
 </div>
 
 <div class="item">
@@ -807,19 +815,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg (max 100 mg)</span></div>
   <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
   <div class="item-note">q6h · respiratory depression caution</div>
-  <div class="item-refs">References: <span class="cites">[40], [41]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Diclofenac (PO/PR)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">PO/PR</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3–1 mg/kg</span></div>
-  <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
-  <div class="item-note">q8–12h</div>
-  <div class="item-refs">References: <span class="cites">[42], [41]</span></div>
+  <div class="item-refs">References: <span class="cites">[42], [39]</span></div>
 </div>
 
 </section>
@@ -884,7 +880,7 @@
   </div>
   <table class="brackets">
     <tbody>
-      <tr><td class="age">≤6 mo</td><td class="dose">0.6–1.2 mg/kg <span style="color:var(--muted); font-style:italic;">— far higher than older-child dose – indirect agent, immature sympathetics</span></td></tr>
+      <tr><td class="age">≤6 mo</td><td class="dose">0.6–1.2 mg/kg <span style="color:var(--muted); font-style:italic;">— far higher than the older-child dose — deliberate</span></td></tr>
       <tr><td class="age">≥7 mo</td><td class="dose">0.1–0.3 mg/kg</td></tr>
     </tbody>
   </table>
@@ -899,7 +895,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–20 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">upper range for tet spells · hypotension: start low, titrate</div>
+  <div class="item-note">upper range for tetralogy spells · hypotension: start low, titrate</div>
   <div class="item-refs">References: <span class="cites">[14], [15]</span></div>
 </div>
 
@@ -919,7 +915,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2 mL/kg</span></div>
-  <div class="item-note">hypoglycaemia · = 0.2 g/kg · recheck glucose after</div>
+  <div class="item-note">hypoglycaemia · = 0.2 g/kg</div>
   <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
 </div>
 
@@ -946,7 +942,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mL/kg (max 20 mL)</span></div>
-  <div class="item-note">hypocalcaemia · hyperkalaemia (ECG changes; not in arrest) · Ca-blocker overdose · slow IV</div>
+  <div class="item-note">hypocalcaemia · hyperkalaemia with ECG changes, not arrest · Ca-channel blocker · slow IV</div>
   <div class="item-refs">References: <span class="cites">[1], [49]</span></div>
 </div>
 
@@ -996,19 +992,19 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (max 10 mg)</span></div>
-  <div class="item-note">repeat once · off-label use</div>
+  <div class="item-note">repeat once</div>
   <div class="item-refs">References: <span class="cites">[53], [1]</span></div>
 </div>
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Levetiracetam (status epilepticus)</span>
+    <span class="item-name">Levetiracetam</span>
     <span class="item-route" style="opacity:.65">hidden by default</span>
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40–60 mg/kg (max 4.5 g)</span></div>
   <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
-  <div class="item-note">loading dose · 2nd line after 2 benzodiazepine doses · give over 5 min · off-label</div>
+  <div class="item-note">loading dose · 2nd line after 2 benzodiazepine doses · give over 5 min</div>
   <div class="item-refs">References: <span class="cites">[1], [53]</span></div>
 </div>
 
@@ -1039,7 +1035,7 @@
   <h2>Fluids and Blood</h2>
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Fluid Bolus</span>
+    <span class="item-name">Fluid bolus</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">10 mL/kg (max 500 mL)</span></div>
@@ -1058,7 +1054,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Total Blood Volume</span>
+    <span class="item-name">Total blood volume</span>
     <span class="item-route" style="opacity:.65">hidden by default</span>
   </div>
   <table class="brackets">
@@ -1074,7 +1070,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Tranexamic Acid</span>
+    <span class="item-name">Tranexamic acid</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
@@ -1176,7 +1172,6 @@
     </tbody>
   </table>
 
-  <div class="item-note">Miller lifts the epiglottis · Macintosh 1 equally effective</div>
   <div class="item-refs">References: <span class="cites">[69], [15]</span></div>
 </div>
 
@@ -1195,7 +1190,6 @@
     </tbody>
   </table>
 
-  <div class="item-note">cover nose to chin cleft — anatomical fit over size</div>
   <div class="item-refs">References: <span class="cites">[15], [70]</span></div>
 </div>
 
@@ -1297,6 +1291,17 @@
 
 <div class="item">
   <div class="item-header">
+    <span class="item-name">Salbutamol (IV)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.015 mg/kg (max 0.25 mg)</span></div>
+  <div class="item-note">bolus over 10 min · infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+ · off-label &lt;12 y</div>
+  <div class="item-refs">References: <span class="cites">[76], [78]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
     <span class="item-name">Ipratropium (nebulized)</span>
     <span class="item-route" style="opacity:.65">hidden by default</span>
     <span class="item-route">Nebulized</span>
@@ -1318,7 +1323,18 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40 mg/kg (max 2 g)</span></div>
   <div class="item-note">infuse over 20 min</div>
-  <div class="item-refs">References: <span class="cites">[78], [14], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[79], [14], [1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Hydrocortisone</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
+  <div class="item-note">asthma · q4h — if oral not tolerated</div>
+  <div class="item-refs">References: <span class="cites">[76]</span></div>
 </div>
 
 <div class="item">
@@ -1328,18 +1344,18 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
   <div class="item-note">croup / stridor · 1:1000 (1 mg/mL)</div>
-  <div class="item-refs">References: <span class="cites">[79], [14]</span></div>
+  <div class="item-refs">References: <span class="cites">[80], [14]</span></div>
 </div>
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Dexamethasone (anti-inflammatory)</span>
+    <span class="item-name">Dexamethasone (airway oedema)</span>
     <span class="item-route" style="opacity:.65">hidden by default</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 8 mg)</span></div>
-  <div class="item-note">airway oedema / post-extubation stridor</div>
-  <div class="item-refs">References: <span class="cites">[80], [81]</span></div>
+  <div class="item-note">post-extubation stridor</div>
+  <div class="item-refs">References: <span class="cites">[81], [82]</span></div>
 </div>
 
 <div class="item">
@@ -1349,7 +1365,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg</span></div>
   <div class="item-note">give in increments</div>
-  <div class="item-refs">References: <span class="cites">[82]</span></div>
+  <div class="item-refs">References: <span class="cites">[83]</span></div>
 </div>
 
 <div class="item">
@@ -1359,7 +1375,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.5 mg/kg</span></div>
   <div class="item-note">lower end may spare breathing · avoid in malignant hyperthermia / hyperkalaemia risk</div>
-  <div class="item-refs">References: <span class="cites">[83], [82]</span></div>
+  <div class="item-refs">References: <span class="cites">[84], [83]</span></div>
 </div>
 
 <div class="item">
@@ -1369,7 +1385,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg (max 200 mg)</span></div>
   <div class="item-note">laryngospasm or no IV access · avoid in malignant hyperthermia / hyperkalaemia risk</div>
-  <div class="item-refs">References: <span class="cites">[83], [82]</span></div>
+  <div class="item-refs">References: <span class="cites">[84], [83]</span></div>
 </div>
 
 <div class="item">
@@ -1380,28 +1396,6 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.6–1.2 mg/kg</span></div>
   <div class="item-note">when succinylcholine contraindicated (malignant hyperthermia) — then secure the airway</div>
   <div class="item-refs">References: <span class="cites">[24], [23]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Salbutamol (IV, severe asthma)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.015 mg/kg (max 0.25 mg)</span></div>
-  <div class="item-note">bolus over 10 min · infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+ · off-label &lt;12 y</div>
-  <div class="item-refs">References: <span class="cites">[76], [84]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Hydrocortisone (IV, asthma)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
-  <div class="item-note">q4h — if oral not tolerated</div>
-  <div class="item-refs">References: <span class="cites">[76]</span></div>
 </div>
 
 </section>
@@ -1493,7 +1487,7 @@
 </section>
 
 <section class="section" id="regional">
-  <h2>Regional Anesthesia</h2>
+  <h2>Regional Anaesthesia</h2>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Lidocaine (perineural)</span>
@@ -1544,7 +1538,7 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Intralipid 20% bolus</span>
+    <span class="item-name">Lipid emulsion 20% (bolus)</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
@@ -1554,17 +1548,17 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Intralipid 20% infusion</span>
+    <span class="item-name">Lipid emulsion 20% (infusion)</span>
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/kg/min</span></div>
-  <div class="item-note">LA toxicity rescue – continue ≥15 min after stability</div>
+  <div class="item-note">LA toxicity rescue · continue ≥15 min after stability</div>
   <div class="item-refs">References: <span class="cites">[90], [94]</span></div>
 </div>
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Levobupivacaine (max)</span>
+    <span class="item-name">Levobupivacaine</span>
     <span class="item-route">Perineural</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.25 mg/kg (max 150 mg)</span></div>
@@ -1631,16 +1625,16 @@
     <li id="ref-30">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).</li>
     <li id="ref-31">Anderson BJ. Paracetamol (acetaminophen): mechanisms of action. Paediatr Anaesth 2008;18(10):915–921.</li>
     <li id="ref-32">Paracetamol 10 mg/mL solution for infusion — Summary of Product Characteristics. electronic Medicines Compendium (emc), current edition.</li>
-    <li id="ref-33">Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139–142.</li>
-    <li id="ref-34">Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208–217.</li>
-    <li id="ref-35">Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1–79.</li>
-    <li id="ref-36">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: metamizol (IV, 3 months–18 years: 8–16 mg/kg/dose, max 4 doses/day, max 1 g/dose). kinderformularium.nl/geneesmiddel/40460/metamizol (current edition).</li>
-    <li id="ref-37">Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.</li>
-    <li id="ref-38">Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.</li>
-    <li id="ref-39">Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).</li>
-    <li id="ref-40">AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).</li>
-    <li id="ref-41">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).</li>
-    <li id="ref-42">Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).</li>
+    <li id="ref-33">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: metamizol (IV, 3 months–18 years: 8–16 mg/kg/dose, max 4 doses/day, max 1 g/dose). kinderformularium.nl/geneesmiddel/40460/metamizol (current edition).</li>
+    <li id="ref-34">Fieler M, Eich C, Becke K, et al. Metamizole for postoperative pain therapy in 1177 children: a prospective, multicentre, observational, postauthorisation safety study. Eur J Anaesthesiol 2015;32(12):839–843.</li>
+    <li id="ref-35">Southey ER, Soares-Weiser K, Kleijnen J. Systematic review and meta-analysis of the clinical safety and tolerability of ibuprofen compared with paracetamol in paediatric pain and fever. Curr Med Res Opin 2009;25(9):2207–2222.</li>
+    <li id="ref-36">Reckitt Benckiser Healthcare (UK) Ltd. Nurofen for Children Orange (3 months to 12 years) · Summary of Product Characteristics. electronic medicines compendium, medicines.org.uk/emc/product/396 (current edition).</li>
+    <li id="ref-37">Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139–142.</li>
+    <li id="ref-38">Novartis. Voltarol 12.5 mg Suppositories · Summary of Product Characteristics (juvenile idiopathic arthritis 1–12 y: 1–3 mg/kg/day divided). electronic medicines compendium, medicines.org.uk/emc/product/1044 (current edition).</li>
+    <li id="ref-39">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium (Dutch national paediatric formulary). kinderformularium.nl (current edition).</li>
+    <li id="ref-40">Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208–217.</li>
+    <li id="ref-41">Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1–79.</li>
+    <li id="ref-42">AS Kalceks. Tramadol 50 mg/ml solution for injection/infusion · Summary of Product Characteristics (children ≥1 y: 1–2 mg/kg/dose; daily max 8 mg/kg or 400 mg). electronic medicines compendium, medicines.org.uk/emc/product/13177 (current edition).</li>
     <li id="ref-43">Resuscitation Council UK. Emergency treatment of anaphylaxis: guidelines for healthcare providers (incl. the refractory anaphylaxis algorithm). May 2021. resus.org.uk.</li>
     <li id="ref-44">Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.</li>
     <li id="ref-45">Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.</li>
@@ -1676,13 +1670,13 @@
     <li id="ref-75">Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).</li>
     <li id="ref-76">British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.</li>
     <li id="ref-77">Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/</li>
-    <li id="ref-78">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
-    <li id="ref-79">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
-    <li id="ref-80">Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.</li>
-    <li id="ref-81">Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.</li>
-    <li id="ref-82">Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.</li>
-    <li id="ref-83">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
-    <li id="ref-84">Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.</li>
+    <li id="ref-78">Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.</li>
+    <li id="ref-79">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
+    <li id="ref-80">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
+    <li id="ref-81">Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.</li>
+    <li id="ref-82">Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.</li>
+    <li id="ref-83">Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.</li>
+    <li id="ref-84">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
     <li id="ref-85">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
     <li id="ref-86">Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269–279.</li>
     <li id="ref-87">Lee C, Jahr JS, Candiotti KA, Warriner B, Zornow MH, Naguib M. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium: a comparison with spontaneous recovery from succinylcholine. Anesthesiology 2009;110(5):1020–1025.</li>

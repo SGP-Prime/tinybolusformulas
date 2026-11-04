@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.74",
-  "updated": "2026-11-03",
+  "version": "0.0.75",
+  "updated": "2026-11-04",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -177,10 +177,10 @@
           "drug": "Adrenaline",
           "qualifier": "cardiac arrest",
           "type": "linear_max",
-          "factor": 10,
+          "factor": 0.01,
           "max": 1,
           "max_unit": "mg",
-          "unit": "µg",
+          "unit": "mg",
           "route": "IV/IO",
           "note": "repeat every 3–5 min · max 1 mg/dose",
           "references": [
@@ -207,15 +207,15 @@
           "id": "atropine-pals",
           "drug": "Atropine",
           "type": "linear_max",
-          "unit": "µg",
+          "unit": "mg",
           "route": "IV",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026",
             "barrington_atropine_2011"
           ],
-          "factor": 20,
-          "max": 500
+          "factor": 0.02,
+          "max": 0.5
         },
         {
           "name": "Adrenaline (bradycardia)",
@@ -682,11 +682,11 @@
           "drug": "Droperidol",
           "qualifier": "PONV",
           "type": "linear_range",
-          "low": 10,
-          "high": 50,
+          "low": 0.01,
+          "high": 0.05,
           "max": 1.25,
           "max_unit": "mg",
-          "unit": "µg",
+          "unit": "mg",
           "route": "IV",
           "contraindicated_below_months": 24,
           "note": "2nd line · avoid in long QT · give 30 min before end of surgery",
@@ -865,11 +865,11 @@
           "drug": "Adrenaline",
           "qualifier": "anaphylaxis",
           "type": "linear_max",
-          "factor": 10,
-          "max": 500,
-          "unit": "µg",
+          "factor": 0.01,
+          "max": 0.5,
+          "unit": "mg",
           "route": "IM",
-          "note": "repeat every 5 min as needed · auto-injectors: 150 µg 1–5 y · 300 µg 6–12 y · 500 µg >12 y",
+          "note": "repeat q5 min as needed · auto-injectors: 0.15 mg 1–5 y · 0.3 mg 6–12 y · 0.5 mg >12 y",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -910,10 +910,10 @@
           "id": "clemastine",
           "drug": "Clemastine",
           "type": "linear_max",
-          "factor": 25,
+          "factor": 0.025,
           "max": 2,
           "max_unit": "mg",
-          "unit": "µg",
+          "unit": "mg",
           "route": "IV",
           "references": [
             "ring_anaphylaxis_2021",
@@ -928,15 +928,15 @@
           "id": "atropine-emergency",
           "drug": "Atropine",
           "type": "linear_max",
-          "unit": "µg",
+          "unit": "mg",
           "route": "IV",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026",
             "barrington_atropine_2011"
           ],
-          "factor": 20,
-          "max": 500
+          "factor": 0.02,
+          "max": 0.5
         },
         {
           "name": "Ephedrine",
@@ -1657,9 +1657,9 @@
           "drug": "Salbutamol",
           "qualifier": "severe asthma",
           "type": "linear_max",
-          "factor": 15,
-          "max": 250,
-          "unit": "µg",
+          "factor": 0.015,
+          "max": 0.25,
+          "unit": "mg",
           "route": "IV",
           "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+ · off-label <12 y",
           "references": [
@@ -1693,8 +1693,8 @@
           "drug": "Naloxone",
           "qualifier": "titrated",
           "type": "linear",
-          "factor": 10,
-          "unit": "µg",
+          "factor": 0.01,
+          "unit": "mg",
           "route": "IV",
           "note": "titrate to respiration · repeat q2–3 min",
           "references": [
@@ -1722,11 +1722,11 @@
           "id": "flumazenil",
           "drug": "Flumazenil",
           "type": "linear_max",
-          "factor": 10,
-          "max": 200,
-          "unit": "µg",
+          "factor": 0.01,
+          "max": 0.2,
+          "unit": "mg",
           "route": "IV",
-          "note": "repeat ≤4× · total max 50 µg/kg (up to 1 mg) · licensed ≥1 y",
+          "note": "repeat ≤4× · total max 0.05 mg/kg (up to 1 mg) · licensed ≥1 y",
           "references": [
             "bnfc_online"
           ]
@@ -1784,9 +1784,9 @@
           "drug": "Atropine",
           "qualifier": "with neostigmine",
           "type": "linear_max",
-          "factor": 20,
-          "max": 500,
-          "unit": "µg",
+          "factor": 0.02,
+          "max": 0.5,
+          "unit": "mg",
           "route": "IV",
           "note": "with or just before neostigmine",
           "references": [

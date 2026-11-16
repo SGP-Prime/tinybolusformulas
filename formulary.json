@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.76",
-  "updated": "2026-11-04",
+  "version": "0.0.77",
+  "updated": "2026-11-16",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -600,8 +600,7 @@
             {
               "max_months": 12,
               "low": 2,
-              "high": 3,
-              "note": "raised in infants — larger extracellular volume"
+              "high": 3
             },
             {
               "max_years": 999,
@@ -611,7 +610,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "intubating dose · avoid in malignant hyperthermia / hyperkalaemia risk",
+          "note": "intubating dose",
           "references": [
             "mazurek_rocuronium_1998",
             "cote_anesthesia_2019",
@@ -694,7 +693,7 @@
           "unit": "mg",
           "route": "IV",
           "contraindicated_below_months": 24,
-          "note": "avoid in long QT · give 30 min before end of surgery",
+          "note": "give 30 min before end of surgery",
           "references": [
             "droperidol_smpc",
             "kinderformularium_droperidol"
@@ -852,7 +851,7 @@
           "unit": "mg",
           "route": "IV/PO",
           "contraindicated_below_months": 12,
-          "note": "q6h · respiratory depression caution",
+          "note": "q6h",
           "references": [
             "tramadol_kalceks_smpc",
             "kinderformularium_online"
@@ -925,8 +924,7 @@
             "tavegyl_spc",
             "kinderformularium_clemastine"
           ],
-          "contraindicated_below_months": 12,
-          "note": "second-line, after adrenaline"
+          "contraindicated_below_months": 12
         },
         {
           "name": "Atropine",
@@ -1466,7 +1464,7 @@
           "drug": "Oral / nasal airway sizing",
           "type": "fixed",
           "value": "by landmark",
-          "note": "Guedel: incisors → jaw angle · nasal: nostril → tragus −1 cm; not in basal-skull fracture",
+          "note": "Guedel: incisors → jaw angle · nasal: nostril → tragus −1 cm",
           "references": [
             "erc_epals_2021",
             "nemeth_guedel_2023",
@@ -1531,7 +1529,7 @@
           "max": 0.25,
           "unit": "mg",
           "route": "IV",
-          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+ · off-label <12 y",
+          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+",
           "references": [
             "sign_158_asthma",
             "rcuk_pls_2025"
@@ -1648,7 +1646,7 @@
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
           ],
-          "note": "lower end may spare breathing · avoid in malignant hyperthermia / hyperkalaemia risk"
+          "note": "lower end may spare breathing"
         },
         {
           "name": "Succinylcholine (IM)",
@@ -1659,7 +1657,6 @@
           "max": 200,
           "unit": "mg",
           "route": "IM",
-          "note": "laryngospasm or no IV access · avoid in malignant hyperthermia / hyperkalaemia risk",
           "references": [
             "larson_laryngospasm_1998",
             "gavel_laryngospasm_2014"
@@ -1675,7 +1672,6 @@
           "high": 1.2,
           "unit": "mg",
           "route": "IV",
-          "note": "when succinylcholine contraindicated (malignant hyperthermia) — then secure the airway",
           "references": [
             "mazurek_rocuronium_1998",
             "taivainen_rocuronium_1996"
@@ -1726,7 +1722,7 @@
           "max": 0.2,
           "unit": "mg",
           "route": "IV",
-          "note": "repeat ≤4× · total max 0.05 mg/kg (up to 1 mg) · licensed ≥1 y",
+          "note": "repeat ≤4× · total max 0.05 mg/kg (up to 1 mg)",
           "references": [
             "bnfc_online"
           ]

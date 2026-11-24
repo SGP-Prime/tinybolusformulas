@@ -2,13 +2,13 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.80** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.81** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
 ## Contents
 
-- [EMERGENCY — PALS](#emergency--pals)
+- [Paediatric ALS](#paediatric-als)
 - [Vital Signs](#vital-signs)
 - [Induction](#induction)
 - [PONV](#ponv)
@@ -23,7 +23,7 @@ Generated from `assets/formulary.json` **v0.0.80** (updated 2026-11-24) by `tool
 
 ---
 
-## EMERGENCY — PALS
+## Paediatric ALS
 
 ### Compression rate
 

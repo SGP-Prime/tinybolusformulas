@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.79",
-  "updated": "2026-11-16",
+  "version": "0.0.80",
+  "updated": "2026-11-24",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -104,8 +104,7 @@
     "fentanyl_smpc": "Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).",
     "midazolam_smpc": "Midazolam 5 mg/ml solution for injection/infusion · Summary of Product Characteristics (sedation: 6 months–5 years initial 0.05–0.1 mg/kg; 6–12 years 0.025–0.05 mg/kg; <6 months: conscious sedation not recommended). electronic medicines compendium, medicines.org.uk/emc/product/15365 (current edition).",
     "kinderformularium_metamizole": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: metamizol (IV, 3 months–18 years: 8–16 mg/kg/dose, max 4 doses/day, max 1 g/dose). kinderformularium.nl/geneesmiddel/40460/metamizol (current edition).",
-    "kinderformularium_glucagon": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).",
-    "aha_pals_vitals": "American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition)."
+    "kinderformularium_glucagon": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition)."
   },
   "sections": [
     {
@@ -293,7 +292,7 @@
           "computer": "vitals_hr",
           "unit": "bpm",
           "references": [
-            "aha_pals_vitals"
+            "erc_pls_2025"
           ]
         },
         {
@@ -304,18 +303,18 @@
           "computer": "vitals_sbp",
           "unit": "mmHg",
           "references": [
-            "aha_pals_vitals"
+            "erc_pls_2025"
           ]
         },
         {
-          "name": "Diastolic BP",
-          "id": "diastolic-bp",
-          "drug": "Diastolic BP",
+          "name": "Mean arterial pressure",
+          "id": "mean-arterial-pressure",
+          "drug": "Mean arterial pressure",
           "type": "computed",
-          "computer": "vitals_dbp",
+          "computer": "vitals_map",
           "unit": "mmHg",
           "references": [
-            "aha_pals_vitals"
+            "erc_pls_2025"
           ]
         },
         {
@@ -326,7 +325,7 @@
           "computer": "vitals_rr",
           "unit": "/min",
           "references": [
-            "aha_pals_vitals"
+            "erc_pls_2025"
           ]
         },
         {
@@ -1934,122 +1933,103 @@
     }
   ],
   "vital_signs": {
-    "hr": [
-      {
-        "max_months": 1,
-        "value": "100–205"
-      },
-      {
-        "max_months": 12,
-        "value": "100–180"
-      },
-      {
-        "max_years": 2,
-        "value": "98–140"
-      },
-      {
-        "max_years": 5,
-        "value": "80–120"
-      },
-      {
-        "max_years": 11,
-        "value": "75–118"
-      },
-      {
-        "max_years": 999,
-        "value": "60–100"
-      }
+    "comment": "ERC PLS 2025 Table 2 (Djakow et al., Resuscitation 2025;215:110767): approximate normal values at six anchor ages. The app interpolates linearly between anchors (ERC: 'use intermediate values for children between the specified ages') and holds the 1 mo column below 1 month and the 18 y column above 18 years. BP percentiles are for the 50th height percentile. anchor_months = [1 mo, 1 y, 2 y, 5 y, 10 y, 18 y].",
+    "anchor_months": [
+      1,
+      12,
+      24,
+      60,
+      120,
+      216
     ],
-    "sbp": [
-      {
-        "max_months": 1,
-        "value": "67–84"
-      },
-      {
-        "max_months": 12,
-        "value": "72–104"
-      },
-      {
-        "max_years": 2,
-        "value": "86–106"
-      },
-      {
-        "max_years": 5,
-        "value": "89–112"
-      },
-      {
-        "max_years": 9,
-        "value": "97–115"
-      },
-      {
-        "max_years": 11,
-        "value": "102–120"
-      },
-      {
-        "max_years": 15,
-        "value": "110–131"
-      },
-      {
-        "max_years": 999,
-        "value": "90–140"
-      }
-    ],
-    "dbp": [
-      {
-        "max_months": 1,
-        "value": "35–53"
-      },
-      {
-        "max_months": 12,
-        "value": "37–56"
-      },
-      {
-        "max_years": 2,
-        "value": "42–63"
-      },
-      {
-        "max_years": 5,
-        "value": "46–72"
-      },
-      {
-        "max_years": 9,
-        "value": "57–76"
-      },
-      {
-        "max_years": 11,
-        "value": "61–80"
-      },
-      {
-        "max_years": 15,
-        "value": "64–83"
-      },
-      {
-        "max_years": 999,
-        "value": "60–90"
-      }
-    ],
-    "rr": [
-      {
-        "max_months": 12,
-        "value": "30–53"
-      },
-      {
-        "max_years": 3,
-        "value": "22–37"
-      },
-      {
-        "max_years": 5,
-        "value": "20–28"
-      },
-      {
-        "max_years": 12,
-        "value": "18–25"
-      },
-      {
-        "max_years": 999,
-        "value": "12–20"
-      }
-    ]
+    "rr": {
+      "low": [
+        25,
+        20,
+        18,
+        17,
+        14,
+        12
+      ],
+      "high": [
+        60,
+        50,
+        40,
+        30,
+        25,
+        20
+      ]
+    },
+    "hr": {
+      "low": [
+        110,
+        100,
+        90,
+        70,
+        60,
+        60
+      ],
+      "high": [
+        180,
+        170,
+        160,
+        140,
+        120,
+        100
+      ]
+    },
+    "sbp": {
+      "p5": [
+        50,
+        70,
+        73,
+        75,
+        80,
+        90
+      ],
+      "p10": [
+        55,
+        75,
+        77,
+        80,
+        85,
+        105
+      ],
+      "p50": [
+        75,
+        95,
+        98,
+        100,
+        110,
+        120
+      ]
+    },
+    "map": {
+      "p5": [
+        40,
+        50,
+        53,
+        55,
+        55,
+        60
+      ],
+      "p10": [
+        45,
+        55,
+        58,
+        60,
+        60,
+        65
+      ],
+      "p50": [
+        55,
+        70,
+        73,
+        75,
+        75,
+        75
+      ]
+    }
   },
   "weight_estimation": {
     "comment": "APLS-updated. <1 month requires user input. >12 years requires user input.",
@@ -2212,6 +2192,7 @@
     "adenosine-1st-dose": "v0.0.74: merged into 'adenosine' (steps row)",
     "adenosine-2nd-dose": "v0.0.74: merged into 'adenosine' (steps row)",
     "ibuprofen-iv": "v0.0.74: removed (co-author review)",
-    "paracetamol-oral": "v0.0.74: removed (co-author review)"
+    "paracetamol-oral": "v0.0.74: removed (co-author review)",
+    "diastolic-bp": "v0.0.80: replaced by 'mean-arterial-pressure' — ERC PLS 2025 Table 2 tabulates MAP, not diastolic"
   }
 }

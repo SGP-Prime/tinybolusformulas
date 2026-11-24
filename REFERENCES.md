@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.79** (updated 2026-11-16) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.80** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -78,19 +78,19 @@ Generated from `assets/formulary.json` **v0.0.79** (updated 2026-11-16) by `tool
 
 ### Heart rate
 
-- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Systolic BP
 
-- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### Diastolic BP
+### Mean arterial pressure
 
-- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Respiratory rate
 
-- American Heart Association. Pediatric Advanced Life Support (PALS) Provider Manual: normal heart rate, respiratory rate and blood pressure by age (tables; neonatal BP row = 'neonate, 96 h'). Dallas, TX: AHA; 2016 (2015 Guidelines edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Tidal volume
 

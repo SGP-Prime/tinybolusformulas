@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.81** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -298,10 +298,15 @@ Generated from `assets/formulary.json` **v0.0.81** (updated 2026-11-24) by `tool
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
 
-### Dantrolene
+### Insulin + glucose (hyperkalaemia)
 
-- Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
-- Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Salbutamol (nebulized, hyperkalaemia)
+
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
 ### Midazolam (buccal, status epilepticus)
 
@@ -318,15 +323,10 @@ Generated from `assets/formulary.json` **v0.0.81** (updated 2026-11-24) by `tool
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
 
-### Insulin + glucose (hyperkalaemia)
+### Dantrolene
 
-- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Salbutamol (nebulized, hyperkalaemia)
-
-- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
+- Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
 
 ## Fluids and Blood
 

@@ -1,6 +1,6 @@
 {
-  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever.",
-  "version": "0.0.81",
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only.",
+  "version": "0.0.82",
   "updated": "2026-11-24",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -871,6 +871,7 @@
           "unit": "mg",
           "route": "IM",
           "note": "repeat q5 min as needed · auto-injectors: 0.15 mg 1–5 y · 0.3 mg 6–12 y · 0.5 mg >12 y",
+          "group": "Anaphylaxis",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -886,6 +887,7 @@
           "unit": "µg",
           "route": "IV",
           "note": "titrate to response",
+          "group": "Anaphylaxis",
           "references": [
             "erc_pls_2025"
           ]
@@ -901,6 +903,7 @@
           "unit": "mL/h",
           "route": "IV",
           "note": "1 mg in 100 mL NaCl 0.9% = 10 µg/mL · dedicated pump line",
+          "group": "Anaphylaxis",
           "references": [
             "rcuk_anaphylaxis_2021",
             "rcuk_paeds_algorithms_2026"
@@ -915,6 +918,7 @@
           "max": 2,
           "max_unit": "mg",
           "unit": "mg",
+          "group": "Anaphylaxis",
           "route": "IV",
           "references": [
             "ring_anaphylaxis_2021",
@@ -929,6 +933,7 @@
           "drug": "Atropine",
           "type": "linear_max",
           "unit": "mg",
+          "group": "Cardiovascular",
           "route": "IV",
           "references": [
             "erc_pls_2025",
@@ -962,7 +967,8 @@
             "bnfc_online",
             "cote_anesthesia_2019"
           ],
-          "note": "ampoule 30 mg/mL — dilute"
+          "note": "ampoule 30 mg/mL — dilute",
+          "group": "Cardiovascular"
         },
         {
           "name": "Phenylephrine",
@@ -976,6 +982,7 @@
           "unit": "µg",
           "route": "IV",
           "note": "upper range for tetralogy spells · hypotension: start low, titrate",
+          "group": "Cardiovascular",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -991,6 +998,7 @@
           "unit": "mg",
           "route": "IV",
           "note": "antiarrhythmic — refractory VF / pulseless VT",
+          "group": "Cardiovascular",
           "references": [
             "erc_pls_2025",
             "aha_pals_2025"
@@ -1005,6 +1013,7 @@
           "unit": "mL",
           "route": "IV/IO",
           "note": "hypoglycaemia · = 0.2 g/kg",
+          "group": "Metabolic",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_algorithms_2026"
@@ -1027,6 +1036,7 @@
           ],
           "route": "IM/SC",
           "note": "hypoglycaemia · no response after 10 min: repeat or IV glucose",
+          "group": "Metabolic",
           "references": [
             "kinderformularium_glucagon"
           ]
@@ -1041,6 +1051,7 @@
           "unit": "mL",
           "route": "IV/IO",
           "note": "hypocalcaemia · hyperkalaemia with ECG changes, not arrest · Ca-channel blocker · slow IV",
+          "group": "Metabolic",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
@@ -1055,23 +1066,42 @@
           "unit": "mmol",
           "route": "IV/IO",
           "note": "1 mL/kg of 8.4% · tricyclic toxicity / severe acidosis · not routine in arrest",
+          "group": "Metabolic",
           "references": [
             "erc_pls_2025",
             "apls_7e_2023"
           ]
         },
         {
-          "name": "Dantrolene",
-          "id": "dantrolene",
-          "drug": "Dantrolene",
-          "type": "linear",
-          "factor": 2.5,
-          "unit": "mg",
+          "name": "Insulin + glucose (hyperkalaemia)",
+          "id": "insulin-glucose-hyperkalaemia",
+          "drug": "Insulin + glucose",
+          "qualifier": "hyperkalaemia",
+          "type": "linear_max",
+          "factor": 0.1,
+          "max": 10,
+          "unit": "units",
           "route": "IV",
-          "note": "reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg",
+          "note": "WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose & K+ q15min",
+          "group": "Metabolic",
           "references": [
-            "aoa_mh_2021",
-            "emhg_mh_2010"
+            "rch_hyperkalaemia_cpg",
+            "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Salbutamol (nebulized, hyperkalaemia)",
+          "id": "salbutamol-nebulized-hyperkalaemia",
+          "drug": "Salbutamol",
+          "qualifier": "hyperkalaemia",
+          "type": "fixed",
+          "value": "2.5–5 mg",
+          "route": "Nebulized",
+          "note": "2.5 mg ≤25 kg · 5 mg >25 kg · repeat ≤5× · with insulin–glucose",
+          "group": "Metabolic",
+          "references": [
+            "rch_hyperkalaemia_cpg",
+            "erc_pls_2025"
           ]
         },
         {
@@ -1101,6 +1131,7 @@
           ],
           "route": "Buccal",
           "note": "seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min",
+          "group": "Status epilepticus",
           "references": [
             "buccolam_smpc",
             "erc_pls_2025"
@@ -1117,6 +1148,7 @@
           "unit": "mg",
           "route": "IV/IO",
           "note": "repeat once",
+          "group": "Status epilepticus",
           "references": [
             "rcuk_paeds_se_2026",
             "erc_pls_2025"
@@ -1135,39 +1167,25 @@
           "route": "IV/IO",
           "contraindicated_below_months": 1,
           "note": "loading dose · give over 5 min",
+          "group": "Status epilepticus",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_se_2026"
           ]
         },
         {
-          "name": "Insulin + glucose (hyperkalaemia)",
-          "id": "insulin-glucose-hyperkalaemia",
-          "drug": "Insulin + glucose",
-          "qualifier": "hyperkalaemia",
-          "type": "linear_max",
-          "factor": 0.1,
-          "max": 10,
-          "unit": "units",
+          "name": "Dantrolene",
+          "id": "dantrolene",
+          "drug": "Dantrolene",
+          "type": "linear",
+          "factor": 2.5,
+          "unit": "mg",
           "route": "IV",
-          "note": "WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose & K+ q15min",
+          "note": "reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg",
+          "group": "Malignant hyperthermia",
           "references": [
-            "rch_hyperkalaemia_cpg",
-            "erc_pls_2025"
-          ]
-        },
-        {
-          "name": "Salbutamol (nebulized, hyperkalaemia)",
-          "id": "salbutamol-nebulized-hyperkalaemia",
-          "drug": "Salbutamol",
-          "qualifier": "hyperkalaemia",
-          "type": "fixed",
-          "value": "2.5–5 mg",
-          "route": "Nebulized",
-          "note": "2.5 mg ≤25 kg · 5 mg >25 kg · repeat ≤5× · with insulin–glucose",
-          "references": [
-            "rch_hyperkalaemia_cpg",
-            "erc_pls_2025"
+            "aoa_mh_2021",
+            "emhg_mh_2010"
           ]
         }
       ]

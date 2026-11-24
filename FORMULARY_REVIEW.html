@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.81 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.82 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.81 · Updated 2026-11-24</p>
+  <p class="version">Version 0.0.82 · Updated 2026-11-24</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -277,6 +277,15 @@
     in Settings; those rows are tagged <em>hidden by default</em>
     beside their name below. A hidden row is still maintained,
     sourced and reviewed — it is simply off until a user enables it.
+  </p>
+
+  <h3>Groups</h3>
+  <p>
+    A long section may carry sub-headings (Emergency Drugs: Anaphylaxis,
+    Cardiovascular, Metabolic, Status epilepticus, Malignant
+    hyperthermia). They are labels only — every row keeps its own
+    identity, visibility switch and citations — and the app prints a
+    label above the first visible row of its group.
   </p>
 
   <h3>Hard floors</h3>
@@ -840,6 +849,7 @@
 
 <section class="section" id="emergency">
   <h2>Emergency Drugs</h2>
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Anaphylaxis</h3>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Adrenaline (anaphylaxis IM)</span>
@@ -881,6 +891,7 @@
   <div class="item-refs">References: <span class="cites">[43], [44], [45]</span></div>
 </div>
 
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Cardiovascular</h3>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Atropine</span>
@@ -926,6 +937,7 @@
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Metabolic</h3>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Glucose 10%</span>
@@ -975,14 +987,26 @@
 
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Dantrolene</span>
+    <span class="item-name">Insulin + glucose (hyperkalaemia)</span>
     <span class="item-route">IV</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
-  <div class="item-note">reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
-  <div class="item-refs">References: <span class="cites">[49], [50]</span></div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 units/kg (max 10 units)</span></div>
+  <div class="item-note">WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose &amp; K+ q15min</div>
+  <div class="item-refs">References: <span class="cites">[49], [1]</span></div>
 </div>
 
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (nebulized, hyperkalaemia)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <div class="item-dose"><span class="label">VALUE</span><span class="mono">2.5–5 mg</span></div>
+  <div class="item-note">2.5 mg ≤25 kg · 5 mg &gt;25 kg · repeat ≤5× · with insulin–glucose</div>
+  <div class="item-refs">References: <span class="cites">[49], [1]</span></div>
+</div>
+
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Status epilepticus</h3>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Midazolam (buccal, status epilepticus)</span>
@@ -1000,7 +1024,7 @@
 
   <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-note">seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min</div>
-  <div class="item-refs">References: <span class="cites">[51], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[50], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1010,7 +1034,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (max 10 mg)</span></div>
   <div class="item-note">repeat once</div>
-  <div class="item-refs">References: <span class="cites">[52], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[51], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1022,28 +1046,18 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40–60 mg/kg (max 4.5 g)</span></div>
   <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
   <div class="item-note">loading dose · give over 5 min</div>
-  <div class="item-refs">References: <span class="cites">[1], [52]</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [51]</span></div>
 </div>
 
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Malignant hyperthermia</h3>
 <div class="item">
   <div class="item-header">
-    <span class="item-name">Insulin + glucose (hyperkalaemia)</span>
+    <span class="item-name">Dantrolene</span>
     <span class="item-route">IV</span>
   </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 units/kg (max 10 units)</span></div>
-  <div class="item-note">WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose &amp; K+ q15min</div>
-  <div class="item-refs">References: <span class="cites">[53], [1]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Salbutamol (nebulized, hyperkalaemia)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">Nebulized</span>
-  </div>
-  <div class="item-dose"><span class="label">VALUE</span><span class="mono">2.5–5 mg</span></div>
-  <div class="item-note">2.5 mg ≤25 kg · 5 mg &gt;25 kg · repeat ≤5× · with insulin–glucose</div>
-  <div class="item-refs">References: <span class="cites">[53], [1]</span></div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
+  <div class="item-note">reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
+  <div class="item-refs">References: <span class="cites">[52], [53]</span></div>
 </div>
 
 </section>
@@ -1655,11 +1669,11 @@
     <li id="ref-46">Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.</li>
     <li id="ref-47">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: &lt;25 kg 0.5 mg, &gt;25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).</li>
     <li id="ref-48">Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.</li>
-    <li id="ref-49">Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.</li>
-    <li id="ref-50">Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.</li>
-    <li id="ref-51">Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to &lt;18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).</li>
-    <li id="ref-52">Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).</li>
-    <li id="ref-53">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).</li>
+    <li id="ref-49">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).</li>
+    <li id="ref-50">Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to &lt;18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).</li>
+    <li id="ref-51">Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).</li>
+    <li id="ref-52">Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.</li>
+    <li id="ref-53">Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.</li>
     <li id="ref-54">Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.</li>
     <li id="ref-55">Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.</li>
     <li id="ref-56">Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.</li>

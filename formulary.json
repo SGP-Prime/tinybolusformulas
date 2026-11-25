@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped).",
-  "version": "0.0.84",
+  "version": "0.0.85",
   "updated": "2026-11-25",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -784,10 +784,9 @@
           ]
         },
         {
-          "name": "Fentanyl (induction)",
+          "name": "Fentanyl",
           "id": "fentanyl-induction",
           "drug": "Fentanyl",
-          "qualifier": "induction",
           "type": "linear_range",
           "unit": "µg",
           "route": "IV",
@@ -893,10 +892,9 @@
           "contraindicated_below_months": 1
         },
         {
-          "name": "Dexamethasone (PONV)",
+          "name": "Dexamethasone",
           "id": "dexamethasone-ponv",
           "drug": "Dexamethasone",
-          "qualifier": "PONV",
           "type": "linear_range",
           "low": 0.15,
           "high": 0.25,
@@ -1059,10 +1057,9 @@
           ]
         },
         {
-          "name": "Fentanyl (analgesia)",
+          "name": "Fentanyl",
           "id": "fentanyl-analgesia",
           "drug": "Fentanyl",
-          "qualifier": "analgesia",
           "type": "linear_range",
           "unit": "µg",
           "route": "IV",
@@ -1101,10 +1098,9 @@
       "title": "Emergency Drugs",
       "items": [
         {
-          "name": "Adrenaline (anaphylaxis IM)",
+          "name": "Adrenaline (IM)",
           "id": "adrenaline-anaphylaxis-im",
           "drug": "Adrenaline",
-          "qualifier": "anaphylaxis",
           "type": "linear_max",
           "factor": 0.01,
           "max": 0.5,
@@ -1119,10 +1115,9 @@
           ]
         },
         {
-          "name": "Adrenaline (anaphylaxis IV)",
+          "name": "Adrenaline (IV)",
           "id": "adrenaline-anaphylaxis-iv",
           "drug": "Adrenaline",
-          "qualifier": "anaphylaxis",
           "type": "linear",
           "factor": 1,
           "unit": "µg",
@@ -1135,10 +1130,10 @@
           ]
         },
         {
-          "name": "Adrenaline (anaphylaxis infusion)",
+          "name": "Adrenaline (infusion)",
           "id": "adrenaline-anaphylaxis-infusion",
           "drug": "Adrenaline",
-          "qualifier": "anaphylaxis infusion",
+          "qualifier": "infusion",
           "type": "linear_range",
           "low": 0.5,
           "high": 1,
@@ -1351,10 +1346,9 @@
           ]
         },
         {
-          "name": "Midazolam (buccal, status epilepticus)",
+          "name": "Midazolam (buccal)",
           "id": "midazolam-buccal-status-epilepticus",
           "drug": "Midazolam",
-          "qualifier": "status epilepticus",
           "type": "fixed_age",
           "contraindicated_below_months": 3,
           "brackets": [
@@ -1385,10 +1379,9 @@
           ]
         },
         {
-          "name": "Midazolam (IV, status epilepticus)",
+          "name": "Midazolam (IV)",
           "id": "midazolam-iv-status-epilepticus",
           "drug": "Midazolam",
-          "qualifier": "status epilepticus",
           "type": "linear_max",
           "factor": 0.15,
           "max": 10,

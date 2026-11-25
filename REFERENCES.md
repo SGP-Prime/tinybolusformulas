@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.85** (updated 2026-11-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -202,7 +202,7 @@ Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool
 - Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
 - Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
 
-### Fentanyl (induction)
+### Fentanyl
 
 - Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
@@ -233,7 +233,7 @@ Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - hameln pharma ltd. Ondansetron 2 mg/ml solution for injection/infusion - Summary of Product Characteristics (PONV: children 1 month–17 years, 0.1 mg/kg IV, maximum 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/101465 (text revised 23/12/2025).
 
-### Dexamethasone (PONV)
+### Dexamethasone
 
 - Gan TJ, Jin Z, Ayad S, et al. Fifth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting: Executive Summary. Anesth Analg 2026;143(3):497–513 (published online 14 Nov 2025).
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
@@ -282,7 +282,7 @@ Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool
 - Bouwmeester NJ, Anderson BJ, Tibboel D, Holford NH. Developmental pharmacokinetics of morphine and its metabolites in neonates, infants and young children. Br J Anaesth 2004;92(2):208–217.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Fentanyl (analgesia)
+### Fentanyl
 
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 - Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1–79.
@@ -295,16 +295,16 @@ Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool
 
 ## Emergency Drugs
 
-### Adrenaline (anaphylaxis IM)
+### Adrenaline (IM)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 - Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
 
-### Adrenaline (anaphylaxis IV)
+### Adrenaline (IV)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### Adrenaline (anaphylaxis infusion)
+### Adrenaline (infusion)
 
 - Resuscitation Council UK. Emergency treatment of anaphylaxis: guidelines for healthcare providers (incl. the refractory anaphylaxis algorithm). May 2021. resus.org.uk.
 - Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
@@ -366,12 +366,12 @@ Generated from `assets/formulary.json` **v0.0.84** (updated 2026-11-25) by `tool
 - Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### Midazolam (buccal, status epilepticus)
+### Midazolam (buccal)
 
 - Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-### Midazolam (IV, status epilepticus)
+### Midazolam (IV)
 
 - Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.

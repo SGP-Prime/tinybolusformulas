@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.83** (updated 2026-11-25) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -10,12 +10,12 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 
 - [Paediatric ALS](#paediatric-als)
 - [Vital Signs](#vital-signs)
+- [Equipment](#equipment)
 - [Induction](#induction)
 - [PONV](#ponv)
 - [Painkillers](#painkillers)
 - [Emergency Drugs](#emergency-drugs)
 - [Fluids and Blood](#fluids-and-blood)
-- [Equipment](#equipment)
 - [Respiratory](#respiratory)
 - [Reversal Agents](#reversal-agents)
 - [Regional Anaesthesia](#regional-anaesthesia)
@@ -98,6 +98,59 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 - Kneyber MCJ, de Luca D, Calderini E, et al. Recommendations for mechanical ventilation of critically ill children from the Paediatric Mechanical Ventilation Consensus Conference (PEMVECC). Intensive Care Med 2017;43(12):1764–1780.
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
+## Equipment
+
+### ETT
+
+- Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113–118.
+- European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.
+
+### ETT insertion depth
+
+- Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519–522.
+- Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238–1243.
+- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+
+### iGel LMA
+
+- Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).
+- Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121–1126.
+
+### AuraGain LMA
+
+- Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask — Instructions for Use. V7, August 2023.
+
+### Laryngoscope blade
+
+- Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869–874.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+### Face mask
+
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+- Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.
+
+### Reservoir bag
+
+- Kalra A. Pediatric Anesthesia Digital Handbook. Department of Anesthesiology, Tufts Medical Center, Boston, MA (maskinduction.com: reservoir bag 0.5 L for neonates <3 kg; 1 L to 25–30 kg; 2 L 30–50 kg; 3 L over 50 kg), current edition.
+- Intersurgical Ltd. Reservoir bags (paediatric 0.5 L and 1 L; adult 2 L; 3 L also available). Intersurgical, Wokingham, UK (current edition).
+
+### Suction catheter
+
+- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+### Nasogastric / orogastric tube
+
+- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+### Oral / nasal airway sizing
+
+- Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
+- Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).
+- Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).
+
 ## Induction
 
 ### Propofol
@@ -126,12 +179,6 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 - Craven R. Ketamine. Anaesthesia 2007;62(Suppl 1):48–53.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
-### Fentanyl (induction)
-
-- Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571.
-
 ### Midazolam
 
 - Midazolam 5 mg/ml solution for injection/infusion · Summary of Product Characteristics (sedation: 6 months–5 years initial 0.05–0.1 mg/kg; 6–12 years 0.025–0.05 mg/kg; <6 months: conscious sedation not recommended). electronic medicines compendium, medicines.org.uk/emc/product/15365 (current edition).
@@ -155,6 +202,12 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 - Yuen VM, Hui TW, Irwin MG, Yao TJ, Chan L, Wong GL, Hasan MS, Shariffuddin II. A randomised comparison of two intranasal dexmedetomidine doses for premedication in children. Anaesthesia 2012;67(11):1210–1216.
 - Jun JH, Kim KN, Kim JY, Song SM. The effects of intranasal dexmedetomidine premedication in children: a systematic review and meta-analysis. Can J Anaesth 2017;64(9):947–961.
 
+### Fentanyl (induction)
+
+- Fentanyl 50 micrograms/ml Solution for Injection/Infusion - Summary of Product Characteristics (children 2–11 years: initial 1–3 micrograms/kg). electronic medicines compendium, medicines.org.uk/emc/product/6617 (current edition).
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Cravero JP, Agarwal R, Berde C, et al. The Society for Pediatric Anesthesia recommendations for the use of opioids in children during the perioperative period. Paediatr Anaesth 2019;29(6):547–571.
+
 ### Rocuronium
 
 - Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
@@ -175,19 +228,23 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 
 ### Ondansetron
 
+- Gan TJ, Jin Z, Ayad S, et al. Fifth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting: Executive Summary. Anesth Analg 2026;143(3):497–513 (published online 14 Nov 2025).
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- hameln pharma ltd. Ondansetron 2 mg/ml solution for injection - Summary of Product Characteristics (PONV: children ≥1 month, 0.1 mg/kg IV max 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/6469 (last updated 2023; product since discontinued).
+- hameln pharma ltd. Ondansetron 2 mg/ml solution for injection/infusion - Summary of Product Characteristics (PONV: children 1 month–17 years, 0.1 mg/kg IV, maximum 4 mg). electronic medicines compendium, medicines.org.uk/emc/product/101465 (text revised 23/12/2025).
 
 ### Dexamethasone (PONV)
 
+- Gan TJ, Jin Z, Ayad S, et al. Fifth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting: Executive Summary. Anesth Analg 2026;143(3):497–513 (published online 14 Nov 2025).
 - Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
 - Madan R, Bhatia A, Chakithandy S, Subramaniam R, Rammohan G, Deshpande S, Singh M, Kaul HL. Prophylactic dexamethasone for postoperative nausea and vomiting in pediatric strabismus surgery: a dose ranging and safety evaluation study. Anesth Analg 2005;100(6):1622–1626.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Droperidol
 
-- Panpharma. Droperidol 2.5 mg/mL solution for injection (paediatric PONV, second line: 10–50 µg/kg, max 1.25 mg, not <2 y) - Summary of Product Characteristics. electronic medicines compendium (medicines.org.uk, current edition).
+- Gan TJ, Jin Z, Ayad S, et al. Fifth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting: Executive Summary. Anesth Analg 2026;143(3):497–513 (published online 14 Nov 2025).
+- Gan TJ, Belani KG, Bergese S, et al. Fourth Consensus Guidelines for the Management of Postoperative Nausea and Vomiting. Anesth Analg 2020;131(2):411–448.
+- Panpharma UK Ltd. Droperidol 2.5 mg/mL solution for injection - Summary of Product Characteristics (paediatric PONV, second line, 2–18 y: licensed range 10–50 µg/kg, maximum 1.25 mg; not recommended under 2 y; 30 min before the anticipated end of surgery). electronic medicines compendium, medicines.org.uk/emc/product/7310 (revised 08/10/2024).
 - Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).
 
 ## Painkillers
@@ -211,7 +268,8 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 
 ### Ketorolac
 
-- Gupta A, Daggett C, Ludwick J, Wells W, Lewis A. Ketorolac after congenital heart surgery: does it increase the risk of significant bleeding complications? Paediatr Anaesth 2005;15(2):139–142.
+- Association of Paediatric Anaesthetists of Great Britain and Ireland. Good Practice in Postoperative and Procedural Pain Management, 2nd edition. Paediatr Anaesth 2012;22(Suppl 1):1–79.
+- McLay JS, Engelhardt T, Mohammed BS, et al. The pharmacokinetics of intravenous ketorolac in children aged 2 months to 16 years: A population analysis. Paediatr Anaesth 2018;28(2):80–86.
 - Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
 
 ### Diclofenac (PO/PR)
@@ -328,6 +386,21 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 - Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
 - Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
 
+### Sodium chloride 3%
+
+- Kochanek PM, Tasker RC, Carney N, et al. Guidelines for the Management of Pediatric Severe Traumatic Brain Injury, Third Edition: Update of the Brain Trauma Foundation Guidelines. Pediatr Crit Care Med 2019;20(3 Suppl 1):S1–S82.
+- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Head injury (signs of raised intracranial pressure: sodium chloride 3% 3 mL/kg over 10–20 min; mannitol 20% 0.25–0.5 g/kg over 20–30 min). rch.org.au/clinicalguide (current edition).
+- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
+
+### Mannitol 20%
+
+- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
+- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
+- Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).
+- Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.
+
 ## Fluids and Blood
 
 ### Fluid bolus
@@ -355,59 +428,6 @@ Generated from `assets/formulary.json` **v0.0.82** (updated 2026-11-24) by `tool
 
 - Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.
 - Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.
-
-## Equipment
-
-### ETT
-
-- Duracher C, Schmautz E, Martinon C, et al. Evaluation of cuffed tracheal tube size predicted using the Khine formula in children. Paediatr Anaesth 2008;18(2):113–118.
-- European Resuscitation Council. ERC Guidelines 2025: Newborn resuscitation and support of transition of infants at birth. Resuscitation. 2025;215(Suppl 1):110766.
-
-### ETT insertion depth
-
-- Phipps LM, Thomas NJ, Gilmore RK, et al. Prospective assessment of guidelines for determining appropriate depth of endotracheal tube placement in children. Pediatr Crit Care Med 2005;6(5):519–522.
-- Lau N, Playfor SD, Rashid A, Dhanarass M. New formulae for predicting tracheal tube length. Paediatr Anaesth 2006;16(12):1238–1243.
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
-
-### iGel LMA
-
-- Intersurgical Ltd. i-gel User Guide: Adult and Paediatric Sizes. Intersurgical, Wokingham, UK (current edition).
-- Beringer RM, Kelly F, Cook TM, et al. A cohort evaluation of the paediatric i-gel airway during anaesthesia in 120 children. Anaesthesia 2011;66(12):1121–1126.
-
-### AuraGain LMA
-
-- Ambu A/S. Ambu AuraGain Single Use Laryngeal Mask — Instructions for Use. V7, August 2023.
-
-### Laryngoscope blade
-
-- Passi Y, Sathyamoorthy M, Lerman J, Heard C, Marino M. Comparison of the laryngoscopy views with the size 1 Miller and Macintosh laryngoscope blades lifting the epiglottis or the base of the tongue in infants and children <2 yr of age. Br J Anaesth 2014;113(5):869–874.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Face mask
-
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-- Rendell-Baker L, Soucek DH. New pediatric face masks and anaesthetic equipment. Br Med J 1962;1(5293):1690.
-
-### Reservoir bag
-
-- Kalra A. Pediatric Anesthesia Digital Handbook. Department of Anesthesiology, Tufts Medical Center, Boston, MA (maskinduction.com: reservoir bag 0.5 L for neonates <3 kg; 1 L to 25–30 kg; 2 L 30–50 kg; 3 L over 50 kg), current edition.
-- Intersurgical Ltd. Reservoir bags (paediatric 0.5 L and 1 L; adult 2 L; 3 L also available). Intersurgical, Wokingham, UK (current edition).
-
-### Suction catheter
-
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Nasogastric / orogastric tube
-
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Oral / nasal airway sizing
-
-- Van de Voorde P, Turner NM, Djakow J, et al. European Resuscitation Council Guidelines 2021: Paediatric Life Support. Resuscitation. 2021;161:327–387.
-- Nemeth M, et al. Resuscitation. 2023;184:109702 (GUEDEL-I: oropharyngeal airway sizing by facial landmarks; PMID 36702339).
-- Nemeth M, et al. Resuscitation. 2021 (WEND:LI: nasopharyngeal airway sizing landmarks; PMID 34600970).
 
 ## Respiratory
 

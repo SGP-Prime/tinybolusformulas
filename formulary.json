@@ -1,6 +1,6 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped).",
-  "version": "0.0.83",
+  "version": "0.0.84",
   "updated": "2026-11-25",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -1259,7 +1259,7 @@
           "factor": 2,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypoglycaemia · = 0.2 g/kg",
+          "note": "= 0.2 g/kg",
           "group": "Metabolic",
           "references": [
             "erc_pls_2025",
@@ -1282,7 +1282,7 @@
             }
           ],
           "route": "IM/SC",
-          "note": "hypoglycaemia · no response after 10 min: repeat or IV glucose",
+          "note": "no response after 10 min: repeat or IV glucose",
           "group": "Metabolic",
           "references": [
             "kinderformularium_glucagon"
@@ -1297,7 +1297,7 @@
           "max": 20,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "hypocalcaemia · hyperkalaemia with ECG changes, not arrest · Ca-channel blocker · slow IV",
+          "note": "not routine in arrest · slow IV",
           "group": "Metabolic",
           "references": [
             "erc_pls_2025",
@@ -1312,7 +1312,7 @@
           "factor": 1,
           "unit": "mmol",
           "route": "IV/IO",
-          "note": "1 mL/kg of 8.4% · tricyclic toxicity / severe acidosis · not routine in arrest",
+          "note": "1 mL/kg of 8.4% · not routine in arrest",
           "group": "Metabolic",
           "references": [
             "erc_pls_2025",
@@ -1320,10 +1320,9 @@
           ]
         },
         {
-          "name": "Insulin + glucose (hyperkalaemia)",
+          "name": "Insulin + glucose",
           "id": "insulin-glucose-hyperkalaemia",
           "drug": "Insulin + glucose",
-          "qualifier": "hyperkalaemia",
           "type": "linear_max",
           "factor": 0.1,
           "max": 10,

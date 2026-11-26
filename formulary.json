@@ -1,7 +1,7 @@
 {
   "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped).",
-  "version": "0.0.85",
-  "updated": "2026-11-25",
+  "version": "0.0.86",
+  "updated": "2026-11-26",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -217,6 +217,22 @@
           "route": "IV/IO",
           "references": [
             "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Lidocaine",
+          "id": "lidocaine",
+          "drug": "Lidocaine",
+          "type": "linear_max",
+          "factor": 1,
+          "max": 100,
+          "unit": "mg",
+          "route": "IV/IO",
+          "syringe_class": "local_anaesthetic",
+          "note": "after 3rd shock",
+          "references": [
+            "erc_pls_2025",
+            "aha_pals_2025"
           ]
         },
         {
@@ -1227,23 +1243,6 @@
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
-          ]
-        },
-        {
-          "name": "Lidocaine",
-          "id": "lidocaine",
-          "drug": "Lidocaine",
-          "type": "linear_max",
-          "factor": 1,
-          "max": 100,
-          "unit": "mg",
-          "route": "IV",
-          "syringe_class": "local_anaesthetic",
-          "note": "antiarrhythmic — refractory VF / pulseless VT",
-          "group": "Cardiovascular",
-          "references": [
-            "erc_pls_2025",
-            "aha_pals_2025"
           ]
         },
         {

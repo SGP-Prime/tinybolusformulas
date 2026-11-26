@@ -1,6 +1,6 @@
 {
-  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped).",
-  "version": "0.0.86",
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped). 'formula_note' (optional, v0.0.87): formula-layer note — derivations, concentrations/preparations, administration speed, intervals, repeats, escalation arithmetic, follow-on regimens, monitoring — rendered under the formula line ONLY while 'Show formulas' is on; 'note' keeps only what makes the number safe (a condition changing the number, a safety qualifier, the concentration behind a volume/rate value). Both ≤90 characters. 'note_by_age' (optional, v0.0.87): age brackets (max_months / max_years, first match wins, terminal max_years 999) carrying only 'note' and/or 'formula_note'; the matched bracket's non-null fields replace the item-level ones for that patient (empty string clears), so an age-clause note prints only the clause for the age at hand.",
+  "version": "0.0.87",
   "updated": "2026-11-26",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -136,10 +136,10 @@
           "drug": "Compression depth",
           "type": "computed",
           "computer": "compression_depth",
-          "note": "not exceeding 6 cm at any age",
           "references": [
             "erc_pls_2025"
-          ]
+          ],
+          "formula_note": "not exceeding 6 cm at any age"
         },
         {
           "name": "C:V ratio",
@@ -147,7 +147,7 @@
           "drug": "C:V ratio",
           "type": "fixed",
           "value": "15:2",
-          "note": "15:2 if paediatric-BLS trained · 30:2 otherwise",
+          "note": "30:2 if not paediatric-BLS trained",
           "references": [
             "erc_pls_2025"
           ]
@@ -159,7 +159,8 @@
           "type": "linear",
           "factor": 4,
           "unit": "J",
-          "note": "refractory VF/pVT (6th shock on): stepwise to 8 J/kg, max 360 J · adolescent 120–200 J",
+          "note": "adolescent: 120–200 J",
+          "formula_note": "refractory (6th shock on): stepwise to 8 J/kg, max 360 J",
           "references": [
             "erc_pls_2025",
             "ilcor_defib_2025"
@@ -173,10 +174,10 @@
           "type": "linear",
           "factor": 1,
           "unit": "J",
-          "note": "double per attempt to max 4 J/kg",
           "references": [
             "erc_pls_2025"
-          ]
+          ],
+          "formula_note": "double per attempt to max 4 J/kg"
         },
         {
           "name": "Adrenaline (cardiac arrest)",
@@ -189,8 +190,8 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV/IO",
+          "formula_note": "repeat q3–5 min",
           "syringe_class": "vasopressor",
-          "note": "repeat every 3–5 min · max 1 mg/dose",
           "references": [
             "erc_pls_2025",
             "aha_pals_2025"
@@ -228,8 +229,8 @@
           "max": 100,
           "unit": "mg",
           "route": "IV/IO",
+          "formula_note": "after 3rd shock",
           "syringe_class": "local_anaesthetic",
-          "note": "after 3rd shock",
           "references": [
             "erc_pls_2025",
             "aha_pals_2025"
@@ -286,7 +287,7 @@
           ],
           "unit": "mg",
           "route": "IV",
-          "note": "2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg · cardiology",
+          "formula_note": "2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg",
           "references": [
             "erc_pls_2025"
           ]
@@ -363,7 +364,16 @@
           "low": 6,
           "high": 8,
           "unit": "mL",
-          "note": "per IDEAL body weight — if obese use estimated weight · lower end for neonates",
+          "note": "per ideal body weight — if obese use estimated weight",
+          "note_by_age": [
+            {
+              "max_months": 0,
+              "note": "per ideal body weight · lower end for neonates"
+            },
+            {
+              "max_years": 999
+            }
+          ],
           "references": [
             "spaeth_ventilation_2022",
             "kneyber_pemvecc_2017",
@@ -382,7 +392,6 @@
           "drug": "ETT",
           "type": "computed",
           "computer": "ett",
-          "note": "cuffed sizes — uncuffed add 0.5 (≥1 y) · neonatal table: uncuffed sizes",
           "references": [
             "duracher_ett_2008",
             "erc_nls_2025"
@@ -394,7 +403,17 @@
           "drug": "ETT insertion depth",
           "type": "computed",
           "computer": "ett_insertion_depth",
-          "note": "nasal: +1 cm <1 y · +2–3 cm ≥1 y",
+          "note": "oral tube",
+          "note_by_age": [
+            {
+              "max_months": 11,
+              "formula_note": "nasal: +1 cm"
+            },
+            {
+              "max_years": 999,
+              "formula_note": "nasal: +2–3 cm"
+            }
+          ],
           "references": [
             "phipps_ett_depth_2005",
             "lau_ett_length_2006",
@@ -560,8 +579,7 @@
           "references": [
             "apls_7e_2023",
             "cote_anesthesia_2019"
-          ],
-          "note": "larger sizes for adolescent decompression"
+          ]
         },
         {
           "name": "Oral / nasal airway sizing",
@@ -649,8 +667,8 @@
           ],
           "unit": "mg",
           "route": "IV",
+          "formula_note": "then 1 mg/kg as needed",
           "syringe_class": "induction",
-          "note": "then 1 mg/kg as needed",
           "references": [
             "thiopental_smpc"
           ]
@@ -774,8 +792,8 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IN",
+          "formula_note": "5 mg/mL · divide between nostrils",
           "syringe_class": "benzodiazepine",
-          "note": "5 mg/mL — divide between nostrils",
           "references": [
             "baldwa_in_midazolam_2012",
             "bnfc_online"
@@ -793,7 +811,7 @@
           "max_unit": "µg",
           "unit": "µg",
           "route": "IN",
-          "note": "100 µg/mL solution",
+          "formula_note": "100 µg/mL solution",
           "references": [
             "yuen_in_dexmed_2012",
             "jun_in_dexmed_2017"
@@ -851,7 +869,6 @@
           "unit": "mg",
           "route": "IV",
           "syringe_class": "neuromuscular_blocker",
-          "note": "intubating dose",
           "references": [
             "mazurek_rocuronium_1998",
             "cote_anesthesia_2019",
@@ -936,9 +953,9 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV",
+          "formula_note": "30 min before end of surgery",
           "syringe_class": "antiemetic",
           "contraindicated_below_months": 24,
-          "note": "give 30 min before end of surgery",
           "references": [
             "gan_ponv_2026",
             "gan_ponv_2020",
@@ -950,7 +967,7 @@
     },
     {
       "id": "painkillers",
-      "title": "Painkillers",
+      "title": "Analgesia",
       "items": [
         {
           "name": "Paracetamol",
@@ -973,7 +990,7 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "note": "q6h (min 4 h) · max 4 doses/24 h",
+          "formula_note": "q6h (min 4 h) · max 4 doses/24 h",
           "references": [
             "anderson_paracetamol_2008",
             "bnfc_online",
@@ -1040,8 +1057,8 @@
           "high": 1,
           "unit": "mg",
           "route": "PO/PR",
+          "formula_note": "q8–12h",
           "contraindicated_below_months": 12,
-          "note": "q8–12h",
           "references": [
             "voltarol_supp_smpc",
             "kinderformularium_online"
@@ -1099,9 +1116,9 @@
           "max_unit": "mg",
           "unit": "mg",
           "route": "IV/PO",
+          "formula_note": "q6h",
           "syringe_class": "opioid",
           "contraindicated_below_months": 12,
-          "note": "q6h",
           "references": [
             "tramadol_kalceks_smpc",
             "kinderformularium_online"
@@ -1122,8 +1139,25 @@
           "max": 0.5,
           "unit": "mg",
           "route": "IM",
+          "formula_note": "repeat q5 min as needed",
+          "note_by_age": [
+            {
+              "max_months": 11
+            },
+            {
+              "max_years": 5,
+              "formula_note": "repeat q5 min as needed · auto-injector 0.15 mg"
+            },
+            {
+              "max_years": 12,
+              "formula_note": "repeat q5 min as needed · auto-injector 0.3 mg"
+            },
+            {
+              "max_years": 999,
+              "formula_note": "repeat q5 min as needed · auto-injector 0.5 mg"
+            }
+          ],
           "syringe_class": "vasopressor",
-          "note": "repeat q5 min as needed · auto-injectors: 0.15 mg 1–5 y · 0.3 mg 6–12 y · 0.5 mg >12 y",
           "group": "Anaphylaxis",
           "references": [
             "erc_pls_2025",
@@ -1138,8 +1172,8 @@
           "factor": 1,
           "unit": "µg",
           "route": "IV",
+          "formula_note": "titrate to response",
           "syringe_class": "vasopressor",
-          "note": "titrate to response",
           "group": "Anaphylaxis",
           "references": [
             "erc_pls_2025"
@@ -1156,7 +1190,8 @@
           "unit": "mL/h",
           "route": "IV",
           "syringe_class": "vasopressor",
-          "note": "1 mg in 100 mL NaCl 0.9% = 10 µg/mL · dedicated pump line",
+          "note": "1 mg in 100 mL NaCl 0.9% = 10 µg/mL",
+          "formula_note": "dedicated pump line",
           "group": "Anaphylaxis",
           "references": [
             "rcuk_anaphylaxis_2021",
@@ -1223,7 +1258,6 @@
             "bnfc_online",
             "cote_anesthesia_2019"
           ],
-          "note": "ampoule 30 mg/mL — dilute",
           "group": "Cardiovascular"
         },
         {
@@ -1238,7 +1272,6 @@
           "unit": "µg",
           "route": "IV",
           "syringe_class": "vasopressor",
-          "note": "upper range for tetralogy spells · hypotension: start low, titrate",
           "group": "Cardiovascular",
           "references": [
             "bnfc_online",
@@ -1253,7 +1286,7 @@
           "factor": 2,
           "unit": "mL",
           "route": "IV/IO",
-          "note": "= 0.2 g/kg",
+          "formula_note": "= 0.2 g/kg",
           "group": "Metabolic",
           "references": [
             "erc_pls_2025",
@@ -1276,7 +1309,7 @@
             }
           ],
           "route": "IM/SC",
-          "note": "no response after 10 min: repeat or IV glucose",
+          "formula_note": "no response after 10 min: repeat or IV glucose",
           "group": "Metabolic",
           "references": [
             "kinderformularium_glucagon"
@@ -1306,7 +1339,8 @@
           "factor": 1,
           "unit": "mmol",
           "route": "IV/IO",
-          "note": "1 mL/kg of 8.4% · not routine in arrest",
+          "note": "not routine in arrest",
+          "formula_note": "= 1 mL/kg",
           "group": "Metabolic",
           "references": [
             "erc_pls_2025",
@@ -1322,7 +1356,8 @@
           "max": 10,
           "unit": "units",
           "route": "IV",
-          "note": "WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose & K+ q15min",
+          "note": "with glucose 10% 5 mL/kg (max 250 mL) · never insulin alone",
+          "formula_note": "check glucose & K+ q15min",
           "group": "Metabolic",
           "references": [
             "rch_hyperkalaemia_cpg",
@@ -1334,10 +1369,19 @@
           "id": "salbutamol-nebulized-hyperkalaemia",
           "drug": "Salbutamol",
           "qualifier": "hyperkalaemia",
-          "type": "fixed",
-          "value": "2.5–5 mg",
+          "type": "fixed_weight",
+          "brackets": [
+            {
+              "max_kg": 25,
+              "value": "2.5 mg"
+            },
+            {
+              "max_kg": 9999,
+              "value": "5 mg"
+            }
+          ],
           "route": "Nebulized",
-          "note": "2.5 mg ≤25 kg · 5 mg >25 kg · repeat ≤5× · with insulin–glucose",
+          "formula_note": "repeat ≤5×",
           "group": "Metabolic",
           "references": [
             "rch_hyperkalaemia_cpg",
@@ -1369,8 +1413,8 @@
             }
           ],
           "route": "Buccal",
+          "formula_note": "repeat once after 5–10 min",
           "syringe_class": "benzodiazepine",
-          "note": "seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min",
           "group": "Status epilepticus",
           "references": [
             "buccolam_smpc",
@@ -1386,8 +1430,8 @@
           "max": 10,
           "unit": "mg",
           "route": "IV/IO",
+          "formula_note": "repeat once",
           "syringe_class": "benzodiazepine",
-          "note": "repeat once",
           "group": "Status epilepticus",
           "references": [
             "rcuk_paeds_se_2026",
@@ -1405,8 +1449,8 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV/IO",
+          "formula_note": "over 5 min",
           "contraindicated_below_months": 1,
-          "note": "loading dose · give over 5 min",
           "group": "Status epilepticus",
           "references": [
             "erc_pls_2025",
@@ -1421,7 +1465,8 @@
           "factor": 2.5,
           "unit": "mg",
           "route": "IV",
-          "note": "reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg",
+          "note": "dissolve vials immediately · sterile water, volume per label · repeat until controlled",
+          "formula_note": "repeat 1 mg/kg q5 min · may exceed 10 mg/kg",
           "group": "Malignant hyperthermia",
           "references": [
             "aoa_mh_2021",
@@ -1437,7 +1482,7 @@
           "max": 250,
           "unit": "mL",
           "route": "IV",
-          "note": "over 10–20 min · keep serum Na ≤160 mmol/L",
+          "formula_note": "over 10–20 min · keep serum Na ≤160 mmol/L",
           "group": "Intracranial pressure",
           "references": [
             "kochanek_ptbi_2019",
@@ -1455,7 +1500,7 @@
           "high": 5,
           "unit": "mL",
           "route": "IV",
-          "note": "= 0.5–1 g/kg · over 10–15 min · keep osmolality <320 mOsm/kg",
+          "formula_note": "= 0.5–1 g/kg · over 10–15 min · keep osmolality <320 mOsm/kg",
           "group": "Intracranial pressure",
           "references": [
             "kochanek_ptbi_algorithm_2019",
@@ -1493,7 +1538,17 @@
           "type": "computed",
           "computer": "fluid_maintenance",
           "unit": "mL/h",
-          "note": "4-2-1 (Holliday-Segar) · isotonic + glucose ± K+ · <1 mo: neonatal regimen",
+          "note": "isotonic + glucose ± K+",
+          "note_by_age": [
+            {
+              "max_months": 0,
+              "note": "use a neonatal regimen, not 4-2-1"
+            },
+            {
+              "max_years": 999
+            }
+          ],
+          "formula_note": "4-2-1 mL/kg/h",
           "references": [
             "holliday_segar_1957",
             "feld_maintenance_2018"
@@ -1536,7 +1591,8 @@
           "max_unit": "g",
           "unit": "mg",
           "route": "IV",
-          "note": "loading dose over 10 min · then 2 mg/kg/h for ≥8 h",
+          "note": "loading dose over 10 min",
+          "formula_note": "then 2 mg/kg/h for ≥8 h",
           "references": [
             "rcpch_txa_2012",
             "faraoni_antifibrinolytic_2014",
@@ -1550,7 +1606,7 @@
           "drug": "Max allowable blood loss",
           "type": "fixed",
           "value": "EBV × (Hct – min Hct) / Hct",
-          "note": "estimate, not a transfusion trigger · blood volume ~70–100 mL/kg · source uses mean Hct",
+          "note": "estimate, not a transfusion trigger",
           "references": [
             "gross_mabl_1983",
             "spa_abl_2023"
@@ -1578,7 +1634,8 @@
             }
           ],
           "route": "Inhaled",
-          "note": "100 µg/puff · repeat incrementally as needed",
+          "note": "100 µg/puff",
+          "formula_note": "repeat incrementally as needed",
           "references": [
             "sign_158_asthma",
             "gina_asthma_2024"
@@ -1614,7 +1671,8 @@
           "max": 0.25,
           "unit": "mg",
           "route": "IV",
-          "note": "bolus over 10 min · infusion 1–2 µg/kg/min (>2: ICU) · monitor K+",
+          "note": "over 10 min",
+          "formula_note": "infusion 1–2 µg/kg/min (>2: ICU) · monitor K+",
           "references": [
             "sign_158_asthma",
             "rcuk_pls_2025"
@@ -1654,7 +1712,7 @@
             "bnfc_online",
             "erc_pls_2025"
           ],
-          "note": "infuse over 20 min",
+          "note": "over 20 min",
           "factor": 40,
           "qualifier": "asthma"
         },
@@ -1666,7 +1724,7 @@
           "factor": 4,
           "unit": "mg",
           "route": "IV",
-          "note": "asthma · q4h",
+          "formula_note": "q4h",
           "references": [
             "sign_158_asthma"
           ]
@@ -1680,12 +1738,12 @@
           "max": 5,
           "unit": "mg",
           "route": "Nebulized",
+          "formula_note": "1:1000 (1 mg/mL)",
           "syringe_class": "vasopressor",
           "references": [
             "bjornson_croup_2013",
             "bnfc_online"
-          ],
-          "note": "croup / stridor · 1:1000 (1 mg/mL)"
+          ]
         },
         {
           "name": "Dexamethasone (airway oedema)",
@@ -1712,8 +1770,8 @@
           "factor": 0.5,
           "unit": "mg",
           "route": "IV",
+          "formula_note": "in increments",
           "syringe_class": "induction",
-          "note": "give in increments",
           "references": [
             "gavel_laryngospasm_2014"
           ]
@@ -1781,8 +1839,8 @@
           "factor": 0.01,
           "unit": "mg",
           "route": "IV",
+          "formula_note": "repeat q2–3 min",
           "syringe_class": "opioid_antagonist",
-          "note": "titrate to respiration · repeat q2–3 min",
           "references": [
             "bnfc_online",
             "erc_pls_2025"
@@ -1813,8 +1871,8 @@
           "max": 0.2,
           "unit": "mg",
           "route": "IV",
+          "formula_note": "repeat ≤4× · total max 0.05 mg/kg (up to 1 mg)",
           "syringe_class": "benzodiazepine_antagonist",
-          "note": "repeat ≤4× · total max 0.05 mg/kg (up to 1 mg)",
           "references": [
             "bnfc_online"
           ]
@@ -1845,7 +1903,6 @@
           "unit": "mg",
           "route": "IV",
           "syringe_class": "nmb_antagonist",
-          "note": "reverses full-dose rocuronium",
           "references": [
             "lee_sugammadex_profound_2009",
             "bridion_label_2025"
@@ -1863,7 +1920,8 @@
           "unit": "mg",
           "route": "IV",
           "syringe_class": "nmb_antagonist",
-          "note": "with atropine · slow over 1–2 min, after first recovery signs",
+          "note": "with atropine",
+          "formula_note": "slow over 1–2 min · after first recovery signs",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -1879,8 +1937,8 @@
           "max": 0.5,
           "unit": "mg",
           "route": "IV",
+          "formula_note": "with or just before neostigmine",
           "syringe_class": "anticholinergic",
-          "note": "with or just before neostigmine",
           "references": [
             "bnfc_online",
             "cote_anesthesia_2019"
@@ -1952,13 +2010,13 @@
           ],
           "unit": "mg",
           "route": "Perineural",
+          "formula_note": "infusion: 0.1–0.3 mg/kg/h",
           "syringe_class": "local_anaesthetic",
           "value_prefix": "maximum",
           "references": [
             "neal_last_2018",
             "suresh_esra_asra_2018"
-          ],
-          "note": "infusion: 0.1–0.3 mg/kg/h"
+          ]
         },
         {
           "name": "Ropivacaine (perineural)",
@@ -1979,14 +2037,14 @@
           ],
           "unit": "mg",
           "route": "Perineural",
+          "formula_note": "infusion: 0.1–0.3 mg/kg/h",
           "syringe_class": "local_anaesthetic",
           "value_prefix": "maximum",
           "references": [
             "lonnqvist_ropi_2000",
             "bosenberg_ropi_2001",
             "suresh_esra_asra_2018"
-          ],
-          "note": "infusion: 0.1–0.3 mg/kg/h"
+          ]
         },
         {
           "name": "Lipid emulsion 20% (bolus)",
@@ -1996,7 +2054,8 @@
           "factor": 1.5,
           "unit": "mL",
           "route": "IV",
-          "note": "LA toxicity rescue · repeat if unstable · max total 12 mL/kg",
+          "note": "max total 12 mL/kg",
+          "formula_note": "repeat if unstable",
           "references": [
             "neal_last_2018",
             "asra_last_checklist_2020"
@@ -2011,11 +2070,11 @@
           "factor": 0.25,
           "unit": "mL/min",
           "route": "IV",
+          "formula_note": "continue ≥15 min after stability",
           "references": [
             "neal_last_2018",
             "asra_last_checklist_2020"
           ],
-          "note": "LA toxicity rescue · continue ≥15 min after stability",
           "qualifier": "infusion"
         },
         {
@@ -2033,7 +2092,7 @@
           "references": [
             "levobupivacaine_smpc"
           ],
-          "note": "SmPC figure: ilioinguinal block, per side"
+          "note": "per side"
         }
       ]
     }
@@ -2165,7 +2224,7 @@
     ]
   },
   "ett_rules": {
-    "comment": "Neonatal weight-based UNCUFFED sizes per ERC 2025 Newborn Table 7 (v0.0.60 reband: ≤1.5 kg 2.5 / ≤3 kg 3.0 / ≤4 kg 3.5 – the previous ≤2 kg 3.0 / >2 kg 3.5 ran one size large at 2–3 kg), then infant age table (CUFFED, v0.0.43 Duracher/Motoyama), then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5, ≥1 y only – see item note). Round formula result both ways to nearest 0.5. infant_under_1y_size kept as legacy fallback for pre-v0.0.43 binaries.",
+    "comment": "Neonatal weight-based UNCUFFED sizes per ERC 2025 Newborn Table 7 (v0.0.60 reband: ≤1.5 kg 2.5 / ≤3 kg 3.0 / ≤4 kg 3.5 – the previous ≤2 kg 3.0 / >2 kg 3.5 ran one size large at 2–3 kg), then infant age table (CUFFED, v0.0.43 Duracher/Motoyama), then CUFFED formula 3.5 + age/4 (uncuffed adds 0.5, ≥1 y only – see 'notes'). Round formula result both ways to nearest 0.5. infant_under_1y_size kept as legacy fallback for pre-v0.0.43 binaries.",
     "neonatal_weight_table": [
       {
         "max_kg": 1.5,
@@ -2198,7 +2257,20 @@
       "base": 3.5,
       "divisor": 4
     },
-    "round_to_nearest": 0.5
+    "round_to_nearest": 0.5,
+    "notes": {
+      "comment": "v0.0.87: the ETT row's note / formula_note follow the sizing branch (the item carries none).",
+      "neonatal_table": {
+        "note": "uncuffed"
+      },
+      "infant_age_table": {
+        "note": "cuffed"
+      },
+      "child_formula": {
+        "note": "cuffed",
+        "formula_note": "uncuffed: add 0.5"
+      }
+    }
   },
   "lma_table_comment": "Bands overlap intentionally per v1 formularium. A patient in an overlap region shows both sizes; a patient in a single band additionally shows the next size up. min/max are INCLUSIVE on both ends.",
   "lma_table": [

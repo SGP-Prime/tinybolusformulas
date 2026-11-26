@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.86** (updated 2026-11-26) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -13,7 +13,7 @@ Generated from `assets/formulary.json` **v0.0.86** (updated 2026-11-26) by `tool
 - [Equipment](#equipment)
 - [Induction](#induction)
 - [PONV](#ponv)
-- [Painkillers](#painkillers)
+- [Analgesia](#analgesia)
 - [Emergency Drugs](#emergency-drugs)
 - [Fluids and Blood](#fluids-and-blood)
 - [Respiratory](#respiratory)
@@ -252,7 +252,7 @@ Generated from `assets/formulary.json` **v0.0.86** (updated 2026-11-26) by `tool
 - Panpharma UK Ltd. Droperidol 2.5 mg/mL solution for injection - Summary of Product Characteristics (paediatric PONV, second line, 2–18 y: licensed range 10–50 µg/kg, maximum 1.25 mg; not recommended under 2 y; 30 min before the anticipated end of surgery). electronic medicines compendium, medicines.org.uk/emc/product/7310 (revised 08/10/2024).
 - Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: droperidol (PONV, 2–18 y: 10–50 µg/kg/dose, max 1.25 mg/dose). kinderformularium.nl (current edition).
 
-## Painkillers
+## Analgesia
 
 ### Paracetamol
 

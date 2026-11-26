@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.86 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.87 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.86 · Updated 2026-11-26</p>
+  <p class="version">Version 0.0.87 · Updated 2026-11-26</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -327,7 +327,7 @@
     <li><a href="#equipment">Equipment</a></li>
     <li><a href="#induction">Induction</a></li>
     <li><a href="#ponv">PONV</a></li>
-    <li><a href="#painkillers">Painkillers</a></li>
+    <li><a href="#painkillers">Analgesia</a></li>
     <li><a href="#emergency">Emergency Drugs</a></li>
     <li><a href="#fluids">Fluids and Blood</a></li>
     <li><a href="#respiratory">Respiratory</a></li>
@@ -353,7 +353,7 @@
     <span class="item-name">Compression depth</span>
   </div>
   <div class="item-dose"><span class="label">RULE</span><span class="mono">4 cm &lt;1 y · 5 cm ≥1 y</span></div>
-  <div class="item-note">not exceeding 6 cm at any age</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>not exceeding 6 cm at any age</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -362,7 +362,7 @@
     <span class="item-name">C:V ratio</span>
   </div>
   <div class="item-dose"><span class="label">VALUE</span><span class="mono">15:2</span></div>
-  <div class="item-note">15:2 if paediatric-BLS trained · 30:2 otherwise</div>
+  <div class="item-note">30:2 if not paediatric-BLS trained</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -371,7 +371,8 @@
     <span class="item-name">Defibrillation</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 J/kg</span></div>
-  <div class="item-note">refractory VF/pVT (6th shock on): stepwise to 8 J/kg, max 360 J · adolescent 120–200 J</div>
+  <div class="item-note">adolescent: 120–200 J</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>refractory (6th shock on): stepwise to 8 J/kg, max 360 J</div>
   <div class="item-refs">References: <span class="cites">[1], [2]</span></div>
 </div>
 
@@ -380,7 +381,7 @@
     <span class="item-name">Cardioversion (synchronised)</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 J/kg</span></div>
-  <div class="item-note">double per attempt to max 4 J/kg</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>double per attempt to max 4 J/kg</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -391,7 +392,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg (max 1 mg)</span></div>
-  <div class="item-note">repeat every 3–5 min · max 1 mg/dose</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat q3–5 min</div>
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
@@ -411,7 +412,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#c2b8ab;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Local anaesthetic</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mg/kg (max 100 mg)</span></div>
-  <div class="item-note">after 3rd shock</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>after 3rd shock</div>
   <div class="item-refs">References: <span class="cites">[1], [3]</span></div>
 </div>
 
@@ -441,7 +442,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1st 0.1 mg/kg (max 6 mg) · 2nd 0.3 mg/kg (max 18 mg)</span></div>
-  <div class="item-note">2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg · cardiology</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -536,7 +537,8 @@
     <span class="item-name">Tidal volume</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">6–8 mL/kg</span></div>
-  <div class="item-note">per IDEAL body weight — if obese use estimated weight · lower end for neonates</div>
+  <div class="item-note">per ideal body weight — if obese use estimated weight</div>
+  <div class="item-note"><span style="color:var(--muted);">≤0 mo → </span>note: per ideal body weight · lower end for neonates</div>
   <div class="item-refs">References: <span class="cites">[6], [7], [1]</span></div>
 </div>
 
@@ -561,7 +563,6 @@
     <tr><td class="age">7–12 mo</td><td class="dose">size 4.0</td></tr>
   </tbody></table>
 
-  <div class="item-note">cuffed sizes — uncuffed add 0.5 (≥1 y) · neonatal table: uncuffed sizes</div>
   <div class="item-refs">References: <span class="cites">[8], [9]</span></div>
 </div>
 
@@ -570,7 +571,9 @@
     <span class="item-name">ETT insertion depth</span>
   </div>
   <div class="item-dose"><span class="label">RULE</span><span class="mono">6 + weight (&lt;1 mo) · weight/2 + 8 (&lt;1 y) · age/2 + 12 (≥1 y) <em>(cm)</em></span></div>
-  <div class="item-note">nasal: +1 cm &lt;1 y · +2–3 cm ≥1 y</div>
+  <div class="item-note">oral tube</div>
+  <div class="item-note"><span style="color:var(--muted);">≤11 mo → </span>formula layer: nasal: +1 cm</div>
+  <div class="item-note"><span style="color:var(--muted);">older → </span>formula layer: nasal: +2–3 cm</div>
   <div class="item-refs">References: <span class="cites">[10], [11], [12]</span></div>
 </div>
 
@@ -691,7 +694,6 @@
     </tbody>
   </table>
 
-  <div class="item-note">larger sizes for adolescent decompression</div>
   <div class="item-refs">References: <span class="cites">[12], [17]</span></div>
 </div>
 
@@ -744,7 +746,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">then 1 mg/kg as needed</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>then 1 mg/kg as needed</div>
   <div class="item-refs">References: <span class="cites">[28]</span></div>
 </div>
 
@@ -828,7 +830,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ff6600;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Benzodiazepine</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.2–0.3 mg/kg (max 10 mg)</span></div>
-  <div class="item-note">5 mg/mL — divide between nostrils</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>5 mg/mL · divide between nostrils</div>
   <div class="item-refs">References: <span class="cites">[32], [29]</span></div>
 </div>
 
@@ -839,7 +841,7 @@
     <span class="item-route">IN</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–3 µg/kg (max 200 µg)</span></div>
-  <div class="item-note">100 µg/mL solution</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>100 µg/mL solution</div>
   <div class="item-refs">References: <span class="cites">[33], [34]</span></div>
 </div>
 
@@ -878,7 +880,6 @@
     </tbody>
   </table>
 
-  <div class="item-note">intubating dose</div>
   <div class="item-refs">References: <span class="cites">[38], [17], [39]</span></div>
 </div>
 
@@ -932,14 +933,14 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01–0.015 mg/kg (max 1.25 mg)</span></div>
   <div class="item-contra">Not indicated &lt;24 months (age floor)</div>
-  <div class="item-note">give 30 min before end of surgery</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>30 min before end of surgery</div>
   <div class="item-refs">References: <span class="cites">[40], [41], [44], [45]</span></div>
 </div>
 
 </section>
 
 <section class="section" id="painkillers">
-  <h2>Painkillers</h2>
+  <h2>Analgesia</h2>
 <div class="item">
   <div class="item-header">
     <span class="item-name">Paracetamol</span>
@@ -953,7 +954,7 @@
   </table>
   <div class="item-dose"><span class="label">CAP</span><span class="mono">max 1 g</span></div>
 
-  <div class="item-note">q6h (min 4 h) · max 4 doses/24 h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q6h (min 4 h) · max 4 doses/24 h</div>
   <div class="item-refs">References: <span class="cites">[46], [29], [47]</span></div>
 </div>
 
@@ -998,7 +999,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.3–1 mg/kg</span></div>
   <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
-  <div class="item-note">q8–12h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q8–12h</div>
   <div class="item-refs">References: <span class="cites">[54], [55]</span></div>
 </div>
 
@@ -1038,7 +1039,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–2 mg/kg (max 100 mg)</span></div>
   <div class="item-contra">Not indicated &lt;12 months (age floor)</div>
-  <div class="item-note">q6h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q6h</div>
   <div class="item-refs">References: <span class="cites">[57], [55]</span></div>
 </div>
 
@@ -1054,7 +1055,10 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg (max 0.5 mg)</span></div>
-  <div class="item-note">repeat q5 min as needed · auto-injectors: 0.15 mg 1–5 y · 0.3 mg 6–12 y · 0.5 mg &gt;12 y</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat q5 min as needed</div>
+  <div class="item-note"><span style="color:var(--muted);">≤5 y → </span>formula layer: repeat q5 min as needed · auto-injector 0.15 mg</div>
+  <div class="item-note"><span style="color:var(--muted);">≤12 y → </span>formula layer: repeat q5 min as needed · auto-injector 0.3 mg</div>
+  <div class="item-note"><span style="color:var(--muted);">older → </span>formula layer: repeat q5 min as needed · auto-injector 0.5 mg</div>
   <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
 </div>
 
@@ -1065,7 +1069,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 µg/kg</span></div>
-  <div class="item-note">titrate to response</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>titrate to response</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -1077,7 +1081,8 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5–1 mL/kg/h</span></div>
-  <div class="item-note">1 mg in 100 mL NaCl 0.9% = 10 µg/mL · dedicated pump line</div>
+  <div class="item-note">1 mg in 100 mL NaCl 0.9% = 10 µg/mL</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>dedicated pump line</div>
   <div class="item-refs">References: <span class="cites">[58], [4]</span></div>
 </div>
 
@@ -1115,7 +1120,6 @@
     </tbody>
   </table>
 
-  <div class="item-note">ampoule 30 mg/mL — dilute</div>
   <div class="item-refs">References: <span class="cites">[62], [29], [17]</span></div>
 </div>
 
@@ -1126,7 +1130,6 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1–20 µg/kg (max 500 µg)</span></div>
-  <div class="item-note">upper range for tetralogy spells · hypotension: start low, titrate</div>
   <div class="item-refs">References: <span class="cites">[29], [17]</span></div>
 </div>
 
@@ -1137,7 +1140,7 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2 mL/kg</span></div>
-  <div class="item-note">= 0.2 g/kg</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>= 0.2 g/kg</div>
   <div class="item-refs">References: <span class="cites">[1], [4]</span></div>
 </div>
 
@@ -1154,7 +1157,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">no response after 10 min: repeat or IV glucose</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>no response after 10 min: repeat or IV glucose</div>
   <div class="item-refs">References: <span class="cites">[63]</span></div>
 </div>
 
@@ -1174,7 +1177,8 @@
     <span class="item-route">IV/IO</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1 mmol/kg</span></div>
-  <div class="item-note">1 mL/kg of 8.4% · not routine in arrest</div>
+  <div class="item-note">not routine in arrest</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>= 1 mL/kg</div>
   <div class="item-refs">References: <span class="cites">[1], [12]</span></div>
 </div>
 
@@ -1184,7 +1188,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 units/kg (max 10 units)</span></div>
-  <div class="item-note">WITH glucose 10% 5 mL/kg (max 250 mL) — never insulin alone · check glucose &amp; K+ q15min</div>
+  <div class="item-note">with glucose 10% 5 mL/kg (max 250 mL) · never insulin alone</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>check glucose &amp; K+ q15min</div>
   <div class="item-refs">References: <span class="cites">[64], [1]</span></div>
 </div>
 
@@ -1194,8 +1199,14 @@
     <span class="item-route" style="opacity:.65">hidden by default</span>
     <span class="item-route">Nebulized</span>
   </div>
-  <div class="item-dose"><span class="label">VALUE</span><span class="mono">2.5–5 mg</span></div>
-  <div class="item-note">2.5 mg ≤25 kg · 5 mg &gt;25 kg · repeat ≤5× · with insulin–glucose</div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤25 kg</td><td class="dose">2.5 mg</td></tr>
+      <tr><td class="age">&gt;25 kg</td><td class="dose">5 mg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat ≤5×</div>
   <div class="item-refs">References: <span class="cites">[64], [1]</span></div>
 </div>
 
@@ -1217,7 +1228,7 @@
   </table>
 
   <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
-  <div class="item-note">seizure ≥5 min · 3–6 mo: hospital only · repeat once after 5–10 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once after 5–10 min</div>
   <div class="item-refs">References: <span class="cites">[65], [1]</span></div>
 </div>
 
@@ -1228,7 +1239,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ff6600;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Benzodiazepine</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (max 10 mg)</span></div>
-  <div class="item-note">repeat once</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once</div>
   <div class="item-refs">References: <span class="cites">[66], [1]</span></div>
 </div>
 
@@ -1240,7 +1251,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40–60 mg/kg (max 4.5 g)</span></div>
   <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
-  <div class="item-note">loading dose · give over 5 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>over 5 min</div>
   <div class="item-refs">References: <span class="cites">[1], [66]</span></div>
 </div>
 
@@ -1251,7 +1262,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
-  <div class="item-note">reconstitute NOW (volume per vial label) · repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
+  <div class="item-note">dissolve vials immediately · sterile water, volume per label · repeat until controlled</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
   <div class="item-refs">References: <span class="cites">[67], [68]</span></div>
 </div>
 
@@ -1263,7 +1275,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">3 mL/kg (max 250 mL)</span></div>
-  <div class="item-note">over 10–20 min · keep serum Na ≤160 mmol/L</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>over 10–20 min · keep serum Na ≤160 mmol/L</div>
   <div class="item-refs">References: <span class="cites">[69], [70], [71], [72]</span></div>
 </div>
 
@@ -1274,7 +1286,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5–5 mL/kg</span></div>
-  <div class="item-note">= 0.5–1 g/kg · over 10–15 min · keep osmolality &lt;320 mOsm/kg</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>= 0.5–1 g/kg · over 10–15 min · keep osmolality &lt;320 mOsm/kg</div>
   <div class="item-refs">References: <span class="cites">[70], [72], [73], [74], [75]</span></div>
 </div>
 
@@ -1297,7 +1309,9 @@
     <span class="item-name">Maintenance</span>
   </div>
   <div class="item-dose"><span class="label">RULE</span><span class="mono">Holliday-Segar 4-2-1: 4 mL/kg/h (first 10 kg) · 2 mL/kg/h (next 10 kg) · 1 mL/kg/h thereafter</span></div>
-  <div class="item-note">4-2-1 (Holliday-Segar) · isotonic + glucose ± K+ · &lt;1 mo: neonatal regimen</div>
+  <div class="item-note">isotonic + glucose ± K+</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>4-2-1 mL/kg/h</div>
+  <div class="item-note"><span style="color:var(--muted);">≤0 mo → </span>note: use a neonatal regimen, not 4-2-1</div>
   <div class="item-refs">References: <span class="cites">[76], [77]</span></div>
 </div>
 
@@ -1323,7 +1337,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
-  <div class="item-note">loading dose over 10 min · then 2 mg/kg/h for ≥8 h</div>
+  <div class="item-note">loading dose over 10 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>then 2 mg/kg/h for ≥8 h</div>
   <div class="item-refs">References: <span class="cites">[78], [79], [80], [1]</span></div>
 </div>
 
@@ -1333,7 +1348,7 @@
     <span class="item-route" style="opacity:.65">hidden by default</span>
   </div>
   <div class="item-dose"><span class="label">VALUE</span><span class="mono">EBV × (Hct – min Hct) / Hct</span></div>
-  <div class="item-note">estimate, not a transfusion trigger · blood volume ~70–100 mL/kg · source uses mean Hct</div>
+  <div class="item-note">estimate, not a transfusion trigger</div>
   <div class="item-refs">References: <span class="cites">[81], [82]</span></div>
 </div>
 
@@ -1353,7 +1368,8 @@
     </tbody>
   </table>
 
-  <div class="item-note">100 µg/puff · repeat incrementally as needed</div>
+  <div class="item-note">100 µg/puff</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat incrementally as needed</div>
   <div class="item-refs">References: <span class="cites">[83], [84]</span></div>
 </div>
 
@@ -1380,7 +1396,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.015 mg/kg (max 0.25 mg)</span></div>
-  <div class="item-note">bolus over 10 min · infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+</div>
+  <div class="item-note">over 10 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+</div>
   <div class="item-refs">References: <span class="cites">[83], [85]</span></div>
 </div>
 
@@ -1406,7 +1423,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40 mg/kg (max 2 g)</span></div>
-  <div class="item-note">infuse over 20 min</div>
+  <div class="item-note">over 20 min</div>
   <div class="item-refs">References: <span class="cites">[86], [29], [1]</span></div>
 </div>
 
@@ -1417,7 +1434,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
-  <div class="item-note">asthma · q4h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q4h</div>
   <div class="item-refs">References: <span class="cites">[83]</span></div>
 </div>
 
@@ -1428,7 +1445,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
-  <div class="item-note">croup / stridor · 1:1000 (1 mg/mL)</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>1:1000 (1 mg/mL)</div>
   <div class="item-refs">References: <span class="cites">[87], [29]</span></div>
 </div>
 
@@ -1449,7 +1466,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ffff00;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Induction agent</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg</span></div>
-  <div class="item-note">give in increments</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>in increments</div>
   <div class="item-refs">References: <span class="cites">[90]</span></div>
 </div>
 
@@ -1495,7 +1512,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#85c7e3 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Opioid antagonist</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg</span></div>
-  <div class="item-note">titrate to respiration · repeat q2–3 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat q2–3 min</div>
   <div class="item-refs">References: <span class="cites">[29], [1]</span></div>
 </div>
 
@@ -1516,7 +1533,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#ff6600 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Benzodiazepine antagonist</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.01 mg/kg (max 0.2 mg)</span></div>
-  <div class="item-note">repeat ≤4× · total max 0.05 mg/kg (up to 1 mg)</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat ≤4× · total max 0.05 mg/kg (up to 1 mg)</div>
   <div class="item-refs">References: <span class="cites">[29]</span></div>
 </div>
 
@@ -1539,7 +1556,6 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#f54029 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Relaxant reversal</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">16 mg/kg</span></div>
-  <div class="item-note">reverses full-dose rocuronium</div>
   <div class="item-refs">References: <span class="cites">[94], [95]</span></div>
 </div>
 
@@ -1551,7 +1567,8 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#f54029 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Relaxant reversal</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.04–0.07 mg/kg (max 5 mg)</span></div>
-  <div class="item-note">with atropine · slow over 1–2 min, after first recovery signs</div>
+  <div class="item-note">with atropine</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>slow over 1–2 min · after first recovery signs</div>
   <div class="item-refs">References: <span class="cites">[29], [17]</span></div>
 </div>
 
@@ -1563,7 +1580,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#a3d963;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Anticholinergic</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.02 mg/kg (max 0.5 mg)</span></div>
-  <div class="item-note">with or just before neostigmine</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>with or just before neostigmine</div>
   <div class="item-refs">References: <span class="cites">[29], [17]</span></div>
 </div>
 
@@ -1612,7 +1629,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">infusion: 0.1–0.3 mg/kg/h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion: 0.1–0.3 mg/kg/h</div>
   <div class="item-refs">References: <span class="cites">[97], [98]</span></div>
 </div>
 
@@ -1629,7 +1646,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">infusion: 0.1–0.3 mg/kg/h</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion: 0.1–0.3 mg/kg/h</div>
   <div class="item-refs">References: <span class="cites">[99], [100], [98]</span></div>
 </div>
 
@@ -1639,7 +1656,8 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
-  <div class="item-note">LA toxicity rescue · repeat if unstable · max total 12 mL/kg</div>
+  <div class="item-note">max total 12 mL/kg</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat if unstable</div>
   <div class="item-refs">References: <span class="cites">[97], [101]</span></div>
 </div>
 
@@ -1649,7 +1667,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/kg/min</span></div>
-  <div class="item-note">LA toxicity rescue · continue ≥15 min after stability</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>continue ≥15 min after stability</div>
   <div class="item-refs">References: <span class="cites">[97], [101]</span></div>
 </div>
 
@@ -1661,7 +1679,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.25 mg/kg (max 150 mg)</span></div>
   <div class="item-contra">Not indicated &lt;6 months (age floor)</div>
-  <div class="item-note">SmPC figure: ilioinguinal block, per side</div>
+  <div class="item-note">per side</div>
   <div class="item-refs">References: <span class="cites">[102]</span></div>
 </div>
 

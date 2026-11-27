@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.88** (updated 2026-11-27) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -16,7 +16,6 @@ Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool
 - [Analgesia](#analgesia)
 - [Emergency Drugs](#emergency-drugs)
 - [Fluids and Blood](#fluids-and-blood)
-- [Respiratory](#respiratory)
 - [Reversal Agents](#reversal-agents)
 - [Regional Anaesthesia](#regional-anaesthesia)
 - [Weight Estimation](#weight-estimation)
@@ -300,6 +299,8 @@ Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool
 
 ## Emergency Drugs
 
+#### Anaphylaxis
+
 ### Adrenaline (IM)
 
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
@@ -320,116 +321,7 @@ Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool
 - Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.
 - Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: clemastine (25–50 µg/kg/dose IV/IM, max 2 mg/dose). kinderformularium.nl (current edition).
 
-### Atropine
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
-- Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.
-
-### Ephedrine
-
-- Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Phenylephrine
-
-- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Glucose 10%
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
-
-### Glucagon
-
-- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).
-
-### Calcium gluconate 10%
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
-
-### Sodium bicarbonate 8.4%
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
-
-### Insulin + glucose
-
-- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Salbutamol (nebulized, hyperkalaemia)
-
-- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Midazolam (buccal)
-
-- Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Midazolam (IV)
-
-- Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Levetiracetam
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
-
-### Dantrolene
-
-- Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
-- Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
-
-### Sodium chloride 3%
-
-- Kochanek PM, Tasker RC, Carney N, et al. Guidelines for the Management of Pediatric Severe Traumatic Brain Injury, Third Edition: Update of the Brain Trauma Foundation Guidelines. Pediatr Crit Care Med 2019;20(3 Suppl 1):S1–S82.
-- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
-- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Head injury (signs of raised intracranial pressure: sodium chloride 3% 3 mL/kg over 10–20 min; mannitol 20% 0.25–0.5 g/kg over 20–30 min). rch.org.au/clinicalguide (current edition).
-- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
-
-### Mannitol 20%
-
-- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
-- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
-- Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.
-- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).
-- Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.
-
-## Fluids and Blood
-
-### Fluid bolus
-
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
-
-### Maintenance
-
-- Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.
-- Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.
-
-### Total blood volume
-
-- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
-
-### Tranexamic acid
-
-- Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.
-- Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.
-- Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.
-- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
-
-### Max allowable blood loss
-
-- Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.
-- Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.
-
-## Respiratory
+#### Respiratory
 
 ### Salbutamol (inhaled)
 
@@ -476,18 +368,137 @@ Generated from `assets/formulary.json` **v0.0.87** (updated 2026-11-26) by `tool
 
 ### Succinylcholine (laryngospasm)
 
-- Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
 - Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
+- Association of Anaesthetists. Quick Reference Handbook — 3-6 Laryngospasm and stridor (v.1, 2018; June 2023 edition: propofol, rocuronium, atracurium or suxamethonium 0.25–0.5 mg/kg IV; suxamethonium 4 mg/kg IM including intralingual). anaesthetists.org.
+- Society for Pediatric Anesthesia, Quality and Safety Committee. Pedi Crisis Critical Events Checklists — 16 Laryngospasm (card revised June 2018; booklet January 2025: succinylcholine 0.1–2 mg/kg IV or 2–4 mg/kg IM, atropine 0.02 mg/kg IV if bradycardic, propofol 1–3 mg/kg). pedsanesthesia.org.
+- Hampson-Evans D, Morgan P, Farrar M. Pediatric laryngospasm. Paediatr Anaesth 2008;18(4):303–307.
+- Chung DC, Rowbottom SJ. A very small dose of suxamethonium relieves laryngospasm. Anaesthesia 1993;48(3):229–230.
 
 ### Succinylcholine (IM)
 
-- Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.
 - Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.
+- Association of Anaesthetists. Quick Reference Handbook — 3-6 Laryngospasm and stridor (v.1, 2018; June 2023 edition: propofol, rocuronium, atracurium or suxamethonium 0.25–0.5 mg/kg IV; suxamethonium 4 mg/kg IM including intralingual). anaesthetists.org.
+- Anectine (succinylcholine chloride) injection, prescribing information, section 2.4 (intramuscular: up to 3–4 mg/kg, not more than 150 mg in total). Civica, Inc. (current revision, DailyMed).
+- ADVANZ Pharma. Suxamethonium Chloride 50 mg/ml Solution for Injection · Summary of Product Characteristics (intramuscular: infants up to 4–5 mg/kg, older children up to 4 mg/kg; a total dose of 150 mg should not be exceeded). electronic medicines compendium, medicines.org.uk/emc/product/5189 (current edition).
 
-### Rocuronium (laryngospasm)
+#### Cardiovascular
 
-- Mazurek AJ, Rae B, Hann S, et al. Rocuronium versus succinylcholine: are they equally effective during rapid-sequence induction of anesthesia? Anesth Analg 1998;87(6):1259–1262.
-- Taivainen T, Meretoja OA, Erkola O, Rautoma P, Juvakoski M. Rocuronium in infants, children and adults during balanced anaesthesia. Paediatr Anaesth 1996;6(4):271–275.
+### Atropine
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
+- Barrington KJ. The myth of a minimum dose for atropine. Pediatrics 2011;127(4):783–784.
+
+### Ephedrine
+
+- Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+### Phenylephrine
+
+- Paediatric Formulary Committee. BNF for Children (online). London: BMJ Group, Pharmaceutical Press, and RCPCH Publications.
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+#### Metabolic
+
+### Glucose 10%
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
+
+### Glucagon
+
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: <25 kg 0.5 mg, >25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).
+
+### Calcium gluconate 10%
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+
+### Sodium bicarbonate 8.4%
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Advanced Life Support Group. Advanced Paediatric Life Support: A Practical Approach to Emergencies, 7th edition. Chichester: Wiley-Blackwell; 2023.
+
+### Insulin + glucose
+
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Salbutamol (nebulized, hyperkalaemia)
+
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+#### Status epilepticus
+
+### Midazolam (buccal)
+
+- Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to <18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Midazolam (IV)
+
+- Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Levetiracetam
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
+
+#### Malignant hyperthermia
+
+### Dantrolene
+
+- Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.
+- Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.
+
+#### Intracranial pressure
+
+### Sodium chloride 3%
+
+- Kochanek PM, Tasker RC, Carney N, et al. Guidelines for the Management of Pediatric Severe Traumatic Brain Injury, Third Edition: Update of the Brain Trauma Foundation Guidelines. Pediatr Crit Care Med 2019;20(3 Suppl 1):S1–S82.
+- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
+- Royal Children's Hospital Melbourne. Clinical Practice Guideline: Head injury (signs of raised intracranial pressure: sodium chloride 3% 3 mL/kg over 10–20 min; mannitol 20% 0.25–0.5 g/kg over 20–30 min). rch.org.au/clinicalguide (current edition).
+- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
+
+### Mannitol 20%
+
+- Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.
+- British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.
+- Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.
+- Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).
+- Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.
+
+## Fluids and Blood
+
+### Fluid bolus
+
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+- Resuscitation Council UK. Paediatric emergency algorithms & resources (version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk.
+
+### Maintenance
+
+- Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.
+- Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.
+
+### Total blood volume
+
+- Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.
+
+### Tranexamic acid
+
+- Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.
+- Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.
+- Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.
+- Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Max allowable blood loss
+
+- Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.
+- Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.
 
 ## Reversal Agents
 

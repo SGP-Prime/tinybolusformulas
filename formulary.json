@@ -1,7 +1,7 @@
 {
-  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped). 'formula_note' (optional, v0.0.87): formula-layer note — derivations, concentrations/preparations, administration speed, intervals, repeats, escalation arithmetic, follow-on regimens, monitoring — rendered under the formula line ONLY while 'Show formulas' is on; 'note' keeps only what makes the number safe (a condition changing the number, a safety qualifier, the concentration behind a volume/rate value). Both ≤90 characters. 'note_by_age' (optional, v0.0.87): age brackets (max_months / max_years, first match wins, terminal max_years 999) carrying only 'note' and/or 'formula_note'; the matched bracket's non-null fields replace the item-level ones for that patient (empty string clears), so an age-clause note prints only the clause for the age at hand.",
-  "version": "0.0.87",
-  "updated": "2026-11-26",
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped). 'formula_note' (optional, v0.0.87): formula-layer note — derivations, concentrations/preparations, administration speed, intervals, repeats, escalation arithmetic, follow-on regimens, monitoring — rendered under the formula line ONLY while 'Show formulas' is on; 'note' keeps only what makes the number safe (a condition changing the number, a safety qualifier, the concentration behind a volume/rate value). Both ≤90 characters. 'note_by_age' (optional, v0.0.87): age brackets (max_months / max_years, first match wins, terminal max_years 999) carrying only 'note' and/or 'formula_note'; the matched bracket's non-null fields replace the item-level ones for that patient (empty string clears), so an age-clause note prints only the clause for the age at hand. v0.0.88: the former Respiratory section lives on as the 'Respiratory' group inside Emergency Drugs (item ids unchanged; the section id 'respiratory' is gone — the app pins the pre-v2 'respiratory:' keys of the moved rows to their ids, and folds a hidden 'respiratory' section preference into per-row hides).",
+  "version": "0.0.88",
+  "updated": "2026-11-27",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
     "enabled": true,
@@ -47,8 +47,13 @@
     "luscombe_weight_2011": "Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.",
     "cote_anesthesia_2019": "Cote CJ, Lerman J, Anderson BJ, eds. A Practice of Anesthesia for Infants and Children, 6th edition. Philadelphia: Elsevier; 2018.",
     "bjornson_croup_2013": "Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.",
-    "larson_laryngospasm_1998": "Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.",
     "gavel_laryngospasm_2014": "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.",
+    "aagbi_qrh_laryngospasm_2023": "Association of Anaesthetists. Quick Reference Handbook — 3-6 Laryngospasm and stridor (v.1, 2018; June 2023 edition: propofol, rocuronium, atracurium or suxamethonium 0.25–0.5 mg/kg IV; suxamethonium 4 mg/kg IM including intralingual). anaesthetists.org.",
+    "spa_pedicrisis_laryngospasm_2025": "Society for Pediatric Anesthesia, Quality and Safety Committee. Pedi Crisis Critical Events Checklists — 16 Laryngospasm (card revised June 2018; booklet January 2025: succinylcholine 0.1–2 mg/kg IV or 2–4 mg/kg IM, atropine 0.02 mg/kg IV if bradycardic, propofol 1–3 mg/kg). pedsanesthesia.org.",
+    "hampson_evans_laryngospasm_2008": "Hampson-Evans D, Morgan P, Farrar M. Pediatric laryngospasm. Paediatr Anaesth 2008;18(4):303–307.",
+    "chung_suxamethonium_1993": "Chung DC, Rowbottom SJ. A very small dose of suxamethonium relieves laryngospasm. Anaesthesia 1993;48(3):229–230.",
+    "anectine_fda_label": "Anectine (succinylcholine chloride) injection, prescribing information, section 2.4 (intramuscular: up to 3–4 mg/kg, not more than 150 mg in total). Civica, Inc. (current revision, DailyMed).",
+    "suxamethonium_smpc": "ADVANZ Pharma. Suxamethonium Chloride 50 mg/ml Solution for Injection · Summary of Product Characteristics (intramuscular: infants up to 4–5 mg/kg, older children up to 4 mg/kg; a total dose of 150 mg should not be exceeded). electronic medicines compendium, medicines.org.uk/emc/product/5189 (current edition).",
     "tavegyl_spc": "Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.",
     "griffiths_mgso4_2016": "Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.",
     "ring_anaphylaxis_2021": "Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.",
@@ -1217,6 +1222,211 @@
           "contraindicated_below_months": 12
         },
         {
+          "name": "Salbutamol (inhaled)",
+          "id": "salbutamol-inhaled",
+          "drug": "Salbutamol",
+          "type": "fixed_age",
+          "group": "Respiratory",
+          "brackets": [
+            {
+              "max_years": 5,
+              "value": "2–10 puffs"
+            },
+            {
+              "max_years": 999,
+              "value": "4–10 puffs"
+            }
+          ],
+          "route": "Inhaled",
+          "note": "100 µg/puff",
+          "formula_note": "repeat incrementally as needed",
+          "references": [
+            "sign_158_asthma",
+            "gina_asthma_2024"
+          ]
+        },
+        {
+          "name": "Salbutamol (nebulized)",
+          "id": "salbutamol-nebulized",
+          "drug": "Salbutamol",
+          "type": "fixed_age",
+          "group": "Respiratory",
+          "brackets": [
+            {
+              "max_years": 5,
+              "value": "2.5 mg"
+            },
+            {
+              "max_years": 999,
+              "value": "5 mg"
+            }
+          ],
+          "route": "Nebulized",
+          "references": [
+            "sign_158_asthma",
+            "gina_asthma_2024"
+          ]
+        },
+        {
+          "name": "Salbutamol (IV)",
+          "id": "salbutamol-iv-severe-asthma",
+          "drug": "Salbutamol",
+          "type": "linear_max",
+          "factor": 0.015,
+          "max": 0.25,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "note": "over 10 min",
+          "formula_note": "infusion 1–2 µg/kg/min (>2: ICU) · monitor K+",
+          "references": [
+            "sign_158_asthma",
+            "rcuk_pls_2025"
+          ]
+        },
+        {
+          "name": "Ipratropium (nebulized)",
+          "id": "ipratropium-nebulized",
+          "drug": "Ipratropium",
+          "type": "fixed_age",
+          "group": "Respiratory",
+          "brackets": [
+            {
+              "max_years": 11,
+              "value": "250 µg"
+            },
+            {
+              "max_years": 999,
+              "value": "500 µg"
+            }
+          ],
+          "route": "Nebulized",
+          "references": [
+            "bnfc_online"
+          ]
+        },
+        {
+          "name": "Magnesium sulphate (asthma)",
+          "id": "magnesium-sulphate",
+          "drug": "Magnesium sulphate",
+          "type": "linear_max",
+          "max": 2,
+          "max_unit": "g",
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "references": [
+            "griffiths_mgso4_2016",
+            "bnfc_online",
+            "erc_pls_2025"
+          ],
+          "note": "over 20 min",
+          "factor": 40,
+          "qualifier": "asthma"
+        },
+        {
+          "name": "Hydrocortisone",
+          "id": "hydrocortisone-iv-asthma",
+          "drug": "Hydrocortisone",
+          "type": "linear",
+          "factor": 4,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "formula_note": "q4h",
+          "references": [
+            "sign_158_asthma"
+          ]
+        },
+        {
+          "name": "Adrenaline (nebulized)",
+          "id": "adrenaline-nebulized",
+          "drug": "Adrenaline",
+          "type": "linear_max",
+          "factor": 0.5,
+          "max": 5,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "Nebulized",
+          "formula_note": "1:1000 (1 mg/mL)",
+          "syringe_class": "vasopressor",
+          "references": [
+            "bjornson_croup_2013",
+            "bnfc_online"
+          ]
+        },
+        {
+          "name": "Dexamethasone (airway oedema)",
+          "id": "dexamethasone-anti-inflammatory",
+          "drug": "Dexamethasone",
+          "qualifier": "airway oedema",
+          "type": "linear_max",
+          "factor": 0.5,
+          "max": 8,
+          "max_unit": "mg",
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "references": [
+            "anene_dexamethasone_1996",
+            "malhotra_dexamethasone_2009"
+          ]
+        },
+        {
+          "name": "Propofol (laryngospasm)",
+          "id": "propofol-laryngospasm",
+          "drug": "Propofol",
+          "qualifier": "laryngospasm",
+          "type": "linear",
+          "factor": 0.5,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "formula_note": "in increments",
+          "syringe_class": "induction",
+          "references": [
+            "gavel_laryngospasm_2014"
+          ]
+        },
+        {
+          "name": "Succinylcholine (laryngospasm)",
+          "id": "succinylcholine-laryngospasm",
+          "drug": "Succinylcholine",
+          "qualifier": "laryngospasm",
+          "type": "linear_range",
+          "low": 0.1,
+          "high": 1,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IV",
+          "syringe_class": "neuromuscular_blocker",
+          "references": [
+            "gavel_laryngospasm_2014",
+            "aagbi_qrh_laryngospasm_2023",
+            "spa_pedicrisis_laryngospasm_2025",
+            "hampson_evans_laryngospasm_2008",
+            "chung_suxamethonium_1993"
+          ]
+        },
+        {
+          "name": "Succinylcholine (IM)",
+          "id": "succinylcholine-im",
+          "drug": "Succinylcholine",
+          "type": "linear_max",
+          "factor": 4,
+          "max": 150,
+          "unit": "mg",
+          "group": "Respiratory",
+          "route": "IM",
+          "syringe_class": "neuromuscular_blocker",
+          "references": [
+            "gavel_laryngospasm_2014",
+            "aagbi_qrh_laryngospasm_2023",
+            "anectine_fda_label",
+            "suxamethonium_smpc"
+          ]
+        },
+        {
           "name": "Atropine",
           "id": "atropine-emergency",
           "drug": "Atropine",
@@ -1610,218 +1820,6 @@
           "references": [
             "gross_mabl_1983",
             "spa_abl_2023"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "respiratory",
-      "title": "Respiratory",
-      "items": [
-        {
-          "name": "Salbutamol (inhaled)",
-          "id": "salbutamol-inhaled",
-          "drug": "Salbutamol",
-          "type": "fixed_age",
-          "brackets": [
-            {
-              "max_years": 5,
-              "value": "2–10 puffs"
-            },
-            {
-              "max_years": 999,
-              "value": "4–10 puffs"
-            }
-          ],
-          "route": "Inhaled",
-          "note": "100 µg/puff",
-          "formula_note": "repeat incrementally as needed",
-          "references": [
-            "sign_158_asthma",
-            "gina_asthma_2024"
-          ]
-        },
-        {
-          "name": "Salbutamol (nebulized)",
-          "id": "salbutamol-nebulized",
-          "drug": "Salbutamol",
-          "type": "fixed_age",
-          "brackets": [
-            {
-              "max_years": 5,
-              "value": "2.5 mg"
-            },
-            {
-              "max_years": 999,
-              "value": "5 mg"
-            }
-          ],
-          "route": "Nebulized",
-          "references": [
-            "sign_158_asthma",
-            "gina_asthma_2024"
-          ]
-        },
-        {
-          "name": "Salbutamol (IV)",
-          "id": "salbutamol-iv-severe-asthma",
-          "drug": "Salbutamol",
-          "type": "linear_max",
-          "factor": 0.015,
-          "max": 0.25,
-          "unit": "mg",
-          "route": "IV",
-          "note": "over 10 min",
-          "formula_note": "infusion 1–2 µg/kg/min (>2: ICU) · monitor K+",
-          "references": [
-            "sign_158_asthma",
-            "rcuk_pls_2025"
-          ]
-        },
-        {
-          "name": "Ipratropium (nebulized)",
-          "id": "ipratropium-nebulized",
-          "drug": "Ipratropium",
-          "type": "fixed_age",
-          "brackets": [
-            {
-              "max_years": 11,
-              "value": "250 µg"
-            },
-            {
-              "max_years": 999,
-              "value": "500 µg"
-            }
-          ],
-          "route": "Nebulized",
-          "references": [
-            "bnfc_online"
-          ]
-        },
-        {
-          "name": "Magnesium sulphate (asthma)",
-          "id": "magnesium-sulphate",
-          "drug": "Magnesium sulphate",
-          "type": "linear_max",
-          "max": 2,
-          "max_unit": "g",
-          "unit": "mg",
-          "route": "IV",
-          "references": [
-            "griffiths_mgso4_2016",
-            "bnfc_online",
-            "erc_pls_2025"
-          ],
-          "note": "over 20 min",
-          "factor": 40,
-          "qualifier": "asthma"
-        },
-        {
-          "name": "Hydrocortisone",
-          "id": "hydrocortisone-iv-asthma",
-          "drug": "Hydrocortisone",
-          "type": "linear",
-          "factor": 4,
-          "unit": "mg",
-          "route": "IV",
-          "formula_note": "q4h",
-          "references": [
-            "sign_158_asthma"
-          ]
-        },
-        {
-          "name": "Adrenaline (nebulized)",
-          "id": "adrenaline-nebulized",
-          "drug": "Adrenaline",
-          "type": "linear_max",
-          "factor": 0.5,
-          "max": 5,
-          "unit": "mg",
-          "route": "Nebulized",
-          "formula_note": "1:1000 (1 mg/mL)",
-          "syringe_class": "vasopressor",
-          "references": [
-            "bjornson_croup_2013",
-            "bnfc_online"
-          ]
-        },
-        {
-          "name": "Dexamethasone (airway oedema)",
-          "id": "dexamethasone-anti-inflammatory",
-          "drug": "Dexamethasone",
-          "qualifier": "airway oedema",
-          "type": "linear_max",
-          "factor": 0.5,
-          "max": 8,
-          "max_unit": "mg",
-          "unit": "mg",
-          "route": "IV",
-          "references": [
-            "anene_dexamethasone_1996",
-            "malhotra_dexamethasone_2009"
-          ]
-        },
-        {
-          "name": "Propofol (laryngospasm)",
-          "id": "propofol-laryngospasm",
-          "drug": "Propofol",
-          "qualifier": "laryngospasm",
-          "type": "linear",
-          "factor": 0.5,
-          "unit": "mg",
-          "route": "IV",
-          "formula_note": "in increments",
-          "syringe_class": "induction",
-          "references": [
-            "gavel_laryngospasm_2014"
-          ]
-        },
-        {
-          "name": "Succinylcholine (laryngospasm)",
-          "id": "succinylcholine-laryngospasm",
-          "drug": "Succinylcholine",
-          "qualifier": "laryngospasm",
-          "type": "linear_range",
-          "low": 0.1,
-          "high": 0.5,
-          "unit": "mg",
-          "route": "IV",
-          "syringe_class": "neuromuscular_blocker",
-          "references": [
-            "larson_laryngospasm_1998",
-            "gavel_laryngospasm_2014"
-          ],
-          "note": "lower end may spare breathing"
-        },
-        {
-          "name": "Succinylcholine (IM)",
-          "id": "succinylcholine-im",
-          "drug": "Succinylcholine",
-          "type": "linear_max",
-          "factor": 4,
-          "max": 200,
-          "unit": "mg",
-          "route": "IM",
-          "syringe_class": "neuromuscular_blocker",
-          "references": [
-            "larson_laryngospasm_1998",
-            "gavel_laryngospasm_2014"
-          ]
-        },
-        {
-          "name": "Rocuronium (laryngospasm)",
-          "id": "rocuronium-laryngospasm",
-          "drug": "Rocuronium",
-          "qualifier": "laryngospasm",
-          "type": "linear_range",
-          "low": 0.6,
-          "high": 1.2,
-          "unit": "mg",
-          "route": "IV",
-          "syringe_class": "neuromuscular_blocker",
-          "references": [
-            "mazurek_rocuronium_1998",
-            "taivainen_rocuronium_1996"
           ]
         }
       ]
@@ -2366,11 +2364,12 @@
     "infant_max_years": 1
   },
   "$retired_ids": {
-    "comment": "Ids permanently retired — a deleted row's id is never reused for a different row. (Ledger starts empty: ids were introduced in v0.0.69, after the v0.0.68 removals.) Disjointness from live ids is test-enforced in the app repo.",
+    "comment": "Ids permanently retired — a deleted row's id is never reused for a different row. (Ids were introduced in v0.0.69; rows removed before that had no ids and are not listed.) Disjointness from live ids is test-enforced in the app repo.",
     "adenosine-1st-dose": "v0.0.74: merged into 'adenosine' (steps row)",
     "adenosine-2nd-dose": "v0.0.74: merged into 'adenosine' (steps row)",
     "ibuprofen-iv": "v0.0.74: removed (co-author review)",
     "paracetamol-oral": "v0.0.74: removed (co-author review)",
-    "diastolic-bp": "v0.0.80: replaced by 'mean-arterial-pressure' — ERC PLS 2025 Table 2 tabulates MAP, not diastolic"
+    "diastolic-bp": "v0.0.80: replaced by 'mean-arterial-pressure' — ERC PLS 2025 Table 2 tabulates MAP, not diastolic",
+    "rocuronium-laryngospasm": "v0.0.88: removed (clinician review); rocuronium stays under Induction"
   }
 }

@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.87 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.88 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.87 · Updated 2026-11-26</p>
+  <p class="version">Version 0.0.88 · Updated 2026-11-27</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -281,9 +281,7 @@
 
   <h3>Groups</h3>
   <p>
-    A long section may carry sub-headings (Emergency Drugs: Anaphylaxis,
-    Cardiovascular, Metabolic, Status epilepticus, Malignant
-    hyperthermia, Intracranial pressure). They are labels only — every row keeps its own
+    A long section may carry sub-headings (Emergency Drugs: Anaphylaxis, Respiratory, Cardiovascular, Metabolic, Status epilepticus, Malignant hyperthermia, Intracranial pressure). They are labels only — every row keeps its own
     identity, visibility switch and citations — and the app prints a
     label above the first visible row of its group.
   </p>
@@ -330,7 +328,6 @@
     <li><a href="#painkillers">Analgesia</a></li>
     <li><a href="#emergency">Emergency Drugs</a></li>
     <li><a href="#fluids">Fluids and Blood</a></li>
-    <li><a href="#respiratory">Respiratory</a></li>
     <li><a href="#antidotes">Reversal Agents</a></li>
     <li><a href="#regional">Regional Anaesthesia</a></li>
     <li><a href="#weight-estimation">Weight Estimation</a></li>
@@ -1096,6 +1093,141 @@
   <div class="item-refs">References: <span class="cites">[59], [60], [61]</span></div>
 </div>
 
+  <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Respiratory</h3>
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (inhaled)</span>
+    <span class="item-route">Inhaled</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 y</td><td class="dose">2–10 puffs</td></tr>
+      <tr><td class="age">≥6 y</td><td class="dose">4–10 puffs</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-note">100 µg/puff</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat incrementally as needed</div>
+  <div class="item-refs">References: <span class="cites">[62], [63]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (nebulized)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤5 y</td><td class="dose">2.5 mg</td></tr>
+      <tr><td class="age">≥6 y</td><td class="dose">5 mg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[62], [63]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Salbutamol (IV)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.015 mg/kg (max 0.25 mg)</span></div>
+  <div class="item-note">over 10 min</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+</div>
+  <div class="item-refs">References: <span class="cites">[62], [64]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Ipratropium (nebulized)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">Nebulized</span>
+  </div>
+  <table class="brackets">
+    <tbody>
+      <tr><td class="age">≤11 y</td><td class="dose">250 µg</td></tr>
+      <tr><td class="age">≥12 y</td><td class="dose">500 µg</td></tr>
+    </tbody>
+  </table>
+
+  <div class="item-refs">References: <span class="cites">[29]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Magnesium sulphate (asthma)</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">40 mg/kg (max 2 g)</span></div>
+  <div class="item-note">over 20 min</div>
+  <div class="item-refs">References: <span class="cites">[65], [29], [1]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Hydrocortisone</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q4h</div>
+  <div class="item-refs">References: <span class="cites">[62]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Adrenaline (nebulized)</span>
+    <span class="item-route">Nebulized</span>
+    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>1:1000 (1 mg/mL)</div>
+  <div class="item-refs">References: <span class="cites">[66], [29]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Dexamethasone (airway oedema)</span>
+    <span class="item-route" style="opacity:.65">hidden by default</span>
+    <span class="item-route">IV</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 8 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[67], [68]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Propofol (laryngospasm)</span>
+    <span class="item-route">IV</span>
+    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ffff00;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Induction agent</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg</span></div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>in increments</div>
+  <div class="item-refs">References: <span class="cites">[69]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Succinylcholine (laryngospasm)</span>
+    <span class="item-route">IV</span>
+    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f54029;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Neuromuscular blocker</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–1 mg/kg</span></div>
+  <div class="item-refs">References: <span class="cites">[69], [70], [71], [72], [73]</span></div>
+</div>
+
+<div class="item">
+  <div class="item-header">
+    <span class="item-name">Succinylcholine (IM)</span>
+    <span class="item-route">IM</span>
+    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f54029;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Neuromuscular blocker</span>
+  </div>
+  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg (max 150 mg)</span></div>
+  <div class="item-refs">References: <span class="cites">[69], [70], [74], [75]</span></div>
+</div>
+
   <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Cardiovascular</h3>
 <div class="item">
   <div class="item-header">
@@ -1120,7 +1252,7 @@
     </tbody>
   </table>
 
-  <div class="item-refs">References: <span class="cites">[62], [29], [17]</span></div>
+  <div class="item-refs">References: <span class="cites">[76], [29], [17]</span></div>
 </div>
 
 <div class="item">
@@ -1158,7 +1290,7 @@
   </table>
 
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>no response after 10 min: repeat or IV glucose</div>
-  <div class="item-refs">References: <span class="cites">[63]</span></div>
+  <div class="item-refs">References: <span class="cites">[77]</span></div>
 </div>
 
 <div class="item">
@@ -1190,7 +1322,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 units/kg (max 10 units)</span></div>
   <div class="item-note">with glucose 10% 5 mL/kg (max 250 mL) · never insulin alone</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>check glucose &amp; K+ q15min</div>
-  <div class="item-refs">References: <span class="cites">[64], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[78], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1207,7 +1339,7 @@
   </table>
 
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat ≤5×</div>
-  <div class="item-refs">References: <span class="cites">[64], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[78], [1]</span></div>
 </div>
 
   <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Status epilepticus</h3>
@@ -1229,7 +1361,7 @@
 
   <div class="item-contra">Not indicated &lt;3 months (age floor)</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once after 5–10 min</div>
-  <div class="item-refs">References: <span class="cites">[65], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[79], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1240,7 +1372,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (max 10 mg)</span></div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once</div>
-  <div class="item-refs">References: <span class="cites">[66], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[80], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1252,7 +1384,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">40–60 mg/kg (max 4.5 g)</span></div>
   <div class="item-contra">Not indicated &lt;1 months (age floor)</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>over 5 min</div>
-  <div class="item-refs">References: <span class="cites">[1], [66]</span></div>
+  <div class="item-refs">References: <span class="cites">[1], [80]</span></div>
 </div>
 
   <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Malignant hyperthermia</h3>
@@ -1264,7 +1396,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5 mg/kg</span></div>
   <div class="item-note">dissolve vials immediately · sterile water, volume per label · repeat until controlled</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat 1 mg/kg q5 min · may exceed 10 mg/kg</div>
-  <div class="item-refs">References: <span class="cites">[67], [68]</span></div>
+  <div class="item-refs">References: <span class="cites">[81], [82]</span></div>
 </div>
 
   <h3 class="group" style="font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#5f6f71;margin:22px 0 4px;font-weight:600">Intracranial pressure</h3>
@@ -1276,7 +1408,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">3 mL/kg (max 250 mL)</span></div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>over 10–20 min · keep serum Na ≤160 mmol/L</div>
-  <div class="item-refs">References: <span class="cites">[69], [70], [71], [72]</span></div>
+  <div class="item-refs">References: <span class="cites">[83], [84], [85], [86]</span></div>
 </div>
 
 <div class="item">
@@ -1287,7 +1419,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2.5–5 mL/kg</span></div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>= 0.5–1 g/kg · over 10–15 min · keep osmolality &lt;320 mOsm/kg</div>
-  <div class="item-refs">References: <span class="cites">[70], [72], [73], [74], [75]</span></div>
+  <div class="item-refs">References: <span class="cites">[84], [86], [87], [88], [89]</span></div>
 </div>
 
 </section>
@@ -1312,7 +1444,7 @@
   <div class="item-note">isotonic + glucose ± K+</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>4-2-1 mL/kg/h</div>
   <div class="item-note"><span style="color:var(--muted);">≤0 mo → </span>note: use a neonatal regimen, not 4-2-1</div>
-  <div class="item-refs">References: <span class="cites">[76], [77]</span></div>
+  <div class="item-refs">References: <span class="cites">[90], [91]</span></div>
 </div>
 
 <div class="item">
@@ -1339,7 +1471,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">15 mg/kg (max 1 g)</span></div>
   <div class="item-note">loading dose over 10 min</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>then 2 mg/kg/h for ≥8 h</div>
-  <div class="item-refs">References: <span class="cites">[78], [79], [80], [1]</span></div>
+  <div class="item-refs">References: <span class="cites">[92], [93], [94], [1]</span></div>
 </div>
 
 <div class="item">
@@ -1349,156 +1481,7 @@
   </div>
   <div class="item-dose"><span class="label">VALUE</span><span class="mono">EBV × (Hct – min Hct) / Hct</span></div>
   <div class="item-note">estimate, not a transfusion trigger</div>
-  <div class="item-refs">References: <span class="cites">[81], [82]</span></div>
-</div>
-
-</section>
-
-<section class="section" id="respiratory">
-  <h2>Respiratory</h2>
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Salbutamol (inhaled)</span>
-    <span class="item-route">Inhaled</span>
-  </div>
-  <table class="brackets">
-    <tbody>
-      <tr><td class="age">≤5 y</td><td class="dose">2–10 puffs</td></tr>
-      <tr><td class="age">≥6 y</td><td class="dose">4–10 puffs</td></tr>
-    </tbody>
-  </table>
-
-  <div class="item-note">100 µg/puff</div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat incrementally as needed</div>
-  <div class="item-refs">References: <span class="cites">[83], [84]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Salbutamol (nebulized)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">Nebulized</span>
-  </div>
-  <table class="brackets">
-    <tbody>
-      <tr><td class="age">≤5 y</td><td class="dose">2.5 mg</td></tr>
-      <tr><td class="age">≥6 y</td><td class="dose">5 mg</td></tr>
-    </tbody>
-  </table>
-
-  <div class="item-refs">References: <span class="cites">[83], [84]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Salbutamol (IV)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.015 mg/kg (max 0.25 mg)</span></div>
-  <div class="item-note">over 10 min</div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion 1–2 µg/kg/min (&gt;2: ICU) · monitor K+</div>
-  <div class="item-refs">References: <span class="cites">[83], [85]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Ipratropium (nebulized)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">Nebulized</span>
-  </div>
-  <table class="brackets">
-    <tbody>
-      <tr><td class="age">≤11 y</td><td class="dose">250 µg</td></tr>
-      <tr><td class="age">≥12 y</td><td class="dose">500 µg</td></tr>
-    </tbody>
-  </table>
-
-  <div class="item-refs">References: <span class="cites">[29]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Magnesium sulphate (asthma)</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">40 mg/kg (max 2 g)</span></div>
-  <div class="item-note">over 20 min</div>
-  <div class="item-refs">References: <span class="cites">[86], [29], [1]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Hydrocortisone</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg</span></div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>q4h</div>
-  <div class="item-refs">References: <span class="cites">[83]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Adrenaline (nebulized)</span>
-    <span class="item-route">Nebulized</span>
-    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#debfd9;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Vasopressor</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 5 mg)</span></div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>1:1000 (1 mg/mL)</div>
-  <div class="item-refs">References: <span class="cites">[87], [29]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Dexamethasone (airway oedema)</span>
-    <span class="item-route" style="opacity:.65">hidden by default</span>
-    <span class="item-route">IV</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg (max 8 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[88], [89]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Propofol (laryngospasm)</span>
-    <span class="item-route">IV</span>
-    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ffff00;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Induction agent</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.5 mg/kg</span></div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>in increments</div>
-  <div class="item-refs">References: <span class="cites">[90]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Succinylcholine (laryngospasm)</span>
-    <span class="item-route">IV</span>
-    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f54029;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Neuromuscular blocker</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1–0.5 mg/kg</span></div>
-  <div class="item-note">lower end may spare breathing</div>
-  <div class="item-refs">References: <span class="cites">[91], [90]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Succinylcholine (IM)</span>
-    <span class="item-route">IM</span>
-    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f54029;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Neuromuscular blocker</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 mg/kg (max 200 mg)</span></div>
-  <div class="item-refs">References: <span class="cites">[91], [90]</span></div>
-</div>
-
-<div class="item">
-  <div class="item-header">
-    <span class="item-name">Rocuronium (laryngospasm)</span>
-    <span class="item-route">IV</span>
-    <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#f54029;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Neuromuscular blocker</span>
-  </div>
-  <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.6–1.2 mg/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[38], [37]</span></div>
+  <div class="item-refs">References: <span class="cites">[95], [96]</span></div>
 </div>
 
 </section>
@@ -1545,7 +1528,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">2–4 mg/kg</span></div>
   <div class="item-note">upper dose for deep block</div>
-  <div class="item-refs">References: <span class="cites">[92], [93]</span></div>
+  <div class="item-refs">References: <span class="cites">[97], [98]</span></div>
 </div>
 
 <div class="item">
@@ -1556,7 +1539,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#f54029 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Relaxant reversal</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">16 mg/kg</span></div>
-  <div class="item-refs">References: <span class="cites">[94], [95]</span></div>
+  <div class="item-refs">References: <span class="cites">[99], [100]</span></div>
 </div>
 
 <div class="item">
@@ -1592,7 +1575,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:repeating-linear-gradient(135deg,#f54029 0 2px,#fff 2px 3.5px);border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Relaxant reversal</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.02 mL/kg (max 2 mL)</span></div>
-  <div class="item-refs">References: <span class="cites">[96]</span></div>
+  <div class="item-refs">References: <span class="cites">[101]</span></div>
 </div>
 
 </section>
@@ -1630,7 +1613,7 @@
   </table>
 
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion: 0.1–0.3 mg/kg/h</div>
-  <div class="item-refs">References: <span class="cites">[97], [98]</span></div>
+  <div class="item-refs">References: <span class="cites">[102], [103]</span></div>
 </div>
 
 <div class="item">
@@ -1647,7 +1630,7 @@
   </table>
 
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>infusion: 0.1–0.3 mg/kg/h</div>
-  <div class="item-refs">References: <span class="cites">[99], [100], [98]</span></div>
+  <div class="item-refs">References: <span class="cites">[104], [105], [103]</span></div>
 </div>
 
 <div class="item">
@@ -1658,7 +1641,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1.5 mL/kg</span></div>
   <div class="item-note">max total 12 mL/kg</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat if unstable</div>
-  <div class="item-refs">References: <span class="cites">[97], [101]</span></div>
+  <div class="item-refs">References: <span class="cites">[102], [106]</span></div>
 </div>
 
 <div class="item">
@@ -1668,7 +1651,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.25 mL/kg/min</span></div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>continue ≥15 min after stability</div>
-  <div class="item-refs">References: <span class="cites">[97], [101]</span></div>
+  <div class="item-refs">References: <span class="cites">[102], [106]</span></div>
 </div>
 
 <div class="item">
@@ -1680,7 +1663,7 @@
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">maximum 1.25 mg/kg (max 150 mg)</span></div>
   <div class="item-contra">Not indicated &lt;6 months (age floor)</div>
   <div class="item-note">per side</div>
-  <div class="item-refs">References: <span class="cites">[102]</span></div>
+  <div class="item-refs">References: <span class="cites">[107]</span></div>
 </div>
 
 </section>
@@ -1701,7 +1684,7 @@
   <div class="item">
     <div class="item-header"><span class="item-name">6–12 y (school-age)</span></div>
     <div class="item-dose"><span class="label">FORMULA</span><span class="mono">weight (kg) = (3 × age) + 7</span></div>
-    <div class="item-refs">References: <span class="cites">[103], [12]</span></div>
+    <div class="item-refs">References: <span class="cites">[108], [12]</span></div>
   </div>
 </section>
 
@@ -1770,48 +1753,53 @@
     <li id="ref-59">Ring J, Beyer K, Biedermann T, et al. Guideline (S2k) on acute therapy and management of anaphylaxis: 2021 update. Allergo J Int 2021;30(1):1–25.</li>
     <li id="ref-60">Tavegyl (clemastine fumarate) 1 mg/mL solution for injection — Summary of Product Characteristics, current edition.</li>
     <li id="ref-61">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: clemastine (25–50 µg/kg/dose IV/IM, max 2 mg/dose). kinderformularium.nl (current edition).</li>
-    <li id="ref-62">Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.</li>
-    <li id="ref-63">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: &lt;25 kg 0.5 mg, &gt;25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).</li>
-    <li id="ref-64">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).</li>
-    <li id="ref-65">Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to &lt;18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).</li>
-    <li id="ref-66">Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).</li>
-    <li id="ref-67">Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.</li>
-    <li id="ref-68">Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.</li>
-    <li id="ref-69">Kochanek PM, Tasker RC, Carney N, et al. Guidelines for the Management of Pediatric Severe Traumatic Brain Injury, Third Edition: Update of the Brain Trauma Foundation Guidelines. Pediatr Crit Care Med 2019;20(3 Suppl 1):S1–S82.</li>
-    <li id="ref-70">Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.</li>
-    <li id="ref-71">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Head injury (signs of raised intracranial pressure: sodium chloride 3% 3 mL/kg over 10–20 min; mannitol 20% 0.25–0.5 g/kg over 20–30 min). rch.org.au/clinicalguide (current edition).</li>
-    <li id="ref-72">British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.</li>
-    <li id="ref-73">Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.</li>
-    <li id="ref-74">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).</li>
-    <li id="ref-75">Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.</li>
-    <li id="ref-76">Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.</li>
-    <li id="ref-77">Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.</li>
-    <li id="ref-78">Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.</li>
-    <li id="ref-79">Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.</li>
-    <li id="ref-80">Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.</li>
-    <li id="ref-81">Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.</li>
-    <li id="ref-82">Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.</li>
-    <li id="ref-83">British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.</li>
-    <li id="ref-84">Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/</li>
-    <li id="ref-85">Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.</li>
-    <li id="ref-86">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
-    <li id="ref-87">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
-    <li id="ref-88">Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.</li>
-    <li id="ref-89">Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.</li>
-    <li id="ref-90">Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.</li>
-    <li id="ref-91">Larson CP Jr. Laryngospasm — the best treatment. Anesthesiology 1998;89(5):1293–1294.</li>
-    <li id="ref-92">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
-    <li id="ref-93">Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269–279.</li>
-    <li id="ref-94">Lee C, Jahr JS, Candiotti KA, Warriner B, Zornow MH, Naguib M. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium: a comparison with spontaneous recovery from succinylcholine. Anesthesiology 2009;110(5):1020–1025.</li>
-    <li id="ref-95">Bridion (sugammadex) prescribing information. Merck Sharp &amp; Dohme LLC (current revision).</li>
-    <li id="ref-96">Martindale Pharma. Glycopyrronium Bromide 0.5 mg / Neostigmine Metilsulfate 2.5 mg per ml solution for injection · Summary of Product Characteristics (paediatric 0.02 mL/kg IV; total dose not to exceed 2 mL). electronic medicines compendium, medicines.org.uk/emc/product/3390 (current edition).</li>
-    <li id="ref-97">Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.</li>
-    <li id="ref-98">Suresh S, Ecoffey C, Bosenberg A, et al. The European Society of Regional Anaesthesia and Pain Therapy/American Society of Regional Anesthesia and Pain Medicine recommendations on local anesthetics and adjuvants dosage in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.</li>
-    <li id="ref-99">Lönnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1–8-year-old children. Br J Anaesth 2000;85(4):506–511.</li>
-    <li id="ref-100">Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276–1280.</li>
-    <li id="ref-101">American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.</li>
-    <li id="ref-102">Altan. Levobupivacaine 2.5 mg/ml · Summary of Product Characteristics (children: max 1.25 mg/kg per side, ilioinguinal/iliohypogastric; no data &lt;6 months). electronic medicines compendium, medicines.org.uk/emc/product/13642 (current edition).</li>
-    <li id="ref-103">Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.</li>
+    <li id="ref-62">British Thoracic Society / Scottish Intercollegiate Guidelines Network. British guideline on the management of asthma (SIGN 158). Edinburgh: BTS/SIGN; 2019, updated 2024.</li>
+    <li id="ref-63">Global Initiative for Asthma. Global Strategy for Asthma Management and Prevention, 2024 update. https://ginasthma.org/</li>
+    <li id="ref-64">Resuscitation Council UK. Paediatric Life Support (basic and advanced) Guidelines 2025 (published 27 October 2025). resus.org.uk.</li>
+    <li id="ref-65">Griffiths B, Kew KM. Intravenous magnesium sulfate for treating children with acute asthma in the emergency department. Cochrane Database Syst Rev 2016;4:CD011050.</li>
+    <li id="ref-66">Bjornson C, Russell K, Vandermeer B, Klassen TP, Johnson DW. Nebulized epinephrine for croup in children. Cochrane Database Syst Rev 2013;(10):CD006619.</li>
+    <li id="ref-67">Anene O, Meert KL, Uy H, Simpson P, Sarnaik AP. Dexamethasone for the prevention of postextubation airway obstruction: a prospective, randomized, double-blind, placebo-controlled trial. Crit Care Med 1996;24(10):1666–1669.</li>
+    <li id="ref-68">Malhotra D, Gurcoo S, Qazi S, Gupta S. Randomized comparative efficacy of dexamethasone to prevent postextubation upper airway complications in children and adults in ICU. Indian J Anaesth 2009;53(4):442–449.</li>
+    <li id="ref-69">Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain 2014;14(2):47–51.</li>
+    <li id="ref-70">Association of Anaesthetists. Quick Reference Handbook — 3-6 Laryngospasm and stridor (v.1, 2018; June 2023 edition: propofol, rocuronium, atracurium or suxamethonium 0.25–0.5 mg/kg IV; suxamethonium 4 mg/kg IM including intralingual). anaesthetists.org.</li>
+    <li id="ref-71">Society for Pediatric Anesthesia, Quality and Safety Committee. Pedi Crisis Critical Events Checklists — 16 Laryngospasm (card revised June 2018; booklet January 2025: succinylcholine 0.1–2 mg/kg IV or 2–4 mg/kg IM, atropine 0.02 mg/kg IV if bradycardic, propofol 1–3 mg/kg). pedsanesthesia.org.</li>
+    <li id="ref-72">Hampson-Evans D, Morgan P, Farrar M. Pediatric laryngospasm. Paediatr Anaesth 2008;18(4):303–307.</li>
+    <li id="ref-73">Chung DC, Rowbottom SJ. A very small dose of suxamethonium relieves laryngospasm. Anaesthesia 1993;48(3):229–230.</li>
+    <li id="ref-74">Anectine (succinylcholine chloride) injection, prescribing information, section 2.4 (intramuscular: up to 3–4 mg/kg, not more than 150 mg in total). Civica, Inc. (current revision, DailyMed).</li>
+    <li id="ref-75">ADVANZ Pharma. Suxamethonium Chloride 50 mg/ml Solution for Injection · Summary of Product Characteristics (intramuscular: infants up to 4–5 mg/kg, older children up to 4 mg/kg; a total dose of 150 mg should not be exceeded). electronic medicines compendium, medicines.org.uk/emc/product/5189 (current edition).</li>
+    <li id="ref-76">Szostek AS, Saunier C, Elsensohn MH, Boucher P, Merquiol F, Gerst A, et al. Effective dose of ephedrine for treatment of hypotension after induction of general anaesthesia in neonates and infants less than 6 months of age: a multicentre randomised, controlled, open label, dose escalation trial. Br J Anaesth 2023;130(5):603–610.</li>
+    <li id="ref-77">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: glucagon (severe hypoglycaemia: &lt;25 kg 0.5 mg, &gt;25 kg 1 mg SC/IM; repeat or give IV glucose if no effect after 10 min). kinderformularium.nl/geneesmiddel/40104/glucagon (current edition).</li>
+    <li id="ref-78">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).</li>
+    <li id="ref-79">Takeda. Buccolam (midazolam) oromucosal solution · Summary of Product Characteristics (prolonged acute convulsive seizures, 3 months to &lt;18 years). electronic medicines compendium, medicines.org.uk/emc/product/2768 (current edition).</li>
+    <li id="ref-80">Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).</li>
+    <li id="ref-81">Hopkins PM, Girard T, Dalay S, Jenkins B, Thacker A, Patteril M, McGrady E. Malignant hyperthermia 2020: Guideline from the Association of Anaesthetists. Anaesthesia 2021;76(5):655–664.</li>
+    <li id="ref-82">Glahn KPE, Ellis FR, Halsall PJ, Müller CR, Snoeck MMJ, Urwyler A, Wappler F. Recognizing and managing a malignant hyperthermia crisis: guidelines from the European Malignant Hyperthermia Group. Br J Anaesth 2010;105(4):417–420.</li>
+    <li id="ref-83">Kochanek PM, Tasker RC, Carney N, et al. Guidelines for the Management of Pediatric Severe Traumatic Brain Injury, Third Edition: Update of the Brain Trauma Foundation Guidelines. Pediatr Crit Care Med 2019;20(3 Suppl 1):S1–S82.</li>
+    <li id="ref-84">Kochanek PM, Tasker RC, Bell MJ, et al. Management of Pediatric Severe Traumatic Brain Injury: 2019 Consensus and Guidelines-Based Algorithm for First and Second Tier Therapies. Pediatr Crit Care Med 2019;20(3):269–279.</li>
+    <li id="ref-85">Royal Children's Hospital Melbourne. Clinical Practice Guideline: Head injury (signs of raised intracranial pressure: sodium chloride 3% 3 mL/kg over 10–20 min; mannitol 20% 0.25–0.5 g/kg over 20–30 min). rch.org.au/clinicalguide (current edition).</li>
+    <li id="ref-86">British Society for Paediatric Endocrinology and Diabetes. BSPED Guideline for the Management of Children and Young People under the age of 18 years with Diabetic Ketoacidosis – 2021 (cerebral oedema: hypertonic saline 2.7–3% 2.5–5 mL/kg or mannitol 20% 0.5–1 g/kg, over 10–15 min). bsped.org.uk.</li>
+    <li id="ref-87">Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.</li>
+    <li id="ref-88">Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).</li>
+    <li id="ref-89">Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.</li>
+    <li id="ref-90">Holliday MA, Segar WE. The maintenance need for water in parenteral fluid therapy. Pediatrics 1957;19(5):823–832.</li>
+    <li id="ref-91">Feld LG, Neuspiel DR, Foster BA, et al. Clinical Practice Guideline: Maintenance Intravenous Fluids in Children. Pediatrics 2018;142(6):e20183083.</li>
+    <li id="ref-92">Royal College of Paediatrics and Child Health. Evidence statement: major trauma and the use of tranexamic acid in children. RCPCH; November 2012.</li>
+    <li id="ref-93">Faraoni D, Goobie SM. The efficacy of antifibrinolytic drugs in children undergoing noncardiac surgery: a systematic review of the literature. Anesth Analg 2014;118(3):628–636.</li>
+    <li id="ref-94">Goobie SM, Meier PM, Pereira LM, et al. Efficacy of tranexamic acid in pediatric craniosynostosis surgery: a double-blind, placebo-controlled trial. Anesthesiology 2011;114(4):862–871.</li>
+    <li id="ref-95">Gross JB. Estimating allowable blood loss: corrected for dilution. Anesthesiology. 1983;58(3):277–280.</li>
+    <li id="ref-96">Breglio AM, Eck JB. Allowable Blood Loss (Question of the Week #176). Society for Pediatric Anesthesia, 2023. pedsanesthesia.org.</li>
+    <li id="ref-97">Plaud B, Meretoja O, Hofmockel R, et al. Reversal of rocuronium-induced neuromuscular blockade with sugammadex in pediatric and adult surgical patients. Anesthesiology 2009;110(2):284–294.</li>
+    <li id="ref-98">Lee S, Chung W. Sugammadex for our little ones: a brief narrative review. Anesth Pain Med (Seoul) 2024;19(4):269–279.</li>
+    <li id="ref-99">Lee C, Jahr JS, Candiotti KA, Warriner B, Zornow MH, Naguib M. Reversal of profound neuromuscular block by sugammadex administered three minutes after rocuronium: a comparison with spontaneous recovery from succinylcholine. Anesthesiology 2009;110(5):1020–1025.</li>
+    <li id="ref-100">Bridion (sugammadex) prescribing information. Merck Sharp &amp; Dohme LLC (current revision).</li>
+    <li id="ref-101">Martindale Pharma. Glycopyrronium Bromide 0.5 mg / Neostigmine Metilsulfate 2.5 mg per ml solution for injection · Summary of Product Characteristics (paediatric 0.02 mL/kg IV; total dose not to exceed 2 mL). electronic medicines compendium, medicines.org.uk/emc/product/3390 (current edition).</li>
+    <li id="ref-102">Neal JM, Barrington MJ, Fettiplace MR, et al. The third American Society of Regional Anesthesia and Pain Medicine practice advisory on local anesthetic systemic toxicity: executive summary 2017. Reg Anesth Pain Med 2018;43(2):113–123.</li>
+    <li id="ref-103">Suresh S, Ecoffey C, Bosenberg A, et al. The European Society of Regional Anaesthesia and Pain Therapy/American Society of Regional Anesthesia and Pain Medicine recommendations on local anesthetics and adjuvants dosage in pediatric regional anesthesia. Reg Anesth Pain Med 2018;43(2):211–216.</li>
+    <li id="ref-104">Lönnqvist PA, Westrin P, Larsson BA, et al. Ropivacaine pharmacokinetics after caudal block in 1–8-year-old children. Br J Anaesth 2000;85(4):506–511.</li>
+    <li id="ref-105">Bosenberg AT, Thomas J, Lopez T, et al. Plasma concentrations of ropivacaine following a single-shot caudal block of 1, 2 or 3 mg/kg in children. Acta Anaesthesiol Scand 2001;45(10):1276–1280.</li>
+    <li id="ref-106">American Society of Regional Anesthesia and Pain Medicine. Checklist for treatment of local anesthetic systemic toxicity. ASRA Pain Medicine; 2020 revision.</li>
+    <li id="ref-107">Altan. Levobupivacaine 2.5 mg/ml · Summary of Product Characteristics (children: max 1.25 mg/kg per side, ilioinguinal/iliohypogastric; no data &lt;6 months). electronic medicines compendium, medicines.org.uk/emc/product/13642 (current edition).</li>
+    <li id="ref-108">Luscombe MD, Owens BD, Burke D. Weight estimation in paediatrics: a comparison of the APLS formula and the formula 'Weight = 3(age)+7'. Emerg Med J 2011;28(7):590–593.</li>
   </ol>
 </section>
 

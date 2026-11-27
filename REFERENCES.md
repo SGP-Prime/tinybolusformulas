@@ -2,7 +2,7 @@
 
 Every clinical reference cited by the TinyBolus formulary, organised by section. Each item lists the papers / guidelines / monographs that support its specific dose, range, age bracket, or sizing rule.
 
-Generated from `assets/formulary.json` **v0.0.88** (updated 2026-11-27) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
+Generated from `assets/formulary.json` **v0.0.89** (updated 2026-11-27) by `tool/generate_references_md.dart`. Regenerate after any formulary change.
 
 ---
 
@@ -431,7 +431,7 @@ Generated from `assets/formulary.json` **v0.0.88** (updated 2026-11-27) by `tool
 - Royal Children's Hospital Melbourne. Clinical Practice Guideline: Hyperkalaemia. rch.org.au/clinicalguide (current edition).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
 
-#### Status epilepticus
+#### Seizures
 
 ### Midazolam (buccal)
 
@@ -442,6 +442,16 @@ Generated from `assets/formulary.json` **v0.0.88** (updated 2026-11-27) by `tool
 
 - Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
 - Djakow J, Turner NM, Skellett S, Buysse CMP, Cardona F, de Lucas N, del Castillo J, Kiviranta P, Lauridsen KG, Markel F, Martinez-Mejias A, Roggen I, Biarent D. European Resuscitation Council Guidelines 2025: Paediatric Life Support. Resuscitation 2025;215(Suppl 1):110767.
+
+### Lorazepam
+
+- Resuscitation Council UK. Treating convulsive status epilepticus in children (paediatric emergency algorithms, version 6, February 2026; reflects ERC Guidelines 2025). resus.org.uk (current edition).
+- Glauser T, Shinnar S, Gloss D, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults: report of the Guideline Committee of the American Epilepsy Society. Epilepsy Curr 2016;16(1):48–61.
+- European Medicines Agency, CHMP. Lorazepam Macure (lorazepam 4 mg/ml solution for injection) · referral under Article 13 of Regulation (EC) No 1234/2008 (EMEA/H/A-13/1536), assessment report EMA/390606/2024 (status epilepticus in infants from 1 month, children and adolescents: 0.1 mg/kg IV, maximum 4 mg per dose, a maximum of two doses; contraindicated in neonates). ema.europa.eu, 2024.
+
+### Diazepam
+
+- Glauser T, Shinnar S, Gloss D, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults: report of the Guideline Committee of the American Epilepsy Society. Epilepsy Curr 2016;16(1):48–61.
 
 ### Levetiracetam
 

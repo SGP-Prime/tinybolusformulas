@@ -1,6 +1,6 @@
 {
-  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped). 'formula_note' (optional, v0.0.87): formula-layer note — derivations, concentrations/preparations, administration speed, intervals, repeats, escalation arithmetic, follow-on regimens, monitoring — rendered under the formula line ONLY while 'Show formulas' is on; 'note' keeps only what makes the number safe (a condition changing the number, a safety qualifier, the concentration behind a volume/rate value). Both ≤90 characters. 'note_by_age' (optional, v0.0.87): age brackets (max_months / max_years, first match wins, terminal max_years 999) carrying only 'note' and/or 'formula_note'; the matched bracket's non-null fields replace the item-level ones for that patient (empty string clears), so an age-clause note prints only the clause for the age at hand. v0.0.88: the former Respiratory section lives on as the 'Respiratory' group inside Emergency Drugs (item ids unchanged; the section id 'respiratory' is gone — the app pins the pre-v2 'respiratory:' keys of the moved rows to their ids, and folds a hidden 'respiratory' section preference into per-row hides).",
-  "version": "0.0.88",
+  "$schema_comment": "TinyBolus formulary. Edit values here to correct doses/ranges; the app picks up changes on next launch (via remote fetch). Item types: 'linear' (factor * weight), 'linear_range' (low..high * weight), 'linear_max' (factor * weight, capped at max), 'fixed' (string value, no calc), 'computed' (dispatches to a named calculator in lib/calculators/). All weights in kg. Units: mg, µg (microgram), mL, mL/h, J, cm. SCHEMA V2 (v0.0.69): every item carries 'id' (stable slug — IMMUTABLE, never renamed, never reused; survives section moves and display renames; the app keys user visibility prefs on it), 'drug' (display line one) and optional 'qualifier' (display line two, NEVER contains the route — the 'route' field is the only route surface). 'name' is the frozen v1 legacy display string old binaries read; for new rows author name as \"Drug (qualifier)\" per existing convention — on-device validate() rejects structural contradictions (missing/duplicate/malformed ids, mixed id-less payloads, wrong drug prefix, fabricated qualifiers, route tokens inside qualifier), and the app repo's test suite additionally enforces EXACT drug/qualifier derivation from name+route for this bundled file. Deleting a row moves its id into $retired_ids forever. 'group' (optional, v0.0.82): short sub-heading label; rows sharing a group must be adjacent, and the app prints the label once above the first visible row of the group. Presentational only. 'syringe_class' (optional, v0.0.83): ISO 26825 syringe-label colour class of the DRUG (never the indication) — one of induction, benzodiazepine, benzodiazepine_antagonist, opioid, opioid_antagonist, neuromuscular_blocker, nmb_antagonist, anticholinergic, vasopressor, hypotensive, local_anaesthetic, antiemetic; omitted when the standard has no class for the drug. Presentational only: the app draws a small dot in the class colour beside the drug name (antagonist classes striped). 'formula_note' (optional, v0.0.87): formula-layer note — derivations, concentrations/preparations, administration speed, intervals, repeats, escalation arithmetic, follow-on regimens, monitoring — rendered under the formula line ONLY while 'Show formulas' is on; 'note' keeps only what makes the number safe (a condition changing the number, a safety qualifier, the concentration behind a volume/rate value). Both ≤90 characters. 'note_by_age' (optional, v0.0.87): age brackets (max_months / max_years, first match wins, terminal max_years 999) carrying only 'note' and/or 'formula_note'; the matched bracket's non-null fields replace the item-level ones for that patient (empty string clears), so an age-clause note prints only the clause for the age at hand. v0.0.88: the former Respiratory section lives on as the 'Respiratory' group inside Emergency Drugs (item ids unchanged; the section id 'respiratory' is gone — the app pins the pre-v2 'respiratory:' keys of the moved rows to their ids, and folds a hidden 'respiratory' section preference into per-row hides). v0.0.89: 'note_by_weight' — the weight-scoped twin of note_by_age (brackets by 'max_kg', first bracket whose max_kg ≥ the patient's weight wins, terminal max_kg 999). The defibrillation row keeps its ceiling clause at item level and CLEARS it in the ≤30 kg bracket, so a v0.0.89+ binary prints it only where 4 J/kg passes 120 J while an older binary, which ignores the field, still prints it for everyone. The Emergency Drugs group 'Status epilepticus' is labelled 'Seizures' (item ids unchanged).",
+  "version": "0.0.89",
   "updated": "2026-11-27",
   "source": "TinyBolus_Formularium_v1.md",
   "remote_config": {
@@ -117,7 +117,9 @@
     "ispad_dka_2022": "Glaser N, Fritsch M, Priyambada L, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state. Pediatr Diabetes 2022;23(7):835–856.",
     "kinderformularium_mannitol": "Nederlands Kenniscentrum Farmacotherapie bij Kinderen. Kinderformularium: mannitol intraveneus (raised intracranial pressure, 0–18 y: 0.25–1.5 g/kg/dose; keep serum osmolality below 320 mOsmol/kg). kinderformularium.nl (current edition).",
     "mannitol_20_smpc": "Baxter. Mannitol 20% Solution for Infusion BP - Summary of Product Characteristics (children: 0.5–1.5 g/kg = 2.5–7.5 mL/kg, may be repeated once or twice after 4–8 h; cerebral oedema over 30–60 min). HPRA, current edition.",
-    "mclay_ketorolac_pk_2018": "McLay JS, Engelhardt T, Mohammed BS, et al. The pharmacokinetics of intravenous ketorolac in children aged 2 months to 16 years: A population analysis. Paediatr Anaesth 2018;28(2):80–86."
+    "mclay_ketorolac_pk_2018": "McLay JS, Engelhardt T, Mohammed BS, et al. The pharmacokinetics of intravenous ketorolac in children aged 2 months to 16 years: A population analysis. Paediatr Anaesth 2018;28(2):80–86.",
+    "aes_se_2016": "Glauser T, Shinnar S, Gloss D, et al. Evidence-based guideline: treatment of convulsive status epilepticus in children and adults: report of the Guideline Committee of the American Epilepsy Society. Epilepsy Curr 2016;16(1):48–61.",
+    "ema_lorazepam_2024": "European Medicines Agency, CHMP. Lorazepam Macure (lorazepam 4 mg/ml solution for injection) · referral under Article 13 of Regulation (EC) No 1234/2008 (EMEA/H/A-13/1536), assessment report EMA/390606/2024 (status epilepticus in infants from 1 month, children and adolescents: 0.1 mg/kg IV, maximum 4 mg per dose, a maximum of two doses; contraindicated in neonates). ema.europa.eu, 2024."
   },
   "sections": [
     {
@@ -164,8 +166,17 @@
           "type": "linear",
           "factor": 4,
           "unit": "J",
-          "note": "adolescent: 120–200 J",
+          "note": "max 120–200 J (adult energy)",
           "formula_note": "refractory (6th shock on): stepwise to 8 J/kg, max 360 J",
+          "note_by_weight": [
+            {
+              "max_kg": 30,
+              "note": ""
+            },
+            {
+              "max_kg": 999
+            }
+          ],
           "references": [
             "erc_pls_2025",
             "ilcor_defib_2025"
@@ -1625,7 +1636,7 @@
           "route": "Buccal",
           "formula_note": "repeat once after 5–10 min",
           "syringe_class": "benzodiazepine",
-          "group": "Status epilepticus",
+          "group": "Seizures",
           "references": [
             "buccolam_smpc",
             "erc_pls_2025"
@@ -1642,10 +1653,47 @@
           "route": "IV/IO",
           "formula_note": "repeat once",
           "syringe_class": "benzodiazepine",
-          "group": "Status epilepticus",
+          "group": "Seizures",
           "references": [
             "rcuk_paeds_se_2026",
             "erc_pls_2025"
+          ]
+        },
+        {
+          "name": "Lorazepam",
+          "id": "lorazepam-status-epilepticus",
+          "drug": "Lorazepam",
+          "type": "linear_max",
+          "factor": 0.1,
+          "max": 4,
+          "unit": "mg",
+          "route": "IV/IO",
+          "formula_note": "repeat once",
+          "contraindicated_below_months": 1,
+          "syringe_class": "benzodiazepine",
+          "group": "Seizures",
+          "references": [
+            "rcuk_paeds_se_2026",
+            "aes_se_2016",
+            "ema_lorazepam_2024"
+          ]
+        },
+        {
+          "name": "Diazepam",
+          "id": "diazepam-iv-status-epilepticus",
+          "drug": "Diazepam",
+          "type": "linear_range",
+          "low": 0.15,
+          "high": 0.2,
+          "max": 10,
+          "unit": "mg",
+          "route": "IV",
+          "formula_note": "repeat once",
+          "contraindicated_below_months": 1,
+          "syringe_class": "benzodiazepine",
+          "group": "Seizures",
+          "references": [
+            "aes_se_2016"
           ]
         },
         {
@@ -1661,7 +1709,7 @@
           "route": "IV/IO",
           "formula_note": "over 5 min",
           "contraindicated_below_months": 1,
-          "group": "Status epilepticus",
+          "group": "Seizures",
           "references": [
             "erc_pls_2025",
             "rcuk_paeds_se_2026"

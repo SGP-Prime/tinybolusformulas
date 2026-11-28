@@ -192,7 +192,7 @@
        holding a printout can compare against the live JSON. */
     @page {
       @bottom-center {
-        content: "TinyBolus Formulary v0.0.89 · page " counter(page) " of " counter(pages);
+        content: "TinyBolus Formulary v0.0.90 · page " counter(page) " of " counter(pages);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         font-size: 8.5pt;
         color: #888;
@@ -205,7 +205,7 @@
 <article class="cover">
   <h1>TinyBolus Formulary</h1>
   <p class="subtitle">Peer-review document</p>
-  <p class="version">Version 0.0.89 · Updated 2026-11-27</p>
+  <p class="version">Version 0.0.90 · Updated 2026-11-28</p>
   <p class="credits"><strong>Published by Aether Somnus</strong></p>
   <p class="credits">Developed by Sérgio Pinto, M.D. and Patrícia Lima, M.D.</p>
   <p class="contact">
@@ -369,7 +369,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">4 J/kg</span></div>
   <div class="item-note">max 120–200 J (adult energy)</div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>refractory (6th shock on): stepwise to 8 J/kg, max 360 J</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>refractory (6th shock on) · stepwise to 8 J/kg · max 360 J</div>
   <div class="item-note"><span style="color:var(--muted);">≤30 kg → </span>note cleared</div>
   <div class="item-refs">References: <span class="cites">[1], [2]</span></div>
 </div>
@@ -440,7 +440,7 @@
     <span class="item-route">IV</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">1st 0.1 mg/kg (max 6 mg) · 2nd 0.3 mg/kg (max 18 mg)</span></div>
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each, max 0.5 mg/kg</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>2nd dose ≥1 min later · then q1–2 min, +0.05–0.1 mg/kg each · max 0.5 mg/kg</div>
   <div class="item-refs">References: <span class="cites">[1]</span></div>
 </div>
 
@@ -535,7 +535,7 @@
     <span class="item-name">Tidal volume</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">6–8 mL/kg</span></div>
-  <div class="item-note">per ideal body weight — if obese use estimated weight</div>
+  <div class="item-note">per ideal body weight · if obese use estimated weight</div>
   <div class="item-note"><span style="color:var(--muted);">≤0 mo → </span>note: per ideal body weight · lower end for neonates</div>
   <div class="item-refs">References: <span class="cites">[6], [7], [1]</span></div>
 </div>
@@ -1290,7 +1290,7 @@
     </tbody>
   </table>
 
-  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>no response after 10 min: repeat or IV glucose</div>
+  <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>if no response after 10 min · repeat or IV glucose</div>
   <div class="item-refs">References: <span class="cites">[77]</span></div>
 </div>
 
@@ -1372,6 +1372,7 @@
     <span class="item-route" style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#ff6600;border:1px solid rgba(0,0,0,.3)"></span>ISO 26825 · Benzodiazepine</span>
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15 mg/kg (max 10 mg)</span></div>
+  <div class="item-note">max 2 benzodiazepine doses in total · pre-hospital doses included</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once</div>
   <div class="item-refs">References: <span class="cites">[80], [1]</span></div>
 </div>
@@ -1384,6 +1385,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.1 mg/kg (max 4 mg)</span></div>
   <div class="item-contra">Not indicated &lt;1 month (age floor)</div>
+  <div class="item-note">max 2 benzodiazepine doses in total · pre-hospital doses included</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once</div>
   <div class="item-refs">References: <span class="cites">[80], [81], [82]</span></div>
 </div>
@@ -1396,6 +1398,7 @@
   </div>
   <div class="item-dose"><span class="label">DOSE</span><span class="mono">0.15–0.2 mg/kg (max 10 mg)</span></div>
   <div class="item-contra">Not indicated &lt;1 month (age floor)</div>
+  <div class="item-note">max 2 benzodiazepine doses in total · pre-hospital doses included</div>
   <div class="item-note" style="font-family:monospace;"><span style="color:var(--muted);">formula layer: </span>repeat once</div>
   <div class="item-refs">References: <span class="cites">[81]</span></div>
 </div>
@@ -1619,7 +1622,7 @@
     </tbody>
   </table>
 
-  <div class="item-note">plain solution — no adrenaline</div>
+  <div class="item-note">plain solution · no adrenaline</div>
   <div class="item-refs">References: <span class="cites">[17], [29]</span></div>
 </div>
 

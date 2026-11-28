@@ -51,6 +51,8 @@ A note built from age clauses is authored as `note_by_age` instead of one string
 
 `note_by_weight` (v0.0.89) is the same device on the kilogram axis — brackets bounded by `max_kg` (first bracket whose `max_kg` is at or above the patient's weight wins, terminal `max_kg: 999`) — for a clause that is a fact about the computed number rather than the age: the defibrillation ceiling 'max 120–200 J (adult energy)' prints only above 30 kg, where 4 J/kg passes 120 J, and never on a newborn. The clause also stays at item level, cleared by the ≤30 kg bracket, so a binary older than v0.0.89 (which ignores the field) prints it for every patient, as v0.0.88 did, instead of losing it.
 
+Inside `note` and `formula_note` the only clause separator is ` · ` (v0.0.90). From v0.0.89 the app breaks an annotation line that would wrap at those separators, one clause per line, so the separator is a layout promise rather than punctuation; dashes and semicolons are not used between clauses.
+
 Valid `computer` identifiers are defined in the app code. Changing them requires an app-store release, so stick to the existing set when editing here.
 
 ## Safety
